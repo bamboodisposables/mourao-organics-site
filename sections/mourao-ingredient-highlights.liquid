@@ -1,4 +1,4 @@
-<section id="ingredienten" class="mourao-section mourao-section--spacious">
+<section id="ingredienten" class="mourao-section mourao-section--spacious mourao-ingredient-section">
   <div class="page-width">
     <div class="mourao-section-header">
       {% if section.settings.eyebrow != blank %}
@@ -7,13 +7,19 @@
       <h2 class="mourao-section-title">{{ section.settings.title }}</h2>
     </div>
 
-    <div class="mourao-grid mourao-grid--ingredients">
+    <div class="mourao-ingredient-list">
       {% for block in section.blocks %}
-        <article class="mourao-ingredient-card mourao-reveal" style="--animation-order: {{ forloop.index }};" {{ block.shopify_attributes }}>
-          <div class="mourao-ingredient-card__icon" aria-hidden="true"></div>
-          <h3 class="mourao-ingredient-card__title">{{ block.settings.title }}</h3>
-          <p class="mourao-ingredient-card__text">{{ block.settings.text }}</p>
-        </article>
+        {% assign ingredient_variant = forloop.index | modulo: 4 | plus: 1 %}
+        <details class="mourao-ingredient-row mourao-reveal" style="--animation-order: {{ forloop.index }};" {{ block.shopify_attributes }}>
+          <summary class="mourao-ingredient-row__summary">
+            <div class="mourao-ingredient-row__media mourao-ingredient-row__media--{{ ingredient_variant }}" aria-hidden="true"></div>
+            <h3 class="mourao-ingredient-row__title">{{ block.settings.title }}</h3>
+            <span class="mourao-ingredient-row__toggle" aria-hidden="true"></span>
+          </summary>
+          <div class="mourao-ingredient-row__content">
+            <p class="mourao-ingredient-row__text">{{ block.settings.text }}</p>
+          </div>
+        </details>
       {% endfor %}
     </div>
   </div>
