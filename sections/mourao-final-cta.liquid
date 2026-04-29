@@ -1,0 +1,42 @@
+<section class="mourao-section mourao-section--spacious">
+  <div class="page-width">
+    <div class="mourao-cta-panel mourao-reveal" style="--animation-order: 1;">
+      <h2 class="mourao-section-title">{{ section.settings.title }}</h2>
+      {% if section.settings.button_label != blank %}
+        <a class="mourao-button" href="{{ section.settings.button_link | default: '/collections/all' }}">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Mourao final cta",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Geef je huid natuurlijke verzorging"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop nu"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mourao final cta"
+    }
+  ]
+}
+{% endschema %}

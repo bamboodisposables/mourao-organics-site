@@ -1,0 +1,78 @@
+<section class="mourao-section mourao-section--spacious">
+  <div class="page-width">
+    <div class="mourao-story">
+      <div class="mourao-section-header mourao-reveal" style="--animation-order: 1;">
+        {% if section.settings.eyebrow != blank %}
+          <p class="mourao-eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+        <h2 class="mourao-section-title">{{ section.settings.title }}</h2>
+        <p class="mourao-text">{{ section.settings.text }}</p>
+      </div>
+
+      <div class="mourao-story-card mourao-reveal" style="--animation-order: 2;">
+        <h3 class="mourao-story-card__title">Gemaakt voor een rustige routine</h3>
+        <p class="mourao-story-card__text">Milde texturen, herkenbare ingrediënten en producten die prettig voelen in het dagelijks gebruik.</p>
+        <div class="mourao-story-card__list">
+          {% if section.settings.value_one != blank %}
+            <span>{{ section.settings.value_one }}</span>
+          {% endif %}
+          {% if section.settings.value_two != blank %}
+            <span>{{ section.settings.value_two }}</span>
+          {% endif %}
+          {% if section.settings.value_three != blank %}
+            <span>{{ section.settings.value_three }}</span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Mourao brand story",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Ons verhaal"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Eenvoudige verzorging, gemaakt met aandacht"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "MOURÃO Organics maakt verzorgingsproducten met pure ingrediënten en eenvoudige formules. Geen overbodige toevoegingen, maar zachte producten die passen in je dagelijkse routine."
+    },
+    {
+      "type": "text",
+      "id": "value_one",
+      "label": "Value 1",
+      "default": "Pure ingrediënten"
+    },
+    {
+      "type": "text",
+      "id": "value_two",
+      "label": "Value 2",
+      "default": "Kleine batches"
+    },
+    {
+      "type": "text",
+      "id": "value_three",
+      "label": "Value 3",
+      "default": "Eenvoudige routine"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mourao brand story"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,23 @@
+{% liquid
+  assign card_title = title | default: 'Product'
+  assign card_description = description | default: ''
+  assign card_button_label = button_label | default: 'Bekijk product'
+  assign card_button_link = button_link | default: '/collections/all'
+  assign card_index = accent_index | default: 0
+  assign card_variant = card_index | modulo: 4 | plus: 1
+%}
+
+<article class="mourao-product-card mourao-reveal" style="--animation-order: {{ card_index }};">
+  <div class="mourao-product-card__visual mourao-product-card__visual--{{ card_variant }}" aria-hidden="true">
+    <span class="mourao-product-card__tag">{{ card_title }}</span>
+  </div>
+  <div class="mourao-product-card__body">
+    <h3 class="mourao-product-card__title">{{ card_title }}</h3>
+    {% if card_description != blank %}
+      <p class="mourao-product-card__text">{{ card_description }}</p>
+    {% endif %}
+    <div>
+      <a class="mourao-button mourao-button--secondary" href="{{ card_button_link }}">{{ card_button_label }}</a>
+    </div>
+  </div>
+</article>

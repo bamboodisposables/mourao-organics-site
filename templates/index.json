@@ -1,0 +1,270 @@
+{
+  "sections": {
+    "hero": {
+      "type": "mourao-hero",
+      "settings": {
+        "eyebrow": "MOURÃO Organics",
+        "heading": "Natuurlijke verzorging voor elke dag",
+        "subheading": "Pure, handgemaakte verzorgingsproducten met natuurlijke ingrediënten. Zacht voor je huid, eenvoudig in gebruik.",
+        "button_label": "Bekijk producten",
+        "button_link": "shopify://collections/all",
+        "highlight_one": "Handgemaakt",
+        "highlight_two": "Pure ingrediënten",
+        "highlight_three": "Dagelijkse zachtheid"
+      }
+    },
+    "trust_bar": {
+      "type": "mourao-trust-bar",
+      "blocks": {
+        "claim_1": {
+          "type": "claim",
+          "settings": {
+            "text": "100% natuurlijke ingrediënten"
+          }
+        },
+        "claim_2": {
+          "type": "claim",
+          "settings": {
+            "text": "Handgemaakt in kleine batches"
+          }
+        },
+        "claim_3": {
+          "type": "claim",
+          "settings": {
+            "text": "Zacht voor gevoelige huid"
+          }
+        },
+        "claim_4": {
+          "type": "claim",
+          "settings": {
+            "text": "Zonder onnodige toevoegingen"
+          }
+        }
+      },
+      "block_order": [
+        "claim_1",
+        "claim_2",
+        "claim_3",
+        "claim_4"
+      ]
+    },
+    "categories": {
+      "type": "mourao-category-grid",
+      "settings": {
+        "eyebrow": "Ontdek de collectie",
+        "title": "Verzorging voor iedere routine"
+      },
+      "blocks": {
+        "product_1": {
+          "type": "product",
+          "settings": {
+            "title": "Gezichtscrème",
+            "description": "Dagelijkse hydratatie die je huid zacht en comfortabel laat aanvoelen.",
+            "button_label": "Bekijk product",
+            "button_link": "shopify://collections/all"
+          }
+        },
+        "product_2": {
+          "type": "product",
+          "settings": {
+            "title": "Lipbalm",
+            "description": "Voedt droge lippen en geeft een soepel, verzorgd gevoel.",
+            "button_label": "Bekijk product",
+            "button_link": "shopify://collections/all"
+          }
+        },
+        "product_3": {
+          "type": "product",
+          "settings": {
+            "title": "Bodylotion",
+            "description": "Lichte dagelijkse verzorging met een zachte, natuurlijke finish.",
+            "button_label": "Bekijk product",
+            "button_link": "shopify://collections/all"
+          }
+        },
+        "product_4": {
+          "type": "product",
+          "settings": {
+            "title": "Handcrème",
+            "description": "Beschermt en verzacht handen zonder zwaar aan te voelen.",
+            "button_label": "Bekijk product",
+            "button_link": "shopify://collections/all"
+          }
+        },
+        "product_5": {
+          "type": "product",
+          "settings": {
+            "title": "Tallowcrème",
+            "description": "Rijke verzorging voor een rustige, gevoede huidbarrière.",
+            "button_label": "Bekijk product",
+            "button_link": "shopify://collections/all"
+          }
+        },
+        "product_6": {
+          "type": "product",
+          "settings": {
+            "title": "Calming Skin Balm",
+            "description": "Zachte balm voor plekken die extra comfort en aandacht nodig hebben.",
+            "button_label": "Bekijk product",
+            "button_link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "product_1",
+        "product_2",
+        "product_3",
+        "product_4",
+        "product_5",
+        "product_6"
+      ]
+    },
+    "story": {
+      "type": "mourao-brand-story",
+      "settings": {
+        "eyebrow": "Ons verhaal",
+        "title": "Eenvoudige verzorging, gemaakt met aandacht",
+        "text": "MOURÃO Organics maakt verzorgingsproducten met pure ingrediënten en eenvoudige formules. Geen overbodige toevoegingen, maar zachte producten die passen in je dagelijkse routine.",
+        "value_one": "Pure ingrediënten",
+        "value_two": "Kleine batches",
+        "value_three": "Eenvoudige routine"
+      }
+    },
+    "ingredients": {
+      "type": "mourao-ingredient-highlights",
+      "settings": {
+        "eyebrow": "Wat erin zit",
+        "title": "Ingrediënten die je huid begrijpen"
+      },
+      "blocks": {
+        "ingredient_1": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Shea butter",
+            "text": "Geeft rijke, zachte verzorging en helpt droogte comfortabel aan te laten voelen."
+          }
+        },
+        "ingredient_2": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Tallow",
+            "text": "Bekend om zijn voedende karakter en de volle textuur die de huid omhult."
+          }
+        },
+        "ingredient_3": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Bijenwas",
+            "text": "Helpt formules zachter aan te brengen en geeft een beschermend, soepel laagje."
+          }
+        },
+        "ingredient_4": {
+          "type": "ingredient",
+          "settings": {
+            "title": "Natuurlijke oliën",
+            "text": "Ondersteunen dagelijkse verzorging met milde, huidvriendelijke voeding."
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_1",
+        "ingredient_2",
+        "ingredient_3",
+        "ingredient_4"
+      ]
+    },
+    "bestsellers": {
+      "type": "mourao-bestsellers",
+      "settings": {
+        "eyebrow": "Bestsellers",
+        "title": "Favorieten die steeds terugkomen"
+      },
+      "blocks": {
+        "bestseller_1": {
+          "type": "product",
+          "settings": {
+            "title": "Tallowcrème",
+            "description": "Rijke favoriet voor droge of trekkerige huid die rust zoekt.",
+            "button_label": "Shop bestseller",
+            "button_link": "shopify://collections/all"
+          }
+        },
+        "bestseller_2": {
+          "type": "product",
+          "settings": {
+            "title": "Gezichtscrème",
+            "description": "Een zachte allrounder voor dagelijkse hydratatie en comfort.",
+            "button_label": "Shop bestseller",
+            "button_link": "shopify://collections/all"
+          }
+        },
+        "bestseller_3": {
+          "type": "product",
+          "settings": {
+            "title": "Calming Skin Balm",
+            "description": "Plaatselijke verzorging wanneer je huid iets extra’s kan gebruiken.",
+            "button_label": "Shop bestseller",
+            "button_link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "bestseller_1",
+        "bestseller_2",
+        "bestseller_3"
+      ]
+    },
+    "reviews": {
+      "type": "mourao-reviews",
+      "settings": {
+        "title": "Geliefd door bewuste huidverzorgers"
+      },
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "author": "Review placeholder",
+            "text": "“Zachte textuur, eenvoudige routine en precies het soort verzorging dat ik dagelijks wil gebruiken.”"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "author": "Review placeholder",
+            "text": "“Voelt puur en eerlijk aan. Mijn huid reageert er rustig op en dat geeft vertrouwen.”"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "author": "Review placeholder",
+            "text": "“Fijn dat de producten simpel zijn, zonder onnodige toevoegingen of ingewikkelde stappen.”"
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ]
+    },
+    "final_cta": {
+      "type": "mourao-final-cta",
+      "settings": {
+        "title": "Geef je huid natuurlijke verzorging",
+        "button_label": "Shop nu",
+        "button_link": "shopify://collections/all"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "trust_bar",
+    "categories",
+    "story",
+    "ingredients",
+    "bestsellers",
+    "reviews",
+    "final_cta"
+  ]
+}

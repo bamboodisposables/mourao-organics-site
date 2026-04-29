@@ -1,0 +1,82 @@
+<section class="mourao-section mourao-section--spacious mourao-bestsellers">
+  <div class="page-width">
+    <div class="mourao-panel">
+      <div class="mourao-section-header">
+        {% if section.settings.eyebrow != blank %}
+          <p class="mourao-eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+        <h2 class="mourao-section-title">{{ section.settings.title }}</h2>
+      </div>
+
+      <div class="mourao-grid mourao-grid--products">
+        {% for block in section.blocks %}
+          <div {{ block.shopify_attributes }}>
+            {% render 'mourao-product-card',
+              title: block.settings.title,
+              description: block.settings.description,
+              button_label: block.settings.button_label,
+              button_link: block.settings.button_link,
+              accent_index: forloop.index
+            %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Mourao bestsellers",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Bestsellers"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Favorieten die steeds terugkomen"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Tallowcrème"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Korte bestsellerbeschrijving."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Shop bestseller"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mourao bestsellers"
+    }
+  ]
+}
+{% endschema %}
