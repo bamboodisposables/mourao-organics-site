@@ -1,0 +1,81 @@
+<section id="producten" class="mourao-section mourao-section--spacious">
+  <div class="page-width">
+    <div class="mourao-section-header">
+      {% if section.settings.eyebrow != blank %}
+        <p class="mourao-eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      <h2 class="mourao-section-title">{{ section.settings.title }}</h2>
+    </div>
+
+    <div class="mourao-product-list">
+      {% for block in section.blocks %}
+        <div {{ block.shopify_attributes }}>
+          {% render 'mourao-product-card',
+            title: block.settings.title,
+            description: block.settings.description,
+            button_label: block.settings.button_label,
+            button_link: block.settings.button_link,
+            eyebrow: 'Dagelijkse verzorging',
+            accent_index: forloop.index
+          %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Mourao category grid",
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Gezichtscrème"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Korte productbeschrijving."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Bekijk product"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Ontdek de collectie"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Verzorging voor iedere routine"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mourao category grid"
+    }
+  ]
+}
+{% endschema %}
