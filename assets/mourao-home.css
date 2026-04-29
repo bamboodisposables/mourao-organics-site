@@ -93,10 +93,14 @@ select {
 }
 
 .mourao-wordmark {
-  font-family: "Playfair Display", serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+}
+
+.mourao-wordmark__image {
+  display: block;
+  width: clamp(4rem, 14vw, 5.9rem);
+  height: auto;
 }
 
 .mourao-header-link {
@@ -294,53 +298,29 @@ select {
   bottom: -2rem;
 }
 
-.mourao-hero__jar {
+.mourao-hero__logo-shell {
   position: absolute;
   left: 50%;
   bottom: 1.5rem;
-  width: min(70%, 18rem);
-  aspect-ratio: 11 / 13;
+  width: min(72%, 19rem);
+  aspect-ratio: 1;
   transform: translateX(-50%);
-  border-radius: 38% 38% 24% 24%;
+  display: grid;
+  place-items: center;
+  padding: 0.85rem;
+  border-radius: 50%;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(241, 231, 221, 0.95) 100%);
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.82), transparent 45%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(241, 231, 221, 0.92) 100%);
   border: 1px solid rgba(46, 46, 46, 0.08);
   box-shadow: 0 18px 40px rgba(101, 83, 67, 0.16);
 }
 
-.mourao-hero__jar::before {
-  content: "";
-  position: absolute;
-  inset: -10% 18% auto;
-  height: 22%;
-  border-radius: 999px;
-  background: linear-gradient(180deg, #5f5852 0%, #7b726b 100%);
-}
-
-.mourao-hero__jar::after {
-  content: "";
-  position: absolute;
-  inset: 22% 14% 14%;
-  border-radius: 24px;
-  background:
-    linear-gradient(180deg, rgba(255, 253, 249, 0.98) 0%, rgba(255, 248, 240, 0.82) 100%);
-}
-
-.mourao-hero__jar-label {
-  position: absolute;
-  z-index: 1;
-  left: 50%;
-  top: 46%;
-  transform: translate(-50%, -50%);
-  width: 58%;
-  padding: 0.75rem;
-  border-radius: 20px;
-  background: rgba(216, 207, 196, 0.45);
-  text-align: center;
-  font-family: "Playfair Display", serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+.mourao-hero__logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
 }
 
 .mourao-floating-card {

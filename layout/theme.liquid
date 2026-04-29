@@ -16,7 +16,16 @@
     <div class="mourao-site-shell">
       <header class="mourao-site-header">
         <div class="page-width mourao-site-header__inner">
-          <a href="{{ routes.root_url }}" class="mourao-wordmark">MOURÃO Organics</a>
+          <a href="{{ routes.root_url }}" class="mourao-wordmark" aria-label="MOURÃO Organics">
+            <img
+              class="mourao-wordmark__image"
+              src="{{ 'mourao-logo.png' | asset_url }}"
+              alt="MOURÃO Organics"
+              width="1254"
+              height="1254"
+              loading="eager"
+            >
+          </a>
           <a href="{{ routes.all_products_collection_url }}" class="mourao-header-link">Shop</a>
         </div>
       </header>
