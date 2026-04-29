@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: mourao-organics
+    runtime: static
+    plan: free
+    buildCommand: bash ./render-build.sh
+    staticPublishPath: ./dist
