@@ -7,7 +7,7 @@
       <h2 class="mourao-section-title">{{ section.settings.title }}</h2>
     </div>
 
-    <div class="mourao-grid mourao-grid--products">
+    <div class="mourao-product-list">
       {% for block in section.blocks %}
         <div {{ block.shopify_attributes }}>
           {% render 'mourao-product-card',

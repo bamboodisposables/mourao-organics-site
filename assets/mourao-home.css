@@ -266,7 +266,6 @@ select {
   gap: 1rem;
 }
 
-.mourao-grid--products,
 .mourao-grid--reviews {
   grid-template-columns: 1fr;
 }
@@ -396,6 +395,16 @@ select {
   background: rgba(152, 103, 66, 0.55);
 }
 
+.mourao-product-list {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid rgba(95, 68, 49, 0.28);
+}
+
+.mourao-product-list > * {
+  min-width: 0;
+}
+
 .mourao-product-card,
 .mourao-review-card,
 .mourao-story-card,
@@ -408,16 +417,20 @@ select {
 
 .mourao-product-card {
   display: grid;
-  gap: 1.15rem;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(95, 68, 49, 0.2);
   overflow: visible;
 }
 
 .mourao-product-card__visual {
   position: relative;
-  display: grid;
-  align-items: end;
+  display: block;
   padding: 0;
-  aspect-ratio: 1 / 1.12;
+  width: 5.5rem;
+  height: 5.5rem;
   border: 1px solid rgba(95, 68, 49, 0.12);
   background: linear-gradient(180deg, rgba(239, 220, 201, 0.95) 0%, rgba(247, 239, 230, 0.95) 100%);
   overflow: hidden;
@@ -465,8 +478,7 @@ select {
 .mourao-product-card__body {
   display: grid;
   gap: 0.8rem;
-  padding: 0 0 1.2rem;
-  border-bottom: 1px solid rgba(95, 68, 49, 0.24);
+  padding: 0;
 }
 
 .mourao-product-card__eyebrow {
@@ -564,6 +576,7 @@ select {
   color: var(--mourao-accent);
   font-size: 0.94rem;
   font-weight: 600;
+  grid-column: 2;
 }
 
 .mourao-inline-link::after {
@@ -745,9 +758,19 @@ select {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .mourao-grid--products,
   .mourao-grid--reviews {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mourao-product-card {
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    gap: 1.25rem;
+    padding: 1.2rem 0;
+  }
+
+  .mourao-product-card__visual {
+    width: 6.5rem;
+    height: 6.5rem;
   }
 
   .mourao-ingredient-row__summary {
@@ -812,8 +835,21 @@ select {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .mourao-grid--products {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .mourao-product-card {
+    grid-template-columns: 7.5rem minmax(0, 1fr) auto;
+    gap: 1.6rem;
+    align-items: center;
+    padding: 1.35rem 0;
+  }
+
+  .mourao-product-card__visual {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+
+  .mourao-inline-link {
+    grid-column: 3;
+    align-self: center;
   }
 
   .mourao-grid--reviews {
