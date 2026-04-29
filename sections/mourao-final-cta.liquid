@@ -3,7 +3,7 @@
     <div class="mourao-cta-panel mourao-reveal" style="--animation-order: 1;">
       <h2 class="mourao-section-title">{{ section.settings.title }}</h2>
       {% if section.settings.button_label != blank %}
-        <a class="mourao-button" href="{{ section.settings.button_link | default: '/collections/all' }}">
+        <a class="mourao-button" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
           {{ section.settings.button_label }}
         </a>
       {% endif %}
