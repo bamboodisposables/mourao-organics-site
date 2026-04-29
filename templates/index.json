@@ -185,7 +185,7 @@
           "settings": {
             "title": "Tallowcrème",
             "description": "Rijke favoriet voor droge of trekkerige huid die rust zoekt.",
-            "button_label": "Shop bestseller",
+            "button_label": "Bekijk favoriet",
             "button_link": "shopify://collections/all"
           }
         },
@@ -194,7 +194,7 @@
           "settings": {
             "title": "Gezichtscrème",
             "description": "Een zachte allrounder voor dagelijkse hydratatie en comfort.",
-            "button_label": "Shop bestseller",
+            "button_label": "Bekijk favoriet",
             "button_link": "shopify://collections/all"
           }
         },
@@ -203,7 +203,7 @@
           "settings": {
             "title": "Calming Skin Balm",
             "description": "Plaatselijke verzorging wanneer je huid iets extra’s kan gebruiken.",
-            "button_label": "Shop bestseller",
+            "button_label": "Bekijk favoriet",
             "button_link": "shopify://collections/all"
           }
         }
@@ -252,7 +252,7 @@
       "type": "mourao-final-cta",
       "settings": {
         "title": "Geef je huid natuurlijke verzorging",
-        "button_label": "Shop nu",
+        "button_label": "Ontdek collectie",
         "button_link": "shopify://collections/all"
       }
     }

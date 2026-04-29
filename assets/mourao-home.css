@@ -1,13 +1,13 @@
 :root {
-  --mourao-bg: #F6F1EB;
-  --mourao-text: #2E2E2E;
-  --mourao-accent: #B8A999;
-  --mourao-secondary: #D8CFC4;
-  --mourao-surface: #FFFDF9;
-  --mourao-surface-soft: #F1E7DD;
-  --mourao-surface-strong: #ECE0D4;
-  --mourao-border: rgba(46, 46, 46, 0.08);
-  --mourao-shadow: 0 24px 60px rgba(109, 90, 72, 0.11);
+  --mourao-bg: #ead8c3;
+  --mourao-text: #5f4431;
+  --mourao-accent: #b07a4e;
+  --mourao-secondary: #cfaf8d;
+  --mourao-surface: #f1dfca;
+  --mourao-surface-soft: #e5ceb4;
+  --mourao-surface-strong: #d9b996;
+  --mourao-border: rgba(95, 68, 49, 0.14);
+  --mourao-shadow: 0 26px 60px rgba(117, 77, 46, 0.16);
   --mourao-radius-lg: 32px;
   --mourao-radius-md: 24px;
   --mourao-radius-sm: 18px;
@@ -30,9 +30,9 @@ body {
   color: var(--mourao-text);
   font-family: "Inter", sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(184, 169, 153, 0.22), transparent 30%),
-    radial-gradient(circle at right 15%, rgba(216, 207, 196, 0.35), transparent 28%),
-    linear-gradient(180deg, #fcfaf6 0%, var(--mourao-bg) 100%);
+    radial-gradient(circle at top left, rgba(201, 155, 108, 0.24), transparent 30%),
+    radial-gradient(circle at right 15%, rgba(217, 185, 150, 0.34), transparent 28%),
+    linear-gradient(180deg, #f1e2ce 0%, var(--mourao-bg) 100%);
 }
 
 img {
@@ -83,43 +83,65 @@ select {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 0.85rem 1rem;
-  padding: 0.95rem 1.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  padding: 0.8rem 0.95rem 0.95rem;
+  border: 1px solid rgba(122, 85, 58, 0.14);
   border-radius: 34px;
-  background: rgba(255, 253, 249, 0.78);
-  box-shadow: 0 18px 40px rgba(123, 102, 85, 0.08);
+  background:
+    linear-gradient(180deg, rgba(241, 223, 202, 0.95) 0%, rgba(225, 200, 174, 0.92) 100%);
+  box-shadow: 0 22px 48px rgba(123, 86, 56, 0.12);
   backdrop-filter: blur(12px);
 }
 
 .mourao-wordmark {
   display: inline-flex;
   align-items: center;
+  flex: 0 0 auto;
+  padding: 0.2rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(228, 207, 183, 0.8) 0%, rgba(214, 180, 146, 0.78) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 241, 226, 0.52);
 }
 
 .mourao-wordmark__image {
   display: block;
-  width: clamp(4rem, 14vw, 5.9rem);
+  width: clamp(4.8rem, 16vw, 6.8rem);
   height: auto;
+  border-radius: 50%;
+}
+
+.mourao-wordmark::after {
+  content: "";
+  width: 1px;
+  height: 3.2rem;
+  margin-left: 0.65rem;
+  background: linear-gradient(180deg, rgba(137, 101, 73, 0), rgba(137, 101, 73, 0.34), rgba(137, 101, 73, 0));
 }
 
 .mourao-header-nav {
-  order: 3;
-  flex: 1 0 100%;
+  order: 2;
+  flex: 1 1 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 0.45rem 0.55rem;
+  justify-content: flex-start;
+  gap: 0.4rem 0.5rem;
+  min-width: 0;
+  padding: 0.35rem;
+  border-radius: 999px;
+  background: rgba(191, 151, 113, 0.2);
+  border: 1px solid rgba(122, 85, 58, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 240, 222, 0.42);
 }
 
 .mourao-header-nav__link {
-  padding: 0.6rem 0.85rem;
+  padding: 0.65rem 0.95rem;
   border-radius: 999px;
-  color: rgba(46, 46, 46, 0.76);
-  font-size: 0.9rem;
-  font-weight: 500;
+  color: rgba(95, 68, 49, 0.88);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   transition:
     color var(--mourao-transition),
     background var(--mourao-transition),
@@ -128,23 +150,8 @@ select {
 
 .mourao-header-nav__link:hover,
 .mourao-header-nav__link:focus-visible {
-  background: rgba(216, 207, 196, 0.45);
-  color: var(--mourao-text);
-  transform: translateY(-1px);
-}
-
-.mourao-header-link {
-  padding: 0.7rem 1rem;
-  border-radius: 999px;
-  background: var(--mourao-secondary);
-  font-size: 0.92rem;
-  font-weight: 600;
-  transition: transform var(--mourao-transition), background var(--mourao-transition);
-}
-
-.mourao-header-link:hover,
-.mourao-header-link:focus-visible {
-  background: var(--mourao-accent);
+  background: rgba(176, 122, 78, 0.16);
+  color: #70482d;
   transform: translateY(-1px);
 }
 
@@ -160,7 +167,7 @@ select {
   padding: 1.5rem;
   border: 1px solid var(--mourao-border);
   border-radius: var(--mourao-radius-lg);
-  background: rgba(255, 253, 249, 0.78);
+  background: rgba(241, 223, 202, 0.82);
   box-shadow: var(--mourao-shadow);
 }
 
@@ -173,7 +180,7 @@ select {
 
 .mourao-eyebrow {
   margin: 0;
-  color: rgba(46, 46, 46, 0.7);
+  color: rgba(111, 76, 50, 0.76);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -198,7 +205,7 @@ select {
 
 .mourao-text {
   margin: 0;
-  color: rgba(46, 46, 46, 0.78);
+  color: rgba(95, 68, 49, 0.82);
   font-size: 1rem;
   line-height: 1.75;
 }
@@ -209,10 +216,10 @@ select {
   justify-content: center;
   min-height: 3rem;
   padding: 0.9rem 1.35rem;
-  border: 1px solid transparent;
+  border: 1px solid rgba(122, 85, 58, 0.06);
   border-radius: 999px;
-  background: var(--mourao-text);
-  color: #fff;
+  background: linear-gradient(180deg, #a86f45 0%, #8f5d39 100%);
+  color: #f7eadb;
   font-size: 0.96rem;
   font-weight: 600;
   transition:
@@ -227,15 +234,15 @@ select {
 }
 
 .mourao-button--secondary {
-  background: transparent;
+  background: rgba(241, 223, 202, 0.48);
   color: var(--mourao-text);
   border-color: var(--mourao-border);
 }
 
 .mourao-button--secondary:hover,
 .mourao-button--secondary:focus-visible {
-  background: var(--mourao-secondary);
-  border-color: transparent;
+  background: rgba(207, 175, 141, 0.6);
+  border-color: rgba(122, 85, 58, 0.08);
 }
 
 .mourao-chip-row {
@@ -249,8 +256,8 @@ select {
   align-items: center;
   padding: 0.7rem 0.95rem;
   border-radius: 999px;
-  background: rgba(255, 253, 249, 0.92);
-  border: 1px solid rgba(46, 46, 46, 0.06);
+  background: rgba(240, 220, 198, 0.82);
+  border: 1px solid rgba(122, 85, 58, 0.08);
   font-size: 0.9rem;
   font-weight: 500;
 }
@@ -288,7 +295,7 @@ select {
 .mourao-hero__text {
   max-width: 35rem;
   margin: 0;
-  color: rgba(46, 46, 46, 0.8);
+  color: rgba(95, 68, 49, 0.84);
   font-size: 1.05rem;
   line-height: 1.8;
 }
@@ -297,11 +304,11 @@ select {
   position: relative;
   min-height: 24rem;
   padding: 1.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(122, 85, 58, 0.12);
   border-radius: calc(var(--mourao-radius-lg) + 6px);
   background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.72), transparent 35%),
-    linear-gradient(180deg, rgba(255, 253, 249, 0.92) 0%, rgba(236, 224, 212, 0.72) 100%);
+    radial-gradient(circle at top left, rgba(245, 226, 205, 0.75), transparent 35%),
+    linear-gradient(180deg, rgba(233, 208, 181, 0.92) 0%, rgba(214, 179, 144, 0.74) 100%);
   box-shadow: var(--mourao-shadow);
   overflow: hidden;
 }
@@ -311,7 +318,7 @@ select {
   content: "";
   position: absolute;
   border-radius: 999px;
-  background: rgba(184, 169, 153, 0.15);
+  background: rgba(170, 124, 82, 0.14);
 }
 
 .mourao-hero__visual::before {
@@ -340,10 +347,10 @@ select {
   padding: 0.85rem;
   border-radius: 50%;
   background:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.82), transparent 45%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(241, 231, 221, 0.92) 100%);
-  border: 1px solid rgba(46, 46, 46, 0.08);
-  box-shadow: 0 18px 40px rgba(101, 83, 67, 0.16);
+    radial-gradient(circle at top, rgba(248, 234, 216, 0.7), transparent 45%),
+    linear-gradient(180deg, rgba(238, 215, 188, 0.96) 0%, rgba(218, 184, 150, 0.92) 100%);
+  border: 1px solid rgba(122, 85, 58, 0.12);
+  box-shadow: 0 18px 40px rgba(101, 83, 67, 0.18);
 }
 
 .mourao-hero__logo {
@@ -357,9 +364,9 @@ select {
   position: absolute;
   max-width: 10rem;
   padding: 0.85rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(122, 85, 58, 0.1);
   border-radius: 20px;
-  background: rgba(255, 253, 249, 0.88);
+  background: rgba(239, 219, 197, 0.9);
   box-shadow: 0 20px 40px rgba(109, 90, 72, 0.11);
   font-size: 0.84rem;
   line-height: 1.5;
@@ -392,9 +399,9 @@ select {
   display: grid;
   gap: 0.85rem;
   padding: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(122, 85, 58, 0.12);
   border-radius: 30px;
-  background: rgba(255, 253, 249, 0.82);
+  background: rgba(238, 216, 193, 0.86);
   box-shadow: var(--mourao-shadow);
 }
 
@@ -405,7 +412,7 @@ select {
   min-height: 3.2rem;
   padding: 0.9rem 1rem;
   border-radius: 22px;
-  background: rgba(216, 207, 196, 0.22);
+  background: rgba(214, 184, 150, 0.28);
   font-size: 0.95rem;
   font-weight: 600;
 }
@@ -426,7 +433,7 @@ select {
 .mourao-cta-panel {
   border: 1px solid var(--mourao-border);
   border-radius: var(--mourao-radius-md);
-  background: rgba(255, 253, 249, 0.84);
+  background: rgba(241, 223, 202, 0.84);
   box-shadow: var(--mourao-shadow);
 }
 
@@ -441,7 +448,7 @@ select {
   align-items: end;
   padding: 1rem;
   aspect-ratio: 4 / 3;
-  background: linear-gradient(180deg, rgba(241, 231, 221, 0.95) 0%, rgba(255, 253, 249, 0.95) 100%);
+  background: linear-gradient(180deg, rgba(234, 207, 179, 0.95) 0%, rgba(244, 230, 212, 0.95) 100%);
   overflow: hidden;
 }
 
@@ -457,7 +464,7 @@ select {
   height: 62%;
   right: -10%;
   top: -12%;
-  background: rgba(255, 255, 255, 0.54);
+  background: rgba(246, 235, 220, 0.46);
 }
 
 .mourao-product-card__visual::after {
@@ -465,23 +472,23 @@ select {
   height: 56%;
   left: -8%;
   bottom: -14%;
-  background: rgba(184, 169, 153, 0.18);
+  background: rgba(176, 122, 78, 0.14);
 }
 
 .mourao-product-card__visual--1 {
-  background: linear-gradient(180deg, rgba(255, 248, 240, 0.96) 0%, rgba(236, 224, 212, 0.86) 100%);
+  background: linear-gradient(180deg, rgba(244, 226, 207, 0.96) 0%, rgba(218, 183, 148, 0.86) 100%);
 }
 
 .mourao-product-card__visual--2 {
-  background: linear-gradient(180deg, rgba(245, 238, 229, 0.96) 0%, rgba(216, 207, 196, 0.84) 100%);
+  background: linear-gradient(180deg, rgba(236, 212, 189, 0.96) 0%, rgba(205, 165, 126, 0.84) 100%);
 }
 
 .mourao-product-card__visual--3 {
-  background: linear-gradient(180deg, rgba(255, 253, 249, 0.98) 0%, rgba(232, 219, 207, 0.84) 100%);
+  background: linear-gradient(180deg, rgba(247, 233, 216, 0.98) 0%, rgba(214, 180, 147, 0.84) 100%);
 }
 
 .mourao-product-card__visual--4 {
-  background: linear-gradient(180deg, rgba(242, 233, 224, 0.98) 0%, rgba(225, 214, 204, 0.84) 100%);
+  background: linear-gradient(180deg, rgba(232, 205, 176, 0.98) 0%, rgba(202, 162, 123, 0.84) 100%);
 }
 
 .mourao-product-card__tag {
@@ -491,7 +498,7 @@ select {
   width: fit-content;
   padding: 0.55rem 0.8rem;
   border-radius: 999px;
-  background: rgba(255, 253, 249, 0.88);
+  background: rgba(244, 229, 211, 0.86);
   font-size: 0.8rem;
   font-weight: 600;
 }
@@ -517,7 +524,7 @@ select {
 .mourao-ingredient-card__text,
 .mourao-story-card__text {
   margin: 0;
-  color: rgba(46, 46, 46, 0.78);
+  color: rgba(95, 68, 49, 0.82);
   line-height: 1.7;
 }
 
@@ -542,7 +549,7 @@ select {
   width: fit-content;
   padding: 0.7rem 0.9rem;
   border-radius: 999px;
-  background: rgba(216, 207, 196, 0.3);
+  background: rgba(214, 184, 150, 0.32);
   font-size: 0.92rem;
   font-weight: 600;
 }
@@ -564,8 +571,8 @@ select {
 
 .mourao-bestsellers .mourao-panel {
   background:
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.4), transparent 28%),
-    linear-gradient(180deg, rgba(236, 224, 212, 0.78) 0%, rgba(255, 253, 249, 0.76) 100%);
+    radial-gradient(circle at top right, rgba(245, 228, 209, 0.38), transparent 28%),
+    linear-gradient(180deg, rgba(218, 184, 150, 0.78) 0%, rgba(241, 223, 202, 0.8) 100%);
 }
 
 .mourao-review-card {
@@ -575,7 +582,7 @@ select {
 }
 
 .mourao-review-card__stars {
-  color: #9c8c7c;
+  color: #9b6a41;
   letter-spacing: 0.15em;
   font-size: 0.9rem;
 }
@@ -587,8 +594,8 @@ select {
   padding: 2rem 1.4rem;
   text-align: center;
   background:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.52), transparent 32%),
-    linear-gradient(180deg, rgba(236, 224, 212, 0.9) 0%, rgba(255, 253, 249, 0.95) 100%);
+    radial-gradient(circle at top, rgba(248, 234, 216, 0.5), transparent 32%),
+    linear-gradient(180deg, rgba(218, 184, 150, 0.88) 0%, rgba(241, 223, 202, 0.95) 100%);
 }
 
 .mourao-reveal {
@@ -644,15 +651,15 @@ select {
   .mourao-site-header__inner {
     flex-wrap: nowrap;
     border-radius: 999px;
-    padding: 0.95rem 1.2rem 0.95rem 1rem;
+    padding: 0.8rem 1rem;
   }
 
   .mourao-header-nav {
-    order: 0;
+    order: 2;
     flex: 1 1 auto;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.55rem;
-    padding: 0 0.5rem;
+    padding: 0.4rem;
   }
 
   .mourao-section {
