@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#F6F1EB">
+    <title>{{ page_title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    {{ content_for_header }}
+    {{ 'mourao-home.css' | asset_url | stylesheet_tag }}
+  </head>
+  <body class="mourao-theme">
+    <a class="visually-hidden" href="#MainContent">Ga naar de inhoud</a>
+    <div class="mourao-site-shell">
+      <header class="mourao-site-header">
+        <div class="page-width mourao-site-header__inner">
+          <a href="{{ routes.root_url }}" class="mourao-wordmark" aria-label="MOURÃO Organics">
+            <img
+              class="mourao-wordmark__image"
+              src="{{ 'mourao-logo.png' | asset_url }}"
+              alt="MOURÃO Organics"
+              width="1254"
+              height="1254"
+              loading="eager"
+            >
+          </a>
+          <nav class="mourao-header-nav" aria-label="Hoofdmenu">
+            <a class="mourao-header-nav__link" href="{{ routes.root_url }}#producten">Producten</a>
+            <a class="mourao-header-nav__link" href="{{ routes.root_url }}#verhaal">Verhaal</a>
+            <a class="mourao-header-nav__link" href="{{ routes.root_url }}#ingredienten">Ingrediënten</a>
+            <a class="mourao-header-nav__link" href="{{ routes.root_url }}#reviews">Reviews</a>
+          </nav>
+        </div>
+      </header>
+
+      <main id="MainContent" role="main">
+        {{ content_for_layout }}
+      </main>
+    </div>
+  </body>
+</html>
