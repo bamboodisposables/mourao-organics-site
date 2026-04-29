@@ -1,0 +1,108 @@
+<section class="mourao-section mourao-section--spacious mourao-hero">
+  <div class="page-width">
+    <div class="mourao-hero__layout">
+      <div class="mourao-hero__content mourao-reveal" style="--animation-order: 1;">
+        {% if section.settings.eyebrow != blank %}
+          <p class="mourao-eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+
+        <h1 class="mourao-heading">{{ section.settings.heading }}</h1>
+        <p class="mourao-hero__text">{{ section.settings.subheading }}</p>
+
+        {% if section.settings.button_label != blank %}
+          <div>
+            <a class="mourao-button" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
+              {{ section.settings.button_label }}
+            </a>
+          </div>
+        {% endif %}
+
+        <div class="mourao-chip-row">
+          {% if section.settings.highlight_one != blank %}
+            <span class="mourao-chip">{{ section.settings.highlight_one }}</span>
+          {% endif %}
+          {% if section.settings.highlight_two != blank %}
+            <span class="mourao-chip">{{ section.settings.highlight_two }}</span>
+          {% endif %}
+          {% if section.settings.highlight_three != blank %}
+            <span class="mourao-chip">{{ section.settings.highlight_three }}</span>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="mourao-hero__visual mourao-reveal" style="--animation-order: 2;" aria-hidden="true">
+        <div class="mourao-hero__logo-shell">
+          <img
+            class="mourao-hero__logo"
+            src="{{ 'mourao-logo.png' | asset_url }}"
+            alt="MOURÃO Organics logo"
+            width="1254"
+            height="1254"
+            loading="eager"
+          >
+        </div>
+        <p class="mourao-hero__visual-note">Handgemaakt in kleine batches met pure ingrediënten en een rustige, dagelijkse benadering.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Mourao hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "MOURÃO Organics"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Natuurlijke verzorging voor elke dag"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Pure, handgemaakte verzorgingsproducten met natuurlijke ingrediënten. Zacht voor je huid, eenvoudig in gebruik."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Bekijk producten"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "highlight_one",
+      "label": "Highlight 1",
+      "default": "Handgemaakt"
+    },
+    {
+      "type": "text",
+      "id": "highlight_two",
+      "label": "Highlight 2",
+      "default": "Pure ingrediënten"
+    },
+    {
+      "type": "text",
+      "id": "highlight_three",
+      "label": "Highlight 3",
+      "default": "Dagelijkse zachtheid"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mourao hero"
+    }
+  ]
+}
+{% endschema %}
