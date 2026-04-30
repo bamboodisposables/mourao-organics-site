@@ -223,22 +223,22 @@
         "review_1": {
           "type": "review",
           "settings": {
-            "author": "Review placeholder",
-            "text": "“Zachte textuur, eenvoudige routine en precies het soort verzorging dat ik dagelijks wil gebruiken.”"
+            "author": "Sanne",
+            "text": "Zachte textuur, eenvoudige routine en precies het soort verzorging dat ik dagelijks wil gebruiken."
           }
         },
         "review_2": {
           "type": "review",
           "settings": {
-            "author": "Review placeholder",
-            "text": "“Voelt puur en eerlijk aan. Mijn huid reageert er rustig op en dat geeft vertrouwen.”"
+            "author": "Lotte",
+            "text": "Voelt puur en eerlijk aan. Mijn huid reageert er rustig op en dat geeft vertrouwen."
           }
         },
         "review_3": {
           "type": "review",
           "settings": {
-            "author": "Review placeholder",
-            "text": "“Fijn dat de producten simpel zijn, zonder onnodige toevoegingen of ingewikkelde stappen.”"
+            "author": "Marieke",
+            "text": "Fijn dat de producten simpel zijn, zonder onnodige toevoegingen of ingewikkelde stappen."
           }
         }
       },

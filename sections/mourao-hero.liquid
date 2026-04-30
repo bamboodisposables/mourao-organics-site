@@ -10,7 +10,7 @@
         <p class="mourao-hero__text">{{ section.settings.subheading }}</p>
 
         {% if section.settings.button_label != blank %}
-          <div>
+          <div class="mourao-hero__actions">
             <a class="mourao-button" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
               {{ section.settings.button_label }}
             </a>
@@ -31,17 +31,23 @@
       </div>
 
       <div class="mourao-hero__visual mourao-reveal" style="--animation-order: 2;" aria-hidden="true">
-        <div class="mourao-hero__logo-shell">
-          <img
-            class="mourao-hero__logo"
-            src="{{ 'mourao-logo.png' | asset_url }}"
-            alt="MOURÃO Organics logo"
-            width="1254"
-            height="1254"
-            loading="eager"
-          >
+        <div class="mourao-hero__frame">
+          <div class="mourao-hero__logo-shell">
+            <img
+              class="mourao-hero__logo"
+              src="{{ 'mourao-logo.png' | asset_url }}"
+              alt="MOURÃO Organics logo"
+              width="1254"
+              height="1254"
+              loading="eager"
+            >
+          </div>
+          <div class="mourao-hero__note">
+            <p class="mourao-eyebrow">Zacht en toegankelijk</p>
+            <p class="mourao-hero__note-title">Geen ingewikkelde routine, wel aandacht voor je huid.</p>
+            <p class="mourao-hero__note-text">Handgemaakte producten met pure ingrediënten, bedoeld om prettig te voelen en makkelijk te blijven gebruiken.</p>
+          </div>
         </div>
-        <p class="mourao-hero__visual-note">Handgemaakt in kleine batches met pure ingrediënten en een rustige, dagelijkse benadering.</p>
       </div>
     </div>
   </div>

@@ -1,7 +1,11 @@
 <section class="mourao-section mourao-section--spacious">
   <div class="page-width">
     <div class="mourao-cta-panel mourao-reveal" style="--animation-order: 1;">
-      <h2 class="mourao-section-title">{{ section.settings.title }}</h2>
+      <div class="mourao-cta-panel__content">
+        <p class="mourao-eyebrow">Begin eenvoudig</p>
+        <h2 class="mourao-section-title">{{ section.settings.title }}</h2>
+        <p class="mourao-section-copy">Ontdek een kleine collectie die zacht aanvoelt en makkelijk in je dagelijkse routine past.</p>
+      </div>
       {% if section.settings.button_label != blank %}
         <a class="mourao-button" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
           {{ section.settings.button_label }}

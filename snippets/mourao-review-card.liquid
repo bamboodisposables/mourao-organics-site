@@ -1,11 +1,11 @@
 {% liquid
-  assign review_author = author | default: 'Review placeholder'
+  assign review_author = author | default: 'Sanne'
   assign review_text = text | default: 'Placeholder reviewtekst'
   assign review_index = accent_index | default: 0
 %}
 
 <article class="mourao-review-card mourao-reveal" style="--animation-order: {{ review_index }};">
   <div class="mourao-review-card__quote" aria-hidden="true">“</div>
-  <h3 class="mourao-review-card__author">{{ review_author }}</h3>
   <p class="mourao-review-card__text">{{ review_text }}</p>
+  <p class="mourao-review-card__author">{{ review_author }}</p>
 </article>

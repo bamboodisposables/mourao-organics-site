@@ -5,12 +5,13 @@
         <p class="mourao-eyebrow">{{ section.settings.eyebrow }}</p>
       {% endif %}
       <h2 class="mourao-section-title">{{ section.settings.title }}</h2>
+      <p class="mourao-section-copy">Bekende, voedende ingrediënten die bijdragen aan milde dagelijkse verzorging zonder overbodige complexiteit.</p>
     </div>
 
     <div class="mourao-ingredient-list">
       {% for block in section.blocks %}
         {% assign ingredient_variant = forloop.index | modulo: 4 | plus: 1 %}
-        <details class="mourao-ingredient-row mourao-reveal" style="--animation-order: {{ forloop.index }};" {{ block.shopify_attributes }}>
+        <details class="mourao-ingredient-row mourao-reveal" style="--animation-order: {{ forloop.index }};" {% if forloop.first %}open{% endif %} {{ block.shopify_attributes }}>
           <summary class="mourao-ingredient-row__summary">
             <div class="mourao-ingredient-row__media mourao-ingredient-row__media--{{ ingredient_variant }}" aria-hidden="true"></div>
             <h3 class="mourao-ingredient-row__title">{{ block.settings.title }}</h3>
