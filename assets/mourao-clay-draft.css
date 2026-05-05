@@ -1,0 +1,186 @@
+.mourao-clay-draft {
+  --mourao-bg: #e6c2a0;
+  --mourao-bg-deep: #ba7c56;
+  --mourao-surface: rgba(250, 241, 232, 0.88);
+  --mourao-surface-strong: rgba(211, 159, 118, 0.94);
+  --mourao-surface-soft: rgba(227, 198, 172, 0.84);
+  --mourao-text: #382217;
+  --mourao-text-soft: rgba(56, 34, 23, 0.78);
+  --mourao-accent: #9f5734;
+  --mourao-accent-deep: #72381f;
+  --mourao-border: rgba(95, 53, 32, 0.2);
+  --mourao-shadow: 0 30px 72px rgba(75, 41, 24, 0.16);
+  background:
+    radial-gradient(circle at top left, rgba(129, 78, 49, 0.24), transparent 24%),
+    radial-gradient(circle at 85% 15%, rgba(152, 94, 57, 0.2), transparent 22%),
+    linear-gradient(180deg, #f3e4d4 0%, #e1b892 34%, #c47b4f 100%);
+}
+
+.mourao-clay-draft .mourao-announcement {
+  background: rgba(212, 171, 136, 0.92);
+  color: rgba(68, 37, 22, 0.92);
+  border-bottom-color: rgba(95, 53, 32, 0.18);
+}
+
+.mourao-clay-draft .mourao-announcement__track span::before,
+.mourao-clay-draft .mourao-chip::after,
+.mourao-clay-draft .mourao-bullet-list li::before,
+.mourao-clay-draft .mourao-trust-bar__item::before,
+.mourao-clay-draft .mourao-story-card__list span::after {
+  background: rgba(138, 73, 39, 0.72);
+}
+
+.mourao-clay-draft .mourao-site-header {
+  background: rgba(244, 226, 209, 0.88);
+  border-bottom-color: rgba(95, 53, 32, 0.14);
+}
+
+.mourao-clay-draft .mourao-wordmark__text--ringed {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.03em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.mourao-clay-draft .mourao-ring-o {
+  display: inline-grid;
+  place-items: center;
+  width: 0.9em;
+  height: 0.9em;
+  margin: 0 0.02em;
+  border-radius: 50%;
+  color: rgba(72, 40, 23, 0.98);
+  background:
+    radial-gradient(circle at center, rgba(241, 193, 138, 0.94) 0 0.11em, rgba(118, 64, 38, 0.9) 0.11em 0.15em, rgba(214, 146, 90, 0.96) 0.15em 0.22em, rgba(124, 70, 43, 0.88) 0.22em 0.26em, rgba(224, 164, 111, 0.98) 0.26em 0.35em, rgba(134, 75, 46, 0.9) 0.35em 0.39em, rgba(235, 183, 134, 0.98) 0.39em 0.48em, rgba(146, 85, 53, 0.88) 0.48em 0.52em, rgba(245, 202, 160, 0.98) 0.52em 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(96, 54, 33, 0.22),
+    0 0.08em 0.18em rgba(89, 50, 29, 0.18);
+  transform: translateY(0.03em);
+}
+
+.mourao-clay-draft .mourao-header-nav,
+.mourao-clay-draft .mourao-site-footer__top,
+.mourao-clay-draft .mourao-site-footer__bottom {
+  border-color: rgba(95, 53, 32, 0.14);
+}
+
+.mourao-clay-draft .mourao-button {
+  border-color: rgba(128, 68, 40, 0.2);
+  background: linear-gradient(180deg, #b65d33 0%, #854124 100%);
+  color: #fff5eb;
+  box-shadow: 0 20px 42px rgba(100, 52, 30, 0.22);
+}
+
+.mourao-clay-draft .mourao-button--ghost {
+  background: rgba(247, 236, 224, 0.88);
+  color: var(--mourao-text);
+  border-color: rgba(111, 61, 38, 0.18);
+  box-shadow: none;
+}
+
+.mourao-clay-draft .mourao-button--ghost:hover,
+.mourao-clay-draft .mourao-button--ghost:focus-visible {
+  background: rgba(233, 211, 191, 0.96);
+}
+
+.mourao-clay-draft .mourao-inline-link {
+  color: var(--mourao-accent-deep);
+}
+
+.mourao-clay-draft .mourao-pill,
+.mourao-clay-draft .mourao-chip,
+.mourao-clay-draft .mourao-trust-bar__item,
+.mourao-clay-draft .mourao-option,
+.mourao-clay-draft .mourao-gallery__thumb,
+.mourao-clay-draft .mourao-proof-card,
+.mourao-clay-draft .mourao-faq-item,
+.mourao-clay-draft .mourao-ingredient-row {
+  background: rgba(248, 237, 226, 0.82);
+  border-color: rgba(98, 57, 36, 0.17);
+}
+
+.mourao-clay-draft .mourao-hero__frame,
+.mourao-clay-draft .mourao-story-card,
+.mourao-clay-draft .mourao-newsletter,
+.mourao-clay-draft .mourao-cta-panel,
+.mourao-clay-draft .mourao-panel,
+.mourao-clay-draft .mourao-review-card,
+.mourao-clay-draft .mourao-detail-card,
+.mourao-clay-draft .mourao-product-card,
+.mourao-clay-draft .mourao-gallery__main,
+.mourao-clay-draft .mourao-product-box {
+  border-color: rgba(99, 57, 35, 0.18);
+  box-shadow: 0 26px 58px rgba(73, 40, 23, 0.15);
+}
+
+.mourao-clay-draft .mourao-hero__frame {
+  background: linear-gradient(180deg, rgba(236, 214, 193, 0.96) 0%, rgba(204, 148, 106, 0.95) 100%);
+}
+
+.mourao-clay-draft .mourao-hero__product-visual,
+.mourao-clay-draft .mourao-gallery__hero {
+  background:
+    radial-gradient(circle at 50% 34%, rgba(253, 233, 210, 0.7) 0%, rgba(233, 190, 150, 0.26) 26%, transparent 48%),
+    linear-gradient(180deg, rgba(219, 168, 127, 0.98) 0%, rgba(171, 104, 65, 0.92) 100%);
+}
+
+.mourao-clay-draft .mourao-hero__product-glow,
+.mourao-clay-draft .mourao-gallery__hero-glow {
+  background: rgba(255, 227, 196, 0.48);
+}
+
+.mourao-clay-draft .mourao-hero__note {
+  background: rgba(251, 241, 231, 0.78);
+}
+
+.mourao-clay-draft .mourao-product-card {
+  background: rgba(248, 237, 226, 0.84);
+}
+
+.mourao-clay-draft .mourao-product-card__media::before {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 244, 232, 0.78) 0%, rgba(255, 244, 232, 0.12) 48%, transparent 49%),
+    linear-gradient(180deg, rgba(222, 183, 148, 0.98) 0%, rgba(182, 123, 82, 0.92) 100%);
+}
+
+.mourao-clay-draft .mourao-product-card__media--2::before {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 244, 232, 0.78) 0%, rgba(255, 244, 232, 0.12) 48%, transparent 49%),
+    linear-gradient(180deg, rgba(212, 167, 132, 0.98) 0%, rgba(154, 102, 68, 0.92) 100%);
+}
+
+.mourao-clay-draft .mourao-product-card__media--3::before {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 244, 232, 0.78) 0%, rgba(255, 244, 232, 0.12) 48%, transparent 49%),
+    linear-gradient(180deg, rgba(229, 197, 166, 0.98) 0%, rgba(186, 134, 96, 0.92) 100%);
+}
+
+.mourao-clay-draft .mourao-product-card__media--4::before {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 244, 232, 0.78) 0%, rgba(255, 244, 232, 0.12) 48%, transparent 49%),
+    linear-gradient(180deg, rgba(204, 156, 121, 0.98) 0%, rgba(145, 89, 58, 0.92) 100%);
+}
+
+.mourao-clay-draft .mourao-product-card__jar {
+  background: linear-gradient(180deg, rgba(255, 249, 242, 0.94) 0%, rgba(237, 216, 195, 0.96) 100%);
+  box-shadow:
+    0 22px 38px rgba(81, 50, 31, 0.18),
+    inset 0 0 0 1px rgba(130, 82, 56, 0.12);
+}
+
+.mourao-clay-draft .mourao-story-card {
+  background: linear-gradient(180deg, rgba(226, 197, 171, 0.94) 0%, rgba(190, 132, 96, 0.94) 100%);
+}
+
+.mourao-clay-draft .mourao-newsletter {
+  background: linear-gradient(180deg, rgba(223, 191, 162, 0.98) 0%, rgba(180, 119, 80, 0.96) 100%);
+}
+
+.mourao-clay-draft .mourao-cta-panel {
+  background: linear-gradient(180deg, rgba(217, 184, 157, 0.98) 0%, rgba(171, 104, 66, 0.96) 100%);
+}
+
+.mourao-clay-draft .mourao-review-card__quote {
+  color: rgba(150, 77, 41, 0.28);
+}
