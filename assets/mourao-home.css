@@ -32,6 +32,7 @@ body {
   margin: 0;
   color: var(--mourao-text);
   font-family: "Inter", sans-serif;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at top left, rgba(204, 179, 152, 0.18), transparent 26%),
     radial-gradient(circle at 85% 18%, rgba(179, 139, 100, 0.16), transparent 24%),
@@ -86,18 +87,19 @@ textarea {
   border-bottom: 1px solid rgba(84, 58, 40, 0.08);
   background: rgba(246, 238, 230, 0.88);
   color: rgba(61, 43, 33, 0.84);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
   text-transform: uppercase;
 }
 
 .mourao-announcement__track {
   display: flex;
-  gap: 2.4rem;
+  gap: 1.8rem;
   min-width: max-content;
-  padding: 0.85rem 1rem;
-  animation: mourao-marquee 32s linear infinite;
+  padding: 0.7rem 1rem;
+  animation: mourao-marquee 36s linear infinite;
 }
 
 .mourao-announcement__track span {
@@ -137,8 +139,10 @@ textarea {
 
 .mourao-site-header__inner {
   display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 0.9rem;
   padding: 0.95rem 0;
+  align-items: center;
 }
 
 .mourao-wordmark {
@@ -146,10 +150,12 @@ textarea {
   align-items: center;
   gap: 0.85rem;
   justify-self: start;
+  order: 1;
+  min-width: 0;
 }
 
 .mourao-wordmark__image {
-  width: 4.5rem;
+  width: 3.6rem;
   height: auto;
   border-radius: 50%;
   flex: 0 0 auto;
@@ -162,28 +168,42 @@ textarea {
 
 .mourao-wordmark__text {
   font-family: "Playfair Display", serif;
-  font-size: 1.15rem;
+  font-size: 1rem;
   letter-spacing: -0.02em;
 }
 
 .mourao-wordmark__sub {
   color: var(--mourao-text-soft);
-  font-size: 0.74rem;
+  font-size: 0.68rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .mourao-header-nav {
+  grid-column: 1 / -1;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem 1rem;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
   align-items: center;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  order: 3;
+  margin-top: 0.1rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  border-top: 1px solid rgba(84, 58, 40, 0.08);
+  scrollbar-width: none;
+}
+
+.mourao-header-nav::-webkit-scrollbar {
+  display: none;
 }
 
 .mourao-header-nav__link,
 .mourao-header-link {
   color: rgba(61, 43, 33, 0.78);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+  white-space: nowrap;
   transition: color var(--mourao-transition);
 }
 
@@ -196,9 +216,11 @@ textarea {
 
 .mourao-header-meta {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1rem;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
   align-items: center;
+  order: 2;
+  justify-self: end;
 }
 
 .mourao-section {
@@ -224,8 +246,9 @@ textarea {
 }
 
 .mourao-heading {
-  font-size: clamp(2.8rem, 8vw, 5.35rem);
-  line-height: 0.96;
+  font-size: clamp(2.85rem, 12vw, 4.85rem);
+  line-height: 0.98;
+  text-wrap: balance;
 }
 
 .mourao-section-title,
@@ -407,6 +430,12 @@ textarea {
 .mourao-hero__content {
   display: grid;
   gap: 1.25rem;
+  max-width: 39rem;
+}
+
+.mourao-hero__text {
+  max-width: 34rem;
+  font-size: clamp(1.02rem, 2.4vw, 1.14rem);
 }
 
 .mourao-hero__actions {
@@ -424,14 +453,15 @@ textarea {
 
 .mourao-chip {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 0.75rem;
-  padding: 0.95rem 1rem;
+  min-height: 4.1rem;
+  padding: 0.9rem 1rem;
   border: 1px solid rgba(84, 58, 40, 0.1);
   border-radius: var(--mourao-radius-pill);
   background: rgba(250, 246, 241, 0.7);
-  font-size: 0.92rem;
+  font-size: 0.89rem;
   font-weight: 500;
 }
 
@@ -445,6 +475,7 @@ textarea {
 
 .mourao-hero__visual {
   display: grid;
+  justify-items: center;
 }
 
 .mourao-hero__frame,
@@ -465,6 +496,8 @@ textarea {
 .mourao-hero__frame {
   display: grid;
   gap: 1rem;
+  width: 100%;
+  max-width: 32rem;
   padding: 1rem;
   background: linear-gradient(180deg, rgba(249, 245, 240, 0.96) 0%, rgba(234, 220, 205, 0.94) 100%);
 }
@@ -473,11 +506,12 @@ textarea {
 .mourao-gallery__hero {
   position: relative;
   display: grid;
-  place-items: center;
-  min-height: 18rem;
+  place-items: start center;
+  min-height: 14.5rem;
+  padding-top: 1.25rem;
   border-radius: calc(var(--mourao-radius-xl) - 0.3rem);
   background:
-    radial-gradient(circle at 50% 40%, rgba(255, 250, 245, 0.8) 0%, rgba(229, 212, 193, 0.24) 42%, transparent 43%),
+    radial-gradient(circle at 50% 26%, rgba(255, 250, 245, 0.56) 0%, rgba(235, 221, 204, 0.2) 22%, transparent 40%),
     linear-gradient(180deg, rgba(237, 223, 207, 0.98) 0%, rgba(223, 198, 172, 0.92) 100%);
   overflow: hidden;
 }
@@ -485,19 +519,25 @@ textarea {
 .mourao-hero__product-glow,
 .mourao-gallery__hero-glow {
   position: absolute;
-  width: 12rem;
-  height: 12rem;
+  top: 0.9rem;
+  left: 50%;
+  width: min(52%, 9.5rem);
+  aspect-ratio: 1;
   border-radius: 50%;
-  background: rgba(255, 250, 245, 0.64);
-  filter: blur(14px);
+  background: rgba(255, 250, 245, 0.4);
+  filter: blur(18px);
+  transform: translateX(-50%);
 }
 
 .mourao-hero__logo,
 .mourao-gallery__hero-logo {
   position: relative;
   z-index: 1;
-  width: min(74%, 18rem);
+  width: min(56%, 13.5rem);
+  max-height: 72%;
+  object-fit: contain;
   border-radius: 50%;
+  box-shadow: 0 24px 40px rgba(71, 48, 30, 0.18);
 }
 
 .mourao-hero__note {
@@ -509,7 +549,7 @@ textarea {
 }
 
 .mourao-hero__note-title {
-  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(1.4rem, 5vw, 1.8rem);
   line-height: 1.1;
 }
 
@@ -1086,10 +1126,9 @@ textarea {
 }
 
 .mourao-reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: mourao-fade-up 680ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-  animation-delay: calc(var(--animation-order, 0) * 90ms);
+  opacity: 1;
+  transform: none;
+  animation: none;
 }
 
 @keyframes mourao-fade-up {
@@ -1116,6 +1155,10 @@ textarea {
 }
 
 @media screen and (min-width: 700px) {
+  .mourao-announcement {
+    font-size: 0.74rem;
+  }
+
   .mourao-section {
     padding: 1.9rem 0;
   }
@@ -1141,6 +1184,10 @@ textarea {
     grid-template-columns: minmax(0, 1fr) auto;
   }
 
+  .mourao-chip-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .mourao-gallery__thumbs {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -1151,14 +1198,29 @@ textarea {
 }
 
 @media screen and (min-width: 980px) {
+  .mourao-announcement__track {
+    justify-content: center;
+    width: 100%;
+    min-width: 100%;
+    animation: none;
+  }
+
+  .mourao-announcement__track span:nth-child(n + 5) {
+    display: none;
+  }
+
   .mourao-site-header__inner {
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .mourao-header-nav {
     order: 1;
+    grid-column: auto;
+    justify-content: flex-start;
+    overflow: visible;
+    padding-bottom: 0;
   }
 
   .mourao-wordmark {
@@ -1171,6 +1233,18 @@ textarea {
     justify-self: end;
   }
 
+  .mourao-wordmark__image {
+    width: 4.2rem;
+  }
+
+  .mourao-wordmark__text {
+    font-size: 1.12rem;
+  }
+
+  .mourao-wordmark__sub {
+    font-size: 0.71rem;
+  }
+
   .mourao-section {
     padding: 2.25rem 0;
   }
@@ -1179,16 +1253,22 @@ textarea {
     padding: 5rem 0;
   }
 
-  .mourao-hero__layout,
-  .mourao-story,
-  .mourao-product-layout {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  .mourao-hero__layout {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(2rem, 4vw, 3.75rem);
+    align-items: start;
+  }
+
+  .mourao-story {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
     gap: 2rem;
     align-items: start;
   }
 
-  .mourao-chip-row {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .mourao-product-layout {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(1.5rem, 3vw, 2.6rem);
+    align-items: start;
   }
 
   .mourao-trust-bar {
@@ -1217,12 +1297,39 @@ textarea {
   .mourao-site-footer__grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+
+  .mourao-hero__frame {
+    max-width: 31rem;
+    justify-self: end;
+  }
+
+  .mourao-hero__product-visual {
+    min-height: 16rem;
+    padding-top: 1.5rem;
+  }
+
+  .mourao-gallery__hero {
+    min-height: 17rem;
+    padding-top: 1.5rem;
+  }
+
+  .mourao-hero__logo {
+    width: min(58%, 14.75rem);
+  }
+
+  .mourao-gallery__hero-logo {
+    width: min(62%, 15.5rem);
+  }
+
+  .mourao-hero__note {
+    padding: 1.2rem 1.25rem;
+  }
 }
 
 @media screen and (min-width: 1200px) {
   .mourao-hero__product-visual,
   .mourao-gallery__hero {
-    min-height: 22rem;
+    min-height: 18.5rem;
   }
 
   .mourao-product-card__title {
@@ -1237,5 +1344,50 @@ textarea {
   .mourao-gallery__main,
   .mourao-product-box {
     padding: 1.55rem;
+  }
+}
+
+@media screen and (max-width: 699px) {
+  .mourao-header-link,
+  .mourao-wordmark__sub {
+    display: none;
+  }
+
+  .mourao-header-meta .mourao-button {
+    min-height: 2.85rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.87rem;
+  }
+
+  .mourao-hero {
+    padding-top: 1.35rem;
+  }
+
+  .mourao-site-header__inner {
+    gap: 0.8rem;
+  }
+
+  .mourao-wordmark {
+    gap: 0.65rem;
+  }
+
+  .mourao-hero__product-visual,
+  .mourao-gallery__hero {
+    min-height: 12rem;
+    padding-top: 0.9rem;
+  }
+
+  .mourao-chip {
+    min-height: 0;
+  }
+}
+
+@media screen and (max-width: 979px) {
+  .mourao-product-layout > :first-child {
+    order: 2;
+  }
+
+  .mourao-product-layout > :last-child {
+    order: 1;
   }
 }
