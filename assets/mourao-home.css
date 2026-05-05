@@ -1,15 +1,16 @@
 :root {
-  --mourao-bg: #f6f1eb;
-  --mourao-bg-deep: #eadac8;
-  --mourao-surface: rgba(250, 246, 241, 0.88);
-  --mourao-surface-strong: rgba(233, 220, 206, 0.94);
-  --mourao-surface-soft: rgba(242, 235, 227, 0.78);
-  --mourao-text: #3d2b21;
-  --mourao-text-soft: rgba(61, 43, 33, 0.76);
-  --mourao-accent: #8e6646;
-  --mourao-accent-deep: #6d4c33;
-  --mourao-border: rgba(84, 58, 40, 0.14);
-  --mourao-shadow: 0 24px 60px rgba(82, 58, 38, 0.1);
+  --mourao-bg: #f5eee6;
+  --mourao-bg-deep: #e4cfbb;
+  --mourao-surface: rgba(255, 250, 244, 0.84);
+  --mourao-surface-strong: rgba(240, 228, 214, 0.94);
+  --mourao-surface-soft: rgba(247, 240, 231, 0.82);
+  --mourao-text: #402b20;
+  --mourao-text-soft: rgba(64, 43, 32, 0.74);
+  --mourao-accent: #9a6c48;
+  --mourao-accent-deep: #734a30;
+  --mourao-border: rgba(92, 63, 42, 0.12);
+  --mourao-shadow: 0 24px 58px rgba(92, 63, 42, 0.11);
+  --mourao-shadow-soft: 0 14px 30px rgba(92, 63, 42, 0.08);
   --mourao-radius-xl: 2rem;
   --mourao-radius-lg: 1.5rem;
   --mourao-radius-md: 1rem;
@@ -34,9 +35,10 @@ body {
   font-family: "Inter", sans-serif;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at top left, rgba(204, 179, 152, 0.18), transparent 26%),
-    radial-gradient(circle at 85% 18%, rgba(179, 139, 100, 0.16), transparent 24%),
-    linear-gradient(180deg, #fbf8f4 0%, var(--mourao-bg) 34%, var(--mourao-bg-deep) 100%);
+    radial-gradient(circle at top left, rgba(202, 168, 136, 0.18), transparent 24%),
+    radial-gradient(circle at 82% 15%, rgba(174, 130, 88, 0.18), transparent 22%),
+    radial-gradient(circle at 50% 100%, rgba(173, 130, 92, 0.12), transparent 34%),
+    linear-gradient(180deg, #fcf8f3 0%, var(--mourao-bg) 36%, var(--mourao-bg-deep) 100%);
 }
 
 img {
@@ -134,15 +136,16 @@ textarea {
   top: 0;
   z-index: 30;
   backdrop-filter: blur(18px);
-  background: rgba(246, 241, 235, 0.9);
+  background: rgba(250, 245, 239, 0.9);
   border-bottom: 1px solid rgba(84, 58, 40, 0.08);
+  box-shadow: 0 10px 26px rgba(100, 71, 47, 0.05);
 }
 
 .mourao-site-header__inner {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 0.9rem;
-  padding: 0.95rem 0;
+  padding: 1rem 0;
   align-items: center;
 }
 
@@ -160,23 +163,26 @@ textarea {
   height: auto;
   border-radius: 50%;
   flex: 0 0 auto;
+  border: 1px solid rgba(115, 74, 48, 0.16);
+  box-shadow: 0 10px 22px rgba(99, 70, 47, 0.12);
 }
 
 .mourao-wordmark__text-wrap {
   display: grid;
   gap: 0.15rem;
+  min-width: 0;
 }
 
 .mourao-wordmark__text {
   font-family: "Playfair Display", serif;
-  font-size: 1rem;
+  font-size: 1.02rem;
   letter-spacing: -0.02em;
 }
 
 .mourao-wordmark__sub {
   color: var(--mourao-text-soft);
   font-size: 0.68rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
@@ -202,10 +208,25 @@ textarea {
 
 .mourao-header-nav__link,
 .mourao-header-link {
+  position: relative;
   color: rgba(61, 43, 33, 0.78);
   font-size: 0.88rem;
   white-space: nowrap;
   transition: color var(--mourao-transition);
+}
+
+.mourao-header-nav__link::after,
+.mourao-header-link::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -0.28rem;
+  left: 0;
+  height: 1px;
+  background: rgba(115, 74, 48, 0.34);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--mourao-transition);
 }
 
 .mourao-header-nav__link:hover,
@@ -213,6 +234,13 @@ textarea {
 .mourao-header-link:hover,
 .mourao-header-link:focus-visible {
   color: var(--mourao-accent-deep);
+}
+
+.mourao-header-nav__link:hover::after,
+.mourao-header-nav__link:focus-visible::after,
+.mourao-header-link:hover::after,
+.mourao-header-link:focus-visible::after {
+  transform: scaleX(1);
 }
 
 .mourao-header-meta {
@@ -304,17 +332,18 @@ textarea {
   justify-content: center;
   min-height: 3.2rem;
   padding: 0.95rem 1.45rem;
-  border: 1px solid rgba(119, 85, 58, 0.08);
+  border: 1px solid rgba(119, 85, 58, 0.1);
   border-radius: var(--mourao-radius-pill);
-  background: linear-gradient(180deg, #9f7656 0%, #82583a 100%);
+  background: linear-gradient(180deg, #a57652 0%, #835639 100%);
   color: #fff8f1;
   font-size: 0.95rem;
   font-weight: 600;
+  letter-spacing: -0.01em;
   transition:
     transform var(--mourao-transition),
     box-shadow var(--mourao-transition),
     background var(--mourao-transition);
-  box-shadow: 0 16px 32px rgba(103, 73, 47, 0.14);
+  box-shadow: 0 16px 32px rgba(103, 73, 47, 0.16);
 }
 
 .mourao-button:hover,
@@ -324,15 +353,15 @@ textarea {
 }
 
 .mourao-button--ghost {
-  background: rgba(250, 246, 241, 0.9);
+  background: rgba(255, 250, 245, 0.78);
   color: var(--mourao-text);
-  border-color: rgba(119, 85, 58, 0.14);
-  box-shadow: none;
+  border-color: rgba(119, 85, 58, 0.12);
+  box-shadow: var(--mourao-shadow-soft);
 }
 
 .mourao-button--ghost:hover,
 .mourao-button--ghost:focus-visible {
-  background: rgba(237, 225, 212, 0.92);
+  background: rgba(243, 232, 220, 0.94);
 }
 
 .mourao-button--full {
@@ -379,7 +408,7 @@ textarea {
   padding: 0.5rem 0.8rem;
   border: 1px solid rgba(84, 58, 40, 0.12);
   border-radius: var(--mourao-radius-pill);
-  background: rgba(250, 246, 241, 0.85);
+  background: rgba(255, 250, 245, 0.86);
   color: rgba(61, 43, 33, 0.8);
   font-size: 0.74rem;
   font-weight: 700;
@@ -430,8 +459,8 @@ textarea {
 
 .mourao-hero__content {
   display: grid;
-  gap: 1.25rem;
-  max-width: 39rem;
+  gap: 1.35rem;
+  max-width: 37rem;
 }
 
 .mourao-hero__text {
@@ -461,7 +490,8 @@ textarea {
   padding: 0.9rem 1rem;
   border: 1px solid rgba(84, 58, 40, 0.1);
   border-radius: var(--mourao-radius-pill);
-  background: rgba(250, 246, 241, 0.7);
+  background: linear-gradient(180deg, rgba(255, 250, 245, 0.84) 0%, rgba(245, 236, 226, 0.74) 100%);
+  box-shadow: var(--mourao-shadow-soft);
   font-size: 0.89rem;
   font-weight: 500;
 }
@@ -499,8 +529,8 @@ textarea {
   gap: 1rem;
   width: 100%;
   max-width: 29.5rem;
-  padding: 1rem;
-  background: linear-gradient(180deg, rgba(249, 245, 240, 0.96) 0%, rgba(234, 220, 205, 0.94) 100%);
+  padding: 1.1rem;
+  background: linear-gradient(180deg, rgba(252, 248, 244, 0.98) 0%, rgba(235, 221, 206, 0.96) 100%);
 }
 
 .mourao-hero__product-visual,
@@ -514,7 +544,8 @@ textarea {
   border-radius: calc(var(--mourao-radius-xl) - 0.3rem);
   background:
     radial-gradient(circle at 50% 34%, rgba(255, 250, 245, 0.68) 0%, rgba(235, 221, 204, 0.22) 26%, transparent 48%),
-    linear-gradient(180deg, rgba(237, 223, 207, 0.98) 0%, rgba(223, 198, 172, 0.92) 100%);
+    repeating-radial-gradient(circle at 50% 54%, rgba(144, 103, 71, 0.035) 0 2px, transparent 2px 20px),
+    linear-gradient(180deg, rgba(241, 228, 213, 0.98) 0%, rgba(222, 196, 170, 0.92) 100%);
   overflow: hidden;
 }
 
@@ -535,12 +566,12 @@ textarea {
 .mourao-gallery__hero-logo {
   position: relative;
   z-index: 1;
-  width: min(66%, 15.5rem);
+  width: min(70%, 16rem);
   max-height: 100%;
   object-fit: contain;
   border-radius: 50%;
-  box-shadow: 0 24px 40px rgba(71, 48, 30, 0.18);
-  filter: saturate(1.02) contrast(1.02);
+  box-shadow: 0 26px 42px rgba(71, 48, 30, 0.2);
+  filter: saturate(1.04) contrast(1.04);
 }
 
 .mourao-hero__note {
@@ -548,7 +579,8 @@ textarea {
   gap: 0.75rem;
   padding: 1.1rem;
   border-radius: calc(var(--mourao-radius-xl) - 0.45rem);
-  background: rgba(255, 250, 245, 0.74);
+  background: linear-gradient(180deg, rgba(255, 250, 245, 0.86) 0%, rgba(245, 236, 226, 0.74) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .mourao-hero__note-title {
@@ -559,6 +591,11 @@ textarea {
 .mourao-trust-bar {
   display: grid;
   gap: 0.85rem;
+  padding: 1rem;
+  border: 1px solid var(--mourao-border);
+  border-radius: calc(var(--mourao-radius-xl) + 0.2rem);
+  background: rgba(255, 250, 245, 0.6);
+  box-shadow: var(--mourao-shadow-soft);
 }
 
 .mourao-trust-bar__item {
@@ -566,9 +603,9 @@ textarea {
   align-items: center;
   gap: 0.85rem;
   padding: 1rem 1.05rem;
-  border: 1px solid rgba(84, 58, 40, 0.1);
-  border-radius: var(--mourao-radius-pill);
-  background: rgba(250, 246, 241, 0.7);
+  border: 1px solid rgba(84, 58, 40, 0.08);
+  border-radius: calc(var(--mourao-radius-pill) - 2px);
+  background: rgba(255, 250, 245, 0.56);
   font-size: 0.95rem;
   font-weight: 500;
 }
@@ -584,18 +621,29 @@ textarea {
 
 .mourao-product-list {
   display: grid;
-  gap: 1rem;
+  gap: 1.1rem;
 }
 
 .mourao-product-card {
   display: grid;
   gap: 1rem;
-  padding: 1rem;
+  padding: 1.1rem;
   min-height: 100%;
   border: 1px solid var(--mourao-border);
   border-radius: var(--mourao-radius-xl);
-  background: rgba(250, 246, 241, 0.8);
+  background: rgba(255, 250, 245, 0.76);
   box-shadow: 0 18px 44px rgba(82, 58, 38, 0.08);
+  transition:
+    transform var(--mourao-transition),
+    box-shadow var(--mourao-transition),
+    border-color var(--mourao-transition);
+}
+
+.mourao-product-card:hover,
+.mourao-product-card:focus-within {
+  transform: translateY(-4px);
+  border-color: rgba(115, 74, 48, 0.16);
+  box-shadow: 0 24px 50px rgba(82, 58, 38, 0.12);
 }
 
 .mourao-product-card__media {
@@ -613,6 +661,17 @@ textarea {
   background:
     radial-gradient(circle at 50% 30%, rgba(255, 251, 247, 0.76) 0%, rgba(255, 251, 247, 0.12) 48%, transparent 49%),
     linear-gradient(180deg, rgba(242, 228, 212, 0.96) 0%, rgba(223, 194, 166, 0.92) 100%);
+}
+
+.mourao-product-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 13% 20%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 249, 241, 0.26) 0%, transparent 56%),
+    repeating-radial-gradient(circle at 50% 50%, rgba(140, 103, 71, 0.06) 0 1px, transparent 1px 14px);
+  opacity: 0.7;
 }
 
 .mourao-product-card__media--2::before {
@@ -636,7 +695,7 @@ textarea {
 .mourao-product-card__jar {
   position: absolute;
   inset: auto 22% 12%;
-  height: 6rem;
+  height: 6.4rem;
   border-radius: 2rem 2rem 1.2rem 1.2rem;
   background: linear-gradient(180deg, rgba(255, 252, 249, 0.9) 0%, rgba(247, 236, 223, 0.94) 100%);
   box-shadow:
@@ -654,7 +713,8 @@ textarea {
 
 .mourao-product-card__body {
   display: grid;
-  gap: 0.8rem;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 0.85rem;
 }
 
 .mourao-product-card__badges {
@@ -690,6 +750,7 @@ textarea {
   gap: 1rem;
   padding: 1.35rem;
   background: linear-gradient(180deg, rgba(241, 230, 218, 0.92) 0%, rgba(231, 215, 197, 0.92) 100%);
+  box-shadow: 0 22px 50px rgba(85, 58, 36, 0.09);
 }
 
 .mourao-story-card__lead {
@@ -738,8 +799,14 @@ textarea {
 .mourao-faq-item {
   border: 1px solid rgba(84, 58, 40, 0.12);
   border-radius: var(--mourao-radius-lg);
-  background: rgba(250, 246, 241, 0.78);
+  background: rgba(255, 250, 245, 0.76);
   box-shadow: 0 14px 36px rgba(82, 58, 38, 0.06);
+}
+
+.mourao-ingredient-row[open],
+.mourao-faq-item[open] {
+  border-color: rgba(115, 74, 48, 0.18);
+  box-shadow: 0 18px 38px rgba(82, 58, 38, 0.09);
 }
 
 .mourao-ingredient-row__summary,
@@ -875,6 +942,18 @@ textarea {
   display: grid;
   gap: 1rem;
   padding: 1.4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.mourao-review-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 1.4rem;
+  left: 1.4rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(115, 74, 48, 0), rgba(115, 74, 48, 0.18), rgba(115, 74, 48, 0));
 }
 
 .mourao-review-card__quote {
@@ -937,6 +1016,7 @@ textarea {
 
 .mourao-site-footer {
   padding: 3.5rem 0 2rem;
+  background: linear-gradient(180deg, rgba(243, 234, 224, 0) 0%, rgba(238, 226, 212, 0.42) 100%);
 }
 
 .mourao-site-footer__top {
@@ -995,7 +1075,7 @@ textarea {
 
 .mourao-gallery__main,
 .mourao-product-box {
-  padding: 1rem;
+  padding: 1.15rem;
 }
 
 .mourao-gallery {
@@ -1025,18 +1105,33 @@ textarea {
   padding: 0.85rem;
   border: 1px solid rgba(84, 58, 40, 0.12);
   border-radius: var(--mourao-radius-lg);
-  background: rgba(250, 246, 241, 0.78);
+  background: rgba(255, 250, 245, 0.78);
   color: rgba(61, 43, 33, 0.74);
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-align: center;
   text-transform: uppercase;
+  box-shadow: var(--mourao-shadow-soft);
+  transition:
+    transform var(--mourao-transition),
+    border-color var(--mourao-transition),
+    background var(--mourao-transition);
+}
+
+.mourao-gallery__thumb:first-child {
+  border-color: rgba(115, 74, 48, 0.2);
+  background: linear-gradient(180deg, rgba(244, 235, 226, 0.98) 0%, rgba(234, 220, 203, 0.94) 100%);
+}
+
+.mourao-gallery__thumb:hover {
+  transform: translateY(-2px);
 }
 
 .mourao-product-box {
   display: grid;
-  gap: 1rem;
+  gap: 1.1rem;
+  background: linear-gradient(180deg, rgba(255, 250, 245, 0.86) 0%, rgba(247, 240, 232, 0.84) 100%);
 }
 
 .mourao-rating {
@@ -1080,10 +1175,28 @@ textarea {
   border: 1px solid rgba(84, 58, 40, 0.12);
   border-radius: var(--mourao-radius-lg);
   background: rgba(255, 250, 245, 0.78);
+  transition:
+    transform var(--mourao-transition),
+    border-color var(--mourao-transition),
+    box-shadow var(--mourao-transition);
+}
+
+.mourao-option:first-child {
+  border-color: rgba(115, 74, 48, 0.22);
+  background: linear-gradient(180deg, rgba(245, 236, 226, 0.96) 0%, rgba(236, 223, 207, 0.88) 100%);
+  box-shadow: var(--mourao-shadow-soft);
+}
+
+.mourao-option:hover {
+  transform: translateY(-1px);
 }
 
 .mourao-option strong {
   font-size: 0.98rem;
+}
+
+.mourao-option--size strong {
+  font-size: 1.05rem;
 }
 
 .mourao-product-notes {
@@ -1104,7 +1217,8 @@ textarea {
   padding: 1.2rem 1rem;
   border: 1px solid rgba(84, 58, 40, 0.1);
   border-radius: var(--mourao-radius-lg);
-  background: rgba(250, 246, 241, 0.78);
+  background: linear-gradient(180deg, rgba(255, 250, 245, 0.82) 0%, rgba(245, 236, 226, 0.7) 100%);
+  box-shadow: var(--mourao-shadow-soft);
 }
 
 .mourao-proof-card strong {
@@ -1117,6 +1231,7 @@ textarea {
   display: grid;
   gap: 0.7rem;
   padding: 1.25rem;
+  background: linear-gradient(180deg, rgba(255, 250, 245, 0.82) 0%, rgba(245, 236, 226, 0.7) 100%);
 }
 
 .mourao-detail-card h3 {
@@ -1125,8 +1240,31 @@ textarea {
 }
 
 .mourao-faq-item summary {
-  padding: 1rem 1.15rem;
+  position: relative;
+  padding: 1rem 4rem 1rem 1.15rem;
   font-weight: 600;
+}
+
+.mourao-faq-item summary::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: 1.15rem;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(84, 58, 40, 0.12);
+  border-radius: 50%;
+  background: rgba(255, 250, 245, 0.86);
+  color: rgba(61, 43, 33, 0.72);
+  font-size: 1.2rem;
+  font-weight: 400;
+  transform: translateY(-50%);
+}
+
+.mourao-faq-item[open] summary::after {
+  content: "-";
 }
 
 .mourao-faq-item__content {
@@ -1200,6 +1338,10 @@ textarea {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .mourao-option-list--sizes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .mourao-cta-panel {
     grid-template-columns: minmax(0, 1fr) auto;
   }
@@ -1228,7 +1370,10 @@ textarea {
     grid-column: auto;
     justify-content: flex-start;
     overflow: visible;
+    margin-top: 0;
+    padding-top: 0;
     padding-bottom: 0;
+    border-top: 0;
   }
 
   .mourao-wordmark {
@@ -1329,11 +1474,16 @@ textarea {
   }
 
   .mourao-gallery__hero-logo {
-    width: min(70%, 17rem);
+    width: min(72%, 17.5rem);
   }
 
   .mourao-hero__note {
     padding: 1.2rem 1.25rem;
+  }
+
+  .mourao-product-box {
+    position: sticky;
+    top: 6.6rem;
   }
 }
 
@@ -1394,7 +1544,7 @@ textarea {
 
   .mourao-hero__logo,
   .mourao-gallery__hero-logo {
-    width: min(72%, 12.5rem);
+    width: min(76%, 13rem);
   }
 
   .mourao-product-card__media {
