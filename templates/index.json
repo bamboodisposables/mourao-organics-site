@@ -4,13 +4,14 @@
       "type": "mourao-hero",
       "settings": {
         "eyebrow": "MOURÃO Organics",
-        "heading": "Natuurlijke verzorging voor elke dag",
-        "subheading": "Pure, handgemaakte verzorgingsproducten met natuurlijke ingrediënten. Zacht voor je huid, eenvoudig in gebruik.",
-        "button_label": "Bekijk producten",
+        "heading": "Eerlijke verzorging voor een huid die rust zoekt",
+        "subheading": "Handgemaakte skincare met pure ingrediënten, zachte texturen en een aardse, toegankelijke benadering van dagelijkse verzorging.",
+        "button_label": "Bekijk collectie",
         "button_link": "shopify://collections/all",
-        "highlight_one": "Handgemaakt",
-        "highlight_two": "Pure ingrediënten",
-        "highlight_three": "Dagelijkse zachtheid"
+        "secondary_label": "Lees ons verhaal",
+        "highlight_one": "Handgemaakt in Nederland",
+        "highlight_two": "Gratis verzending vanaf €50",
+        "highlight_three": "30 dagen rustig proberen"
       }
     },
     "trust_bar": {
@@ -19,25 +20,25 @@
         "claim_1": {
           "type": "claim",
           "settings": {
-            "text": "100% natuurlijke ingrediënten"
+            "text": "Kleine batches met aandacht"
           }
         },
         "claim_2": {
           "type": "claim",
           "settings": {
-            "text": "Handgemaakt in kleine batches"
+            "text": "Gratis verzending vanaf €50"
           }
         },
         "claim_3": {
           "type": "claim",
           "settings": {
-            "text": "Zacht voor gevoelige huid"
+            "text": "Support door echte mensen"
           }
         },
         "claim_4": {
           "type": "claim",
           "settings": {
-            "text": "Zonder onnodige toevoegingen"
+            "text": "Rustige formules zonder overdaad"
           }
         }
       },
@@ -51,15 +52,17 @@
     "categories": {
       "type": "mourao-category-grid",
       "settings": {
-        "eyebrow": "Ontdek de collectie",
-        "title": "Verzorging voor iedere routine"
+        "eyebrow": "Onze collectie",
+        "title": "Drie richtingen, één rustige basis"
       },
       "blocks": {
         "product_1": {
           "type": "product",
           "settings": {
-            "title": "Gezichtscrème",
-            "description": "Dagelijkse hydratatie die je huid zacht en comfortabel laat aanvoelen.",
+            "title": "Tallowcrème",
+            "description": "Rijke dagelijkse balm voor huid die voeding, rust en een eenvoudige basis nodig heeft.",
+            "badge": "Bestseller",
+            "meta": "Vanaf €29",
             "button_label": "Bekijk product",
             "button_link": "shopify://collections/all"
           }
@@ -67,8 +70,10 @@
         "product_2": {
           "type": "product",
           "settings": {
-            "title": "Lipbalm",
-            "description": "Voedt droge lippen en geeft een soepel, verzorgd gevoel.",
+            "title": "Gezichtscrème",
+            "description": "Zachte crème voor dagelijks comfort, met een lichte finish die prettig blijft aanvoelen.",
+            "badge": "Dagelijkse favoriet",
+            "meta": "Vanaf €24",
             "button_label": "Bekijk product",
             "button_link": "shopify://collections/all"
           }
@@ -76,8 +81,10 @@
         "product_3": {
           "type": "product",
           "settings": {
-            "title": "Bodylotion",
-            "description": "Lichte dagelijkse verzorging met een zachte, natuurlijke finish.",
+            "title": "Calming Skin Balm",
+            "description": "Voor zones die sneller uit balans raken en iets meer aandacht en zachtheid kunnen gebruiken.",
+            "badge": "Kalmerende keuze",
+            "meta": "Vanaf €27",
             "button_label": "Bekijk product",
             "button_link": "shopify://collections/all"
           }
@@ -85,8 +92,10 @@
         "product_4": {
           "type": "product",
           "settings": {
-            "title": "Handcrème",
-            "description": "Beschermt en verzacht handen zonder zwaar aan te voelen.",
+            "title": "Bodylotion",
+            "description": "Een toegankelijke bodyverzorging voor dagelijks gebruik, zonder zware of plakkerige finish.",
+            "badge": "Everyday essential",
+            "meta": "Vanaf €22",
             "button_label": "Bekijk product",
             "button_link": "shopify://collections/all"
           }
@@ -94,8 +103,10 @@
         "product_5": {
           "type": "product",
           "settings": {
-            "title": "Tallowcrème",
-            "description": "Rijke verzorging voor een rustige, gevoede huidbarrière.",
+            "title": "Handcrème",
+            "description": "Beschermende handverzorging voor momenten waarop je huid net wat sneller droog of trekkerig wordt.",
+            "badge": "Voor onderweg",
+            "meta": "Vanaf €16",
             "button_label": "Bekijk product",
             "button_link": "shopify://collections/all"
           }
@@ -103,8 +114,10 @@
         "product_6": {
           "type": "product",
           "settings": {
-            "title": "Calming Skin Balm",
-            "description": "Zachte balm voor plekken die extra comfort en aandacht nodig hebben.",
+            "title": "Lipbalm",
+            "description": "Een zachte balsem voor droge lippen, met een natuurlijke feel en een eenvoudige samenstelling.",
+            "badge": "Kleine essential",
+            "meta": "Vanaf €12",
             "button_label": "Bekijk product",
             "button_link": "shopify://collections/all"
           }
@@ -123,46 +136,46 @@
       "type": "mourao-brand-story",
       "settings": {
         "eyebrow": "Ons verhaal",
-        "title": "Eenvoudige verzorging, gemaakt met aandacht",
-        "text": "MOURÃO Organics maakt verzorgingsproducten met pure ingrediënten en eenvoudige formules. Geen overbodige toevoegingen, maar zachte producten die passen in je dagelijkse routine.",
-        "value_one": "Pure ingrediënten",
-        "value_two": "Kleine batches",
-        "value_three": "Eenvoudige routine"
+        "title": "Home made, rustig opgebouwd",
+        "text": "MOURÃO Organics maakt verzorgingsproducten vanuit een simpele gedachte: je huid hoeft niet overspoeld te worden om goed verzorgd te voelen. Daarom kiezen we voor kleine batches, herkenbare ingrediënten en formules die zacht blijven in gebruik.",
+        "value_one": "Kleine batches",
+        "value_two": "Functionele ingrediënten",
+        "value_three": "Zachte dagelijkse verzorging"
       }
     },
     "ingredients": {
       "type": "mourao-ingredient-highlights",
       "settings": {
-        "eyebrow": "Wat erin zit",
-        "title": "Ingrediënten die je huid begrijpen"
+        "eyebrow": "Waarom Mourão",
+        "title": "Ingrediënten die zacht blijven werken"
       },
       "blocks": {
         "ingredient_1": {
           "type": "ingredient",
           "settings": {
             "title": "Shea butter",
-            "text": "Geeft rijke, zachte verzorging en helpt droogte comfortabel aan te laten voelen."
+            "text": "Geeft een zachte, rijke basis en helpt droge huid comfortabeler en soepeler te laten aanvoelen."
           }
         },
         "ingredient_2": {
           "type": "ingredient",
           "settings": {
             "title": "Tallow",
-            "text": "Bekend om zijn voedende karakter en de volle textuur die de huid omhult."
+            "text": "Brengt een volle, voedende textuur die prettig voelt op huid die snel trekkerig of droog wordt."
           }
         },
         "ingredient_3": {
           "type": "ingredient",
           "settings": {
             "title": "Bijenwas",
-            "text": "Helpt formules zachter aan te brengen en geeft een beschermend, soepel laagje."
+            "text": "Geeft body aan de formule en helpt de balm rustig over de huid te verdelen."
           }
         },
         "ingredient_4": {
           "type": "ingredient",
           "settings": {
             "title": "Natuurlijke oliën",
-            "text": "Ondersteunen dagelijkse verzorging met milde, huidvriendelijke voeding."
+            "text": "Ondersteunen de formule met milde voeding en een zachter huidgevoel zonder onnodige drukte."
           }
         }
       },
@@ -176,34 +189,40 @@
     "bestsellers": {
       "type": "mourao-bestsellers",
       "settings": {
-        "eyebrow": "Bestsellers",
-        "title": "Favorieten die steeds terugkomen"
+        "eyebrow": "Best bekeken",
+        "title": "Waar mensen mee beginnen"
       },
       "blocks": {
         "bestseller_1": {
           "type": "product",
           "settings": {
-            "title": "Tallowcrème",
-            "description": "Rijke favoriet voor droge of trekkerige huid die rust zoekt.",
-            "button_label": "Bekijk favoriet",
+            "title": "Tallowcrème Original",
+            "description": "Voor wie de meest pure basis zoekt, zonder extra geur of onnodige toevoegingen.",
+            "badge": "Meest gekozen",
+            "meta": "120 ml • €39",
+            "button_label": "Bekijk variant",
             "button_link": "shopify://collections/all"
           }
         },
         "bestseller_2": {
           "type": "product",
           "settings": {
-            "title": "Gezichtscrème",
-            "description": "Een zachte allrounder voor dagelijkse hydratatie en comfort.",
-            "button_label": "Bekijk favoriet",
+            "title": "Tallowcrème Calming",
+            "description": "Een zachtere richting voor huid die sneller uit balans raakt en extra comfort nodig heeft.",
+            "badge": "Voor gevoelige huid",
+            "meta": "120 ml • €44",
+            "button_label": "Bekijk variant",
             "button_link": "shopify://collections/all"
           }
         },
         "bestseller_3": {
           "type": "product",
           "settings": {
-            "title": "Calming Skin Balm",
-            "description": "Plaatselijke verzorging wanneer je huid iets extra’s kan gebruiken.",
-            "button_label": "Bekijk favoriet",
+            "title": "Gezichtscrème Daily",
+            "description": "Een lichte, dagelijkse stap voor wie vooral zachtheid en eenvoud in een routine zoekt.",
+            "badge": "Dagelijkse routine",
+            "meta": "50 ml • €24",
+            "button_label": "Bekijk variant",
             "button_link": "shopify://collections/all"
           }
         }
@@ -217,28 +236,31 @@
     "reviews": {
       "type": "mourao-reviews",
       "settings": {
-        "title": "Geliefd door bewuste huidverzorgers"
+        "title": "Mensen blijven terugkomen voor de rust"
       },
       "blocks": {
         "review_1": {
           "type": "review",
           "settings": {
             "author": "Sanne",
-            "text": "Zachte textuur, eenvoudige routine en precies het soort verzorging dat ik dagelijks wil gebruiken."
+            "context": "Droge, gevoelige huid",
+            "text": "Mijn huid voelt minder trekkerig en veel rustiger aan. Vooral fijn dat het product rijk is, maar toch niet zwaar of ingewikkeld voelt."
           }
         },
         "review_2": {
           "type": "review",
           "settings": {
             "author": "Lotte",
-            "text": "Voelt puur en eerlijk aan. Mijn huid reageert er rustig op en dat geeft vertrouwen."
+            "context": "Dagelijkse gezichtsverzorging",
+            "text": "Ik zocht iets eenvoudigs dat ik echt elke dag wilde gebruiken. Mourão voelt zacht, eerlijk en verrassend makkelijk in mijn routine."
           }
         },
         "review_3": {
           "type": "review",
           "settings": {
             "author": "Marieke",
-            "text": "Fijn dat de producten simpel zijn, zonder onnodige toevoegingen of ingewikkelde stappen."
+            "context": "Reactieve huid",
+            "text": "Wat ik prettig vind is de rust van de formule. Geen drukke geur, geen overdaad, alleen een verzorgd huidgevoel dat stabiel blijft."
           }
         }
       },
@@ -248,11 +270,20 @@
         "review_3"
       ]
     },
+    "newsletter": {
+      "type": "mourao-newsletter",
+      "settings": {
+        "eyebrow": "Blijf dichtbij",
+        "title": "Nieuwe batches, rustige lanceringen en eerlijke updates",
+        "text": "Schrijf je in en ontvang als eerste nieuws over kleine productdrops, nieuwe formules en praktische tips voor eenvoudige verzorging.",
+        "button_label": "Inschrijven"
+      }
+    },
     "final_cta": {
       "type": "mourao-final-cta",
       "settings": {
-        "title": "Geef je huid natuurlijke verzorging",
-        "button_label": "Ontdek collectie",
+        "title": "Geef je huid een rustige basis",
+        "button_label": "Bekijk collectie",
         "button_link": "shopify://collections/all"
       }
     }
@@ -265,6 +296,7 @@
     "ingredients",
     "bestsellers",
     "reviews",
+    "newsletter",
     "final_cta"
   ]
 }

@@ -6,16 +6,28 @@
   assign card_index = accent_index | default: 0
   assign card_variant = card_index | modulo: 4 | plus: 1
   assign card_eyebrow = eyebrow | default: 'Dagelijkse verzorging'
+  assign card_meta = meta | default: ''
 %}
 
 <article class="mourao-product-card mourao-reveal" style="--animation-order: {{ card_index }};">
-  <div class="mourao-product-card__visual mourao-product-card__visual--{{ card_variant }}" aria-hidden="true"></div>
+  <div class="mourao-product-card__media mourao-product-card__media--{{ card_variant }}" aria-hidden="true">
+    <div class="mourao-product-card__jar"></div>
+  </div>
+
   <div class="mourao-product-card__body">
-    <p class="mourao-product-card__eyebrow">{{ card_eyebrow }}</p>
+    <div class="mourao-product-card__badges">
+      <span class="mourao-pill">{{ card_eyebrow }}</span>
+      {% if card_meta != blank %}
+        <span class="mourao-product-card__meta">{{ card_meta }}</span>
+      {% endif %}
+    </div>
+
     <h3 class="mourao-product-card__title">{{ card_title }}</h3>
+
     {% if card_description != blank %}
       <p class="mourao-product-card__text">{{ card_description }}</p>
     {% endif %}
+
+    <a class="mourao-inline-link" href="{{ card_button_link }}">{{ card_button_label }}</a>
   </div>
-  <a class="mourao-inline-link" href="{{ card_button_link }}">{{ card_button_label }}</a>
 </article>

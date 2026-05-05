@@ -1,0 +1,316 @@
+<section class="mourao-section mourao-section--spacious mourao-product-page">
+  <div class="page-width">
+    <div class="mourao-product-layout">
+      <div class="mourao-gallery mourao-reveal" style="--animation-order: 1;">
+        <div class="mourao-gallery__main">
+          <div class="mourao-gallery__hero">
+            <div class="mourao-gallery__hero-glow"></div>
+            <img
+              class="mourao-gallery__hero-logo"
+              src="{{ 'mourao-logo.png' | asset_url }}"
+              alt="MOURÃO Organics logo"
+              width="1254"
+              height="1254"
+              loading="eager"
+            >
+          </div>
+          <p class="mourao-gallery__caption">Kleine batch, zachte textuur, pure basis.</p>
+        </div>
+
+        <div class="mourao-gallery__thumbs" aria-hidden="true">
+          <span class="mourao-gallery__thumb">Original</span>
+          <span class="mourao-gallery__thumb">Calming</span>
+          <span class="mourao-gallery__thumb">Sensitive</span>
+          <span class="mourao-gallery__thumb">Starter size</span>
+        </div>
+      </div>
+
+      <div class="mourao-product-box mourao-reveal" style="--animation-order: 2;">
+        <div class="mourao-rating">
+          <span class="mourao-stars" aria-hidden="true">★★★★★</span>
+          <span>{{ section.settings.rating_text }}</span>
+        </div>
+
+        <p class="mourao-eyebrow">{{ section.settings.eyebrow }}</p>
+        <h1 class="mourao-product-title">{{ section.settings.title }}</h1>
+        <p class="mourao-product-lead">{{ section.settings.subtitle }}</p>
+
+        <ul class="mourao-bullet-list mourao-bullet-list--compact">
+          {% for block in section.blocks %}
+            {% if block.type == 'benefit' %}
+              <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+        <div class="mourao-option-group">
+          <p class="mourao-option-group__label">Kies je formule</p>
+          <div class="mourao-option-list">
+            {% for block in section.blocks %}
+              {% if block.type == 'formula' %}
+                <div class="mourao-option" {{ block.shopify_attributes }}>
+                  <strong>{{ block.settings.title }}</strong>
+                  <span>{{ block.settings.text }}</span>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="mourao-option-group">
+          <p class="mourao-option-group__label">Kies je formaat</p>
+          <div class="mourao-option-list mourao-option-list--sizes">
+            {% for block in section.blocks %}
+              {% if block.type == 'size' %}
+                <div class="mourao-option mourao-option--size" {{ block.shopify_attributes }}>
+                  <strong>{{ block.settings.title }}</strong>
+                  <span>{{ block.settings.text }}</span>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <a class="mourao-button mourao-button--full" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
+          {{ section.settings.button_label }}
+        </a>
+
+        <div class="mourao-product-notes">
+          <p>{{ section.settings.shipping_note }}</p>
+          <p>{{ section.settings.stock_note }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mourao-proof-strip">
+      <div class="mourao-proof-card">
+        <strong>12.000+</strong>
+        <span>potjes met zorg gemaakt</span>
+      </div>
+      <div class="mourao-proof-card">
+        <strong>4.8/5</strong>
+        <span>op zachte, eerlijke verzorging</span>
+      </div>
+      <div class="mourao-proof-card">
+        <strong>Kleine batch</strong>
+        <span>meer controle op textuur en kwaliteit</span>
+      </div>
+    </div>
+
+    <div class="mourao-section-header">
+      <p class="mourao-eyebrow">Niet uit een fabriek</p>
+      <h2 class="mourao-section-title">Waarom deze balm prettig voelt in gebruik</h2>
+      <p class="mourao-section-copy">De basis is rijk en voedend, maar de formule blijft helder: alleen ingrediënten die bijdragen aan zachtheid, comfort en een rustige huidbeleving.</p>
+    </div>
+
+    <div class="mourao-detail-grid">
+      <article class="mourao-detail-card">
+        <h3>Écht natuurlijk</h3>
+        <p>Geen overbodige geurstoffen, geen drukke mix van toevoegingen. Alleen ingrediënten die functioneel aanvoelen.</p>
+      </article>
+      <article class="mourao-detail-card">
+        <h3>Trekt rustig in</h3>
+        <p>Rijk genoeg voor droge zones, maar bedoeld om comfortabel te dragen in je dagelijkse routine.</p>
+      </article>
+      <article class="mourao-detail-card">
+        <h3>Met de hand gemaakt</h3>
+        <p>Iedere batch wordt klein gehouden zodat textuur, consistentie en afwerking dicht bij het product blijven.</p>
+      </article>
+      <article class="mourao-detail-card">
+        <h3>Voor gevoelige momenten</h3>
+        <p>Ontworpen voor huid die vooral rust, voeding en een eenvoudige benadering nodig heeft.</p>
+      </article>
+    </div>
+
+    <div class="mourao-section-header" id="faq">
+      <p class="mourao-eyebrow">Veelgestelde vragen</p>
+      <h2 class="mourao-section-title">Alles wat je wilt weten, zonder kleine lettertjes</h2>
+    </div>
+
+    {% assign first_faq_open = true %}
+    <div class="mourao-faq-list">
+      {% for block in section.blocks %}
+        {% if block.type == 'faq' %}
+          <details class="mourao-faq-item" {% if first_faq_open %}open{% endif %} {{ block.shopify_attributes }}>
+            <summary>{{ block.settings.title }}</summary>
+            <div class="mourao-faq-item__content">
+              <p>{{ block.settings.text }}</p>
+            </div>
+          </details>
+          {% assign first_faq_open = false %}
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="mourao-section-header">
+      <p class="mourao-eyebrow">Klanten aan het woord</p>
+      <h2 class="mourao-section-title">Rustige verzorging wordt meestal ook zo omschreven</h2>
+      <p class="mourao-section-copy">Geen medische claims. Wel reacties van mensen die vooral zachtheid, comfort en eenvoud ervaren in dagelijks gebruik.</p>
+    </div>
+
+    <div class="mourao-grid mourao-grid--reviews">
+      {% for block in section.blocks %}
+        {% if block.type == 'testimonial' %}
+          {% render 'mourao-review-card',
+            author: block.settings.author,
+            context: block.settings.context,
+            text: block.settings.text,
+            accent_index: forloop.index
+          %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Mourao product main",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "MOURÃO balm"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Tallowcrème voor een rustige, gevoede huid"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Een volle maar toegankelijke balm voor droge, gevoelige of snel reagerende huid. Handgemaakt met een pure basis en zonder onnodige poespas."
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Rating text",
+      "default": "4.8/5 door klanten die zachtheid en eenvoud zoeken"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Voeg toe aan routine"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "shipping_note",
+      "label": "Shipping note",
+      "default": "Voor 21:00 besteld = meestal dezelfde dag verwerkt | Gratis verzending vanaf €50"
+    },
+    {
+      "type": "text",
+      "id": "stock_note",
+      "label": "Stock note",
+      "default": "Kleine batches betekenen ook beperkte voorraad. Populaire varianten kunnen sneller uitverkopen."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Voedende tallowbasis voor droge of gevoelige huid"
+        }
+      ]
+    },
+    {
+      "type": "formula",
+      "name": "Formula",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Original"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "De puurste basis, zonder extra geur of drukke toevoegingen."
+        }
+      ]
+    },
+    {
+      "type": "size",
+      "name": "Size",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "120 ml"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Meest gekozen • €39"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Hoe gebruik ik deze balm?"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Gebruik een kleine hoeveelheid op een schone, droge huid. Warm kort op tussen je vingers en masseer rustig in."
+        }
+      ]
+    },
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "Sanne"
+        },
+        {
+          "type": "text",
+          "id": "context",
+          "label": "Context",
+          "default": "Droge, gevoelige huid"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Mijn huid voelt minder trekkerig en veel rustiger aan. Vooral fijn dat het zo simpel blijft."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mourao product main"
+    }
+  ]
+}
+{% endschema %}

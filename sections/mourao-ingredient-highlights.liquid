@@ -1,11 +1,11 @@
-<section id="ingredienten" class="mourao-section mourao-section--spacious mourao-ingredient-section">
+<section id="waarom" class="mourao-section mourao-section--spacious mourao-ingredient-section">
   <div class="page-width">
     <div class="mourao-section-header">
       {% if section.settings.eyebrow != blank %}
         <p class="mourao-eyebrow">{{ section.settings.eyebrow }}</p>
       {% endif %}
       <h2 class="mourao-section-title">{{ section.settings.title }}</h2>
-      <p class="mourao-section-copy">Bekende, voedende ingrediënten die bijdragen aan milde dagelijkse verzorging zonder overbodige complexiteit.</p>
+      <p class="mourao-section-copy">MOURÃO kiest voor herkenbare ingrediënten die goed samengaan met een eenvoudige routine: voedend, rustig en zonder onnodige omwegen.</p>
     </div>
 
     <div class="mourao-ingredient-list">
@@ -14,7 +14,10 @@
         <details class="mourao-ingredient-row mourao-reveal" style="--animation-order: {{ forloop.index }};" {% if forloop.first %}open{% endif %} {{ block.shopify_attributes }}>
           <summary class="mourao-ingredient-row__summary">
             <div class="mourao-ingredient-row__media mourao-ingredient-row__media--{{ ingredient_variant }}" aria-hidden="true"></div>
-            <h3 class="mourao-ingredient-row__title">{{ block.settings.title }}</h3>
+            <div class="mourao-ingredient-row__heading">
+              <h3 class="mourao-ingredient-row__title">{{ block.settings.title }}</h3>
+              <p class="mourao-ingredient-row__kicker">Ingrediënt in focus</p>
+            </div>
             <span class="mourao-ingredient-row__toggle" aria-hidden="true"></span>
           </summary>
           <div class="mourao-ingredient-row__content">
@@ -34,13 +37,13 @@
       "type": "text",
       "id": "eyebrow",
       "label": "Eyebrow",
-      "default": "Wat erin zit"
+      "default": "Waarom Mourão"
     },
     {
       "type": "text",
       "id": "title",
       "label": "Title",
-      "default": "Ingrediënten die je huid begrijpen"
+      "default": "Ingrediënten die zacht blijven werken"
     }
   ],
   "blocks": [

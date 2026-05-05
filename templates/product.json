@@ -1,0 +1,143 @@
+{
+  "sections": {
+    "main": {
+      "type": "mourao-product-main",
+      "settings": {
+        "eyebrow": "MOURÃO balm",
+        "title": "Tallowcrème voor een rustige, gevoede huid",
+        "subtitle": "Een volle maar toegankelijke balm voor droge, gevoelige of snel reagerende huid. Handgemaakt met een pure basis en zonder onnodige poespas.",
+        "rating_text": "4.8/5 door klanten die zachtheid en eenvoud zoeken",
+        "button_label": "Voeg toe aan routine",
+        "button_link": "shopify://collections/all",
+        "shipping_note": "Voor 21:00 besteld = meestal dezelfde dag verwerkt | Gratis verzending vanaf €50",
+        "stock_note": "Kleine batches betekenen ook beperkte voorraad. Populaire varianten kunnen sneller uitverkopen."
+      },
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "text": "Voedende tallowbasis voor droge of gevoelige huid"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "text": "Trekt rustig in zonder onnodig vettig gevoel"
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "text": "Handgemaakt in kleine batches met een heldere samenstelling"
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "text": "Ontwikkeld voor een simpele routine die zacht blijft aanvoelen"
+          }
+        },
+        "formula_1": {
+          "type": "formula",
+          "settings": {
+            "title": "Original",
+            "text": "De puurste basis, zonder extra geur of drukke toevoegingen."
+          }
+        },
+        "formula_2": {
+          "type": "formula",
+          "settings": {
+            "title": "Calming",
+            "text": "Voor huid die sneller onrustig aanvoelt en iets zachter benaderd mag worden."
+          }
+        },
+        "formula_3": {
+          "type": "formula",
+          "settings": {
+            "title": "Sensitive",
+            "text": "Een milde richting voor dagelijks gebruik wanneer comfort voorop staat."
+          }
+        },
+        "size_1": {
+          "type": "size",
+          "settings": {
+            "title": "120 ml",
+            "text": "Meest gekozen • €39"
+          }
+        },
+        "size_2": {
+          "type": "size",
+          "settings": {
+            "title": "60 ml",
+            "text": "Starter size • €29"
+          }
+        },
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "title": "Hoe gebruik ik deze balm?",
+            "text": "Gebruik een kleine hoeveelheid op een schone, droge huid. Warm kort op tussen je vingers en masseer rustig in op gezicht, handen of droge zones."
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "title": "Welke formule past het best bij mij?",
+            "text": "Original is de meest pure basis. Sensitive is bedoeld voor dagelijks comfort. Calming voelt passend voor huid die sneller uit balans raakt en meer rust zoekt."
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "title": "Hoe zit het met verzending en retour?",
+            "text": "Bestellingen worden vanuit Nederland verwerkt. Vanaf €50 verzenden we gratis. Je krijgt 30 dagen om rustig te kijken of het product in je routine past."
+          }
+        },
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Femke",
+            "context": "Reactieve huid",
+            "text": "Wat me vooral opviel is hoe rustig het product aanvoelt. Geen overdaad, wel een zachter huidgevoel en minder trekkerigheid gedurende de dag."
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Mara",
+            "context": "Onrustige, droge huid",
+            "text": "Ik merkte vooral comfort. De formule voelt vol, maar toch draagbaar. Daardoor pak ik het sneller dagelijks dan andere rijkere balms."
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Noor",
+            "context": "Gevoelige routine",
+            "text": "Fijn dat het zo simpel is. Ik hoef niet na te denken over lagen of stappen, alleen een kleine hoeveelheid en mijn huid voelt weer gevoed."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4",
+        "formula_1",
+        "formula_2",
+        "formula_3",
+        "size_1",
+        "size_2",
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

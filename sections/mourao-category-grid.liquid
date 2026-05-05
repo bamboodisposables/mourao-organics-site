@@ -1,11 +1,11 @@
-<section id="producten" class="mourao-section mourao-section--spacious">
+<section id="producten" class="mourao-section mourao-section--spacious mourao-products-section">
   <div class="page-width">
     <div class="mourao-section-header">
       {% if section.settings.eyebrow != blank %}
         <p class="mourao-eyebrow">{{ section.settings.eyebrow }}</p>
       {% endif %}
       <h2 class="mourao-section-title">{{ section.settings.title }}</h2>
-      <p class="mourao-section-copy">Van dagelijkse hydratatie tot rijke balsems voor momenten waarop je huid wat meer rust zoekt.</p>
+      <p class="mourao-section-copy">Een kleine collectie, ontworpen om dagelijks te gebruiken en prettig te blijven aanvoelen. Geen productruis, alleen zachte essentials.</p>
     </div>
 
     <div class="mourao-product-list">
@@ -16,7 +16,8 @@
             description: block.settings.description,
             button_label: block.settings.button_label,
             button_link: block.settings.button_link,
-            eyebrow: 'Dagelijkse verzorging',
+            eyebrow: block.settings.badge,
+            meta: block.settings.meta,
             accent_index: forloop.index
           %}
         </div>
@@ -37,13 +38,25 @@
           "type": "text",
           "id": "title",
           "label": "Title",
-          "default": "Gezichtscrème"
+          "default": "Tallowcrème"
         },
         {
           "type": "textarea",
           "id": "description",
           "label": "Description",
           "default": "Korte productbeschrijving."
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge",
+          "default": "Bestseller"
+        },
+        {
+          "type": "text",
+          "id": "meta",
+          "label": "Meta",
+          "default": "Vanaf €24"
         },
         {
           "type": "text",
@@ -64,13 +77,13 @@
       "type": "text",
       "id": "eyebrow",
       "label": "Eyebrow",
-      "default": "Ontdek de collectie"
+      "default": "Onze collectie"
     },
     {
       "type": "text",
       "id": "title",
       "label": "Title",
-      "default": "Verzorging voor iedere routine"
+      "default": "Verzorging die simpel blijft"
     }
   ],
   "presets": [

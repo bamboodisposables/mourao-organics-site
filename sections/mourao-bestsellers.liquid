@@ -6,7 +6,7 @@
           <p class="mourao-eyebrow">{{ section.settings.eyebrow }}</p>
         {% endif %}
         <h2 class="mourao-section-title">{{ section.settings.title }}</h2>
-        <p class="mourao-section-copy">De producten waar klanten het vaakst naar teruggrijpen voor comfort, zachtheid en een eenvoudige routine.</p>
+        <p class="mourao-section-copy">Dit zijn de favorieten waar klanten vaak mee starten: vertrouwde texturen, milde formules en producten die meteen logisch voelen.</p>
       </div>
 
       <div class="mourao-product-list">
@@ -17,7 +17,8 @@
               description: block.settings.description,
               button_label: block.settings.button_label,
               button_link: block.settings.button_link,
-              eyebrow: 'Bestseller',
+              eyebrow: block.settings.badge,
+              meta: block.settings.meta,
               accent_index: forloop.index
             %}
           </div>
@@ -35,13 +36,13 @@
       "type": "text",
       "id": "eyebrow",
       "label": "Eyebrow",
-      "default": "Bestsellers"
+      "default": "Best bekeken"
     },
     {
       "type": "text",
       "id": "title",
       "label": "Title",
-      "default": "Favorieten die steeds terugkomen"
+      "default": "Waar mensen mee beginnen"
     }
   ],
   "blocks": [
@@ -60,6 +61,18 @@
           "id": "description",
           "label": "Description",
           "default": "Korte bestsellerbeschrijving."
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge",
+          "default": "Meest gekozen"
+        },
+        {
+          "type": "text",
+          "id": "meta",
+          "label": "Meta",
+          "default": "Vanaf €24"
         },
         {
           "type": "text",

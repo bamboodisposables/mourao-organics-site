@@ -3,7 +3,7 @@
     <div class="mourao-section-header">
       <p class="mourao-eyebrow">Reviews</p>
       <h2 class="mourao-section-title">{{ section.settings.title }}</h2>
-      <p class="mourao-section-copy">Voorbeeldreacties die de rustige, toegankelijke richting van MOURÃO Organics laten voelen.</p>
+      <p class="mourao-section-copy">Geen overdreven beloftes, maar reacties van mensen die vooral rust, zachtheid en eenvoud zoeken in hun verzorging.</p>
     </div>
 
     <div class="mourao-grid mourao-grid--reviews">
@@ -11,6 +11,7 @@
         <div {{ block.shopify_attributes }}>
           {% render 'mourao-review-card',
             author: block.settings.author,
+            context: block.settings.context,
             text: block.settings.text,
             accent_index: forloop.index
           %}
@@ -28,7 +29,7 @@
       "type": "text",
       "id": "title",
       "label": "Title",
-      "default": "Geliefd door bewuste huidverzorgers"
+      "default": "Mensen blijven terugkomen voor de rust"
     }
   ],
   "blocks": [
@@ -41,6 +42,12 @@
           "id": "author",
           "label": "Author",
           "default": "Sanne"
+        },
+        {
+          "type": "text",
+          "id": "context",
+          "label": "Context",
+          "default": "Droge, gevoelige huid"
         },
         {
           "type": "textarea",

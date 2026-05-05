@@ -1,10 +1,10 @@
-<section class="mourao-section mourao-section--spacious">
+<section id="shop" class="mourao-section mourao-section--spacious">
   <div class="page-width">
     <div class="mourao-cta-panel mourao-reveal" style="--animation-order: 1;">
       <div class="mourao-cta-panel__content">
-        <p class="mourao-eyebrow">Begin eenvoudig</p>
+        <p class="mourao-eyebrow">Klaar om rustig te starten?</p>
         <h2 class="mourao-section-title">{{ section.settings.title }}</h2>
-        <p class="mourao-section-copy">Ontdek een kleine collectie die zacht aanvoelt en makkelijk in je dagelijkse routine past.</p>
+        <p class="mourao-section-copy">Begin met een product dat eenvoudig voelt, prettig smeert en stap voor stap een vast onderdeel van je routine kan worden.</p>
       </div>
       {% if section.settings.button_label != blank %}
         <a class="mourao-button" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
@@ -23,13 +23,13 @@
       "type": "text",
       "id": "title",
       "label": "Title",
-      "default": "Geef je huid natuurlijke verzorging"
+      "default": "Geef je huid een rustige basis"
     },
     {
       "type": "text",
       "id": "button_label",
       "label": "Button label",
-      "default": "Ontdek collectie"
+      "default": "Bekijk collectie"
     },
     {
       "type": "url",

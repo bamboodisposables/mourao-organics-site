@@ -1,0 +1,54 @@
+<section class="mourao-section mourao-section--spacious">
+  <div class="page-width">
+    <div class="mourao-newsletter mourao-reveal" style="--animation-order: 1;">
+      <div class="mourao-newsletter__content">
+        <p class="mourao-eyebrow">{{ section.settings.eyebrow }}</p>
+        <h2 class="mourao-section-title">{{ section.settings.title }}</h2>
+        <p class="mourao-section-copy">{{ section.settings.text }}</p>
+      </div>
+
+      <form class="mourao-newsletter__form" action="#" method="post">
+        <label class="visually-hidden" for="NewsletterEmail">E-mailadres</label>
+        <input id="NewsletterEmail" class="mourao-input" type="email" name="email" placeholder="E-mailadres">
+        <button class="mourao-button" type="submit">{{ section.settings.button_label }}</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Mourao newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Blijf dichtbij"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Nieuwe batches, rustige lanceringen en eerlijke updates"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Schrijf je in en ontvang als eerste nieuws over kleine productdrops, nieuwe formules en praktische tips voor eenvoudige verzorging."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Inschrijven"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mourao newsletter"
+    }
+  ]
+}
+{% endschema %}
