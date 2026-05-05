@@ -1,0 +1,166 @@
+{
+  "sections": {
+    "main": {
+      "type": "mourao-product-main",
+      "settings": {
+        "eyebrow": "MOURÃO hands",
+        "title": "Handcrème voor handen die vaak wassen en snel droog voelen",
+        "subtitle": "Een voedende maar draagbare handcrème voor momenten waarop je handen droog, trekkerig of ruw aanvoelen. Gemaakt om vaak te gebruiken zonder plakkerige tegenzin.",
+        "rating_text": "4.8/5 door klanten die iets voedends zonder plakkerigheid zoeken",
+        "gallery_caption": "Bescherming en comfort voor handen die veel doen.",
+        "button_label": "Voeg toe aan routine",
+        "button_link": "shopify://collections/all",
+        "shipping_note": "Past makkelijk in badkamer, keuken of handtas | Gratis verzending vanaf €50",
+        "stock_note": "Vooral de 30 ml maat is vaak snel op door onderweg-gebruik en cadeaus.",
+        "proof_one_value": "4.8/5",
+        "proof_one_label": "voor voedende handverzorging",
+        "proof_two_value": "30 ml",
+        "proof_two_label": "ideaal formaat voor onderweg",
+        "proof_three_value": "Vaak gebruikt",
+        "proof_three_label": "na wassen of schoonmaken",
+        "details_eyebrow": "Voor werkende handen",
+        "details_title": "Waarom deze handcrème makkelijk een vaste plek krijgt",
+        "details_copy": "Een handcrème wordt alleen echt onderdeel van je dag als hij snel prettig voelt. Daarom is deze formule gemaakt voor herhaald gebruik zonder weerstand.",
+        "detail_one_title": "Voedt zonder plak",
+        "detail_one_text": "Je handen voelen verzorgd, maar je hoeft niet lang te wachten voordat je weer verder kunt.",
+        "detail_two_title": "Fijn na wassen",
+        "detail_two_text": "Gebruik hem na zeep, water of buitenlucht wanneer huid sneller droog aanvoelt.",
+        "detail_three_title": "Ook voor nagelriemen",
+        "detail_three_text": "Een klein beetje werkt prettig op ruwe randjes of droge knokkels.",
+        "detail_four_title": "Compact en logisch",
+        "detail_four_text": "Het kleinere formaat nodigt uit om hem echt mee te nemen en ook echt te gebruiken.",
+        "faq_eyebrow": "Veelgestelde vragen",
+        "faq_title": "Over gebruiksmomenten, finish en tasformaten",
+        "reviews_eyebrow": "Klanten aan het woord",
+        "reviews_title": "Handverzorging die je echt vaker gaat gebruiken",
+        "reviews_copy": "De reacties gaan vooral over gebruiksgemak: voedend genoeg om verschil te voelen, licht genoeg om hem steeds opnieuw te pakken."
+      },
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "text": "Prettig na handen wassen, schoonmaken of werken in droge lucht"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "text": "Voelt voedend zonder te zwaar of glibberig te blijven"
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "text": "Compacte maat past makkelijk in tas of jaszak"
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "text": "Fijn voor handen, knokkels en droge nagelriemen"
+          }
+        },
+        "formula_1": {
+          "type": "formula",
+          "settings": {
+            "title": "Everyday",
+            "text": "De meest praktische formule voor dagelijkse verzorging na wassen of werken."
+          }
+        },
+        "formula_2": {
+          "type": "formula",
+          "settings": {
+            "title": "Rich Rescue",
+            "text": "Rijker voor avonden of periodes waarin handen sneller schraal aanvoelen."
+          }
+        },
+        "formula_3": {
+          "type": "formula",
+          "settings": {
+            "title": "On The Go",
+            "text": "Een lichtere routineversie voor in je tas, auto of op je bureau."
+          }
+        },
+        "size_1": {
+          "type": "size",
+          "settings": {
+            "title": "75 ml",
+            "text": "Volledig formaat • €16"
+          }
+        },
+        "size_2": {
+          "type": "size",
+          "settings": {
+            "title": "30 ml",
+            "text": "Tasformaat • €11"
+          }
+        },
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "title": "Hoe vaak kan ik deze handcrème gebruiken?",
+            "text": "Zo vaak als nodig. Veel klanten gebruiken hem na ieder wasmoment of aan het einde van de dag."
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "title": "Kan ik hem ook op nagelriemen gebruiken?",
+            "text": "Ja. Een klein beetje werkt prettig op droge randjes, knokkels en nagelriemen."
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "title": "Welke maat is handig voor onderweg?",
+            "text": "30 ml is gemaakt voor tas, auto of bureau. 75 ml ligt prettiger vast in badkamer of keuken."
+          }
+        },
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Britt",
+            "context": "Veel handen wassen",
+            "text": "Mijn handen voelen minder strak na het wassen en ik kan daarna gewoon weer verder zonder plakkerig gevoel."
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Elise",
+            "context": "Bureau en tas",
+            "text": "Ik heb er één thuis en één in mijn tas. Dat zegt genoeg over hoe vaak ik hem daadwerkelijk gebruik."
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Nora",
+            "context": "Droge knokkels",
+            "text": "Fijn hoe snel hij zachter aanvoelt op ruwe plekjes zonder vettig te blijven."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4",
+        "formula_1",
+        "formula_2",
+        "formula_3",
+        "size_1",
+        "size_2",
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

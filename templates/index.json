@@ -196,33 +196,33 @@
         "bestseller_1": {
           "type": "product",
           "settings": {
-            "title": "Tallowcrème Original",
-            "description": "Voor wie de meest pure basis zoekt, zonder extra geur of onnodige toevoegingen.",
+            "title": "Tallowcrème",
+            "description": "Een rijke dagelijkse balm voor huid die voeding, rust en een eenvoudige basis nodig heeft.",
             "badge": "Meest gekozen",
             "meta": "120 ml • €39",
-            "button_label": "Bekijk variant",
+            "button_label": "Bekijk product",
             "button_link": "shopify://collections/all"
           }
         },
         "bestseller_2": {
           "type": "product",
           "settings": {
-            "title": "Tallowcrème Calming",
-            "description": "Een zachtere richting voor huid die sneller uit balans raakt en extra comfort nodig heeft.",
+            "title": "Calming Skin Balm",
+            "description": "Gerichte balm voor droge of gevoelige zones die extra rust en comfort nodig hebben.",
             "badge": "Voor gevoelige huid",
             "meta": "120 ml • €44",
-            "button_label": "Bekijk variant",
+            "button_label": "Bekijk product",
             "button_link": "shopify://collections/all"
           }
         },
         "bestseller_3": {
           "type": "product",
           "settings": {
-            "title": "Gezichtscrème Daily",
-            "description": "Een lichte, dagelijkse stap voor wie vooral zachtheid en eenvoud in een routine zoekt.",
+            "title": "Gezichtscrème",
+            "description": "Een lichte dagelijkse crème voor wie zachtheid, comfort en een rustige finish zoekt.",
             "badge": "Dagelijkse routine",
             "meta": "50 ml • €24",
-            "button_label": "Bekijk variant",
+            "button_label": "Bekijk product",
             "button_link": "shopify://collections/all"
           }
         }

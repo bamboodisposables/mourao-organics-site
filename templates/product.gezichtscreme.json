@@ -1,0 +1,166 @@
+{
+  "sections": {
+    "main": {
+      "type": "mourao-product-main",
+      "settings": {
+        "eyebrow": "MOURÃO face",
+        "title": "Gezichtscrème voor dagelijks comfort en een rustige glow",
+        "subtitle": "Een zachte dagelijkse crème voor huid die soepel wil aanvoelen zonder zwaar laagje. Licht genoeg voor iedere ochtend, voedend genoeg om ook ’s avonds prettig te blijven.",
+        "rating_text": "4.7/5 door klanten die licht en rustig willen smeren",
+        "gallery_caption": "Lichte textuur, zachte finish, dagelijkse stap.",
+        "button_label": "Voeg toe aan routine",
+        "button_link": "shopify://collections/all",
+        "shipping_note": "Past makkelijk in je dagelijkse routine | Gratis verzending vanaf €50",
+        "stock_note": "Omdat iedere batch klein is, kunnen de populairste formules soms tijdelijk uitverkocht raken.",
+        "proof_one_value": "4.7/5",
+        "proof_one_label": "op licht comfort zonder gedoe",
+        "proof_two_value": "50 ml",
+        "proof_two_label": "dagelijks formaat voor ochtend en avond",
+        "proof_three_value": "1 stap",
+        "proof_three_label": "gemakkelijk in een korte routine",
+        "details_eyebrow": "Dagelijkse eenvoud",
+        "details_title": "Waarom deze crème prettig draagt",
+        "details_copy": "Deze formule is gemaakt voor mensen die hun gezicht willen verzorgen zonder een volle of drukke finish. Zacht, toegankelijk en logisch in gebruik.",
+        "detail_one_title": "Licht op de huid",
+        "detail_one_text": "De crème voelt zacht en soepel aan zonder een zware film achter te laten.",
+        "detail_two_title": "Fijn in de ochtend",
+        "detail_two_text": "Draagt prettig onder SPF, make-up of gewoon als enige verzorgingsstap.",
+        "detail_three_title": "Ook voor avonden",
+        "detail_three_text": "Voor een eenvoudige avondroutine hoef je niets te stapelen of te combineren.",
+        "detail_four_title": "Kleine batch gemaakt",
+        "detail_four_text": "Iedere batch blijft klein zodat textuur en afwerking constant en vertrouwd aanvoelen.",
+        "faq_eyebrow": "Veelgestelde vragen",
+        "faq_title": "Over gebruik, finish en dagelijkse routines",
+        "reviews_eyebrow": "Klanten aan het woord",
+        "reviews_title": "Dagelijkse verzorging die eenvoudig blijft voelen",
+        "reviews_copy": "Mensen kiezen deze crème vooral omdat hij makkelijk in gebruik is en zacht blijft aanvoelen, ook wanneer de routine kort moet blijven."
+      },
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "text": "Lichte finish die prettig draagt onder SPF of make-up"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "text": "Geeft comfort aan huid die snel trekkerig aanvoelt"
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "text": "Handgemaakt met een eenvoudige mix van milde ingrediënten"
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "text": "Ontworpen voor ochtend en avond zonder extra gedoe"
+          }
+        },
+        "formula_1": {
+          "type": "formula",
+          "settings": {
+            "title": "Daily",
+            "text": "De meest lichte variant voor wie een eenvoudige basis zoekt die snel prettig aanvoelt."
+          }
+        },
+        "formula_2": {
+          "type": "formula",
+          "settings": {
+            "title": "Rich",
+            "text": "Voor drogere dagen of avonden waarop je huid iets meer voeding vraagt."
+          }
+        },
+        "formula_3": {
+          "type": "formula",
+          "settings": {
+            "title": "Sensitive",
+            "text": "Een milde versie voor routines waarin zachtheid en rust voorop staan."
+          }
+        },
+        "size_1": {
+          "type": "size",
+          "settings": {
+            "title": "50 ml",
+            "text": "Dagelijks formaat • €24"
+          }
+        },
+        "size_2": {
+          "type": "size",
+          "settings": {
+            "title": "30 ml",
+            "text": "Starter size • €18"
+          }
+        },
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "title": "Kan ik deze crème overdag gebruiken?",
+            "text": "Ja. De Daily- en Sensitive-varianten zijn juist bedoeld voor dagelijks gebruik, ook onder een SPF."
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "title": "Welke formule kies ik bij drogere huid?",
+            "text": "Rich voelt vaak prettiger wanneer je huid meer voeding vraagt. Voor een lichtere finish is Daily een logische eerste stap."
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "title": "Is dit een ingewikkelde routinecrème?",
+            "text": "Nee. Het idee is juist dat je met één milde stap al veel comfort kunt creëren."
+          }
+        },
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Lotte",
+            "context": "Ochtendroutines",
+            "text": "Fijn dat hij licht aanvoelt maar toch voldoende doet. Ik gebruik hem iedere ochtend zonder na te denken."
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Nina",
+            "context": "Gemengde huid",
+            "text": "Mijn huid voelt rustiger en soepeler aan, zonder dat ik een vettig laagje ervaar."
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Iris",
+            "context": "Gevoelige wangen",
+            "text": "Prettig hoe eenvoudig deze crème is. Geen drukke geur, geen ingewikkelde stappen, gewoon comfort."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4",
+        "formula_1",
+        "formula_2",
+        "formula_3",
+        "size_1",
+        "size_2",
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "sections": {
+    "main": {
+      "type": "mourao-product-main",
+      "settings": {
+        "eyebrow": "MOURÃO rescue",
+        "title": "Calming Skin Balm voor plekken die snel onrustig worden",
+        "subtitle": "Een gerichte balm voor droge, rode of gevoelige zones die niet om veel stappen vragen, maar wel om iets zachts en voedends dat blijft liggen waar jij het nodig hebt.",
+        "rating_text": "4.9/5 door klanten met gevoelige zones en droge plekjes",
+        "gallery_caption": "Gerichte verzorging voor zones die extra rust zoeken.",
+        "button_label": "Voeg toe aan routine",
+        "button_link": "shopify://collections/all",
+        "shipping_note": "Compact en zuinig in gebruik | Gratis verzending vanaf €50",
+        "stock_note": "Door de kleine batches zijn vooral de kleine potjes vaak als eerste weg.",
+        "proof_one_value": "4.9/5",
+        "proof_one_label": "voor droge of gevoelige zones",
+        "proof_two_value": "25 ml",
+        "proof_two_label": "compact formaat voor gerichte verzorging",
+        "proof_three_value": "Klein beetje",
+        "proof_three_label": "is vaak al genoeg per gebruik",
+        "details_eyebrow": "Gerichte verzorging",
+        "details_title": "Waarom deze balm fijn is bij gevoelige zones",
+        "details_copy": "Calming Skin Balm is niet bedoeld als drukke allrounder, maar als rustige helper voor momenten waarop je huid nét wat meer aandacht wil.",
+        "detail_one_title": "Doelgericht",
+        "detail_one_text": "Je gebruikt hem precies waar je huid trekkerig, ruw of gevoelig aanvoelt.",
+        "detail_two_title": "Comfort blijft langer",
+        "detail_two_text": "De balm blijft prettig aanwezig zonder onnodig zwaar te worden.",
+        "detail_three_title": "Rustige formulering",
+        "detail_three_text": "Alleen ingrediënten die bijdragen aan zachtheid, textuur en huidcomfort.",
+        "detail_four_title": "Fijn naast andere basics",
+        "detail_four_text": "Werkt goed naast je gewone crème wanneer je op enkele zones iets extra’s nodig hebt.",
+        "faq_eyebrow": "Veelgestelde vragen",
+        "faq_title": "Over zones, momenten en combinatiegebruik",
+        "reviews_eyebrow": "Klanten aan het woord",
+        "reviews_title": "Precies het soort rust waar gevoelige zones om vragen",
+        "reviews_copy": "Vooral mensen met droge plekjes of een reactieve huid noemen deze balm hun vaste kleine redder in huis of tas."
+      },
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "text": "Fijn voor neusvleugels, wangen, mondhoeken of droge plekjes"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "text": "Blijft iets langer liggen waar je huid extra comfort nodig heeft"
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "text": "Milde samenstelling voor routines die rustig moeten blijven"
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "text": "Met een kleine hoeveelheid kom je al ver"
+          }
+        },
+        "formula_1": {
+          "type": "formula",
+          "settings": {
+            "title": "Spot Balm",
+            "text": "Voor gerichte zones die overdag een klein beetje extra zachtheid kunnen gebruiken."
+          }
+        },
+        "formula_2": {
+          "type": "formula",
+          "settings": {
+            "title": "Overnight",
+            "text": "Iets voller voor avonden waarop je huid echt tot rust mag komen."
+          }
+        },
+        "formula_3": {
+          "type": "formula",
+          "settings": {
+            "title": "Barrier",
+            "text": "Voor plekken die sneller reageren op kou, wind, veel wassen of droge lucht."
+          }
+        },
+        "size_1": {
+          "type": "size",
+          "settings": {
+            "title": "60 ml",
+            "text": "Volledige routine • €27"
+          }
+        },
+        "size_2": {
+          "type": "size",
+          "settings": {
+            "title": "25 ml",
+            "text": "Gerichte care • €19"
+          }
+        },
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "title": "Waar gebruik ik Calming Skin Balm voor?",
+            "text": "Voor droge plekjes, rode zones, schrale mondhoeken, wangen of huid die na weer of wassen sneller onrustig voelt."
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "title": "Gebruik ik dit overdag of alleen ’s nachts?",
+            "text": "Beide kan. Overdag is een klein beetje vaak genoeg. ’s Avonds kiezen veel mensen voor een iets vollere laag."
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "title": "Kan ik hem naast een gezichtscrème gebruiken?",
+            "text": "Ja. Veel klanten gebruiken eerst hun lichte basis en werken daarna gerichte zones af met een kleine hoeveelheid balm."
+          }
+        },
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Mila",
+            "context": "Rode wangen",
+            "text": "Ik gebruik hem op mijn wangen en neusvleugels. Het voelt meteen zachter en minder schraal."
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Eva",
+            "context": "Winterhuid",
+            "text": "In koud weer is dit het eerste potje waar ik naar grijp. Klein beetje, groot verschil in comfort."
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Roos",
+            "context": "Korte routine",
+            "text": "Fijn dat het geen ingewikkeld product is. Ik gebruik het alleen waar het nodig is en dat werkt juist goed."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4",
+        "formula_1",
+        "formula_2",
+        "formula_3",
+        "size_1",
+        "size_2",
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

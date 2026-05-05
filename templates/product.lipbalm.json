@@ -1,0 +1,166 @@
+{
+  "sections": {
+    "main": {
+      "type": "mourao-product-main",
+      "settings": {
+        "eyebrow": "MOURÃO lips",
+        "title": "Lipbalm die droogte verzacht zonder zwaar laagje",
+        "subtitle": "Een eenvoudige balsem voor droge lippen die prettig aanvoelt, makkelijk mee te nemen is en zonder glibberige overdaad net genoeg comfort geeft door de dag heen.",
+        "rating_text": "4.8/5 door klanten die een eenvoudige balsem willen meenemen",
+        "gallery_caption": "Kleine essential voor zachtere lippen door de dag.",
+        "button_label": "Voeg toe aan routine",
+        "button_link": "shopify://collections/all",
+        "shipping_note": "Een kleine essential die makkelijk overal mee naartoe gaat | Gratis verzending vanaf €50",
+        "stock_note": "De mini duo’s zijn populair als tas-set en verdwijnen daardoor vaak als eerste.",
+        "proof_one_value": "4.8/5",
+        "proof_one_label": "voor dagelijks lipcomfort",
+        "proof_two_value": "15 ml",
+        "proof_two_label": "compact formaat voor iedere tas",
+        "proof_three_value": "Dag & nacht",
+        "proof_three_label": "bruikbaar in korte routines",
+        "details_eyebrow": "Klein maar vast",
+        "details_title": "Waarom deze lipbalm makkelijk een gewoonte wordt",
+        "details_copy": "Lippen vragen vaak om iets eenvoudigs dat je snel pakt. Daarom draait deze balm om comfort, draagbaarheid en een zachte finish die je niet zat wordt.",
+        "detail_one_title": "Geen zwaar laagje",
+        "detail_one_text": "De balsem voelt verzorgend zonder te glibberen of onnodig dik te blijven zitten.",
+        "detail_two_title": "Makkelijk mee te nemen",
+        "detail_two_text": "Door het compacte formaat ligt hij net zo logisch op je nachtkastje als in je jaszak.",
+        "detail_three_title": "Ook voor de avond",
+        "detail_three_text": "Night Repair geeft net wat meer comfort voor lippen die ’s nachts sneller droog worden.",
+        "detail_four_title": "Rustige samenstelling",
+        "detail_four_text": "Eenvoudige ingrediënten en een heldere formule maken hem prettig voor dagelijks gebruik.",
+        "faq_eyebrow": "Veelgestelde vragen",
+        "faq_title": "Over finish, mee-nemen en gebruiksmomenten",
+        "reviews_eyebrow": "Klanten aan het woord",
+        "reviews_title": "De soort lipbalm die je niet steeds hoeft te herontdekken",
+        "reviews_copy": "Klanten beschrijven hem vooral als een kleine, betrouwbare basic die altijd ergens in de buurt blijft liggen."
+      },
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "text": "Verzacht droge lippen met een rustige, draagbare finish"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "text": "Handig voor jaszak, tas of nachtkastje"
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "text": "Fijn overdag, maar ook geschikt als vollere avondlaag"
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "text": "Gemaakt om vaak te pakken zonder gedoe"
+          }
+        },
+        "formula_1": {
+          "type": "formula",
+          "settings": {
+            "title": "Bare",
+            "text": "De meest pure balsem voor wie alleen zachtheid en comfort zoekt."
+          }
+        },
+        "formula_2": {
+          "type": "formula",
+          "settings": {
+            "title": "Soft Shine",
+            "text": "Een subtiel gladdere finish voor overdag, zonder plakkerige gloss-feel."
+          }
+        },
+        "formula_3": {
+          "type": "formula",
+          "settings": {
+            "title": "Night Repair",
+            "text": "Iets voller voor avonden of nachten waarin lippen extra comfort kunnen gebruiken."
+          }
+        },
+        "size_1": {
+          "type": "size",
+          "settings": {
+            "title": "15 ml",
+            "text": "Dagelijks formaat • €12"
+          }
+        },
+        "size_2": {
+          "type": "size",
+          "settings": {
+            "title": "Mini duo",
+            "text": "2 x 7 ml • €14"
+          }
+        },
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "title": "Is deze lipbalm alleen voor overdag?",
+            "text": "Nee. Bare en Soft Shine zijn fijn overdag, terwijl Night Repair juist prettig voelt voor de avond of nacht."
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "title": "Voelt hij zwaar of plakkerig aan?",
+            "text": "Nee. De finish is bewust rustig gehouden zodat je hem gemakkelijk vaker pakt."
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "title": "Welke maat is handig voor onderweg?",
+            "text": "15 ml is het standaardformaat. De mini duo is handig als je één thuis en één in je tas wilt houden."
+          }
+        },
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Fleur",
+            "context": "Altijd in tas",
+            "text": "Eindelijk een lipbalm die zacht aanvoelt zonder plakkerige gloss-vibe. Ik neem hem overal mee naartoe."
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Yara",
+            "context": "Droge lippen",
+            "text": "Ik gebruik hem overdag en ’s avonds. Mijn lippen voelen rustiger en minder strak aan."
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Lisa",
+            "context": "Mini routine",
+            "text": "Precies het soort product dat simpel genoeg is om ook echt onderdeel van mijn dag te blijven."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4",
+        "formula_1",
+        "formula_2",
+        "formula_3",
+        "size_1",
+        "size_2",
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

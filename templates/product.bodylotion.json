@@ -1,0 +1,166 @@
+{
+  "sections": {
+    "main": {
+      "type": "mourao-product-main",
+      "settings": {
+        "eyebrow": "MOURÃO body",
+        "title": "Bodylotion die soepel smeert en rustig intrekt",
+        "subtitle": "Een toegankelijke bodylotion voor huid die na het douchen of aan het einde van de dag gewoon zacht en verzorgd wil aanvoelen, zonder plakkerig of zwaar resultaat.",
+        "rating_text": "4.7/5 door klanten die bodycare eenvoudig willen houden",
+        "gallery_caption": "Soepele bodycare voor iedere dag.",
+        "button_label": "Voeg toe aan routine",
+        "button_link": "shopify://collections/all",
+        "shipping_note": "Een dagelijkse essential voor badkamer of slaapkamer | Gratis verzending vanaf €50",
+        "stock_note": "De 100 ml maat is vaak snel weg door travel en cadeaugebruik.",
+        "proof_one_value": "250 ml",
+        "proof_one_label": "voor dagelijkse bodyverzorging",
+        "proof_two_value": "4.7/5",
+        "proof_two_label": "op comfort zonder plakkerigheid",
+        "proof_three_value": "Na douche",
+        "proof_three_label": "meest gekozen gebruiksmoment",
+        "details_eyebrow": "Eenvoudige bodycare",
+        "details_title": "Waarom deze lotion prettig blijft in gebruik",
+        "details_copy": "De beste bodyverzorging is vaak degene die je ook echt blijft pakken. Daarom ligt de focus hier op smeerbaarheid, comfort en een rustige finish.",
+        "detail_one_title": "Soepele textuur",
+        "detail_one_text": "De lotion verdeelt makkelijk zodat je niet veel product nodig hebt voor armen of benen.",
+        "detail_two_title": "Geen zwaar laagje",
+        "detail_two_text": "Na het smeren voelt huid zacht, zonder dat kleding meteen oncomfortabel wordt.",
+        "detail_three_title": "Voor iedere dag",
+        "detail_three_text": "Ontworpen voor normale dagen, droge seizoenen en korte routines waarin gemak belangrijk is.",
+        "detail_four_title": "Rustige samenstelling",
+        "detail_four_text": "Geen onnodige drukte, wel een formule die logisch voelt in dagelijks gebruik.",
+        "faq_eyebrow": "Veelgestelde vragen",
+        "faq_title": "Over finish, gebruik en droge huid",
+        "reviews_eyebrow": "Klanten aan het woord",
+        "reviews_title": "Bodycare die vooral praktisch en prettig voelt",
+        "reviews_copy": "Klanten beschrijven deze lotion vooral als makkelijk, zacht en betrouwbaar genoeg om echt dagelijks te blijven gebruiken."
+      },
+      "blocks": {
+        "benefit_1": {
+          "type": "benefit",
+          "settings": {
+            "text": "Smeert makkelijk uit op benen, armen en droge plekken"
+          }
+        },
+        "benefit_2": {
+          "type": "benefit",
+          "settings": {
+            "text": "Trekt rustig in zonder een plakkerige finish"
+          }
+        },
+        "benefit_3": {
+          "type": "benefit",
+          "settings": {
+            "text": "Prettig na het douchen of wanneer huid trekkerig voelt"
+          }
+        },
+        "benefit_4": {
+          "type": "benefit",
+          "settings": {
+            "text": "Gemaakt voor dagelijks gebruik in een eenvoudige routine"
+          }
+        },
+        "formula_1": {
+          "type": "formula",
+          "settings": {
+            "title": "Daily Soft",
+            "text": "De meest toegankelijke bodylotion voor dagelijks comfort en een zachte finish."
+          }
+        },
+        "formula_2": {
+          "type": "formula",
+          "settings": {
+            "title": "Extra Nourish",
+            "text": "Voor drogere huid of seizoenen waarin je net wat meer voeding prettig vindt."
+          }
+        },
+        "formula_3": {
+          "type": "formula",
+          "settings": {
+            "title": "Unscented",
+            "text": "Een milde variant voor wie vooral rust in geur en gevoel belangrijk vindt."
+          }
+        },
+        "size_1": {
+          "type": "size",
+          "settings": {
+            "title": "250 ml",
+            "text": "Volledig formaat • €22"
+          }
+        },
+        "size_2": {
+          "type": "size",
+          "settings": {
+            "title": "100 ml",
+            "text": "Reisvriendelijk • €15"
+          }
+        },
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "title": "Wanneer gebruik ik deze bodylotion het liefst?",
+            "text": "Veel klanten gebruiken hem na het douchen of voor het slapen, wanneer huid het snelst trekkerig aanvoelt."
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "title": "Is hij geschikt voor drogere benen of armen?",
+            "text": "Ja. Voor normale droogte is Daily Soft vaak genoeg. Bij meer behoefte aan voeding voelt Extra Nourish logischer."
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "title": "Trekt hij snel genoeg in voor overdag?",
+            "text": "Ja. De formule is gemaakt om comfortabel in te trekken zonder plakkerig na te voelen."
+          }
+        },
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Jill",
+            "context": "Na het douchen",
+            "text": "Fijn dat hij snel prettig aanvoelt. Ik gebruik hem na iedere douche zonder tegenzin."
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Sophie",
+            "context": "Droge benen",
+            "text": "Mijn huid voelt zachter aan en ik heb niet het idee dat ik in een zwaar laagje zit."
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Anne",
+            "context": "Korte routine",
+            "text": "Precies wat ik zocht: geen gedoe, wel dagelijks comfort en een rustige huid."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_1",
+        "benefit_2",
+        "benefit_3",
+        "benefit_4",
+        "formula_1",
+        "formula_2",
+        "formula_3",
+        "size_1",
+        "size_2",
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
