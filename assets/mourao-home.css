@@ -652,6 +652,7 @@ textarea {
   min-height: 0;
   border-radius: calc(var(--mourao-radius-xl) - 0.35rem);
   overflow: hidden;
+  isolation: isolate;
 }
 
 .mourao-product-card__media::before {
@@ -666,12 +667,15 @@ textarea {
 .mourao-product-card__media::after {
   content: "";
   position: absolute;
-  inset: 13% 20%;
+  inset: 10% 18% 29%;
   border-radius: 50%;
   background:
-    radial-gradient(circle at 50% 50%, rgba(255, 249, 241, 0.26) 0%, transparent 56%),
-    repeating-radial-gradient(circle at 50% 50%, rgba(140, 103, 71, 0.06) 0 1px, transparent 1px 14px);
-  opacity: 0.7;
+    radial-gradient(circle at 50% 88%, rgba(109, 76, 51, 0.12) 0%, transparent 36%),
+    url("./mourao-logo.jpg") center/cover no-repeat,
+    radial-gradient(circle at 50% 50%, rgba(255, 249, 241, 0.28) 0%, transparent 58%),
+    repeating-radial-gradient(circle at 50% 50%, rgba(140, 103, 71, 0.055) 0 1px, transparent 1px 14px);
+  box-shadow: 0 18px 28px rgba(87, 60, 39, 0.12);
+  opacity: 0.96;
 }
 
 .mourao-product-card__media--2::before {
@@ -701,6 +705,7 @@ textarea {
   box-shadow:
     0 20px 36px rgba(81, 57, 38, 0.12),
     inset 0 0 0 1px rgba(134, 98, 70, 0.08);
+  z-index: 1;
 }
 
 .mourao-product-card__jar::before {
@@ -709,6 +714,18 @@ textarea {
   inset: 0.85rem 1.15rem 1.35rem;
   border-radius: 999px;
   background: rgba(142, 102, 70, 0.18);
+}
+
+.mourao-product-card__jar::after {
+  content: "";
+  position: absolute;
+  top: -0.45rem;
+  left: 16%;
+  right: 16%;
+  height: 0.88rem;
+  border-radius: var(--mourao-radius-pill);
+  background: linear-gradient(180deg, rgba(252, 245, 238, 0.98) 0%, rgba(226, 201, 175, 0.92) 100%);
+  box-shadow: 0 6px 14px rgba(87, 60, 39, 0.08);
 }
 
 .mourao-product-card__body {
@@ -751,6 +768,31 @@ textarea {
   padding: 1.35rem;
   background: linear-gradient(180deg, rgba(241, 230, 218, 0.92) 0%, rgba(231, 215, 197, 0.92) 100%);
   box-shadow: 0 22px 50px rgba(85, 58, 36, 0.09);
+  position: relative;
+  overflow: hidden;
+}
+
+.mourao-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.mourao-story-card::after,
+.mourao-newsletter::after,
+.mourao-cta-panel::after,
+.mourao-panel::after {
+  content: "";
+  position: absolute;
+  right: -2rem;
+  bottom: -2.25rem;
+  width: 8.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, rgba(255, 252, 248, 0.46) 0%, rgba(255, 252, 248, 0) 42%),
+    repeating-radial-gradient(circle at center, rgba(149, 110, 79, 0.055) 0 2px, transparent 2px 14px);
+  opacity: 0.9;
+  pointer-events: none;
 }
 
 .mourao-story-card__lead {
@@ -956,6 +998,19 @@ textarea {
   background: linear-gradient(90deg, rgba(115, 74, 48, 0), rgba(115, 74, 48, 0.18), rgba(115, 74, 48, 0));
 }
 
+.mourao-review-card::after {
+  content: "";
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: 3.5rem;
+  height: 0.7rem;
+  background:
+    radial-gradient(circle, rgba(154, 108, 72, 0.34) 0 0.16rem, transparent 0.18rem)
+    0 50% / 0.7rem 100% repeat-x;
+  opacity: 0.95;
+}
+
 .mourao-review-card__quote {
   color: rgba(142, 102, 70, 0.34);
   font-family: "Playfair Display", serif;
@@ -985,6 +1040,8 @@ textarea {
   display: grid;
   gap: 1.4rem;
   padding: 1.4rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .mourao-newsletter {
@@ -1099,10 +1156,11 @@ textarea {
 }
 
 .mourao-gallery__thumb {
-  display: grid;
-  place-items: center;
-  min-height: 4.25rem;
-  padding: 0.85rem;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 5.2rem;
+  padding: 2.45rem 0.85rem 0.85rem;
   border: 1px solid rgba(84, 58, 40, 0.12);
   border-radius: var(--mourao-radius-lg);
   background: rgba(255, 250, 245, 0.78);
@@ -1117,6 +1175,31 @@ textarea {
     transform var(--mourao-transition),
     border-color var(--mourao-transition),
     background var(--mourao-transition);
+  overflow: hidden;
+}
+
+.mourao-gallery__thumb::before {
+  content: "";
+  position: absolute;
+  top: 0.7rem;
+  left: 0.8rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background:
+    url("./mourao-logo.jpg") center/cover no-repeat,
+    radial-gradient(circle at center, rgba(255, 248, 238, 0.42) 0%, transparent 52%);
+  box-shadow: 0 7px 14px rgba(87, 60, 39, 0.12);
+}
+
+.mourao-gallery__thumb::after {
+  content: "";
+  position: absolute;
+  top: 1.45rem;
+  left: 3rem;
+  right: 0.85rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(134, 98, 70, 0.28), rgba(134, 98, 70, 0.06));
 }
 
 .mourao-gallery__thumb:first-child {
@@ -1219,6 +1302,23 @@ textarea {
   border-radius: var(--mourao-radius-lg);
   background: linear-gradient(180deg, rgba(255, 250, 245, 0.82) 0%, rgba(245, 236, 226, 0.7) 100%);
   box-shadow: var(--mourao-shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.mourao-proof-card::before,
+.mourao-detail-card::before {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 1px solid rgba(149, 110, 79, 0.28);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 0.28rem rgba(149, 110, 79, 0.05),
+    inset 0 0 0 0.14rem rgba(255, 252, 248, 0.6);
 }
 
 .mourao-proof-card strong {
@@ -1232,11 +1332,14 @@ textarea {
   gap: 0.7rem;
   padding: 1.25rem;
   background: linear-gradient(180deg, rgba(255, 250, 245, 0.82) 0%, rgba(245, 236, 226, 0.7) 100%);
+  position: relative;
+  overflow: hidden;
 }
 
 .mourao-detail-card h3 {
   font-size: 1.45rem;
   line-height: 1.12;
+  padding-right: 1.8rem;
 }
 
 .mourao-faq-item summary {
