@@ -690,7 +690,7 @@ function renderProductPage(product) {
             <div class="mourao-product-layout">
               <div class="mourao-gallery mourao-reveal" style="--animation-order: 1;">
                 <div class="mourao-gallery__main">
-                  <div class="mourao-gallery__hero" style="--mourao-gallery-image: url('assets/${heroAssetFor(product.handle)}');">
+                  <div class="mourao-gallery__hero" style="--mourao-gallery-image: url('${heroAssetFor(product.handle)}');">
                     <div class="mourao-gallery__hero-glow"></div>
                     <img
                       class="mourao-gallery__hero-logo"
@@ -709,7 +709,7 @@ function renderProductPage(product) {
                   ${renderItems(
                     product.thumbLabels,
                     (label, index) =>
-                      `<span class="mourao-gallery__thumb" style="--mourao-thumb-image: url('assets/${thumbAssetFor(product.handle, index + 1)}');">${escapeHtml(label)}</span>`
+                      `<span class="mourao-gallery__thumb" style="--mourao-thumb-image: url('${thumbAssetFor(product.handle, index + 1)}');">${escapeHtml(label)}</span>`
                   )}
                 </div>
               </div>
