@@ -1288,9 +1288,12 @@ textarea {
   }
 
   .mourao-grid--reviews,
-  .mourao-site-footer__grid,
-  .mourao-detail-grid {
+  .mourao-site-footer__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .mourao-detail-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .mourao-proof-strip {
