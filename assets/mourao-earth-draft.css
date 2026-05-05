@@ -1,0 +1,186 @@
+.mourao-earth-draft {
+  --mourao-bg: #efe2d2;
+  --mourao-bg-deep: #d9b89a;
+  --mourao-surface: rgba(247, 239, 230, 0.92);
+  --mourao-surface-strong: rgba(224, 197, 170, 0.95);
+  --mourao-surface-soft: rgba(234, 219, 201, 0.88);
+  --mourao-text: #412b1d;
+  --mourao-text-soft: rgba(65, 43, 29, 0.78);
+  --mourao-accent: #a26342;
+  --mourao-accent-deep: #7b4a2d;
+  --mourao-border: rgba(96, 67, 47, 0.18);
+  --mourao-shadow: 0 28px 64px rgba(77, 53, 36, 0.15);
+  background:
+    radial-gradient(circle at top left, rgba(176, 133, 93, 0.28), transparent 28%),
+    radial-gradient(circle at 86% 18%, rgba(128, 103, 72, 0.2), transparent 24%),
+    linear-gradient(180deg, #f7efe7 0%, #efdecb 34%, #ddc0a3 100%);
+}
+
+.mourao-earth-draft .mourao-announcement {
+  background: rgba(227, 208, 188, 0.94);
+  color: rgba(73, 49, 33, 0.9);
+  border-bottom-color: rgba(96, 67, 47, 0.14);
+}
+
+.mourao-earth-draft .mourao-announcement__track span::before,
+.mourao-earth-draft .mourao-chip::after,
+.mourao-earth-draft .mourao-bullet-list li::before,
+.mourao-earth-draft .mourao-trust-bar__item::before,
+.mourao-earth-draft .mourao-story-card__list span::after {
+  background: rgba(134, 98, 60, 0.68);
+}
+
+.mourao-earth-draft .mourao-site-header {
+  background: rgba(244, 234, 224, 0.9);
+  border-bottom-color: rgba(96, 67, 47, 0.12);
+}
+
+.mourao-earth-draft .mourao-wordmark__text--ringed {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.03em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.mourao-earth-draft .mourao-ring-o {
+  display: inline-grid;
+  place-items: center;
+  width: 0.9em;
+  height: 0.9em;
+  margin: 0 0.02em;
+  border-radius: 50%;
+  color: rgba(76, 49, 29, 0.96);
+  background:
+    radial-gradient(circle at center, rgba(244, 215, 178, 0.92) 0 0.12em, rgba(120, 76, 45, 0.88) 0.12em 0.16em, rgba(219, 173, 122, 0.94) 0.16em 0.23em, rgba(128, 84, 52, 0.84) 0.23em 0.27em, rgba(227, 184, 133, 0.96) 0.27em 0.36em, rgba(138, 91, 57, 0.86) 0.36em 0.4em, rgba(233, 194, 148, 0.98) 0.4em 0.49em, rgba(144, 94, 58, 0.84) 0.49em 0.53em, rgba(241, 204, 162, 0.98) 0.53em 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(108, 73, 46, 0.2),
+    0 0.08em 0.18em rgba(102, 68, 42, 0.18);
+  transform: translateY(0.03em);
+}
+
+.mourao-earth-draft .mourao-header-nav,
+.mourao-earth-draft .mourao-site-footer__top,
+.mourao-earth-draft .mourao-site-footer__bottom {
+  border-color: rgba(96, 67, 47, 0.12);
+}
+
+.mourao-earth-draft .mourao-button {
+  border-color: rgba(138, 96, 64, 0.16);
+  background: linear-gradient(180deg, #ae6d4b 0%, #875133 100%);
+  color: #fff7ef;
+  box-shadow: 0 18px 38px rgba(104, 67, 42, 0.2);
+}
+
+.mourao-earth-draft .mourao-button--ghost {
+  background: rgba(247, 238, 228, 0.92);
+  color: var(--mourao-text);
+  border-color: rgba(116, 78, 52, 0.16);
+  box-shadow: none;
+}
+
+.mourao-earth-draft .mourao-button--ghost:hover,
+.mourao-earth-draft .mourao-button--ghost:focus-visible {
+  background: rgba(237, 220, 201, 0.96);
+}
+
+.mourao-earth-draft .mourao-inline-link {
+  color: var(--mourao-accent-deep);
+}
+
+.mourao-earth-draft .mourao-pill,
+.mourao-earth-draft .mourao-chip,
+.mourao-earth-draft .mourao-trust-bar__item,
+.mourao-earth-draft .mourao-option,
+.mourao-earth-draft .mourao-gallery__thumb,
+.mourao-earth-draft .mourao-proof-card,
+.mourao-earth-draft .mourao-faq-item,
+.mourao-earth-draft .mourao-ingredient-row {
+  background: rgba(248, 241, 232, 0.84);
+  border-color: rgba(96, 67, 47, 0.15);
+}
+
+.mourao-earth-draft .mourao-hero__frame,
+.mourao-earth-draft .mourao-story-card,
+.mourao-earth-draft .mourao-newsletter,
+.mourao-earth-draft .mourao-cta-panel,
+.mourao-earth-draft .mourao-panel,
+.mourao-earth-draft .mourao-review-card,
+.mourao-earth-draft .mourao-detail-card,
+.mourao-earth-draft .mourao-product-card,
+.mourao-earth-draft .mourao-gallery__main,
+.mourao-earth-draft .mourao-product-box {
+  border-color: rgba(96, 67, 47, 0.16);
+  box-shadow: 0 24px 54px rgba(78, 55, 36, 0.13);
+}
+
+.mourao-earth-draft .mourao-hero__frame {
+  background: linear-gradient(180deg, rgba(242, 227, 211, 0.98) 0%, rgba(220, 190, 160, 0.96) 100%);
+}
+
+.mourao-earth-draft .mourao-hero__product-visual,
+.mourao-earth-draft .mourao-gallery__hero {
+  background:
+    radial-gradient(circle at 50% 35%, rgba(255, 246, 234, 0.74) 0%, rgba(237, 220, 199, 0.26) 26%, transparent 48%),
+    linear-gradient(180deg, rgba(225, 198, 166, 0.98) 0%, rgba(191, 149, 107, 0.92) 100%);
+}
+
+.mourao-earth-draft .mourao-hero__product-glow,
+.mourao-earth-draft .mourao-gallery__hero-glow {
+  background: rgba(255, 242, 224, 0.52);
+}
+
+.mourao-earth-draft .mourao-hero__note {
+  background: rgba(251, 244, 236, 0.8);
+}
+
+.mourao-earth-draft .mourao-product-card {
+  background: rgba(247, 239, 229, 0.86);
+}
+
+.mourao-earth-draft .mourao-product-card__media::before {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 247, 238, 0.78) 0%, rgba(255, 247, 238, 0.12) 48%, transparent 49%),
+    linear-gradient(180deg, rgba(231, 206, 177, 0.98) 0%, rgba(197, 154, 114, 0.92) 100%);
+}
+
+.mourao-earth-draft .mourao-product-card__media--2::before {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 247, 238, 0.78) 0%, rgba(255, 247, 238, 0.12) 48%, transparent 49%),
+    linear-gradient(180deg, rgba(223, 193, 162, 0.98) 0%, rgba(172, 125, 88, 0.92) 100%);
+}
+
+.mourao-earth-draft .mourao-product-card__media--3::before {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 247, 238, 0.78) 0%, rgba(255, 247, 238, 0.12) 48%, transparent 49%),
+    linear-gradient(180deg, rgba(237, 220, 198, 0.98) 0%, rgba(200, 160, 120, 0.92) 100%);
+}
+
+.mourao-earth-draft .mourao-product-card__media--4::before {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 247, 238, 0.78) 0%, rgba(255, 247, 238, 0.12) 48%, transparent 49%),
+    linear-gradient(180deg, rgba(216, 185, 151, 0.98) 0%, rgba(165, 116, 82, 0.92) 100%);
+}
+
+.mourao-earth-draft .mourao-product-card__jar {
+  background: linear-gradient(180deg, rgba(255, 250, 245, 0.94) 0%, rgba(241, 226, 209, 0.96) 100%);
+  box-shadow:
+    0 20px 36px rgba(81, 57, 38, 0.16),
+    inset 0 0 0 1px rgba(134, 98, 70, 0.1);
+}
+
+.mourao-earth-draft .mourao-story-card {
+  background: linear-gradient(180deg, rgba(233, 215, 196, 0.94) 0%, rgba(217, 186, 155, 0.94) 100%);
+}
+
+.mourao-earth-draft .mourao-newsletter {
+  background: linear-gradient(180deg, rgba(229, 209, 188, 0.98) 0%, rgba(208, 173, 140, 0.96) 100%);
+}
+
+.mourao-earth-draft .mourao-cta-panel {
+  background: linear-gradient(180deg, rgba(225, 200, 179, 0.98) 0%, rgba(192, 151, 117, 0.96) 100%);
+}
+
+.mourao-earth-draft .mourao-review-card__quote {
+  color: rgba(162, 99, 66, 0.28);
+}
