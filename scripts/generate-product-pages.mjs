@@ -661,7 +661,7 @@ function renderProductPage(product) {
             >
             <span class="mourao-wordmark__text-wrap">
               <span class="mourao-wordmark__text">MOURÃO Organics</span>
-              <span class="mourao-wordmark__sub">Accessible natural skincare</span>
+              <span class="mourao-wordmark__sub">Handmade natural skincare</span>
             </span>
           </a>
 
