@@ -3,6 +3,7 @@
     "main": {
       "type": "mourao-product-main",
       "settings": {
+        "image_key": "handcreme",
         "eyebrow": "MOURÃO hands",
         "title": "Handcrème voor handen die vaak wassen en snel droog voelen",
         "subtitle": "Een voedende maar draagbare handcrème voor momenten waarop je handen droog, trekkerig of ruw aanvoelen. Gemaakt om vaak te gebruiken zonder plakkerige tegenzin.",

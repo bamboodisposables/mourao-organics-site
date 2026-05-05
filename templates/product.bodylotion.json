@@ -3,6 +3,7 @@
     "main": {
       "type": "mourao-product-main",
       "settings": {
+        "image_key": "bodylotion",
         "eyebrow": "MOURÃO body",
         "title": "Bodylotion die soepel smeert en rustig intrekt",
         "subtitle": "Een toegankelijke bodylotion voor huid die na het douchen of aan het einde van de dag gewoon zacht en verzorgd wil aanvoelen, zonder plakkerig of zwaar resultaat.",

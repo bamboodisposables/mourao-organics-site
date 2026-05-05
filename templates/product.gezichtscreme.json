@@ -3,6 +3,7 @@
     "main": {
       "type": "mourao-product-main",
       "settings": {
+        "image_key": "gezichtscreme",
         "eyebrow": "MOURÃO face",
         "title": "Gezichtscrème voor dagelijks comfort en een rustige glow",
         "subtitle": "Een zachte dagelijkse crème voor huid die soepel wil aanvoelen zonder zwaar laagje. Licht genoeg voor iedere ochtend, voedend genoeg om ook ’s avonds prettig te blijven.",

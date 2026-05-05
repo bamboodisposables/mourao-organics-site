@@ -1,0 +1,80 @@
+[
+  {
+    "handle": "tallowcreme",
+    "title": "Tallowcrème voor een rustige, gevoede huid",
+    "heroAsset": "mourao-product-tallowcreme-hero.jpg",
+    "cardAsset": "mourao-product-tallowcreme-card.jpg",
+    "thumbAssets": [
+      "mourao-product-tallowcreme-thumb-1.jpg",
+      "mourao-product-tallowcreme-thumb-2.jpg",
+      "mourao-product-tallowcreme-thumb-3.jpg",
+      "mourao-product-tallowcreme-thumb-4.jpg"
+    ],
+    "prompt": "Ultra photoreal editorial skincare product photo of a handcrafted tallow face balm in a low amber glass jar with a matte beige lid, soft whipped cream texture visible, placed on warm travertine stone with natural linen folds, earthy beige and light brown palette, calm handmade natural skincare mood, soft morning window light, shallow depth of field, no text, no logo, no watermark."
+  },
+  {
+    "handle": "gezichtscreme",
+    "title": "Gezichtscrème voor dagelijks comfort en een rustige glow",
+    "heroAsset": "mourao-product-gezichtscreme-hero.jpg",
+    "cardAsset": "mourao-product-gezichtscreme-card.jpg",
+    "thumbAssets": [
+      "mourao-product-gezichtscreme-thumb-1.jpg",
+      "mourao-product-gezichtscreme-thumb-2.jpg",
+      "mourao-product-gezichtscreme-thumb-3.jpg",
+      "mourao-product-gezichtscreme-thumb-4.jpg"
+    ],
+    "prompt": "Ultra realistic luxury-but-accessible natural skincare photo of a daily face cream in a clean ceramic jar with a soft airy cream swirl, set on warm stone beside folded muslin cloth, minimal bathroom editorial styling, beige and oat tones, diffused daylight, authentic handmade feel, high detail, no text, no logo, no watermark."
+  },
+  {
+    "handle": "calming-skin-balm",
+    "title": "Calming Skin Balm voor plekken die snel onrustig worden",
+    "heroAsset": "mourao-product-calming-skin-balm-hero.jpg",
+    "cardAsset": "mourao-product-calming-skin-balm-card.jpg",
+    "thumbAssets": [
+      "mourao-product-calming-skin-balm-thumb-1.jpg",
+      "mourao-product-calming-skin-balm-thumb-2.jpg",
+      "mourao-product-calming-skin-balm-thumb-3.jpg",
+      "mourao-product-calming-skin-balm-thumb-4.jpg"
+    ],
+    "prompt": "Super high resolution photoreal product photo of a calming skin balm in a small matte glass jar with a smooth rich balm surface, styled with soft cotton cloth and a warm beige ceramic dish, soothing earthy skincare scene, gentle natural window light, quiet minimal composition, realistic texture, no text, no logo, no watermark."
+  },
+  {
+    "handle": "bodylotion",
+    "title": "Bodylotion die soepel smeert en rustig intrekt",
+    "heroAsset": "mourao-product-bodylotion-hero.jpg",
+    "cardAsset": "mourao-product-bodylotion-card.jpg",
+    "thumbAssets": [
+      "mourao-product-bodylotion-thumb-1.jpg",
+      "mourao-product-bodylotion-thumb-2.jpg",
+      "mourao-product-bodylotion-thumb-3.jpg",
+      "mourao-product-bodylotion-thumb-4.jpg"
+    ],
+    "prompt": "Ultra photoreal body lotion product image of a soft matte bottle with natural lotion ribbon beside it, styled on warm travertine with beige towel and subtle clay shadows, approachable handmade natural skincare aesthetic, bright diffused daylight, editorial ecommerce quality, no text, no logo, no watermark."
+  },
+  {
+    "handle": "handcreme",
+    "title": "Handcrème voor handen die vaak wassen en snel droog voelen",
+    "heroAsset": "mourao-product-handcreme-hero.jpg",
+    "cardAsset": "mourao-product-handcreme-card.jpg",
+    "thumbAssets": [
+      "mourao-product-handcreme-thumb-1.jpg",
+      "mourao-product-handcreme-thumb-2.jpg",
+      "mourao-product-handcreme-thumb-3.jpg",
+      "mourao-product-handcreme-thumb-4.jpg"
+    ],
+    "prompt": "Ultra realistic close product photo of a nourishing hand cream in a soft matte aluminum tube with a small cream dab near the cap, placed on warm beige stone with linen and subtle shadows, earthy natural skincare palette, handcrafted trustworthy feeling, soft side light, crisp texture detail, no text, no logo, no watermark."
+  },
+  {
+    "handle": "lipbalm",
+    "title": "Lipbalm die droogte verzacht zonder zwaar laagje",
+    "heroAsset": "mourao-product-lipbalm-hero.jpg",
+    "cardAsset": "mourao-product-lipbalm-card.jpg",
+    "thumbAssets": [
+      "mourao-product-lipbalm-thumb-1.jpg",
+      "mourao-product-lipbalm-thumb-2.jpg",
+      "mourao-product-lipbalm-thumb-3.jpg",
+      "mourao-product-lipbalm-thumb-4.jpg"
+    ],
+    "prompt": "Super realistic editorial lip balm product photo of a small natural balm pot with a smooth balm swipe, styled on warm beige ceramic with soft pocket cloth, earthy minimal skincare aesthetic, gentle daylight, highly detailed texture, handmade and honest mood, no text, no logo, no watermark."
+  }
+]

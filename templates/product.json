@@ -3,6 +3,7 @@
     "main": {
       "type": "mourao-product-main",
       "settings": {
+        "image_key": "tallowcreme",
         "eyebrow": "MOURÃO balm",
         "title": "Tallowcrème voor een rustige, gevoede huid",
         "subtitle": "Een volle maar toegankelijke balm voor droge, gevoelige of snel reagerende huid. Handgemaakt met een pure basis en zonder onnodige poespas.",

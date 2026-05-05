@@ -12,15 +12,16 @@
       <div class="mourao-product-list">
         {% for block in section.blocks %}
           <div {{ block.shopify_attributes }}>
-            {% render 'mourao-product-card',
-              title: block.settings.title,
-              description: block.settings.description,
-              button_label: block.settings.button_label,
-              button_link: block.settings.button_link,
-              eyebrow: block.settings.badge,
-              meta: block.settings.meta,
-              accent_index: forloop.index
-            %}
+          {% render 'mourao-product-card',
+            title: block.settings.title,
+            description: block.settings.description,
+            button_label: block.settings.button_label,
+            button_link: block.settings.button_link,
+            eyebrow: block.settings.badge,
+            meta: block.settings.meta,
+            image_key: block.settings.image_key,
+            accent_index: forloop.index
+          %}
           </div>
         {% endfor %}
       </div>
@@ -50,6 +51,12 @@
       "type": "product",
       "name": "Product",
       "settings": [
+        {
+          "type": "text",
+          "id": "image_key",
+          "label": "Image key",
+          "default": "tallowcreme"
+        },
         {
           "type": "text",
           "id": "title",

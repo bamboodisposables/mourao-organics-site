@@ -59,6 +59,7 @@
         "product_1": {
           "type": "product",
           "settings": {
+            "image_key": "tallowcreme",
             "title": "Tallowcrème",
             "description": "Rijke dagelijkse balm voor huid die voeding, rust en een eenvoudige basis nodig heeft.",
             "badge": "Bestseller",
@@ -70,6 +71,7 @@
         "product_2": {
           "type": "product",
           "settings": {
+            "image_key": "gezichtscreme",
             "title": "Gezichtscrème",
             "description": "Zachte crème voor dagelijks comfort, met een lichte finish die prettig blijft aanvoelen.",
             "badge": "Dagelijkse favoriet",
@@ -81,6 +83,7 @@
         "product_3": {
           "type": "product",
           "settings": {
+            "image_key": "calming-skin-balm",
             "title": "Calming Skin Balm",
             "description": "Voor zones die sneller uit balans raken en iets meer aandacht en zachtheid kunnen gebruiken.",
             "badge": "Kalmerende keuze",
@@ -92,6 +95,7 @@
         "product_4": {
           "type": "product",
           "settings": {
+            "image_key": "bodylotion",
             "title": "Bodylotion",
             "description": "Een toegankelijke bodyverzorging voor dagelijks gebruik, zonder zware of plakkerige finish.",
             "badge": "Everyday essential",
@@ -103,6 +107,7 @@
         "product_5": {
           "type": "product",
           "settings": {
+            "image_key": "handcreme",
             "title": "Handcrème",
             "description": "Beschermende handverzorging voor momenten waarop je huid net wat sneller droog of trekkerig wordt.",
             "badge": "Voor onderweg",
@@ -114,6 +119,7 @@
         "product_6": {
           "type": "product",
           "settings": {
+            "image_key": "lipbalm",
             "title": "Lipbalm",
             "description": "Een zachte balsem voor droge lippen, met een natuurlijke feel en een eenvoudige samenstelling.",
             "badge": "Kleine essential",
@@ -196,6 +202,7 @@
         "bestseller_1": {
           "type": "product",
           "settings": {
+            "image_key": "tallowcreme",
             "title": "Tallowcrème",
             "description": "Een rijke dagelijkse balm voor huid die voeding, rust en een eenvoudige basis nodig heeft.",
             "badge": "Meest gekozen",
@@ -207,6 +214,7 @@
         "bestseller_2": {
           "type": "product",
           "settings": {
+            "image_key": "calming-skin-balm",
             "title": "Calming Skin Balm",
             "description": "Gerichte balm voor droge of gevoelige zones die extra rust en comfort nodig hebben.",
             "badge": "Voor gevoelige huid",
@@ -218,6 +226,7 @@
         "bestseller_3": {
           "type": "product",
           "settings": {
+            "image_key": "gezichtscreme",
             "title": "Gezichtscrème",
             "description": "Een lichte dagelijkse crème voor wie zachtheid, comfort en een rustige finish zoekt.",
             "badge": "Dagelijkse routine",

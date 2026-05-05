@@ -18,6 +18,7 @@
             button_link: block.settings.button_link,
             eyebrow: block.settings.badge,
             meta: block.settings.meta,
+            image_key: block.settings.image_key,
             accent_index: forloop.index
           %}
         </div>
@@ -34,6 +35,12 @@
       "type": "product",
       "name": "Product",
       "settings": [
+        {
+          "type": "text",
+          "id": "image_key",
+          "label": "Image key",
+          "default": "tallowcreme"
+        },
         {
           "type": "text",
           "id": "title",

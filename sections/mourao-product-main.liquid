@@ -1,9 +1,18 @@
+{% liquid
+  assign image_key = section.settings.image_key | default: 'tallowcreme'
+  assign hero_asset = 'mourao-product-' | append: image_key | append: '-hero.jpg'
+  assign thumb_one_asset = 'mourao-product-' | append: image_key | append: '-thumb-1.jpg'
+  assign thumb_two_asset = 'mourao-product-' | append: image_key | append: '-thumb-2.jpg'
+  assign thumb_three_asset = 'mourao-product-' | append: image_key | append: '-thumb-3.jpg'
+  assign thumb_four_asset = 'mourao-product-' | append: image_key | append: '-thumb-4.jpg'
+%}
+
 <section class="mourao-section mourao-section--spacious mourao-product-page">
   <div class="page-width">
     <div class="mourao-product-layout">
       <div class="mourao-gallery mourao-reveal" style="--animation-order: 1;">
         <div class="mourao-gallery__main">
-          <div class="mourao-gallery__hero">
+          <div class="mourao-gallery__hero" style="--mourao-gallery-image: url({{ hero_asset | asset_url }});">
             <div class="mourao-gallery__hero-glow"></div>
             <img
               class="mourao-gallery__hero-logo"
@@ -19,10 +28,10 @@
         </div>
 
         <div class="mourao-gallery__thumbs" aria-hidden="true">
-          <span class="mourao-gallery__thumb">Original</span>
-          <span class="mourao-gallery__thumb">Calming</span>
-          <span class="mourao-gallery__thumb">Sensitive</span>
-          <span class="mourao-gallery__thumb">Starter size</span>
+          <span class="mourao-gallery__thumb" style="--mourao-thumb-image: url({{ thumb_one_asset | asset_url }});">Original</span>
+          <span class="mourao-gallery__thumb" style="--mourao-thumb-image: url({{ thumb_two_asset | asset_url }});">Calming</span>
+          <span class="mourao-gallery__thumb" style="--mourao-thumb-image: url({{ thumb_three_asset | asset_url }});">Sensitive</span>
+          <span class="mourao-gallery__thumb" style="--mourao-thumb-image: url({{ thumb_four_asset | asset_url }});">Starter size</span>
         </div>
       </div>
 
@@ -168,6 +177,12 @@
 {
   "name": "Mourao product main",
   "settings": [
+    {
+      "type": "text",
+      "id": "image_key",
+      "label": "Image key",
+      "default": "tallowcreme"
+    },
     {
       "type": "text",
       "id": "eyebrow",

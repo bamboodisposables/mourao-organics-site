@@ -3,6 +3,7 @@
     "main": {
       "type": "mourao-product-main",
       "settings": {
+        "image_key": "lipbalm",
         "eyebrow": "MOURÃO lips",
         "title": "Lipbalm die droogte verzacht zonder zwaar laagje",
         "subtitle": "Een eenvoudige balsem voor droge lippen die prettig aanvoelt, makkelijk mee te nemen is en zonder glibberige overdaad net genoeg comfort geeft door de dag heen.",

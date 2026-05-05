@@ -6,6 +6,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const templatesDir = resolve(root, 'templates');
+const imagePromptsFile = resolve(root, 'scripts', 'product-image-prompts.json');
 
 const products = [
   {
@@ -104,7 +105,8 @@ const products = [
         context: 'Gevoelige routine',
         text: 'Fijn dat het zo simpel is. Ik hoef niet na te denken over lagen of stappen, alleen een kleine hoeveelheid en mijn huid voelt weer gevoed.'
       }
-    ]
+    ],
+    imagePrompt: 'Ultra photoreal editorial skincare product photo of a handcrafted tallow face balm in a low amber glass jar with a matte beige lid, soft whipped cream texture visible, placed on warm travertine stone with natural linen folds, earthy beige and light brown palette, calm handmade natural skincare mood, soft morning window light, shallow depth of field, no text, no logo, no watermark.'
   },
   {
     handle: 'gezichtscreme',
@@ -202,7 +204,8 @@ const products = [
         context: 'Gevoelige wangen',
         text: 'Prettig hoe eenvoudig deze crème is. Geen drukke geur, geen ingewikkelde stappen, gewoon comfort.'
       }
-    ]
+    ],
+    imagePrompt: 'Ultra realistic luxury-but-accessible natural skincare photo of a daily face cream in a clean ceramic jar with a soft airy cream swirl, set on warm stone beside folded muslin cloth, minimal bathroom editorial styling, beige and oat tones, diffused daylight, authentic handmade feel, high detail, no text, no logo, no watermark.'
   },
   {
     handle: 'calming-skin-balm',
@@ -300,7 +303,8 @@ const products = [
         context: 'Korte routine',
         text: 'Fijn dat het geen ingewikkeld product is. Ik gebruik het alleen waar het nodig is en dat werkt juist goed.'
       }
-    ]
+    ],
+    imagePrompt: 'Super high resolution photoreal product photo of a calming skin balm in a small matte glass jar with a smooth rich balm surface, styled with soft cotton cloth and a warm beige ceramic dish, soothing earthy skincare scene, gentle natural window light, quiet minimal composition, realistic texture, no text, no logo, no watermark.'
   },
   {
     handle: 'bodylotion',
@@ -398,7 +402,8 @@ const products = [
         context: 'Korte routine',
         text: 'Precies wat ik zocht: geen gedoe, wel dagelijks comfort en een rustige huid.'
       }
-    ]
+    ],
+    imagePrompt: 'Ultra photoreal body lotion product image of a soft matte bottle with natural lotion ribbon beside it, styled on warm travertine with beige towel and subtle clay shadows, approachable handmade natural skincare aesthetic, bright diffused daylight, editorial ecommerce quality, no text, no logo, no watermark.'
   },
   {
     handle: 'handcreme',
@@ -496,7 +501,8 @@ const products = [
         context: 'Droge knokkels',
         text: 'Fijn hoe snel hij zachter aanvoelt op ruwe plekjes zonder vettig te blijven.'
       }
-    ]
+    ],
+    imagePrompt: 'Ultra realistic close product photo of a nourishing hand cream in a soft matte aluminum tube with a small cream dab near the cap, placed on warm beige stone with linen and subtle shadows, earthy natural skincare palette, handcrafted trustworthy feeling, soft side light, crisp texture detail, no text, no logo, no watermark.'
   },
   {
     handle: 'lipbalm',
@@ -594,7 +600,8 @@ const products = [
         context: 'Mini routine',
         text: 'Precies het soort product dat simpel genoeg is om ook echt onderdeel van mijn dag te blijven.'
       }
-    ]
+    ],
+    imagePrompt: 'Super realistic editorial lip balm product photo of a small natural balm pot with a smooth balm swipe, styled on warm beige ceramic with soft pocket cloth, earthy minimal skincare aesthetic, gentle daylight, highly detailed texture, handmade and honest mood, no text, no logo, no watermark.'
   }
 ];
 
@@ -609,6 +616,9 @@ const renderItems = (items, renderer) => items.map(renderer).join('\n');
 
 const pageFileFor = (handle) => (handle === 'tallowcreme' ? 'product.html' : `${handle}.html`);
 const templateFileFor = (handle) => (handle === 'tallowcreme' ? 'product.json' : `product.${handle}.json`);
+const cardAssetFor = (handle) => `mourao-product-${handle}-card.jpg`;
+const heroAssetFor = (handle) => `mourao-product-${handle}-hero.jpg`;
+const thumbAssetFor = (handle, index) => `mourao-product-${handle}-thumb-${index}.jpg`;
 
 function renderProductPage(product) {
   return `<!doctype html>
@@ -680,7 +690,7 @@ function renderProductPage(product) {
             <div class="mourao-product-layout">
               <div class="mourao-gallery mourao-reveal" style="--animation-order: 1;">
                 <div class="mourao-gallery__main">
-                  <div class="mourao-gallery__hero">
+                  <div class="mourao-gallery__hero" style="--mourao-gallery-image: url('assets/${heroAssetFor(product.handle)}');">
                     <div class="mourao-gallery__hero-glow"></div>
                     <img
                       class="mourao-gallery__hero-logo"
@@ -696,7 +706,11 @@ function renderProductPage(product) {
                 </div>
 
                 <div class="mourao-gallery__thumbs" aria-hidden="true">
-                  ${renderItems(product.thumbLabels, (label) => `<span class="mourao-gallery__thumb">${escapeHtml(label)}</span>`)}
+                  ${renderItems(
+                    product.thumbLabels,
+                    (label, index) =>
+                      `<span class="mourao-gallery__thumb" style="--mourao-thumb-image: url('assets/${thumbAssetFor(product.handle, index + 1)}');">${escapeHtml(label)}</span>`
+                  )}
                 </div>
               </div>
 
@@ -915,6 +929,7 @@ function renderProductTemplate(product) {
       main: {
         type: 'mourao-product-main',
         settings: {
+          image_key: product.handle,
           eyebrow: product.eyebrow,
           title: product.title,
           subtitle: product.lead,
@@ -957,6 +972,21 @@ function renderProductTemplate(product) {
   return `${JSON.stringify(template, null, 2)}\n`;
 }
 
+function renderProductImagePrompts() {
+  return `${JSON.stringify(
+    products.map((product) => ({
+      handle: product.handle,
+      title: product.title,
+      heroAsset: heroAssetFor(product.handle),
+      cardAsset: cardAssetFor(product.handle),
+      thumbAssets: product.thumbLabels.map((_, index) => thumbAssetFor(product.handle, index + 1)),
+      prompt: product.imagePrompt
+    })),
+    null,
+    2
+  )}\n`;
+}
+
 mkdirSync(templatesDir, { recursive: true });
 
 for (const product of products) {
@@ -964,4 +994,6 @@ for (const product of products) {
   writeFileSync(resolve(templatesDir, templateFileFor(product.handle)), renderProductTemplate(product));
 }
 
-console.log(`Generated ${products.length} product pages and ${products.length} product templates.`);
+writeFileSync(imagePromptsFile, renderProductImagePrompts());
+
+console.log(`Generated ${products.length} product pages, ${products.length} product templates, and image prompts.`);
