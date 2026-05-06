@@ -637,7 +637,6 @@ function renderWordmark({ href, hero = false }) {
                 </span>
               </span>
               <span class="mourao-wordmark__subline${sublineModifier}">Organics</span>
-              <span class="mourao-wordmark__sub${subModifier}">Handmade natural skincare</span>
             </span>
           </${tag}>`;
 }
