@@ -335,7 +335,8 @@ def build_background(spec: ProductSpec, size: tuple[int, int], role: str, varian
 
     draw_blurred_shape(canvas, (-int(width * 0.08), -int(height * 0.04), int(width * 0.6), int(height * 0.34)), (255, 250, 244, 78), blur=max(42, width // 16), kind="ellipse")
     draw_blurred_shape(canvas, (int(width * 0.18), int(height * core_top), int(width * 0.82), int(height * 0.72)), rgb(spec.glow, 126 if role == "hero" else 112), blur=glow_blur, kind="ellipse")
-    draw_blurred_shape(canvas, (int(width * 0.34), int(height * 0.32), int(width * 0.66), int(height * 0.84)), rgb("#7a604e", 10), blur=max(44, width // 18), kind="ellipse")
+    ring_alpha = 4 if spec.handle in {"bodylotion", "lipbalm"} else 10
+    draw_blurred_shape(canvas, (int(width * 0.34), int(height * 0.32), int(width * 0.66), int(height * 0.84)), rgb("#7a604e", ring_alpha), blur=max(44, width // 18), kind="ellipse")
     draw_blurred_shape(canvas, (int(width * 0.1), int(height * surface_top), int(width * 0.9), int(height * 0.98)), rgb("#cdb29a", 76), blur=max(16, width // 28), kind="ellipse")
     draw_blurred_shape(canvas, (int(width * 0.18), int(height * (surface_top - 0.02)), int(width * 0.82), int(height * 0.91)), rgb("#fff7ef", 42), blur=max(18, width // 26), kind="ellipse")
 
@@ -355,6 +356,16 @@ def build_background(spec: ProductSpec, size: tuple[int, int], role: str, varian
         draw_blurred_shape(canvas, (int(width * 0.06), int(height * 0.22), int(width * 0.68), int(height * 0.92)), rgb("#f0d6ce", 118), blur=42, kind="ellipse")
     if "pebble" in spec.props:
         draw_blurred_shape(canvas, (int(width * 0.58), int(height * 0.72), int(width * 0.75), int(height * 0.8)), rgb("#d8cabd", 232), blur=4, kind="ellipse")
+    if spec.handle == "bodylotion":
+        draw_blurred_shape(canvas, (int(width * 0.08), int(height * 0.1), int(width * 0.42), int(height * 0.92)), (255, 250, 244, 124), blur=max(18, width // 30), kind="roundrect", radius=max(24, width // 24))
+        draw_blurred_shape(canvas, (int(width * 0.5), int(height * 0.12), int(width * 0.8), int(height * 0.88)), (255, 252, 247, 54), blur=max(20, width // 26), kind="roundrect", radius=max(20, width // 28))
+        draw_blurred_shape(canvas, (int(width * 0.5), int(height * 0.74), int(width * 0.94), int(height * 0.98)), rgb("#a98e7d", 58), blur=max(18, width // 28), kind="ellipse")
+        draw_blurred_shape(canvas, (int(width * 0.18), int(height * 0.08), int(width * 0.86), int(height * 0.44)), (255, 255, 255, 52), blur=max(22, width // 24), kind="ellipse")
+    if spec.handle == "lipbalm":
+        draw_blurred_shape(canvas, (int(width * 0.1), int(height * 0.62), int(width * 0.9), int(height * 0.98)), rgb("#cab9a8", 86), blur=max(14, width // 28), kind="ellipse")
+        draw_blurred_shape(canvas, (int(width * 0.12), int(height * 0.12), int(width * 0.9), int(height * 0.46)), (255, 251, 243, 68), blur=max(24, width // 22), kind="ellipse")
+        draw_blurred_shape(canvas, (int(width * 0.62), -int(height * 0.04), int(width * 1.02), int(height * 0.32)), (255, 247, 236, 72), blur=max(18, width // 28), kind="ellipse")
+        draw_blurred_shape(canvas, (int(width * 0.18), int(height * 0.54), int(width * 0.82), int(height * 0.92)), (255, 255, 255, 26), blur=max(18, width // 30), kind="roundrect", radius=max(18, width // 26))
     return canvas
 
 
@@ -392,14 +403,20 @@ def add_scene_props(canvas: Image.Image, spec: ProductSpec, logo: Image.Image, r
             petal_draw.ellipse((petal.width * 0.26, 0, petal.width * 0.9, petal.height * 0.56), fill=rgb("#edc56e", 152))
             paste_centered(canvas, petal.rotate(-28, Image.Resampling.BICUBIC, expand=True), (int(width * x_pos), int(height * y_pos)))
     if "stems" in spec.props:
-        for x_pos in (0.73, 0.79, 0.85):
-            draw.line((int(width * x_pos), int(height * 0.21), int(width * (x_pos + 0.05)), int(height * 0.48)), fill=rgb("#c5b29b", 126), width=stroke)
+        stem_positions = (0.82, 0.88) if spec.handle == "lipbalm" else (0.73, 0.79, 0.85)
+        stem_start_y = 0.6 if spec.handle == "lipbalm" else 0.21
+        stem_end_y = 0.88 if spec.handle == "lipbalm" else 0.48
+        stem_fill = rgb("#d5c7b8", 92) if spec.handle == "lipbalm" else rgb("#c5b29b", 126)
+        node_fill = rgb("#e2d5c4", 108) if spec.handle == "lipbalm" else rgb("#d9cab8", 146)
+        for x_pos in stem_positions:
+            draw.line((int(width * x_pos), int(height * stem_start_y), int(width * (x_pos + 0.04)), int(height * stem_end_y)), fill=stem_fill, width=max(1, stroke - 1))
             for node in range(3):
                 node_x = int(width * (x_pos + 0.015 * node))
-                node_y = int(height * (0.27 + 0.06 * node))
-                draw.ellipse((node_x, node_y, node_x + max(14, width // 84), node_y + max(16, height // 96)), fill=rgb("#d9cab8", 146))
+                node_y = int(height * (stem_start_y + (stem_end_y - stem_start_y) * node / 3))
+                draw.ellipse((node_x, node_y, node_x + max(14, width // 84), node_y + max(16, height // 96)), fill=node_fill)
     if "oil_drops" in spec.props:
-        for x_pos, y_pos, scale in ((0.74, 0.68, 1.0), (0.8, 0.74, 0.8), (0.69, 0.76, 0.68)):
+        positions = ((0.76, 0.74, 1.2), (0.84, 0.79, 0.96), (0.68, 0.8, 0.82), (0.88, 0.72, 0.66)) if spec.handle == "bodylotion" else ((0.74, 0.68, 1.0), (0.8, 0.74, 0.8), (0.69, 0.76, 0.68))
+        for x_pos, y_pos, scale in positions:
             drop = Image.new("RGBA", (int(width * 0.1 * scale), int(height * 0.12 * scale)), (0, 0, 0, 0))
             drop_draw = ImageDraw.Draw(drop)
             drop_draw.ellipse((0, drop.height * 0.18, drop.width, drop.height), fill=rgb("#f0d9b0", 188))
@@ -412,7 +429,8 @@ def add_scene_props(canvas: Image.Image, spec: ProductSpec, logo: Image.Image, r
             draw_blurred_shape(canvas, (int(width * x_pos) - radius, int(height * y_pos) - radius, int(width * x_pos) + radius, int(height * y_pos) + radius), (255, 255, 255, 70), blur=8, kind="ellipse")
             draw_blurred_shape(canvas, (int(width * x_pos) - radius // 2, int(height * y_pos) - radius // 2, int(width * x_pos) + radius // 2, int(height * y_pos) + radius // 2), (255, 255, 255, 120), blur=4, kind="ellipse")
     if "beeswax" in spec.props:
-        for x_pos, y_pos, scale in ((0.78, 0.22, 1.0), (0.84, 0.27, 0.82), (0.73, 0.3, 0.72)):
+        positions = ((0.22, 0.74, 1.08), (0.29, 0.79, 0.9), (0.76, 0.27, 0.78), (0.82, 0.32, 0.66)) if spec.handle == "lipbalm" else ((0.78, 0.22, 1.0), (0.84, 0.27, 0.82), (0.73, 0.3, 0.72))
+        for x_pos, y_pos, scale in positions:
             pellet = Image.new("RGBA", (int(width * 0.07 * scale * scale), int(width * 0.07 * scale * scale)), (0, 0, 0, 0))
             pellet_draw = ImageDraw.Draw(pellet)
             pellet_draw.ellipse((0, 0, pellet.width - 1, pellet.height - 1), fill=rgb("#e8c35e", 208))
@@ -425,6 +443,18 @@ def add_scene_props(canvas: Image.Image, spec: ProductSpec, logo: Image.Image, r
         dish_draw.ellipse((dish.width * 0.12, dish.height * 0.18, dish.width * 0.88, dish.height * 0.74), fill=rgb("#f1e0c2", 230))
         dish_draw.arc((dish.width * 0.25, dish.height * 0.24, dish.width * 0.76, dish.height * 0.72), 185, 360, fill=rgb("#ffffff", 130), width=3)
         paste_centered(canvas, dish, (int(width * 0.76), int(height * 0.78)))
+    if spec.handle == "bodylotion":
+        for x_pos, y_pos, w_scale, h_scale, tone in (
+            (0.72, 0.79, 0.14, 0.09, "#d3c4b7"),
+            (0.82, 0.84, 0.11, 0.07, "#cbbcaf"),
+            (0.62, 0.86, 0.09, 0.06, "#ded3c8"),
+        ):
+            pebble = Image.new("RGBA", (int(width * w_scale), int(height * h_scale)), (0, 0, 0, 0))
+            pebble_draw = ImageDraw.Draw(pebble)
+            pebble_draw.ellipse((0, 0, pebble.width - 1, pebble.height - 1), fill=rgb(tone, 236))
+            pebble_draw.ellipse((pebble.width * 0.14, pebble.height * 0.08, pebble.width * 0.5, pebble.height * 0.4), fill=(255, 248, 241, 64))
+            pebble = pebble.filter(ImageFilter.GaussianBlur(1))
+            paste_centered(canvas, pebble, (int(width * x_pos), int(height * y_pos)))
 
 
 def add_glass_highlight(layer: Image.Image, box: tuple[int, int, int, int], alpha: int = 85) -> None:
@@ -519,51 +549,63 @@ def render_jar(scene: Image.Image, spec: ProductSpec, logo: Image.Image, role: s
 def render_pump_bottle(scene: Image.Image, spec: ProductSpec, role: str, x_shift: float, y_shift: float, rotation: int) -> None:
     width, height = scene.size
     layer = Image.new("RGBA", scene.size, (0, 0, 0, 0))
-    bottle_w = int(width * (0.37 if role == "hero" else 0.41 if role == "card" else 0.5))
-    bottle_h = int(bottle_w * 2.2)
+    width_ratio = 0.41 if role == "hero" else 0.45 if role == "card" else 0.54
+    if spec.handle == "bodylotion":
+        width_ratio += 0.02
+    bottle_w = int(width * width_ratio)
+    bottle_h = int(bottle_w * (2.08 if spec.handle == "bodylotion" else 2.2))
     cx = int(width * (0.5 + x_shift))
-    cy = int(height * (0.56 + y_shift))
+    cy = int(height * ((0.58 if spec.handle == "bodylotion" else 0.56) + y_shift))
 
-    draw_shadow(layer, (cx - bottle_w // 3, cy + bottle_h // 2 - int(height * 0.02), cx + bottle_w // 3, cy + bottle_h // 2 + int(height * 0.04)), alpha=96)
+    draw_shadow(layer, (cx - bottle_w // 3, cy + bottle_h // 2 - int(height * 0.018), cx + bottle_w // 3, cy + bottle_h // 2 + int(height * 0.038)), alpha=104 if spec.handle == "bodylotion" else 96)
 
     bottle_layer = Image.new("RGBA", (bottle_w + 120, bottle_h + 180), (0, 0, 0, 0))
     bx = 60
     by = 80
     body_w = bottle_w
-    body_h = int(bottle_h * 0.82)
-    body = masked_gradient((body_w, body_h), spec.primary, spec.secondary, kind="roundrect", radius=int(body_w * 0.18))
+    body_h = int(bottle_h * (0.8 if spec.handle == "bodylotion" else 0.82))
+    radius = int(body_w * (0.22 if spec.handle == "bodylotion" else 0.18))
+    body = masked_gradient((body_w, body_h), spec.primary, spec.secondary, kind="roundrect", radius=radius)
     body.alpha_composite(grain_overlay(body.size, alpha=9, sigma=12, tint=spec.accent))
     body_sheen = Image.new("RGBA", body.size, (0, 0, 0, 0))
     draw_blurred_shape(body_sheen, (int(body_w * 0.04), -int(body_h * 0.05), int(body_w * 0.48), int(body_h * 0.96)), (255, 255, 255, 82), blur=max(10, body_w // 10), kind="ellipse")
     draw_blurred_shape(body_sheen, (int(body_w * 0.52), int(body_h * 0.12), int(body_w * 1.04), int(body_h * 1.02)), (112, 84, 70, 42), blur=max(10, body_w // 9), kind="ellipse")
     body.alpha_composite(body_sheen)
     border = Image.new("RGBA", body.size, (0, 0, 0, 0))
-    ImageDraw.Draw(border).rounded_rectangle((0, 0, body_w - 1, body_h - 1), radius=int(body_w * 0.18), outline=(140, 117, 103, 110), width=max(2, body_w // 90))
+    border_draw = ImageDraw.Draw(border)
+    border_draw.rounded_rectangle((0, 0, body_w - 1, body_h - 1), radius=radius, outline=(140, 117, 103, 110), width=max(2, body_w // 90))
+    if spec.handle == "bodylotion":
+        border_draw.rounded_rectangle((int(body_w * 0.04), int(body_h * 0.03), int(body_w * 0.96), int(body_h * 0.97)), radius=max(18, radius - body_w // 20), outline=(255, 249, 241, 34), width=max(1, body_w // 140))
     body.alpha_composite(border)
     bottle_layer.alpha_composite(body, (bx, by + int(bottle_h * 0.16)))
 
     neck_w = int(body_w * 0.28)
-    neck_h = int(bottle_h * 0.16)
+    neck_h = int(bottle_h * (0.14 if spec.handle == "bodylotion" else 0.16))
     neck = metal_texture((neck_w, neck_h), "#e6d3c0", "#a18b79")
     neck.putalpha(make_mask(neck.size, kind="roundrect", radius=int(neck_w * 0.22)))
     bottle_layer.alpha_composite(neck, (bx + int(body_w * 0.36), by + int(bottle_h * 0.05)))
 
-    pump_w = int(body_w * 0.36)
-    pump_h = int(bottle_h * 0.16)
+    pump_w = int(body_w * (0.29 if spec.handle == "bodylotion" else 0.36))
+    pump_h = int(bottle_h * (0.12 if spec.handle == "bodylotion" else 0.16))
     pump = metal_texture((pump_w, pump_h), "#4f4038", "#251f1b")
     pump.putalpha(make_mask(pump.size, kind="roundrect", radius=int(pump_h * 0.24)))
-    bottle_layer.alpha_composite(pump, (bx + int(body_w * 0.31), 0))
+    pump_x = bx + int(body_w * (0.355 if spec.handle == "bodylotion" else 0.31))
+    bottle_layer.alpha_composite(pump, (pump_x, 0))
     spout = Image.new("RGBA", bottle_layer.size, (0, 0, 0, 0))
     spout_draw = ImageDraw.Draw(spout)
-    spout_draw.rounded_rectangle((bx + int(body_w * 0.44), int(pump_h * 0.18), bx + int(body_w * 0.83), int(pump_h * 0.42)), radius=12, fill=(58, 48, 42, 255))
+    if spec.handle == "bodylotion":
+        spout_draw.rounded_rectangle((bx + int(body_w * 0.47), int(pump_h * 0.2), bx + int(body_w * 0.74), int(pump_h * 0.4)), radius=10, fill=(58, 48, 42, 255))
+        spout_draw.rounded_rectangle((bx + int(body_w * 0.68), int(pump_h * 0.2), bx + int(body_w * 0.78), int(pump_h * 0.68)), radius=10, fill=(58, 48, 42, 255))
+    else:
+        spout_draw.rounded_rectangle((bx + int(body_w * 0.44), int(pump_h * 0.18), bx + int(body_w * 0.83), int(pump_h * 0.42)), radius=12, fill=(58, 48, 42, 255))
     bottle_layer.alpha_composite(spout)
 
     bottle_layer = bottle_layer.rotate(rotation, Image.Resampling.BICUBIC, expand=True)
     paste_centered(layer, bottle_layer, (cx, cy))
     add_glass_highlight(layer, (cx - bottle_w // 2, cy - bottle_h // 2, cx + bottle_w // 2, cy + bottle_h // 2), alpha=88)
 
-    label = build_paper_label(int(bottle_w * 0.48))
-    paste_centered(layer, label, (cx, int(cy + bottle_h * 0.13)))
+    label = build_paper_label(int(bottle_w * (0.54 if spec.handle == "bodylotion" else 0.48)))
+    paste_centered(layer, label, (cx, int(cy + bottle_h * (0.15 if spec.handle == "bodylotion" else 0.13))))
     scene.alpha_composite(layer)
 
 
@@ -618,14 +660,17 @@ def render_tube(scene: Image.Image, spec: ProductSpec, role: str, x_shift: float
 def render_open_tin(scene: Image.Image, spec: ProductSpec, logo: Image.Image, role: str, x_shift: float, y_shift: float, rotation: int) -> None:
     width, height = scene.size
     layer = Image.new("RGBA", scene.size, (0, 0, 0, 0))
-    base_d = int(width * (0.38 if role == "hero" else 0.42 if role == "card" else 0.52))
-    cx = int(width * (0.45 + x_shift))
-    cy = int(height * (0.56 + y_shift))
-    lid_cx = int(width * (0.63 + x_shift))
-    lid_cy = int(height * (0.67 + y_shift))
+    base_ratio = 0.44 if role == "hero" else 0.48 if role == "card" else 0.58
+    if spec.handle != "lipbalm":
+        base_ratio -= 0.06
+    base_d = int(width * base_ratio)
+    cx = int(width * ((0.43 if spec.handle == "lipbalm" else 0.45) + x_shift))
+    cy = int(height * ((0.58 if spec.handle == "lipbalm" else 0.56) + y_shift))
+    lid_cx = int(width * ((0.68 if spec.handle == "lipbalm" else 0.63) + x_shift))
+    lid_cy = int(height * ((0.66 if spec.handle == "lipbalm" else 0.67) + y_shift))
 
-    draw_shadow(layer, (cx - base_d // 3, cy + base_d // 3, cx + base_d // 3, cy + base_d // 2), alpha=88)
-    draw_shadow(layer, (lid_cx - base_d // 3, lid_cy + base_d // 4, lid_cx + base_d // 3, lid_cy + base_d // 2), alpha=74)
+    draw_shadow(layer, (cx - base_d // 3, cy + base_d // 3, cx + base_d // 3, cy + base_d // 2), alpha=96 if spec.handle == "lipbalm" else 88)
+    draw_shadow(layer, (lid_cx - base_d // 3, lid_cy + base_d // 4, lid_cx + base_d // 3, lid_cy + base_d // 2), alpha=82 if spec.handle == "lipbalm" else 74)
 
     tin = metal_texture((base_d, int(base_d * 0.42)), "#d7d8da", "#9fa4aa", horizontal=True)
     tin.putalpha(make_mask(tin.size, kind="roundrect", radius=int(base_d * 0.12)))
@@ -638,6 +683,8 @@ def render_open_tin(scene: Image.Image, spec: ProductSpec, logo: Image.Image, ro
     cream_swirl = Image.new("RGBA", cream.size, (0, 0, 0, 0))
     cream_draw = ImageDraw.Draw(cream_swirl)
     cream_draw.arc((int(cream.size[0] * 0.18), int(cream.size[1] * 0.18), int(cream.size[0] * 0.82), int(cream.size[1] * 1.08)), 190, 350, fill=(255, 249, 235, 56), width=max(2, cream.size[1] // 10))
+    if spec.handle == "lipbalm":
+        cream_draw.ellipse((int(cream.size[0] * 0.18), int(cream.size[1] * 0.2), int(cream.size[0] * 0.42), int(cream.size[1] * 0.52)), fill=(255, 249, 232, 44))
     cream.alpha_composite(cream_swirl)
     paste_centered(layer, cream, (cx, cy))
     rim = Image.new("RGBA", layer.size, (0, 0, 0, 0))
@@ -647,11 +694,12 @@ def render_open_tin(scene: Image.Image, spec: ProductSpec, logo: Image.Image, ro
 
     lid = metal_texture((int(base_d * 0.88), int(base_d * 0.88)), "#d4d5d6", "#a8adb2")
     lid.putalpha(make_mask(lid.size, kind="ellipse"))
-    lid.alpha_composite(build_wood_roundel(int(base_d * 0.56), logo), (int(base_d * 0.16), int(base_d * 0.16)))
+    roundel_d = int(base_d * (0.44 if spec.handle == "lipbalm" else 0.56))
+    lid.alpha_composite(build_wood_roundel(roundel_d, logo), (int((lid.size[0] - roundel_d) / 2), int((lid.size[1] - roundel_d) / 2)))
     lid_gloss = Image.new("RGBA", lid.size, (0, 0, 0, 0))
     draw_blurred_shape(lid_gloss, (int(lid.size[0] * 0.08), int(lid.size[1] * 0.04), int(lid.size[0] * 0.46), int(lid.size[1] * 0.58)), (255, 255, 255, 74), blur=max(8, lid.size[0] // 16), kind="ellipse")
     lid.alpha_composite(lid_gloss)
-    lid = lid.rotate(rotation + 8, Image.Resampling.BICUBIC, expand=True)
+    lid = lid.rotate(rotation + (14 if spec.handle == "lipbalm" else 8), Image.Resampling.BICUBIC, expand=True)
     paste_centered(layer, lid, (lid_cx, lid_cy))
     scene.alpha_composite(layer)
 
