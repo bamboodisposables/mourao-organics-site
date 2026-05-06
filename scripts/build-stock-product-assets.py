@@ -37,6 +37,14 @@ class LabelSpec:
 
 
 @dataclass(frozen=True)
+class CleanupZone:
+    blur_box: tuple[float, float, float, float]
+    tint_box: tuple[float, float, float, float]
+    blur_fill: int = 188
+    tint_fill: int = 104
+
+
+@dataclass(frozen=True)
 class ProductSpec:
     handle: str
     title: str
@@ -153,45 +161,115 @@ def warm_grade(image: Image.Image) -> Image.Image:
     return graded.convert("RGBA")
 
 
+CLEANUP_ZONES: dict[str, tuple[CleanupZone, ...]] = {
+    "tallowcreme": (
+        CleanupZone(
+            blur_box=(0.18, 0.56, 0.74, 0.82),
+            tint_box=(0.2, 0.58, 0.7, 0.83),
+        ),
+    ),
+    "bodylotion": (
+        CleanupZone(
+            blur_box=(0.16, 0.14, 0.66, 0.89),
+            tint_box=(0.2, 0.24, 0.61, 0.86),
+            blur_fill=206,
+            tint_fill=116,
+        ),
+        CleanupZone(
+            blur_box=(0.2, 0.52, 0.58, 0.92),
+            tint_box=(0.23, 0.58, 0.56, 0.9),
+            blur_fill=172,
+            tint_fill=88,
+        ),
+    ),
+    "handcreme": (
+        CleanupZone(
+            blur_box=(0.17, 0.12, 0.69, 0.91),
+            tint_box=(0.21, 0.22, 0.63, 0.87),
+            blur_fill=208,
+            tint_fill=116,
+        ),
+        CleanupZone(
+            blur_box=(0.24, 0.48, 0.6, 0.92),
+            tint_box=(0.27, 0.56, 0.58, 0.89),
+            blur_fill=174,
+            tint_fill=90,
+        ),
+    ),
+    "gezichtscreme": (
+        CleanupZone(
+            blur_box=(0.31, 0.38, 0.69, 0.67),
+            tint_box=(0.34, 0.42, 0.66, 0.66),
+            blur_fill=166,
+            tint_fill=82,
+        ),
+    ),
+    "calming-skin-balm": (
+        CleanupZone(
+            blur_box=(0.28, 0.13, 0.72, 0.6),
+            tint_box=(0.32, 0.19, 0.68, 0.57),
+            blur_fill=188,
+            tint_fill=94,
+        ),
+    ),
+    "lipbalm": (
+        CleanupZone(
+            blur_box=(0.42, 0.38, 0.99, 0.96),
+            tint_box=(0.48, 0.44, 0.96, 0.91),
+            blur_fill=202,
+            tint_fill=110,
+        ),
+        CleanupZone(
+            blur_box=(0.38, 0.18, 0.84, 0.58),
+            tint_box=(0.42, 0.23, 0.81, 0.55),
+            blur_fill=182,
+            tint_fill=96,
+        ),
+    ),
+}
+
+
 def neutralize_packaging(image: Image.Image, handle: str) -> Image.Image:
-    if handle != "tallowcreme":
+    zones = CLEANUP_ZONES.get(handle)
+    if not zones:
         return image
 
     canvas = image.copy().convert("RGBA")
     width, height = canvas.size
 
-    mask = Image.new("L", canvas.size, 0)
-    mask_draw = ImageDraw.Draw(mask)
-    mask_draw.rounded_rectangle(
-        (
-            int(width * 0.18),
-            int(height * 0.56),
-            int(width * 0.74),
-            int(height * 0.82),
-        ),
-        radius=int(height * 0.06),
-        fill=188,
-    )
-    mask = mask.filter(ImageFilter.GaussianBlur(radius=max(16, width // 50)))
+    for zone in zones:
+        mask = Image.new("L", canvas.size, 0)
+        mask_draw = ImageDraw.Draw(mask)
+        mask_draw.rounded_rectangle(
+            (
+                int(width * zone.blur_box[0]),
+                int(height * zone.blur_box[1]),
+                int(width * zone.blur_box[2]),
+                int(height * zone.blur_box[3]),
+            ),
+            radius=int(height * 0.06),
+            fill=zone.blur_fill,
+        )
+        mask = mask.filter(ImageFilter.GaussianBlur(radius=max(16, width // 50)))
 
-    blurred_canvas = canvas.filter(ImageFilter.GaussianBlur(radius=max(10, width // 70)))
-    canvas = Image.composite(blurred_canvas, canvas, mask)
+        blurred_canvas = canvas.filter(ImageFilter.GaussianBlur(radius=max(10, width // 70)))
+        canvas = Image.composite(blurred_canvas, canvas, mask)
 
-    tint = Image.new("RGBA", canvas.size, (244, 236, 226, 0))
-    tint_mask = Image.new("L", canvas.size, 0)
-    tint_draw = ImageDraw.Draw(tint_mask)
-    tint_draw.ellipse(
-        (
-            int(width * 0.2),
-            int(height * 0.58),
-            int(width * 0.7),
-            int(height * 0.83),
-        ),
-        fill=104,
-    )
-    tint_mask = tint_mask.filter(ImageFilter.GaussianBlur(radius=max(18, width // 42)))
-    tint.putalpha(tint_mask)
-    canvas.alpha_composite(tint)
+        tint = Image.new("RGBA", canvas.size, (244, 236, 226, 0))
+        tint_mask = Image.new("L", canvas.size, 0)
+        tint_draw = ImageDraw.Draw(tint_mask)
+        tint_draw.ellipse(
+            (
+                int(width * zone.tint_box[0]),
+                int(height * zone.tint_box[1]),
+                int(width * zone.tint_box[2]),
+                int(height * zone.tint_box[3]),
+            ),
+            fill=zone.tint_fill,
+        )
+        tint_mask = tint_mask.filter(ImageFilter.GaussianBlur(radius=max(18, width // 42)))
+        tint.putalpha(tint_mask)
+        canvas.alpha_composite(tint)
     return canvas
 
 
