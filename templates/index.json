@@ -306,11 +306,11 @@
     }
   },
   "order": [
+    "nature_video",
     "hero",
     "trust_bar",
     "categories",
     "story",
-    "nature_video",
     "ingredients",
     "bestsellers",
     "reviews",
