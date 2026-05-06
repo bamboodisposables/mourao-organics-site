@@ -32,17 +32,10 @@ function buildLeafGroup({ x, y, scale, rotate = 0, duration, delay, opacity = 0.
   `;
 }
 
-function buildBranch({ d, stroke, widthPx, duration, delay, opacity = 1, cls = "branch-sway" }) {
+function buildBranch({ d, stroke, widthPx, duration, delay, opacity = 1, cls = "branch-sway", filterId = "" }) {
   return `
-    <path class="${cls}" d="${d}" fill="none" stroke="${stroke}" stroke-width="${widthPx}" stroke-linecap="round" stroke-linejoin="round"
+    <path class="${cls}" d="${d}" fill="none" stroke="${stroke}" stroke-width="${widthPx}" stroke-linecap="round" stroke-linejoin="round"${filterId ? ` filter="url(#${filterId})"` : ""}
       style="animation-duration:${duration}s; animation-delay:${delay}s; opacity:${opacity};"/>
-  `;
-}
-
-function buildRoot({ d, stroke, widthPx, opacity = 1, delay = 0 }) {
-  return `
-    <path class="root-breathe" d="${d}" fill="none" stroke="${stroke}" stroke-width="${widthPx}" stroke-linecap="round" stroke-linejoin="round"
-      style="opacity:${opacity}; animation-delay:${delay}s;"/>
   `;
 }
 
@@ -81,9 +74,9 @@ function renderScene() {
         height: 100%;
         overflow: hidden;
         background:
-          radial-gradient(circle at 77% 18%, rgba(255, 241, 200, 0.98), rgba(255, 231, 177, 0.3) 18%, transparent 28%),
-          radial-gradient(circle at 15% 16%, rgba(151, 103, 64, 0.2), transparent 26%),
-          linear-gradient(180deg, #eee7dc 0%, #d8c0a5 43%, #9f7c59 100%);
+          radial-gradient(circle at 77% 18%, rgba(255, 241, 200, 0.98), rgba(255, 231, 177, 0.26) 18%, transparent 30%),
+          radial-gradient(circle at 18% 18%, rgba(182, 136, 92, 0.12), transparent 30%),
+          linear-gradient(180deg, #f3ece2 0%, #deccb6 48%, #c6a789 100%);
       }
       svg { width: 100%; height: 100%; display: block; }
       .scene-pan { animation: scene-pan 8s ease-in-out infinite alternate; transform-origin: center; }
@@ -98,7 +91,6 @@ function renderScene() {
       .sway-gentle { animation-name: sway-gentle; }
       .branch-sway { animation-name: branch-sway; }
       .mote-float { animation-name: mote-float; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
-      .root-breathe { animation: root-breathe 6.8s ease-in-out infinite; }
       .glow-pulse { animation: glow-pulse 6s ease-in-out infinite; transform-origin: 984px 146px; }
       .flare-sweep { animation: flare-sweep 7.6s ease-in-out infinite alternate; }
       @keyframes scene-pan { from { transform: scale(1.025) translateX(-12px); } to { transform: scale(1.055) translateX(14px) translateY(-4px); } }
@@ -110,7 +102,6 @@ function renderScene() {
         55%  { transform: translate(var(--drift-x), var(--drift-y)); opacity: 0.62; }
         100% { transform: translate(calc(var(--drift-x) * -0.35), calc(var(--drift-y) * -0.35)); opacity: 0.26; }
       }
-      @keyframes root-breathe { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
       @keyframes glow-pulse { 0%, 100% { transform: scale(1); opacity: 0.82; } 50% { transform: scale(1.12); opacity: 1; } }
       @keyframes flare-sweep { from { transform: translateX(-20px) translateY(12px) rotate(-6deg); opacity: 0.28; } to { transform: translateX(26px) translateY(-16px) rotate(5deg); opacity: 0.46; } }
     </style>
@@ -120,20 +111,12 @@ function renderScene() {
       <svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <filter id="blur-lg" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="26"/></filter>
+          <filter id="blur-md" x="-24%" y="-24%" width="148%" height="148%"><feGaussianBlur stdDeviation="12"/></filter>
           <filter id="blur-sm" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="10"/></filter>
           <linearGradient id="branchShade" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stop-color="#3d3028"/>
             <stop offset="45%" stop-color="#574235"/>
             <stop offset="100%" stop-color="#2f241d"/>
-          </linearGradient>
-          <linearGradient id="rootShade" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#9b7655"/>
-            <stop offset="50%" stop-color="#7d5d43"/>
-            <stop offset="100%" stop-color="#4d392c"/>
-          </linearGradient>
-          <linearGradient id="moss" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#6d7251"/>
-            <stop offset="100%" stop-color="#aca36d"/>
           </linearGradient>
         </defs>
         <g class="scene-pan">
@@ -145,39 +128,24 @@ function renderScene() {
           <ellipse class="flare-sweep" cx="1056" cy="92" rx="146" ry="38" fill="rgba(255, 244, 209, 0.2)" filter="url(#blur-lg)" style="animation-delay:-2.4s;"/>
 
           <g opacity="0.9">
-            ${buildBranch({ d: "M -60 72 C 180 42, 354 34, 556 66 C 662 84, 774 104, 914 94 C 1048 84, 1164 52, 1346 26", stroke: "url(#branchShade)", widthPx: 34, duration: 7.2, delay: -0.8 })}
-            ${buildBranch({ d: "M 784 -26 C 854 34, 916 98, 954 160 C 988 214, 1038 248, 1102 266", stroke: "url(#branchShade)", widthPx: 26, duration: 6.6, delay: -1.4, opacity: 0.84 })}
-            ${buildBranch({ d: "M 1128 28 C 1046 76, 972 124, 892 186 C 828 236, 760 272, 656 316", stroke: "url(#branchShade)", widthPx: 20, duration: 7.8, delay: -2.1, opacity: 0.72 })}
-            ${buildBranch({ d: "M 180 8 C 236 58, 292 110, 352 164 C 402 206, 472 244, 558 280", stroke: "url(#branchShade)", widthPx: 18, duration: 7.1, delay: -1.7, opacity: 0.58 })}
+            ${buildBranch({ d: "M -80 92 C 202 42, 414 46, 668 88 C 862 120, 1064 108, 1368 32", stroke: "url(#branchShade)", widthPx: 20, duration: 7.2, delay: -0.8, opacity: 0.24, filterId: "blur-md" })}
+            ${buildBranch({ d: "M 764 -18 C 838 48, 916 114, 982 188 C 1036 244, 1098 284, 1180 318", stroke: "url(#branchShade)", widthPx: 14, duration: 6.6, delay: -1.4, opacity: 0.18, filterId: "blur-md" })}
+            ${buildBranch({ d: "M 1088 34 C 1008 88, 920 150, 824 226 C 760 276, 700 314, 624 350", stroke: "url(#branchShade)", widthPx: 12, duration: 7.8, delay: -2.1, opacity: 0.14, filterId: "blur-md" })}
           </g>
 
-          <g opacity="0.92">
-            ${buildLeafGroup({ x: 92, y: 92, scale: 1.18, rotate: 8, duration: 7.2, delay: -1.2, palette: leafPaletteA })}
-            ${buildLeafGroup({ x: 264, y: 136, scale: 0.98, rotate: -18, duration: 6.8, delay: -0.6, palette: leafPaletteB, opacity: 0.84 })}
-            ${buildLeafGroup({ x: 1002, y: 76, scale: 1.12, rotate: -10, duration: 7.6, delay: -1.6, palette: leafPaletteA })}
-            ${buildLeafGroup({ x: 908, y: 162, scale: 0.86, rotate: 18, duration: 6.9, delay: -2.1, palette: leafPaletteB, opacity: 0.82 })}
-            ${buildLeafGroup({ x: 1144, y: 204, scale: 0.74, rotate: -24, duration: 7.4, delay: -0.8, palette: leafPaletteA, opacity: 0.76 })}
+          <g opacity="0.74">
+            ${buildLeafGroup({ x: 92, y: 92, scale: 1.18, rotate: 8, duration: 7.2, delay: -1.2, palette: leafPaletteA, opacity: 0.68 })}
+            ${buildLeafGroup({ x: 264, y: 136, scale: 0.98, rotate: -18, duration: 6.8, delay: -0.6, palette: leafPaletteB, opacity: 0.56 })}
+            ${buildLeafGroup({ x: 1002, y: 76, scale: 1.12, rotate: -10, duration: 7.6, delay: -1.6, palette: leafPaletteA, opacity: 0.64 })}
+            ${buildLeafGroup({ x: 908, y: 162, scale: 0.86, rotate: 18, duration: 6.9, delay: -2.1, palette: leafPaletteB, opacity: 0.52 })}
+            ${buildLeafGroup({ x: 1144, y: 204, scale: 0.74, rotate: -24, duration: 7.4, delay: -0.8, palette: leafPaletteA, opacity: 0.48 })}
           </g>
 
           <g opacity="0.88">
-            <ellipse cx="252" cy="660" rx="228" ry="76" fill="rgba(72, 52, 39, 0.14)" filter="url(#blur-lg)"/>
-            <ellipse cx="910" cy="648" rx="290" ry="94" fill="rgba(53, 39, 30, 0.18)" filter="url(#blur-lg)"/>
-            <path d="M0 556 C160 516 310 504 492 540 C644 570 836 576 1036 540 C1124 524 1202 528 1280 550 V720 H0 Z" fill="rgba(102, 76, 56, 0.28)"/>
-          </g>
-
-          <g opacity="0.98">
-            ${buildRoot({ d: "M 72 622 C 168 568, 246 526, 328 498 C 414 468, 528 452, 650 456 C 816 460, 954 498, 1126 604", stroke: "url(#rootShade)", widthPx: 54, opacity: 0.98 })}
-            ${buildRoot({ d: "M 312 642 C 344 594, 382 560, 428 528 C 492 482, 580 450, 696 436 C 818 420, 936 446, 1094 522", stroke: "#876347", widthPx: 26, opacity: 0.92, delay: -0.8 })}
-            ${buildRoot({ d: "M 548 700 C 560 638, 570 590, 592 548 C 614 502, 648 470, 700 446 C 746 426, 814 428, 898 456", stroke: "#6e503b", widthPx: 22, opacity: 0.84, delay: -1.3 })}
-            ${buildRoot({ d: "M 142 710 C 204 658, 252 626, 308 604 C 368 580, 434 572, 520 584", stroke: "#7a5a43", widthPx: 18, opacity: 0.8, delay: -1.8 })}
-            ${buildRoot({ d: "M 892 706 C 926 660, 964 620, 1020 592 C 1092 556, 1160 544, 1270 560", stroke: "#6f523d", widthPx: 18, opacity: 0.82, delay: -2.1 })}
-            ${buildRoot({ d: "M 742 656 C 768 606, 796 566, 832 534 C 868 502, 916 472, 968 454", stroke: "#7f5c42", widthPx: 16, opacity: 0.74, delay: -0.6 })}
-          </g>
-
-          <g opacity="0.86">
-            <ellipse cx="206" cy="558" rx="54" ry="22" fill="url(#moss)" transform="rotate(-10 206 558)"/>
-            <ellipse cx="1054" cy="578" rx="60" ry="18" fill="url(#moss)" transform="rotate(9 1054 578)"/>
-            <ellipse cx="846" cy="632" rx="38" ry="14" fill="#9d9461" transform="rotate(-14 846 632)"/>
+            <ellipse cx="252" cy="664" rx="228" ry="76" fill="rgba(97, 73, 54, 0.08)" filter="url(#blur-lg)"/>
+            <ellipse cx="910" cy="650" rx="290" ry="94" fill="rgba(83, 61, 44, 0.1)" filter="url(#blur-lg)"/>
+            <ellipse cx="668" cy="626" rx="484" ry="88" fill="rgba(201, 173, 142, 0.2)" filter="url(#blur-lg)"/>
+            <path d="M0 570 C198 534 386 530 570 550 C726 568 916 572 1108 550 C1186 542 1242 544 1280 550 V720 H0 Z" fill="rgba(188, 153, 121, 0.22)"/>
           </g>
 
           <g>
