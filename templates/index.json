@@ -307,8 +307,8 @@
   },
   "order": [
     "nature_video",
-    "hero",
     "trust_bar",
+    "hero",
     "categories",
     "story",
     "ingredients",
