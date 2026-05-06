@@ -680,8 +680,7 @@ function renderProductPage(product) {
           <nav class="mourao-header-nav" aria-label="Hoofdmenu">
             <a class="mourao-header-nav__link" href="index.html">Home</a>
             <a class="mourao-header-nav__link" href="index.html#producten">Shop</a>
-            <a class="mourao-header-nav__link" href="index.html#waarom">Waarom Mourão</a>
-            <a class="mourao-header-nav__link" href="index.html#verhaal">Ons verhaal</a>
+            <a class="mourao-header-nav__link" href="index.html#waarom">Why Mourão</a>
             <a class="mourao-header-nav__link" href="#contact">Contact</a>
           </nav>
 
@@ -858,9 +857,9 @@ function renderProductPage(product) {
             </div>
 
             <div class="mourao-site-footer__column">
-              <h3 class="mourao-site-footer__heading">Waarom Mourão</h3>
+              <h3 class="mourao-site-footer__heading">Why Mourão</h3>
+              <a href="index.html#waarom">Onze aanpak</a>
               <a href="index.html#waarom">Ingrediënten</a>
-              <a href="index.html#verhaal">Ons verhaal</a>
               <a href="index.html#reviews">Reviews</a>
             </div>
 

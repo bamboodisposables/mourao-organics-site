@@ -1145,6 +1145,14 @@ textarea {
   margin-bottom: 0;
 }
 
+.mourao-ingredient-section__story {
+  margin-bottom: 1.7rem;
+}
+
+.mourao-ingredient-section__header {
+  margin-bottom: 1rem;
+}
+
 .mourao-story-card__lead {
   color: rgba(61, 43, 33, 0.88);
   font-weight: 600;
@@ -1928,6 +1936,10 @@ textarea {
     grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
     gap: clamp(1.4rem, 2.6vw, 2.4rem);
     align-items: center;
+  }
+
+  .mourao-ingredient-section__story {
+    margin-bottom: 2rem;
   }
 
   .mourao-story .mourao-section-header {

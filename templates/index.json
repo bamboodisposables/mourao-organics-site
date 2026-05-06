@@ -8,7 +8,7 @@
         "subheading": "Handgemaakte skincare met pure ingrediënten, zachte texturen en een aardse, toegankelijke benadering van dagelijkse verzorging.",
         "button_label": "Bekijk collectie",
         "button_link": "shopify://collections/all",
-        "secondary_label": "Lees ons verhaal",
+        "secondary_label": "Lees waarom Mourão",
         "highlight_one": "Handgemaakt in Nederland",
         "highlight_two": "Gratis verzending vanaf €30",
         "highlight_three": "30 dagen rustig proberen"
@@ -138,30 +138,22 @@
         "product_6"
       ]
     },
-    "story": {
-      "type": "mourao-brand-story",
-      "settings": {
-        "eyebrow": "Ons verhaal",
-        "title": "Home made, rustig opgebouwd",
-        "text": "MOURÃO Organics maakt verzorgingsproducten vanuit een simpele gedachte: je huid hoeft niet overspoeld te worden om goed verzorgd te voelen. Daarom kiezen we voor kleine batches, herkenbare ingrediënten en formules die zacht blijven in gebruik.",
-        "value_one": "Kleine batches",
-        "value_two": "Functionele ingrediënten",
-        "value_three": "Zachte dagelijkse verzorging"
-      }
-    },
-    "nature_video": {
-      "type": "mourao-nature-video",
-      "settings": {
-        "eyebrow": "Natuur in beweging",
-        "title": "Zachte beweging, aardse rust",
-        "text": "Een rustige natuurscène die de sfeer van MOURÃO vangt: warm licht, zachte beweging en een routine die niet hoeft te haasten."
-      }
-    },
     "ingredients": {
       "type": "mourao-ingredient-highlights",
       "settings": {
-        "eyebrow": "Waarom Mourão",
-        "title": "Ingrediënten die zacht blijven werken"
+        "eyebrow": "Why Mourão",
+        "story_title": "Home made, rustig opgebouwd",
+        "story_text": "MOURÃO Organics maakt verzorgingsproducten vanuit een simpele gedachte: je huid hoeft niet overspoeld te worden om goed verzorgd te voelen. Daarom kiezen we voor kleine batches, herkenbare ingrediënten en formules die zacht blijven in gebruik.",
+        "story_lead": "Niet in massa gemaakt. Gewoon met de hand, stap voor stap.",
+        "story_card_title": "Van keukenritme naar dagelijkse routine",
+        "story_card_text": "MOURÃO begon vanuit de behoefte aan verzorging die kalm aanvoelt: zuivere ingrediënten, zachte texturen en geen overbodige claims. Wat goed werkte voor thuisgebruik, groeide uit tot een kleine collectie voor mensen die dezelfde rust zoeken.",
+        "value_one": "Kleine batches",
+        "value_two": "Functionele ingrediënten",
+        "value_three": "Zachte dagelijkse verzorging",
+        "story_footnote": "Elke batch begint klein, zodat textuur, geur en gevoel dichtbij blijven. Dat merk je in hoe makkelijk de producten in je routine passen.",
+        "ingredients_eyebrow": "Ingrediënten",
+        "ingredients_title": "Ingrediënten die zacht blijven werken",
+        "ingredients_text": "MOURÃO kiest voor herkenbare ingrediënten die goed samengaan met een eenvoudige routine: voedend, rustig en zonder onnodige omwegen."
       },
       "blocks": {
         "ingredient_1": {
@@ -309,7 +301,6 @@
     "hero",
     "trust_bar",
     "categories",
-    "story",
     "ingredients",
     "bestsellers",
     "reviews",

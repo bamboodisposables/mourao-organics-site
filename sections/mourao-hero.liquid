@@ -17,7 +17,7 @@
           {% endif %}
 
           {% if section.settings.secondary_label != blank %}
-            <a class="mourao-inline-link" href="{{ section.settings.secondary_link | default: routes.root_url }}#verhaal">
+            <a class="mourao-inline-link" href="{{ section.settings.secondary_link | default: routes.root_url }}#waarom">
               {{ section.settings.secondary_label }}
             </a>
           {% endif %}
@@ -110,7 +110,7 @@
       "type": "text",
       "id": "secondary_label",
       "label": "Secondary link label",
-      "default": "Lees ons verhaal"
+      "default": "Lees waarom Mourão"
     },
     {
       "type": "url",

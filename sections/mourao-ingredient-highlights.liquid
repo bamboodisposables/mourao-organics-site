@@ -1,11 +1,41 @@
 <section id="waarom" class="mourao-section mourao-section--spacious mourao-ingredient-section">
   <div class="page-width">
-    <div class="mourao-section-header">
-      {% if section.settings.eyebrow != blank %}
-        <p class="mourao-eyebrow">{{ section.settings.eyebrow }}</p>
+    <div class="mourao-story mourao-ingredient-section__story">
+      <div class="mourao-section-header mourao-reveal" style="--animation-order: 1;">
+        {% if section.settings.eyebrow != blank %}
+          <p class="mourao-eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+        <h2 class="mourao-section-title">{{ section.settings.story_title }}</h2>
+        <p class="mourao-text">{{ section.settings.story_text }}</p>
+      </div>
+
+      <div class="mourao-story-card mourao-reveal" style="--animation-order: 2;">
+        <p class="mourao-story-card__lead">{{ section.settings.story_lead }}</p>
+        <h3 class="mourao-story-card__title">{{ section.settings.story_card_title }}</h3>
+        <p class="mourao-story-card__text">{{ section.settings.story_card_text }}</p>
+
+        <div class="mourao-story-card__list">
+          {% if section.settings.value_one != blank %}
+            <span>{{ section.settings.value_one }}</span>
+          {% endif %}
+          {% if section.settings.value_two != blank %}
+            <span>{{ section.settings.value_two }}</span>
+          {% endif %}
+          {% if section.settings.value_three != blank %}
+            <span>{{ section.settings.value_three }}</span>
+          {% endif %}
+        </div>
+
+        <p class="mourao-story-card__footnote">{{ section.settings.story_footnote }}</p>
+      </div>
+    </div>
+
+    <div class="mourao-section-header mourao-ingredient-section__header">
+      {% if section.settings.ingredients_eyebrow != blank %}
+        <p class="mourao-eyebrow">{{ section.settings.ingredients_eyebrow }}</p>
       {% endif %}
-      <h2 class="mourao-section-title">{{ section.settings.title }}</h2>
-      <p class="mourao-section-copy">MOURÃO kiest voor herkenbare ingrediënten die goed samengaan met een eenvoudige routine: voedend, rustig en zonder onnodige omwegen.</p>
+      <h3 class="mourao-section-title">{{ section.settings.ingredients_title }}</h3>
+      <p class="mourao-section-copy">{{ section.settings.ingredients_text }}</p>
     </div>
 
     <div class="mourao-ingredient-list">
@@ -37,13 +67,79 @@
       "type": "text",
       "id": "eyebrow",
       "label": "Eyebrow",
-      "default": "Waarom Mourão"
+      "default": "Why Mourão"
     },
     {
       "type": "text",
-      "id": "title",
-      "label": "Title",
+      "id": "story_title",
+      "label": "Story title",
+      "default": "Home made, rustig opgebouwd"
+    },
+    {
+      "type": "textarea",
+      "id": "story_text",
+      "label": "Story text",
+      "default": "MOURÃO Organics maakt verzorgingsproducten vanuit een simpele gedachte: je huid hoeft niet overspoeld te worden om goed verzorgd te voelen. Daarom kiezen we voor kleine batches, herkenbare ingrediënten en formules die zacht blijven in gebruik."
+    },
+    {
+      "type": "text",
+      "id": "story_lead",
+      "label": "Story lead",
+      "default": "Niet in massa gemaakt. Gewoon met de hand, stap voor stap."
+    },
+    {
+      "type": "text",
+      "id": "story_card_title",
+      "label": "Story card title",
+      "default": "Van keukenritme naar dagelijkse routine"
+    },
+    {
+      "type": "textarea",
+      "id": "story_card_text",
+      "label": "Story card text",
+      "default": "MOURÃO begon vanuit de behoefte aan verzorging die kalm aanvoelt: zuivere ingrediënten, zachte texturen en geen overbodige claims. Wat goed werkte voor thuisgebruik, groeide uit tot een kleine collectie voor mensen die dezelfde rust zoeken."
+    },
+    {
+      "type": "text",
+      "id": "value_one",
+      "label": "Value 1",
+      "default": "Kleine batches"
+    },
+    {
+      "type": "text",
+      "id": "value_two",
+      "label": "Value 2",
+      "default": "Functionele ingrediënten"
+    },
+    {
+      "type": "text",
+      "id": "value_three",
+      "label": "Value 3",
+      "default": "Zachte dagelijkse verzorging"
+    },
+    {
+      "type": "textarea",
+      "id": "story_footnote",
+      "label": "Story footnote",
+      "default": "Elke batch begint klein, zodat textuur, geur en gevoel dichtbij blijven. Dat merk je in hoe makkelijk de producten in je routine passen."
+    },
+    {
+      "type": "text",
+      "id": "ingredients_eyebrow",
+      "label": "Ingredients eyebrow",
+      "default": "Ingrediënten"
+    },
+    {
+      "type": "text",
+      "id": "ingredients_title",
+      "label": "Ingredients title",
       "default": "Ingrediënten die zacht blijven werken"
+    },
+    {
+      "type": "textarea",
+      "id": "ingredients_text",
+      "label": "Ingredients text",
+      "default": "MOURÃO kiest voor herkenbare ingrediënten die goed samengaan met een eenvoudige routine: voedend, rustig en zonder onnodige omwegen."
     }
   ],
   "blocks": [
