@@ -53,7 +53,7 @@ PRODUCTS: tuple[ProductSpec, ...] = (
         secondary="#c98767",
         cream="#f3e3c6",
         accent="#7b5032",
-        props=("cloth",),
+        props=("cloth", "shea_dish"),
         label_style="paper",
     ),
     ProductSpec(
@@ -66,7 +66,7 @@ PRODUCTS: tuple[ProductSpec, ...] = (
         secondary="#f8f5ef",
         cream="#efe5d4",
         accent="#ba9a72",
-        props=("coaster", "oats"),
+        props=("coaster", "oats", "droplets"),
         label_style="paper",
     ),
     ProductSpec(
@@ -79,7 +79,7 @@ PRODUCTS: tuple[ProductSpec, ...] = (
         secondary="#efe5d8",
         cream="#f0e6d6",
         accent="#93a588",
-        props=("leaves",),
+        props=("leaves", "petals"),
         label_style="paper",
     ),
     ProductSpec(
@@ -92,7 +92,7 @@ PRODUCTS: tuple[ProductSpec, ...] = (
         secondary="#d9c4b6",
         cream="#f4eee8",
         accent="#6a574b",
-        props=("pebble",),
+        props=("pebble", "oil_drops"),
         label_style="paper",
         rotation=3,
     ),
@@ -106,7 +106,7 @@ PRODUCTS: tuple[ProductSpec, ...] = (
         secondary="#f8f1ef",
         cream="#f5e8dd",
         accent="#b7968a",
-        props=("blush_glow",),
+        props=("blush_glow", "beeswax"),
         label_style="paper",
         rotation=-5,
     ),
@@ -120,7 +120,7 @@ PRODUCTS: tuple[ProductSpec, ...] = (
         secondary="#f1f1f1",
         cream="#efe2ba",
         accent="#bfa38a",
-        props=("stems",),
+        props=("stems", "beeswax"),
         label_style="seal",
     ),
 )
@@ -145,6 +145,59 @@ def vertical_gradient(size: tuple[int, int], top: str, bottom: str) -> Image.Ima
         t = y / max(1, height - 1)
         color = tuple(lerp(top_rgba[i], bottom_rgba[i], t) for i in range(4))
         draw.line((0, y, width, y), fill=color)
+    return image
+
+
+def grain_overlay(size: tuple[int, int], alpha: int = 16, sigma: float = 18, tint: str = "#9f7f66") -> Image.Image:
+    noise = Image.effect_noise(size, sigma).convert("L")
+    noise = ImageOps.autocontrast(noise)
+    noise = noise.point(lambda value: int(value * alpha / 255))
+    overlay = Image.new("RGBA", size, rgb(tint, 0))
+    overlay.putalpha(noise)
+    return overlay
+
+
+def wood_texture(size: tuple[int, int], top: str, bottom: str) -> Image.Image:
+    texture = vertical_gradient(size, top, bottom)
+    rings = Image.new("RGBA", size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(rings)
+    cx, cy = size[0] // 2, size[1] // 2
+    for step in range(10, max(size) // 2, max(8, max(size) // 26)):
+        draw.ellipse((cx - step, cy - step, cx + step, cy + step), outline=(110, 72, 43, max(16, 58 - step // 8)), width=2)
+    texture.alpha_composite(rings)
+
+    fibers = Image.new("RGBA", size, (0, 0, 0, 0))
+    fibers_draw = ImageDraw.Draw(fibers)
+    spacing = max(10, size[1] // 28)
+    for offset in range(-size[1], size[0], spacing):
+        fibers_draw.line((offset, 0, offset + size[1], size[1]), fill=(140, 97, 62, 18), width=max(2, spacing // 7))
+    fibers = fibers.filter(ImageFilter.GaussianBlur(max(2, size[0] // 140)))
+    texture.alpha_composite(fibers)
+    texture.alpha_composite(grain_overlay(size, alpha=18, sigma=22, tint="#7a5335"))
+    return texture
+
+
+def metal_texture(size: tuple[int, int], top: str, bottom: str, horizontal: bool = False) -> Image.Image:
+    base = vertical_gradient(size, top, bottom)
+    if horizontal:
+        base = base.rotate(90, expand=True).resize(size, Image.Resampling.BICUBIC)
+    sheen = Image.new("RGBA", size, (0, 0, 0, 0))
+    sheen_draw = ImageDraw.Draw(sheen)
+    for ratio, alpha in ((0.16, 72), (0.3, 38), (0.72, 42)):
+        x = int(size[0] * ratio)
+        sheen_draw.rectangle((x, 0, x + max(8, size[0] // 18), size[1]), fill=(255, 255, 255, alpha))
+    sheen = sheen.filter(ImageFilter.GaussianBlur(max(4, size[0] // 40)))
+    base.alpha_composite(sheen)
+    base.alpha_composite(grain_overlay(size, alpha=8, sigma=12, tint="#ffffff"))
+    return base
+
+
+def add_inner_shadow(image: Image.Image, alpha: int = 70) -> Image.Image:
+    shadow = Image.new("RGBA", image.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(shadow)
+    draw.rounded_rectangle((0, 0, image.size[0] - 1, image.size[1] - 1), radius=max(8, min(image.size) // 8), outline=(88, 63, 48, alpha), width=max(6, min(image.size) // 32))
+    shadow = shadow.filter(ImageFilter.GaussianBlur(max(6, min(image.size) // 26)))
+    image.alpha_composite(shadow)
     return image
 
 
@@ -175,17 +228,28 @@ def alpha_box(size: tuple[int, int], alpha: int, kind: str = "ellipse", radius: 
 def draw_blurred_shape(canvas: Image.Image, bbox: tuple[int, int, int, int], fill: tuple[int, int, int, int], blur: int, kind: str = "ellipse", radius: int = 0) -> None:
     width = max(1, bbox[2] - bbox[0])
     height = max(1, bbox[3] - bbox[1])
-    shape = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    pad = blur * 3 if blur else 0
+    shape = Image.new("RGBA", (width + pad * 2, height + pad * 2), (0, 0, 0, 0))
     draw = ImageDraw.Draw(shape)
     if kind == "ellipse":
-        draw.ellipse((0, 0, width - 1, height - 1), fill=fill)
+        draw.ellipse((pad, pad, pad + width - 1, pad + height - 1), fill=fill)
     elif kind == "roundrect":
-        draw.rounded_rectangle((0, 0, width - 1, height - 1), radius=radius, fill=fill)
+        draw.rounded_rectangle((pad, pad, pad + width - 1, pad + height - 1), radius=radius, fill=fill)
     else:
-        draw.rectangle((0, 0, width - 1, height - 1), fill=fill)
+        draw.rectangle((pad, pad, pad + width - 1, pad + height - 1), fill=fill)
     if blur:
         shape = shape.filter(ImageFilter.GaussianBlur(blur))
-    canvas.alpha_composite(shape, (bbox[0], bbox[1]))
+    dest_x = bbox[0] - pad
+    dest_y = bbox[1] - pad
+    src_x = max(0, -dest_x)
+    src_y = max(0, -dest_y)
+    dest_x = max(0, dest_x)
+    dest_y = max(0, dest_y)
+    crop_w = min(shape.width - src_x, canvas.width - dest_x)
+    crop_h = min(shape.height - src_y, canvas.height - dest_y)
+    if crop_w <= 0 or crop_h <= 0:
+        return
+    canvas.alpha_composite(shape.crop((src_x, src_y, src_x + crop_w, src_y + crop_h)), (dest_x, dest_y))
 
 
 def text_size(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont) -> tuple[int, int]:
@@ -210,16 +274,26 @@ def build_paper_label(width: int) -> Image.Image:
     shadow.paste((89, 60, 40, 54), (0, 0), shadow_mask)
     label.alpha_composite(shadow)
 
-    body = Image.new("RGBA", (width, height), (0, 0, 0, 0))
-    radius = int(height * 0.29)
+    body = masked_gradient((width, height), "#fbf5ee", "#eee0d1", kind="roundrect", radius=int(height * 0.29))
+    body.alpha_composite(grain_overlay(body.size, alpha=8, sigma=7, tint="#ceb29a"))
     body_draw = ImageDraw.Draw(body)
+    radius = int(height * 0.29)
     body_draw.rounded_rectangle(
         (0, 0, width - 1, height - 1),
         radius=radius,
-        fill=(250, 243, 234, 245),
-        outline=(171, 133, 101, 218),
+        outline=(171, 133, 101, 212),
         width=max(2, width // 82),
     )
+    body_draw.rounded_rectangle(
+        (max(3, width // 46), max(3, height // 12), width - max(4, width // 46), height - max(4, height // 12)),
+        radius=max(12, radius - max(6, width // 32)),
+        outline=(255, 250, 243, 72),
+        width=max(1, width // 120),
+    )
+    sheen = Image.new("RGBA", body.size, (0, 0, 0, 0))
+    draw_blurred_shape(sheen, (int(width * 0.04), -int(height * 0.18), int(width * 0.6), int(height * 0.76)), (255, 255, 255, 82), blur=max(8, width // 18), kind="ellipse")
+    draw_blurred_shape(sheen, (int(width * 0.32), int(height * 0.56), int(width * 0.92), int(height * 1.04)), (155, 123, 95, 36), blur=max(10, width // 16), kind="ellipse")
+    body.alpha_composite(sheen)
 
     serif = ImageFont.truetype(SERIF_FONT, max(18, int(height * 0.36)))
     sans = ImageFont.truetype(SANS_FONT, max(9, int(height * 0.14)))
@@ -229,6 +303,7 @@ def build_paper_label(width: int) -> Image.Image:
     subtitle_w, subtitle_h = text_size(body_draw, subtitle, sans)
     body_draw.text(((width - title_w) / 2, height * 0.16), title, font=serif, fill=(66, 44, 32, 255))
     body_draw.text(((width - subtitle_w) / 2, height * 0.61 - subtitle_h / 2), subtitle, font=sans, fill=(122, 95, 71, 255))
+    body_draw.line((width * 0.2, height * 0.78, width * 0.8, height * 0.78), fill=(188, 159, 132, 108), width=max(1, width // 120))
 
     label.alpha_composite(body, (14, 14))
     return label
@@ -250,66 +325,106 @@ def build_wood_roundel(diameter: int, logo: Image.Image) -> Image.Image:
     return disc
 
 
-def build_background(spec: ProductSpec, size: tuple[int, int], variant: int) -> Image.Image:
+def build_background(spec: ProductSpec, size: tuple[int, int], role: str, variant: int) -> Image.Image:
     canvas = vertical_gradient(size, spec.bg_top, spec.bg_bottom)
     width, height = size
 
-    draw_blurred_shape(canvas, (int(width * 0.05), int(height * 0.04), int(width * 0.92), int(height * 0.68)), rgb(spec.glow, 145), blur=70, kind="ellipse")
-    draw_blurred_shape(canvas, (int(width * 0.14), int(height * 0.16), int(width * 0.86), int(height * 0.96)), rgb("#ffffff", 56), blur=110, kind="ellipse")
+    glow_blur = 64 if role == "hero" else 48 if role == "card" else 34
+    core_top = 0.16 if role == "hero" else 0.18 if role == "card" else 0.14
+    surface_top = 0.74 if role == "hero" else 0.77 if role == "card" else 0.8
+
+    draw_blurred_shape(canvas, (-int(width * 0.08), -int(height * 0.04), int(width * 0.6), int(height * 0.34)), (255, 250, 244, 78), blur=max(42, width // 16), kind="ellipse")
+    draw_blurred_shape(canvas, (int(width * 0.18), int(height * core_top), int(width * 0.82), int(height * 0.72)), rgb(spec.glow, 126 if role == "hero" else 112), blur=glow_blur, kind="ellipse")
+    draw_blurred_shape(canvas, (int(width * 0.34), int(height * 0.32), int(width * 0.66), int(height * 0.84)), rgb("#7a604e", 10), blur=max(44, width // 18), kind="ellipse")
+    draw_blurred_shape(canvas, (int(width * 0.1), int(height * surface_top), int(width * 0.9), int(height * 0.98)), rgb("#cdb29a", 76), blur=max(16, width // 28), kind="ellipse")
+    draw_blurred_shape(canvas, (int(width * 0.18), int(height * (surface_top - 0.02)), int(width * 0.82), int(height * 0.91)), rgb("#fff7ef", 42), blur=max(18, width // 26), kind="ellipse")
 
     veil = Image.new("RGBA", size, (255, 255, 255, 0))
     veil_draw = ImageDraw.Draw(veil)
-    stripe_alpha = 10 if variant == 0 else 7
-    for offset in range(-height, width, max(48, width // 18)):
-        veil_draw.line((offset, 0, offset + height, height), fill=(255, 248, 241, stripe_alpha), width=max(18, width // 26))
-    veil = veil.filter(ImageFilter.GaussianBlur(max(8, width // 120)))
+    stripe_alpha = 4 if variant == 0 else 3
+    for offset in range(-height, width, max(64, width // 14)):
+        veil_draw.line((offset, 0, offset + height, height), fill=(255, 248, 241, stripe_alpha), width=max(16, width // 24))
+    veil = veil.filter(ImageFilter.GaussianBlur(max(10, width // 96)))
     canvas.alpha_composite(veil)
+    canvas.alpha_composite(grain_overlay(size, alpha=8 if variant == 0 else 7, sigma=13, tint="#8b6a54"))
 
     if "cloth" in spec.props:
-        draw_blurred_shape(canvas, (int(width * 0.12), int(height * 0.22), int(width * 0.78), int(height * 0.92)), rgb("#f3e3db", 128), blur=46, kind="ellipse")
-        draw_blurred_shape(canvas, (int(width * 0.24), int(height * 0.14), int(width * 0.94), int(height * 0.68)), rgb("#efe0de", 88), blur=52, kind="ellipse")
+        draw_blurred_shape(canvas, (int(width * 0.12), int(height * 0.26), int(width * 0.76), int(height * 0.9)), rgb("#f1ddd2", 110), blur=28, kind="ellipse")
+        draw_blurred_shape(canvas, (int(width * 0.26), int(height * 0.2), int(width * 0.88), int(height * 0.66)), rgb("#efe0de", 62), blur=36, kind="ellipse")
     if "blush_glow" in spec.props:
-        draw_blurred_shape(canvas, (int(width * 0.04), int(height * 0.16), int(width * 0.72), int(height * 0.94)), rgb("#f3d7d1", 150), blur=64, kind="ellipse")
+        draw_blurred_shape(canvas, (int(width * 0.06), int(height * 0.22), int(width * 0.68), int(height * 0.92)), rgb("#f0d6ce", 118), blur=42, kind="ellipse")
     if "pebble" in spec.props:
-        draw_blurred_shape(canvas, (int(width * 0.57), int(height * 0.71), int(width * 0.72), int(height * 0.78)), rgb("#d8cabd", 240), blur=6, kind="ellipse")
+        draw_blurred_shape(canvas, (int(width * 0.58), int(height * 0.72), int(width * 0.75), int(height * 0.8)), rgb("#d8cabd", 232), blur=4, kind="ellipse")
     return canvas
 
 
 def add_scene_props(canvas: Image.Image, spec: ProductSpec, logo: Image.Image, role: str, variant: int) -> None:
     width, height = canvas.size
     draw = ImageDraw.Draw(canvas)
+    scale = 1.0 if role == "hero" else 1.14 if role == "card" else 1.24
+    stroke = max(2, int(width * 0.0026 * scale))
 
     if "coaster" in spec.props:
-        coaster = masked_gradient((int(width * 0.46), int(width * 0.46)), "#e1ba8a", "#ba7f4b", kind="roundrect", radius=int(width * 0.04))
-        rings = Image.new("RGBA", coaster.size, (0, 0, 0, 0))
-        rings_draw = ImageDraw.Draw(rings)
-        cx, cy = coaster.width // 2, coaster.height // 2
-        for step in range(18, coaster.width // 2, max(12, coaster.width // 20)):
-            rings_draw.ellipse((cx - step, cy - step, cx + step, cy + step), outline=(135, 92, 57, 56), width=2)
-        coaster.alpha_composite(rings)
+        coaster = wood_texture((int(width * 0.5 * scale), int(width * 0.5 * scale)), "#e1ba8a", "#ba7f4b")
+        coaster.putalpha(make_mask(coaster.size, kind="roundrect", radius=int(width * 0.04)))
         coaster = coaster.rotate(-14 + variant * 2, Image.Resampling.BICUBIC, expand=True)
-        paste_centered(canvas, coaster, (int(width * 0.5), int(height * 0.57)))
+        paste_centered(canvas, coaster, (int(width * 0.5), int(height * 0.6)))
     if "oats" in spec.props:
         for index in range(12):
-            x = int(width * 0.74) + index * max(4, width // 120)
-            y = int(height * 0.18) + (index % 4) * max(10, height // 90)
-            draw.line((x, y, x + max(18, width // 80), y - max(16, height // 100)), fill=rgb("#baa57c", 110), width=2)
-            draw.ellipse((x + max(12, width // 110), y - max(28, height // 120), x + max(24, width // 90), y - max(12, height // 110)), fill=rgb("#d8c498", 135))
+            x = int(width * 0.7) + index * max(5, int(width / 110))
+            y = int(height * 0.18) + (index % 4) * max(12, int(height / 86))
+            draw.line((x, y, x + max(22, int(width / 72)), y - max(18, int(height / 96))), fill=rgb("#baa57c", 138), width=stroke)
+            draw.ellipse((x + max(14, int(width / 104)), y - max(30, int(height / 118)), x + max(28, int(width / 82)), y - max(12, int(height / 108))), fill=rgb("#dcc89f", 168))
     if "leaves" in spec.props:
         for x_pos, y_pos, angle in ((0.19, 0.18, -18), (0.82, 0.22, 22), (0.72, 0.16, -8)):
-            leaf = Image.new("RGBA", (int(width * 0.18), int(height * 0.16)), (0, 0, 0, 0))
+            leaf = Image.new("RGBA", (int(width * 0.19 * scale), int(height * 0.17 * scale)), (0, 0, 0, 0))
             leaf_draw = ImageDraw.Draw(leaf)
-            leaf_draw.ellipse((0, leaf.height * 0.2, leaf.width * 0.72, leaf.height * 0.72), fill=rgb("#a8b89a", 168))
-            leaf_draw.line((leaf.width * 0.08, leaf.height * 0.48, leaf.width * 0.78, leaf.height * 0.48), fill=rgb("#6e8468", 170), width=3)
+            leaf_draw.ellipse((0, leaf.height * 0.2, leaf.width * 0.72, leaf.height * 0.72), fill=rgb("#a8b89a", 182))
+            leaf_draw.line((leaf.width * 0.08, leaf.height * 0.48, leaf.width * 0.78, leaf.height * 0.48), fill=rgb("#6e8468", 182), width=max(3, stroke))
+            leaf_draw.line((leaf.width * 0.34, leaf.height * 0.22, leaf.width * 0.46, leaf.height * 0.62), fill=rgb("#7a906f", 124), width=max(2, stroke - 1))
             leaf = leaf.rotate(angle, Image.Resampling.BICUBIC, expand=True)
             paste_centered(canvas, leaf, (int(width * x_pos), int(height * y_pos)))
+    if "petals" in spec.props:
+        for x_pos, y_pos in ((0.77, 0.18), (0.83, 0.24), (0.72, 0.24), (0.2, 0.76)):
+            petal = Image.new("RGBA", (int(width * 0.09 * scale), int(width * 0.09 * scale)), (0, 0, 0, 0))
+            petal_draw = ImageDraw.Draw(petal)
+            petal_draw.ellipse((0, petal.height * 0.18, petal.width * 0.52, petal.height * 0.76), fill=rgb("#f1d89f", 162))
+            petal_draw.ellipse((petal.width * 0.26, 0, petal.width * 0.9, petal.height * 0.56), fill=rgb("#edc56e", 152))
+            paste_centered(canvas, petal.rotate(-28, Image.Resampling.BICUBIC, expand=True), (int(width * x_pos), int(height * y_pos)))
     if "stems" in spec.props:
         for x_pos in (0.73, 0.79, 0.85):
-            draw.line((int(width * x_pos), int(height * 0.21), int(width * (x_pos + 0.05)), int(height * 0.48)), fill=rgb("#c5b29b", 110), width=3)
+            draw.line((int(width * x_pos), int(height * 0.21), int(width * (x_pos + 0.05)), int(height * 0.48)), fill=rgb("#c5b29b", 126), width=stroke)
             for node in range(3):
                 node_x = int(width * (x_pos + 0.015 * node))
                 node_y = int(height * (0.27 + 0.06 * node))
-                draw.ellipse((node_x, node_y, node_x + max(12, width // 90), node_y + max(14, height // 105)), fill=rgb("#d9cab8", 128))
+                draw.ellipse((node_x, node_y, node_x + max(14, width // 84), node_y + max(16, height // 96)), fill=rgb("#d9cab8", 146))
+    if "oil_drops" in spec.props:
+        for x_pos, y_pos, scale in ((0.74, 0.68, 1.0), (0.8, 0.74, 0.8), (0.69, 0.76, 0.68)):
+            drop = Image.new("RGBA", (int(width * 0.1 * scale), int(height * 0.12 * scale)), (0, 0, 0, 0))
+            drop_draw = ImageDraw.Draw(drop)
+            drop_draw.ellipse((0, drop.height * 0.18, drop.width, drop.height), fill=rgb("#f0d9b0", 188))
+            drop_draw.polygon(((drop.width * 0.5, 0), (drop.width * 0.18, drop.height * 0.42), (drop.width * 0.82, drop.height * 0.42)), fill=rgb("#f0d9b0", 188))
+            drop = drop.filter(ImageFilter.GaussianBlur(1))
+            paste_centered(canvas, drop, (int(width * x_pos), int(height * y_pos)))
+    if "droplets" in spec.props:
+        for x_pos, y_pos, size_factor in ((0.22, 0.78, 1.0), (0.3, 0.73, 0.68), (0.75, 0.72, 0.82)):
+            radius = max(10, int(width * 0.024 * size_factor))
+            draw_blurred_shape(canvas, (int(width * x_pos) - radius, int(height * y_pos) - radius, int(width * x_pos) + radius, int(height * y_pos) + radius), (255, 255, 255, 70), blur=8, kind="ellipse")
+            draw_blurred_shape(canvas, (int(width * x_pos) - radius // 2, int(height * y_pos) - radius // 2, int(width * x_pos) + radius // 2, int(height * y_pos) + radius // 2), (255, 255, 255, 120), blur=4, kind="ellipse")
+    if "beeswax" in spec.props:
+        for x_pos, y_pos, scale in ((0.78, 0.22, 1.0), (0.84, 0.27, 0.82), (0.73, 0.3, 0.72)):
+            pellet = Image.new("RGBA", (int(width * 0.07 * scale * scale), int(width * 0.07 * scale * scale)), (0, 0, 0, 0))
+            pellet_draw = ImageDraw.Draw(pellet)
+            pellet_draw.ellipse((0, 0, pellet.width - 1, pellet.height - 1), fill=rgb("#e8c35e", 208))
+            pellet_draw.ellipse((pellet.width * 0.18, pellet.height * 0.12, pellet.width * 0.55, pellet.height * 0.45), fill=(255, 245, 214, 80))
+            paste_centered(canvas, pellet, (int(width * x_pos), int(height * y_pos)))
+    if "shea_dish" in spec.props:
+        dish = Image.new("RGBA", (int(width * 0.18), int(height * 0.1)), (0, 0, 0, 0))
+        dish_draw = ImageDraw.Draw(dish)
+        dish_draw.ellipse((0, dish.height * 0.34, dish.width - 1, dish.height - 1), fill=rgb("#d1c7bc", 220))
+        dish_draw.ellipse((dish.width * 0.12, dish.height * 0.18, dish.width * 0.88, dish.height * 0.74), fill=rgb("#f1e0c2", 230))
+        dish_draw.arc((dish.width * 0.25, dish.height * 0.24, dish.width * 0.76, dish.height * 0.72), 185, 360, fill=rgb("#ffffff", 130), width=3)
+        paste_centered(canvas, dish, (int(width * 0.76), int(height * 0.78)))
 
 
 def add_glass_highlight(layer: Image.Image, box: tuple[int, int, int, int], alpha: int = 85) -> None:
@@ -318,57 +433,78 @@ def add_glass_highlight(layer: Image.Image, box: tuple[int, int, int, int], alph
     highlight = Image.new("RGBA", layer.size, (0, 0, 0, 0))
     highlight_draw = ImageDraw.Draw(highlight)
     highlight_draw.ellipse((box[0] + width * 0.05, box[1] - height * 0.08, box[0] + width * 0.42, box[1] + height * 0.86), fill=(255, 255, 255, alpha))
+    highlight_draw.ellipse((box[0] + width * 0.58, box[1] + height * 0.08, box[0] + width * 0.78, box[1] + height * 0.92), fill=(255, 255, 255, max(24, alpha // 3)))
     highlight = highlight.filter(ImageFilter.GaussianBlur(max(12, width // 8)))
     layer.alpha_composite(highlight)
 
 
 def draw_shadow(layer: Image.Image, bbox: tuple[int, int, int, int], alpha: int = 90) -> None:
     shadow = Image.new("RGBA", layer.size, (0, 0, 0, 0))
-    ImageDraw.Draw(shadow).ellipse(bbox, fill=(83, 58, 41, alpha))
-    shadow = shadow.filter(ImageFilter.GaussianBlur(max(10, (bbox[2] - bbox[0]) // 7)))
+    draw = ImageDraw.Draw(shadow)
+    draw.ellipse(bbox, fill=(83, 58, 41, int(alpha * 0.62)))
+    inset_x = max(8, (bbox[2] - bbox[0]) // 8)
+    inset_y = max(4, (bbox[3] - bbox[1]) // 5)
+    draw.ellipse((bbox[0] + inset_x, bbox[1] + inset_y, bbox[2] - inset_x, bbox[3] - inset_y), fill=(72, 48, 35, alpha))
+    shadow = shadow.filter(ImageFilter.GaussianBlur(max(8, (bbox[2] - bbox[0]) // 9)))
     layer.alpha_composite(shadow)
 
 
 def render_jar(scene: Image.Image, spec: ProductSpec, logo: Image.Image, role: str, variant: int, x_shift: float, y_shift: float, rotation: int) -> None:
     width, height = scene.size
     layer = Image.new("RGBA", scene.size, (0, 0, 0, 0))
-    product_w = int(width * (0.5 if role == "hero" else 0.56 if role == "card" else 0.68))
-    body_h = int(product_w * (0.48 if spec.package != "jar_soft" else 0.44))
-    lid_h = int(body_h * (0.34 if spec.package == "jar_wood" else 0.28))
+    product_w = int(width * (0.58 if role == "hero" else 0.64 if role == "card" else 0.76))
+    body_h = int(product_w * (0.5 if spec.package != "jar_soft" else 0.46))
+    lid_h = int(body_h * (0.36 if spec.package == "jar_wood" else 0.3))
     cx = int(width * (0.5 + x_shift))
-    cy = int(height * (0.6 + y_shift))
+    cy = int(height * (0.58 + y_shift))
 
-    shadow_box = (cx - int(product_w * 0.34), cy + body_h // 2, cx + int(product_w * 0.34), cy + body_h // 2 + int(product_w * 0.12))
-    draw_shadow(layer, shadow_box, alpha=88)
+    shadow_box = (cx - int(product_w * 0.32), cy + body_h // 2 - int(body_h * 0.02), cx + int(product_w * 0.32), cy + body_h // 2 + int(product_w * 0.13))
+    draw_shadow(layer, shadow_box, alpha=112)
 
     body_box = (cx - product_w // 2, cy - body_h // 2, cx + product_w // 2, cy + body_h // 2)
     body = masked_gradient((product_w, body_h), spec.primary, spec.secondary, kind="roundrect", radius=int(body_h * 0.18))
+    body.alpha_composite(grain_overlay(body.size, alpha=10 if spec.package != "jar_frosted" else 6, sigma=14, tint=spec.accent))
+    body_sheen = Image.new("RGBA", body.size, (0, 0, 0, 0))
+    draw_blurred_shape(body_sheen, (int(product_w * 0.02), -int(body_h * 0.1), int(product_w * 0.46), int(body_h * 0.92)), (255, 255, 255, 82), blur=max(12, product_w // 14), kind="ellipse")
+    draw_blurred_shape(body_sheen, (int(product_w * 0.48), int(body_h * 0.18), int(product_w * 1.04), int(body_h * 1.06)), (120, 84, 61, 52), blur=max(12, product_w // 12), kind="ellipse")
+    body.alpha_composite(body_sheen)
     body_border = Image.new("RGBA", body.size, (0, 0, 0, 0))
     ImageDraw.Draw(body_border).rounded_rectangle((0, 0, product_w - 1, body_h - 1), radius=int(body_h * 0.18), outline=(166, 132, 103, 138), width=max(2, product_w // 90))
     body.alpha_composite(body_border)
+    rim = Image.new("RGBA", body.size, (0, 0, 0, 0))
+    rim_draw = ImageDraw.Draw(rim)
+    rim_draw.rounded_rectangle((int(product_w * 0.03), int(body_h * 0.03), int(product_w * 0.97), int(body_h * 0.97)), radius=int(body_h * 0.16), outline=(255, 249, 241, 48), width=max(1, product_w // 120))
+    body.alpha_composite(rim)
 
     cream_h = int(body_h * 0.64)
     cream_w = int(product_w * 0.86)
     cream = masked_gradient((cream_w, cream_h), spec.cream, "#f9f0e3", kind="roundrect", radius=int(cream_h * 0.2))
+    cream_swirl = Image.new("RGBA", cream.size, (0, 0, 0, 0))
+    swirl_draw = ImageDraw.Draw(cream_swirl)
+    for offset in range(0, cream_h, max(8, cream_h // 8)):
+        swirl_draw.arc((int(cream_w * 0.12), offset - int(cream_h * 0.18), int(cream_w * 0.92), offset + int(cream_h * 0.36)), 185, 355, fill=(255, 248, 237, 48), width=max(2, cream_h // 18))
+    swirl_draw.ellipse((int(cream_w * 0.16), int(cream_h * 0.08), int(cream_w * 0.44), int(cream_h * 0.34)), fill=(255, 251, 243, 34))
+    cream.alpha_composite(cream_swirl)
     body.alpha_composite(cream, (int(product_w * 0.07), int(body_h * 0.1)))
+    add_inner_shadow(body, alpha=54)
     layer.alpha_composite(body, (body_box[0], body_box[1]))
-    add_glass_highlight(layer, body_box)
+    add_glass_highlight(layer, body_box, alpha=98)
 
     lid_w = int(product_w * (1.02 if spec.package == "jar_wood" else 0.98))
     lid_box = (cx - lid_w // 2, body_box[1] - int(lid_h * 0.9), cx + lid_w // 2, body_box[1] + int(lid_h * 0.35))
     if spec.package == "jar_wood":
-        lid = masked_gradient((lid_w, lid_box[3] - lid_box[1]), "#d6a16d", "#9c6238", kind="roundrect", radius=int(lid_h * 0.42))
-        ring_overlay = Image.new("RGBA", lid.size, (0, 0, 0, 0))
-        ring_draw = ImageDraw.Draw(ring_overlay)
-        lx, ly = lid.size[0] // 2, lid.size[1] // 2
-        for step in range(14, lid.size[0] // 2, max(11, lid.size[0] // 20)):
-            ring_draw.ellipse((lx - step, ly - step * 0.62, lx + step, ly + step * 0.62), outline=(120, 77, 46, 42), width=2)
-        lid.alpha_composite(ring_overlay)
-        lid_top = build_wood_roundel(int(lid_w * 0.56), logo)
+        lid = wood_texture((lid_w, lid_box[3] - lid_box[1]), "#d6a16d", "#9c6238")
+        lid.putalpha(make_mask(lid.size, kind="roundrect", radius=int(lid_h * 0.42)))
+        lid_top = build_wood_roundel(int(lid_w * 0.5), logo)
         paste_centered(lid, lid_top, (lid.size[0] // 2, int(lid.size[1] * 0.45)))
     else:
-        lid = masked_gradient((lid_w, lid_box[3] - lid_box[1]), "#faf6f0", "#dfc7ad", kind="roundrect", radius=int(lid_h * 0.42))
-        lid.alpha_composite(alpha_box((lid_w, lid.size[1]), 46, kind="ellipse"), (0, 0))
+        lid = metal_texture((lid_w, lid_box[3] - lid_box[1]), "#ffffff", "#cdb49e")
+        lid.putalpha(make_mask(lid.size, kind="roundrect", radius=int(lid_h * 0.42)))
+        lid.alpha_composite(alpha_box((lid_w, lid.size[1]), 32, kind="ellipse"), (0, 0))
+    lid_sheen = Image.new("RGBA", lid.size, (0, 0, 0, 0))
+    draw_blurred_shape(lid_sheen, (int(lid_w * 0.02), -int(lid.size[1] * 0.18), int(lid_w * 0.56), int(lid.size[1] * 0.72)), (255, 255, 255, 66), blur=max(8, lid_w // 18), kind="ellipse")
+    draw_blurred_shape(lid_sheen, (0, int(lid.size[1] * 0.54), lid_w, lid.size[1]), (95, 66, 48, 48), blur=max(8, lid_w // 20), kind="roundrect", radius=max(12, lid_h // 3))
+    lid.alpha_composite(lid_sheen)
     layer.alpha_composite(lid, (lid_box[0], lid_box[1]))
 
     label_width = int(product_w * (0.44 if spec.package == "jar_wood" else 0.4))
@@ -383,12 +519,12 @@ def render_jar(scene: Image.Image, spec: ProductSpec, logo: Image.Image, role: s
 def render_pump_bottle(scene: Image.Image, spec: ProductSpec, role: str, x_shift: float, y_shift: float, rotation: int) -> None:
     width, height = scene.size
     layer = Image.new("RGBA", scene.size, (0, 0, 0, 0))
-    bottle_w = int(width * (0.33 if role == "hero" else 0.37 if role == "card" else 0.48))
+    bottle_w = int(width * (0.37 if role == "hero" else 0.41 if role == "card" else 0.5))
     bottle_h = int(bottle_w * 2.2)
     cx = int(width * (0.5 + x_shift))
-    cy = int(height * (0.58 + y_shift))
+    cy = int(height * (0.56 + y_shift))
 
-    draw_shadow(layer, (cx - bottle_w // 3, cy + bottle_h // 2 - int(height * 0.03), cx + bottle_w // 3, cy + bottle_h // 2 + int(height * 0.03)), alpha=72)
+    draw_shadow(layer, (cx - bottle_w // 3, cy + bottle_h // 2 - int(height * 0.02), cx + bottle_w // 3, cy + bottle_h // 2 + int(height * 0.04)), alpha=96)
 
     bottle_layer = Image.new("RGBA", (bottle_w + 120, bottle_h + 180), (0, 0, 0, 0))
     bx = 60
@@ -396,6 +532,11 @@ def render_pump_bottle(scene: Image.Image, spec: ProductSpec, role: str, x_shift
     body_w = bottle_w
     body_h = int(bottle_h * 0.82)
     body = masked_gradient((body_w, body_h), spec.primary, spec.secondary, kind="roundrect", radius=int(body_w * 0.18))
+    body.alpha_composite(grain_overlay(body.size, alpha=9, sigma=12, tint=spec.accent))
+    body_sheen = Image.new("RGBA", body.size, (0, 0, 0, 0))
+    draw_blurred_shape(body_sheen, (int(body_w * 0.04), -int(body_h * 0.05), int(body_w * 0.48), int(body_h * 0.96)), (255, 255, 255, 82), blur=max(10, body_w // 10), kind="ellipse")
+    draw_blurred_shape(body_sheen, (int(body_w * 0.52), int(body_h * 0.12), int(body_w * 1.04), int(body_h * 1.02)), (112, 84, 70, 42), blur=max(10, body_w // 9), kind="ellipse")
+    body.alpha_composite(body_sheen)
     border = Image.new("RGBA", body.size, (0, 0, 0, 0))
     ImageDraw.Draw(border).rounded_rectangle((0, 0, body_w - 1, body_h - 1), radius=int(body_w * 0.18), outline=(140, 117, 103, 110), width=max(2, body_w // 90))
     body.alpha_composite(border)
@@ -403,12 +544,14 @@ def render_pump_bottle(scene: Image.Image, spec: ProductSpec, role: str, x_shift
 
     neck_w = int(body_w * 0.28)
     neck_h = int(bottle_h * 0.16)
-    neck = masked_gradient((neck_w, neck_h), "#d8c5b6", "#9e8574", kind="roundrect", radius=int(neck_w * 0.22))
+    neck = metal_texture((neck_w, neck_h), "#e6d3c0", "#a18b79")
+    neck.putalpha(make_mask(neck.size, kind="roundrect", radius=int(neck_w * 0.22)))
     bottle_layer.alpha_composite(neck, (bx + int(body_w * 0.36), by + int(bottle_h * 0.05)))
 
     pump_w = int(body_w * 0.36)
     pump_h = int(bottle_h * 0.16)
-    pump = masked_gradient((pump_w, pump_h), "#5f4c43", "#2e2621", kind="roundrect", radius=int(pump_h * 0.24))
+    pump = metal_texture((pump_w, pump_h), "#4f4038", "#251f1b")
+    pump.putalpha(make_mask(pump.size, kind="roundrect", radius=int(pump_h * 0.24)))
     bottle_layer.alpha_composite(pump, (bx + int(body_w * 0.31), 0))
     spout = Image.new("RGBA", bottle_layer.size, (0, 0, 0, 0))
     spout_draw = ImageDraw.Draw(spout)
@@ -417,7 +560,7 @@ def render_pump_bottle(scene: Image.Image, spec: ProductSpec, role: str, x_shift
 
     bottle_layer = bottle_layer.rotate(rotation, Image.Resampling.BICUBIC, expand=True)
     paste_centered(layer, bottle_layer, (cx, cy))
-    add_glass_highlight(layer, (cx - bottle_w // 2, cy - bottle_h // 2, cx + bottle_w // 2, cy + bottle_h // 2), alpha=76)
+    add_glass_highlight(layer, (cx - bottle_w // 2, cy - bottle_h // 2, cx + bottle_w // 2, cy + bottle_h // 2), alpha=88)
 
     label = build_paper_label(int(bottle_w * 0.48))
     paste_centered(layer, label, (cx, int(cy + bottle_h * 0.13)))
@@ -427,12 +570,12 @@ def render_pump_bottle(scene: Image.Image, spec: ProductSpec, role: str, x_shift
 def render_tube(scene: Image.Image, spec: ProductSpec, role: str, x_shift: float, y_shift: float, rotation: int) -> None:
     width, height = scene.size
     layer = Image.new("RGBA", scene.size, (0, 0, 0, 0))
-    tube_w = int(width * (0.3 if role == "hero" else 0.34 if role == "card" else 0.45))
+    tube_w = int(width * (0.33 if role == "hero" else 0.37 if role == "card" else 0.47))
     tube_h = int(tube_w * 2.4)
     cx = int(width * (0.5 + x_shift))
-    cy = int(height * (0.58 + y_shift))
+    cy = int(height * (0.56 + y_shift))
 
-    draw_shadow(layer, (cx - tube_w // 3, cy + tube_h // 2 - int(height * 0.025), cx + tube_w // 3, cy + tube_h // 2 + int(height * 0.028)), alpha=66)
+    draw_shadow(layer, (cx - tube_w // 3, cy + tube_h // 2 - int(height * 0.018), cx + tube_w // 3, cy + tube_h // 2 + int(height * 0.034)), alpha=92)
 
     tube = Image.new("RGBA", (tube_w + 120, tube_h + 120), (0, 0, 0, 0))
     draw = ImageDraw.Draw(tube)
@@ -451,9 +594,17 @@ def render_tube(scene: Image.Image, spec: ProductSpec, role: str, x_shift: float
     grad = vertical_gradient(tube.size, spec.secondary, spec.primary)
     grad.putalpha(mask)
     tube.alpha_composite(grad)
+    tube.alpha_composite(grain_overlay(tube.size, alpha=8, sigma=10, tint=spec.accent))
+    shade = Image.new("RGBA", tube.size, (0, 0, 0, 0))
+    draw_blurred_shape(shade, (tx + int(tube_w * 0.1), ty, tx + int(tube_w * 0.42), ty + int(tube_h * 0.94)), (255, 255, 255, 72), blur=max(10, tube_w // 9), kind="ellipse")
+    draw_blurred_shape(shade, (tx + int(tube_w * 0.5), ty + int(tube_h * 0.12), tx + int(tube_w * 1.02), ty + int(tube_h * 1.02)), (116, 94, 88, 40), blur=max(10, tube_w // 8), kind="ellipse")
+    tube.alpha_composite(shade)
     draw.rounded_rectangle((tx + tube_w * 0.24, ty + tube_h * 0.9, tx + tube_w * 0.76, ty + tube_h * 1.04), radius=18, fill=rgb("#7b6559", 255))
+    for crease in (0.16, 0.32, 0.48):
+        draw.line((tx + tube_w * crease, ty + tube_h * 0.06, tx + tube_w * (crease + 0.18), ty + tube_h * 0.84), fill=(184, 169, 160, 46), width=max(2, tube_w // 42))
     highlight = Image.new("RGBA", tube.size, (0, 0, 0, 0))
     ImageDraw.Draw(highlight).ellipse((tx + tube_w * 0.14, ty + tube_h * 0.08, tx + tube_w * 0.48, ty + tube_h * 0.92), fill=(255, 255, 255, 90))
+    ImageDraw.Draw(highlight).ellipse((tx + tube_w * 0.56, ty + tube_h * 0.18, tx + tube_w * 0.72, ty + tube_h * 0.84), fill=(255, 255, 255, 34))
     highlight = highlight.filter(ImageFilter.GaussianBlur(max(12, tube_w // 10)))
     tube.alpha_composite(highlight)
 
@@ -467,33 +618,46 @@ def render_tube(scene: Image.Image, spec: ProductSpec, role: str, x_shift: float
 def render_open_tin(scene: Image.Image, spec: ProductSpec, logo: Image.Image, role: str, x_shift: float, y_shift: float, rotation: int) -> None:
     width, height = scene.size
     layer = Image.new("RGBA", scene.size, (0, 0, 0, 0))
-    base_d = int(width * (0.34 if role == "hero" else 0.38 if role == "card" else 0.5))
+    base_d = int(width * (0.38 if role == "hero" else 0.42 if role == "card" else 0.52))
     cx = int(width * (0.45 + x_shift))
-    cy = int(height * (0.58 + y_shift))
+    cy = int(height * (0.56 + y_shift))
     lid_cx = int(width * (0.63 + x_shift))
-    lid_cy = int(height * (0.68 + y_shift))
+    lid_cy = int(height * (0.67 + y_shift))
 
-    draw_shadow(layer, (cx - base_d // 3, cy + base_d // 3, cx + base_d // 3, cy + base_d // 2), alpha=64)
-    draw_shadow(layer, (lid_cx - base_d // 3, lid_cy + base_d // 4, lid_cx + base_d // 3, lid_cy + base_d // 2), alpha=56)
+    draw_shadow(layer, (cx - base_d // 3, cy + base_d // 3, cx + base_d // 3, cy + base_d // 2), alpha=88)
+    draw_shadow(layer, (lid_cx - base_d // 3, lid_cy + base_d // 4, lid_cx + base_d // 3, lid_cy + base_d // 2), alpha=74)
 
-    tin = masked_gradient((base_d, int(base_d * 0.42)), "#d7d8da", "#9fa4aa", kind="roundrect", radius=int(base_d * 0.12))
+    tin = metal_texture((base_d, int(base_d * 0.42)), "#d7d8da", "#9fa4aa", horizontal=True)
+    tin.putalpha(make_mask(tin.size, kind="roundrect", radius=int(base_d * 0.12)))
+    tin_sheen = Image.new("RGBA", tin.size, (0, 0, 0, 0))
+    draw_blurred_shape(tin_sheen, (int(base_d * 0.08), 0, int(base_d * 0.42), tin.size[1]), (255, 255, 255, 64), blur=max(8, base_d // 16), kind="ellipse")
+    draw_blurred_shape(tin_sheen, (int(base_d * 0.56), int(tin.size[1] * 0.18), base_d, tin.size[1]), (101, 105, 112, 40), blur=max(8, base_d // 15), kind="ellipse")
+    tin.alpha_composite(tin_sheen)
     paste_centered(layer, tin, (cx, cy + int(base_d * 0.12)))
     cream = masked_gradient((int(base_d * 0.86), int(base_d * 0.24)), spec.cream, "#fff0c4", kind="ellipse")
+    cream_swirl = Image.new("RGBA", cream.size, (0, 0, 0, 0))
+    cream_draw = ImageDraw.Draw(cream_swirl)
+    cream_draw.arc((int(cream.size[0] * 0.18), int(cream.size[1] * 0.18), int(cream.size[0] * 0.82), int(cream.size[1] * 1.08)), 190, 350, fill=(255, 249, 235, 56), width=max(2, cream.size[1] // 10))
+    cream.alpha_composite(cream_swirl)
     paste_centered(layer, cream, (cx, cy))
     rim = Image.new("RGBA", layer.size, (0, 0, 0, 0))
     rim_draw = ImageDraw.Draw(rim)
     rim_draw.ellipse((cx - base_d // 2, cy - int(base_d * 0.15), cx + base_d // 2, cy + int(base_d * 0.15)), outline=(149, 153, 158, 210), width=max(4, base_d // 40))
     layer.alpha_composite(rim)
 
-    lid = masked_gradient((int(base_d * 0.88), int(base_d * 0.88)), "#d4d5d6", "#a8adb2", kind="ellipse")
+    lid = metal_texture((int(base_d * 0.88), int(base_d * 0.88)), "#d4d5d6", "#a8adb2")
+    lid.putalpha(make_mask(lid.size, kind="ellipse"))
     lid.alpha_composite(build_wood_roundel(int(base_d * 0.56), logo), (int(base_d * 0.16), int(base_d * 0.16)))
+    lid_gloss = Image.new("RGBA", lid.size, (0, 0, 0, 0))
+    draw_blurred_shape(lid_gloss, (int(lid.size[0] * 0.08), int(lid.size[1] * 0.04), int(lid.size[0] * 0.46), int(lid.size[1] * 0.58)), (255, 255, 255, 74), blur=max(8, lid.size[0] // 16), kind="ellipse")
+    lid.alpha_composite(lid_gloss)
     lid = lid.rotate(rotation + 8, Image.Resampling.BICUBIC, expand=True)
     paste_centered(layer, lid, (lid_cx, lid_cy))
     scene.alpha_composite(layer)
 
 
 def render_scene(spec: ProductSpec, size: tuple[int, int], role: str, variant_index: int, logo: Image.Image) -> Image.Image:
-    canvas = build_background(spec, size, variant_index)
+    canvas = build_background(spec, size, role, variant_index)
     add_scene_props(canvas, spec, logo, role, variant_index)
 
     x_shift, y_shift = 0.0, 0.0
