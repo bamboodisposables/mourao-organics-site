@@ -32,9 +32,9 @@
         "detail_four_text": "Eenvoudige ingrediënten en een heldere formule maken hem prettig voor dagelijks gebruik.",
         "faq_eyebrow": "Veelgestelde vragen",
         "faq_title": "Over finish, mee-nemen en gebruiksmomenten",
-        "related_eyebrow": "Past hier ook bij",
-        "related_title": "Maak je routine rustig af",
-        "related_text": "Drie zachte producten die logisch aansluiten op deze routine.",
+        "related_eyebrow": "Vaak samen gebruikt",
+        "related_title": "Kleine essentials die samen logisch voelen",
+        "related_text": "Wie deze lipbalm kiest, voegt vaak ook een handbasic en een kalmerende balm toe voor droge momenten gedurende de dag.",
         "reviews_eyebrow": "Klanten aan het woord",
         "reviews_title": "De soort lipbalm die je niet steeds hoeft te herontdekken",
         "reviews_copy": "Klanten beschrijven hem vooral als een kleine, betrouwbare basic die altijd ergens in de buurt blijft liggen."
@@ -149,8 +149,8 @@
           "settings": {
             "image_key": "handcreme",
             "title": "Handcrème",
-            "text": "Bescherming voor handen die snel droog voelen.",
-            "meta": "Vanaf €16",
+            "text": "Past goed in dezelfde tas, jaszak of bureaulade als deze balm.",
+            "meta": "On-the-go duo • vanaf €16",
             "link": "handcreme.html"
           }
         },
@@ -159,8 +159,8 @@
           "settings": {
             "image_key": "calming-skin-balm",
             "title": "Calming Skin Balm",
-            "text": "Gerichte balm voor droge of gevoelige zones.",
-            "meta": "Vanaf €27",
+            "text": "Voor schrale zones rond neus, mondhoeken of andere droge plekjes.",
+            "meta": "Voor droge randjes • vanaf €27",
             "link": "calming-skin-balm.html"
           }
         },
@@ -169,8 +169,8 @@
           "settings": {
             "image_key": "gezichtscreme",
             "title": "Gezichtscrème",
-            "text": "Lichte dagelijkse crème met rustige finish.",
-            "meta": "Vanaf €24",
+            "text": "Maakt van losse verzorging meteen een eenvoudige dagroutine.",
+            "meta": "Dagelijkse basis • vanaf €24",
             "link": "gezichtscreme.html"
           }
         }

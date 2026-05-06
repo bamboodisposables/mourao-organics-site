@@ -32,9 +32,9 @@
         "detail_four_text": "Het kleinere formaat nodigt uit om hem echt mee te nemen en ook echt te gebruiken.",
         "faq_eyebrow": "Veelgestelde vragen",
         "faq_title": "Over gebruiksmomenten, finish en tasformaten",
-        "related_eyebrow": "Past hier ook bij",
-        "related_title": "Maak je routine rustig af",
-        "related_text": "Drie zachte producten die logisch aansluiten op deze routine.",
+        "related_eyebrow": "Vaak samen gebruikt",
+        "related_title": "Een kleine routine voor handen en onderweg",
+        "related_text": "Handcrème wordt vaak samen gekozen met een bodybasic voor thuis en een lipproduct voor in jaszak, tas of auto.",
         "reviews_eyebrow": "Klanten aan het woord",
         "reviews_title": "Handverzorging die je echt vaker gaat gebruiken",
         "reviews_copy": "De reacties gaan vooral over gebruiksgemak: voedend genoeg om verschil te voelen, licht genoeg om hem steeds opnieuw te pakken."
@@ -149,8 +149,8 @@
           "settings": {
             "image_key": "bodylotion",
             "title": "Bodylotion",
-            "text": "Soepele bodycare voor iedere dag.",
-            "meta": "Vanaf €22",
+            "text": "Voor dezelfde rustige textuur op armen, benen en droge lichaamshuid.",
+            "meta": "Voor thuis • vanaf €22",
             "link": "bodylotion.html"
           }
         },
@@ -159,19 +159,19 @@
           "settings": {
             "image_key": "lipbalm",
             "title": "Lipbalm",
-            "text": "Kleine essential voor zachtere lippen.",
-            "meta": "Vanaf €12",
+            "text": "De meest logische extra voor onderweg of op je nachtkastje.",
+            "meta": "Altijd erbij • vanaf €12",
             "link": "lipbalm.html"
           }
         },
         "related_3": {
           "type": "related",
           "settings": {
-            "image_key": "gezichtscreme",
-            "title": "Gezichtscrème",
-            "text": "Lichte dagelijkse crème met rustige finish.",
-            "meta": "Vanaf €24",
-            "link": "gezichtscreme.html"
+            "image_key": "calming-skin-balm",
+            "title": "Calming Skin Balm",
+            "text": "Voor schrale randjes of zones die nét wat meer comfort willen.",
+            "meta": "Extra care • vanaf €27",
+            "link": "calming-skin-balm.html"
           }
         }
       },

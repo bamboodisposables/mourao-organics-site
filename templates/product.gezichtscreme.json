@@ -32,9 +32,9 @@
         "detail_four_text": "Iedere batch blijft klein zodat textuur en afwerking constant en vertrouwd aanvoelen.",
         "faq_eyebrow": "Veelgestelde vragen",
         "faq_title": "Over gebruik, finish en dagelijkse routines",
-        "related_eyebrow": "Past hier ook bij",
-        "related_title": "Maak je routine rustig af",
-        "related_text": "Drie zachte producten die logisch aansluiten op deze routine.",
+        "related_eyebrow": "Vaak samen gebruikt",
+        "related_title": "Van lichte basis naar complete gezichtsroutine",
+        "related_text": "Deze crème wordt vaak gecombineerd met één rijkere avondstap en één gerichte balm voor momenten waarop de huid extra comfort zoekt.",
         "reviews_eyebrow": "Klanten aan het woord",
         "reviews_title": "Dagelijkse verzorging die eenvoudig blijft voelen",
         "reviews_copy": "Mensen kiezen deze crème vooral omdat hij makkelijk in gebruik is en zacht blijft aanvoelen, ook wanneer de routine kort moet blijven."
@@ -149,8 +149,8 @@
           "settings": {
             "image_key": "tallowcreme",
             "title": "Tallowcrème",
-            "text": "Rijke basis voor droge of gevoelige huid.",
-            "meta": "Vanaf €29",
+            "text": "Voor avonden of drogere dagen waarop je huid meer voeding prettig vindt.",
+            "meta": "Rijkere avondstap • vanaf €29",
             "link": "product.html"
           }
         },
@@ -159,19 +159,19 @@
           "settings": {
             "image_key": "calming-skin-balm",
             "title": "Calming Skin Balm",
-            "text": "Gerichte balm voor droge of gevoelige zones.",
-            "meta": "Vanaf €27",
+            "text": "Voor zones die sneller rood, droog of trekkerig aanvoelen.",
+            "meta": "Zone care • vanaf €27",
             "link": "calming-skin-balm.html"
           }
         },
         "related_3": {
           "type": "related",
           "settings": {
-            "image_key": "handcreme",
-            "title": "Handcrème",
-            "text": "Bescherming voor handen die snel droog voelen.",
-            "meta": "Vanaf €16",
-            "link": "handcreme.html"
+            "image_key": "lipbalm",
+            "title": "Lipbalm",
+            "text": "Maakt een korte routine compleet zonder extra gedoe.",
+            "meta": "Kleine extra • vanaf €12",
+            "link": "lipbalm.html"
           }
         }
       },

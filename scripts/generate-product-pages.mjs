@@ -630,43 +630,163 @@ const announcementItems = [
 const relatedCatalog = {
   tallowcreme: {
     title: 'Tallowcrème',
-    text: 'Rijke basis voor droge of gevoelige huid.',
-    meta: 'Vanaf €29'
+    price: 'Vanaf €29'
   },
   gezichtscreme: {
     title: 'Gezichtscrème',
-    text: 'Lichte dagelijkse crème met rustige finish.',
-    meta: 'Vanaf €24'
+    price: 'Vanaf €24'
   },
   'calming-skin-balm': {
     title: 'Calming Skin Balm',
-    text: 'Gerichte balm voor droge of gevoelige zones.',
-    meta: 'Vanaf €27'
+    price: 'Vanaf €27'
   },
   bodylotion: {
     title: 'Bodylotion',
-    text: 'Soepele bodycare voor iedere dag.',
-    meta: 'Vanaf €22'
+    price: 'Vanaf €22'
   },
   handcreme: {
     title: 'Handcrème',
-    text: 'Bescherming voor handen die snel droog voelen.',
-    meta: 'Vanaf €16'
+    price: 'Vanaf €16'
   },
   lipbalm: {
     title: 'Lipbalm',
-    text: 'Kleine essential voor zachtere lippen.',
-    meta: 'Vanaf €12'
+    price: 'Vanaf €12'
   }
 };
 
-const relatedProductHandles = {
-  tallowcreme: ['gezichtscreme', 'calming-skin-balm', 'lipbalm'],
-  gezichtscreme: ['tallowcreme', 'calming-skin-balm', 'handcreme'],
-  'calming-skin-balm': ['tallowcreme', 'gezichtscreme', 'lipbalm'],
-  bodylotion: ['handcreme', 'lipbalm', 'tallowcreme'],
-  handcreme: ['bodylotion', 'lipbalm', 'gezichtscreme'],
-  lipbalm: ['handcreme', 'calming-skin-balm', 'gezichtscreme']
+const relatedPanels = {
+  tallowcreme: {
+    eyebrow: 'Vaak samen gebruikt',
+    title: 'Bouw er een rustige huidroutine omheen',
+    text: 'Klanten combineren deze rijkere balm vaak met een lichtere dagstap, gerichte zoneverzorging en een kleine lip essential.',
+    items: [
+      {
+        handle: 'gezichtscreme',
+        text: 'Voor ochtenden waarop je huid lichter en soepeler mag aanvoelen.',
+        meta: 'Lichte dagstap • vanaf €24'
+      },
+      {
+        handle: 'calming-skin-balm',
+        text: 'Voor droge plekjes die later op de dag nog iets extra’s vragen.',
+        meta: 'Gerichte extra • vanaf €27'
+      },
+      {
+        handle: 'lipbalm',
+        text: 'Dezelfde rustige basis, maar dan voor lippen en mondhoeken.',
+        meta: 'Tasessential • vanaf €12'
+      }
+    ]
+  },
+  gezichtscreme: {
+    eyebrow: 'Vaak samen gebruikt',
+    title: 'Van lichte basis naar complete gezichtsroutine',
+    text: 'Deze crème wordt vaak gecombineerd met één rijkere avondstap en één gerichte balm voor momenten waarop de huid extra comfort zoekt.',
+    items: [
+      {
+        handle: 'tallowcreme',
+        text: 'Voor avonden of drogere dagen waarop je huid meer voeding prettig vindt.',
+        meta: 'Rijkere avondstap • vanaf €29'
+      },
+      {
+        handle: 'calming-skin-balm',
+        text: 'Voor zones die sneller rood, droog of trekkerig aanvoelen.',
+        meta: 'Zone care • vanaf €27'
+      },
+      {
+        handle: 'lipbalm',
+        text: 'Maakt een korte routine compleet zonder extra gedoe.',
+        meta: 'Kleine extra • vanaf €12'
+      }
+    ]
+  },
+  'calming-skin-balm': {
+    eyebrow: 'Vaak samen gebruikt',
+    title: 'Gerichte verzorging naast je vaste basics',
+    text: 'Deze balm werkt het best als aanvulling op een rustige basisroutine: één lichte crème, één rijkere back-up en iets kleins voor onderweg.',
+    items: [
+      {
+        handle: 'gezichtscreme',
+        text: 'Een lichte eerste laag voor dagelijks comfort over het hele gezicht.',
+        meta: 'Dagelijkse basis • vanaf €24'
+      },
+      {
+        handle: 'tallowcreme',
+        text: 'Wanneer droge zones ’s avonds wat rijkere voeding nodig hebben.',
+        meta: 'Rijkere back-up • vanaf €29'
+      },
+      {
+        handle: 'lipbalm',
+        text: 'Voor dezelfde zachte aanpak op lippen en schrale randjes.',
+        meta: 'Onderweg mee • vanaf €12'
+      }
+    ]
+  },
+  bodylotion: {
+    eyebrow: 'Vaak samen gebruikt',
+    title: 'Maak van bodycare een logische set',
+    text: 'Bij deze lotion kiezen klanten vaak een handproduct voor overdag en een kleiner product voor droge zones of onderweg.',
+    items: [
+      {
+        handle: 'handcreme',
+        text: 'Voor momenten waarop je handen vaker droog aanvoelen dan de rest van je huid.',
+        meta: 'Voor overdag • vanaf €16'
+      },
+      {
+        handle: 'tallowcreme',
+        text: 'Fijn op extra droge knieën, ellebogen of plekken die meer vragen.',
+        meta: 'Voor droge plekken • vanaf €29'
+      },
+      {
+        handle: 'lipbalm',
+        text: 'Een kleine verzorgingsstap die goed past bij tas of nachtkastje.',
+        meta: 'Kleine essential • vanaf €12'
+      }
+    ]
+  },
+  handcreme: {
+    eyebrow: 'Vaak samen gebruikt',
+    title: 'Een kleine routine voor handen en onderweg',
+    text: 'Handcrème wordt vaak samen gekozen met een bodybasic voor thuis en een lipproduct voor in jaszak, tas of auto.',
+    items: [
+      {
+        handle: 'bodylotion',
+        text: 'Voor dezelfde rustige textuur op armen, benen en droge lichaamshuid.',
+        meta: 'Voor thuis • vanaf €22'
+      },
+      {
+        handle: 'lipbalm',
+        text: 'De meest logische extra voor onderweg of op je nachtkastje.',
+        meta: 'Altijd erbij • vanaf €12'
+      },
+      {
+        handle: 'calming-skin-balm',
+        text: 'Voor schrale randjes of zones die nét wat meer comfort willen.',
+        meta: 'Extra care • vanaf €27'
+      }
+    ]
+  },
+  lipbalm: {
+    eyebrow: 'Vaak samen gebruikt',
+    title: 'Kleine essentials die samen logisch voelen',
+    text: 'Wie deze lipbalm kiest, voegt vaak ook een handbasic en een kalmerende balm toe voor droge momenten gedurende de dag.',
+    items: [
+      {
+        handle: 'handcreme',
+        text: 'Past goed in dezelfde tas, jaszak of bureaulade als deze balm.',
+        meta: 'On-the-go duo • vanaf €16'
+      },
+      {
+        handle: 'calming-skin-balm',
+        text: 'Voor schrale zones rond neus, mondhoeken of andere droge plekjes.',
+        meta: 'Voor droge randjes • vanaf €27'
+      },
+      {
+        handle: 'gezichtscreme',
+        text: 'Maakt van losse verzorging meteen een eenvoudige dagroutine.',
+        meta: 'Dagelijkse basis • vanaf €24'
+      }
+    ]
+  }
 };
 
 const renderAnnouncementGroup = () =>
@@ -674,31 +794,43 @@ const renderAnnouncementGroup = () =>
           ${renderItems(announcementItems, (item) => `<span>${escapeHtml(item)}</span>`)}
         </div>`;
 
-function relatedProductsFor(handle) {
-  return (relatedProductHandles[handle] || []).map((relatedHandle) => ({
-    handle: relatedHandle,
-    link: pageFileFor(relatedHandle),
-    imageKey: relatedHandle,
-    ...relatedCatalog[relatedHandle]
-  }));
+function relatedPanelFor(handle) {
+  const panel = relatedPanels[handle];
+  if (!panel) {
+    return null;
+  }
+
+  return {
+    eyebrow: panel.eyebrow,
+    title: panel.title,
+    text: panel.text,
+    items: panel.items.map((item) => ({
+      handle: item.handle,
+      title: relatedCatalog[item.handle].title,
+      text: item.text,
+      meta: item.meta ?? relatedCatalog[item.handle].price,
+      link: pageFileFor(item.handle),
+      imageKey: item.handle
+    }))
+  };
 }
 
 function renderRelatedPanel(handle) {
-  const relatedProducts = relatedProductsFor(handle);
-  if (!relatedProducts.length) {
+  const panel = relatedPanelFor(handle);
+  if (!panel || !panel.items.length) {
     return '';
   }
 
   return `<div class="mourao-related-panel mourao-reveal" style="--animation-order: 2;">
                   <div class="mourao-related-panel__header">
-                    <p class="mourao-eyebrow">Past hier ook bij</p>
-                    <h2 class="mourao-related-panel__title">Maak je routine rustig af</h2>
-                    <p class="mourao-related-panel__text">Drie zachte producten die logisch aansluiten op deze routine en de lege ruimte meteen nuttig maken.</p>
+                    <p class="mourao-eyebrow">${escapeHtml(panel.eyebrow)}</p>
+                    <h2 class="mourao-related-panel__title">${escapeHtml(panel.title)}</h2>
+                    <p class="mourao-related-panel__text">${escapeHtml(panel.text)}</p>
                   </div>
 
                   <div class="mourao-related-list">
                     ${renderItems(
-                      relatedProducts,
+                      panel.items,
                       (relatedProduct) => `<a class="mourao-related-card" href="${escapeHtml(relatedProduct.link)}">
                       <span class="mourao-related-card__media" style="--mourao-related-image: url('${cardAssetFor(relatedProduct.imageKey)}');" aria-hidden="true"></span>
                       <span class="mourao-related-card__body">
@@ -1012,7 +1144,9 @@ function renderProductTemplate(product) {
     blockOrder.push(key);
   });
 
-  relatedProductsFor(product.handle).forEach((relatedProduct, index) => {
+  const relatedPanel = relatedPanelFor(product.handle);
+
+  (relatedPanel?.items || []).forEach((relatedProduct, index) => {
     const key = `related_${index + 1}`;
     blocks[key] = {
       type: 'related',
@@ -1061,9 +1195,9 @@ function renderProductTemplate(product) {
           detail_four_text: product.details[3].text,
           faq_eyebrow: product.faqEyebrow,
           faq_title: product.faqTitle,
-          related_eyebrow: 'Past hier ook bij',
-          related_title: 'Maak je routine rustig af',
-          related_text: 'Drie zachte producten die logisch aansluiten op deze routine.',
+          related_eyebrow: relatedPanel?.eyebrow || 'Vaak samen gebruikt',
+          related_title: relatedPanel?.title || 'Bouw een rustige routine',
+          related_text: relatedPanel?.text || 'Drie producten die logisch aansluiten op deze routine.',
           reviews_eyebrow: product.reviewsEyebrow,
           reviews_title: product.reviewsTitle,
           reviews_copy: product.reviewsCopy

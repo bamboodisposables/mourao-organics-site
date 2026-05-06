@@ -32,9 +32,9 @@
         "detail_four_text": "Werkt goed naast je gewone crème wanneer je op enkele zones iets extra’s nodig hebt.",
         "faq_eyebrow": "Veelgestelde vragen",
         "faq_title": "Over zones, momenten en combinatiegebruik",
-        "related_eyebrow": "Past hier ook bij",
-        "related_title": "Maak je routine rustig af",
-        "related_text": "Drie zachte producten die logisch aansluiten op deze routine.",
+        "related_eyebrow": "Vaak samen gebruikt",
+        "related_title": "Gerichte verzorging naast je vaste basics",
+        "related_text": "Deze balm werkt het best als aanvulling op een rustige basisroutine: één lichte crème, één rijkere back-up en iets kleins voor onderweg.",
         "reviews_eyebrow": "Klanten aan het woord",
         "reviews_title": "Precies het soort rust waar gevoelige zones om vragen",
         "reviews_copy": "Vooral mensen met droge plekjes of een reactieve huid noemen deze balm hun vaste kleine redder in huis of tas."
@@ -147,21 +147,21 @@
         "related_1": {
           "type": "related",
           "settings": {
-            "image_key": "tallowcreme",
-            "title": "Tallowcrème",
-            "text": "Rijke basis voor droge of gevoelige huid.",
-            "meta": "Vanaf €29",
-            "link": "product.html"
+            "image_key": "gezichtscreme",
+            "title": "Gezichtscrème",
+            "text": "Een lichte eerste laag voor dagelijks comfort over het hele gezicht.",
+            "meta": "Dagelijkse basis • vanaf €24",
+            "link": "gezichtscreme.html"
           }
         },
         "related_2": {
           "type": "related",
           "settings": {
-            "image_key": "gezichtscreme",
-            "title": "Gezichtscrème",
-            "text": "Lichte dagelijkse crème met rustige finish.",
-            "meta": "Vanaf €24",
-            "link": "gezichtscreme.html"
+            "image_key": "tallowcreme",
+            "title": "Tallowcrème",
+            "text": "Wanneer droge zones ’s avonds wat rijkere voeding nodig hebben.",
+            "meta": "Rijkere back-up • vanaf €29",
+            "link": "product.html"
           }
         },
         "related_3": {
@@ -169,8 +169,8 @@
           "settings": {
             "image_key": "lipbalm",
             "title": "Lipbalm",
-            "text": "Kleine essential voor zachtere lippen.",
-            "meta": "Vanaf €12",
+            "text": "Voor dezelfde zachte aanpak op lippen en schrale randjes.",
+            "meta": "Onderweg mee • vanaf €12",
             "link": "lipbalm.html"
           }
         }
