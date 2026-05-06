@@ -86,7 +86,9 @@ textarea {
 }
 
 .mourao-announcement {
+  position: relative;
   overflow: hidden;
+  padding-inline: 0.9rem;
   border-bottom: 1px solid rgba(84, 58, 40, 0.08);
   background: rgba(246, 238, 230, 0.88);
   color: rgba(61, 43, 33, 0.84);
@@ -95,6 +97,27 @@ textarea {
   letter-spacing: 0.1em;
   line-height: 1.2;
   text-transform: uppercase;
+}
+
+.mourao-announcement::before,
+.mourao-announcement::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1rem;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.mourao-announcement::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(246, 238, 230, 0.96) 0%, rgba(246, 238, 230, 0) 100%);
+}
+
+.mourao-announcement::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(246, 238, 230, 0.96) 0%, rgba(246, 238, 230, 0) 100%);
 }
 
 .mourao-announcement__track {
