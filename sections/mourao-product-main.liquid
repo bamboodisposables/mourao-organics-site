@@ -5,6 +5,12 @@
   assign thumb_two_asset = 'mourao-product-' | append: image_key | append: '-thumb-2.jpg'
   assign thumb_three_asset = 'mourao-product-' | append: image_key | append: '-thumb-3.jpg'
   assign thumb_four_asset = 'mourao-product-' | append: image_key | append: '-thumb-4.jpg'
+  assign has_related = false
+  for block in section.blocks
+    if block.type == 'related'
+      assign has_related = true
+    endif
+  endfor
 %}
 
 <section class="mourao-section mourao-section--spacious mourao-product-page">
@@ -24,6 +30,32 @@
           <span class="mourao-gallery__thumb" style="--mourao-thumb-image: url({{ thumb_three_asset | asset_url }});">Sensitive</span>
           <span class="mourao-gallery__thumb" style="--mourao-thumb-image: url({{ thumb_four_asset | asset_url }});">Starter size</span>
         </div>
+
+        {% if has_related %}
+          <div class="mourao-related-panel mourao-reveal" style="--animation-order: 2;">
+            <div class="mourao-related-panel__header">
+              <p class="mourao-eyebrow">{{ section.settings.related_eyebrow }}</p>
+              <h2 class="mourao-related-panel__title">{{ section.settings.related_title }}</h2>
+              <p class="mourao-related-panel__text">{{ section.settings.related_text }}</p>
+            </div>
+
+            <div class="mourao-related-list">
+              {% for block in section.blocks %}
+                {% if block.type == 'related' %}
+                  {% assign related_asset = 'mourao-product-' | append: block.settings.image_key | append: '-card.jpg' %}
+                  <a class="mourao-related-card" href="{{ block.settings.link | default: routes.all_products_collection_url }}" {{ block.shopify_attributes }}>
+                    <span class="mourao-related-card__media" style="--mourao-related-image: url({{ related_asset | asset_url }});" aria-hidden="true"></span>
+                    <span class="mourao-related-card__body">
+                      <strong>{{ block.settings.title }}</strong>
+                      <span>{{ block.settings.text }}</span>
+                    </span>
+                    <span class="mourao-related-card__meta">{{ block.settings.meta }}</span>
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
       </div>
 
       <div class="mourao-product-box mourao-reveal" style="--animation-order: 2;">
@@ -343,6 +375,24 @@
     },
     {
       "type": "text",
+      "id": "related_eyebrow",
+      "label": "Related eyebrow",
+      "default": "Past hier ook bij"
+    },
+    {
+      "type": "text",
+      "id": "related_title",
+      "label": "Related title",
+      "default": "Maak je routine rustig af"
+    },
+    {
+      "type": "textarea",
+      "id": "related_text",
+      "label": "Related text",
+      "default": "Drie zachte producten die logisch aansluiten op deze routine."
+    },
+    {
+      "type": "text",
       "id": "reviews_eyebrow",
       "label": "Reviews eyebrow",
       "default": "Klanten aan het woord"
@@ -424,6 +474,41 @@
           "id": "text",
           "label": "Text",
           "default": "Gebruik een kleine hoeveelheid op een schone, droge huid. Warm kort op tussen je vingers en masseer rustig in."
+        }
+      ]
+    },
+    {
+      "type": "related",
+      "name": "Related product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "image_key",
+          "label": "Image key",
+          "default": "gezichtscreme"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Gezichtscrème"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Lichte dagelijkse crème met rustige finish."
+        },
+        {
+          "type": "text",
+          "id": "meta",
+          "label": "Meta",
+          "default": "Vanaf €24"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
         }
       ]
     },

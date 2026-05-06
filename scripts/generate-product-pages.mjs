@@ -620,6 +620,98 @@ const cardAssetFor = (handle) => `mourao-product-${handle}-card.jpg`;
 const heroAssetFor = (handle) => `mourao-product-${handle}-hero.jpg`;
 const thumbAssetFor = (handle, index) => `mourao-product-${handle}-thumb-${index}.jpg`;
 
+const announcementItems = [
+  'Handgemaakt in kleine batches',
+  'Gratis verzending vanaf €30',
+  '30 dagen rustig proberen',
+  'Pure ingrediënten zonder overbodige toevoegingen'
+];
+
+const relatedCatalog = {
+  tallowcreme: {
+    title: 'Tallowcrème',
+    text: 'Rijke basis voor droge of gevoelige huid.',
+    meta: 'Vanaf €29'
+  },
+  gezichtscreme: {
+    title: 'Gezichtscrème',
+    text: 'Lichte dagelijkse crème met rustige finish.',
+    meta: 'Vanaf €24'
+  },
+  'calming-skin-balm': {
+    title: 'Calming Skin Balm',
+    text: 'Gerichte balm voor droge of gevoelige zones.',
+    meta: 'Vanaf €27'
+  },
+  bodylotion: {
+    title: 'Bodylotion',
+    text: 'Soepele bodycare voor iedere dag.',
+    meta: 'Vanaf €22'
+  },
+  handcreme: {
+    title: 'Handcrème',
+    text: 'Bescherming voor handen die snel droog voelen.',
+    meta: 'Vanaf €16'
+  },
+  lipbalm: {
+    title: 'Lipbalm',
+    text: 'Kleine essential voor zachtere lippen.',
+    meta: 'Vanaf €12'
+  }
+};
+
+const relatedProductHandles = {
+  tallowcreme: ['gezichtscreme', 'calming-skin-balm', 'lipbalm'],
+  gezichtscreme: ['tallowcreme', 'calming-skin-balm', 'handcreme'],
+  'calming-skin-balm': ['tallowcreme', 'gezichtscreme', 'lipbalm'],
+  bodylotion: ['handcreme', 'lipbalm', 'tallowcreme'],
+  handcreme: ['bodylotion', 'lipbalm', 'gezichtscreme'],
+  lipbalm: ['handcreme', 'calming-skin-balm', 'gezichtscreme']
+};
+
+const renderAnnouncementGroup = () =>
+  `<div class="mourao-announcement__group">
+          ${renderItems(announcementItems, (item) => `<span>${escapeHtml(item)}</span>`)}
+        </div>`;
+
+function relatedProductsFor(handle) {
+  return (relatedProductHandles[handle] || []).map((relatedHandle) => ({
+    handle: relatedHandle,
+    link: pageFileFor(relatedHandle),
+    imageKey: relatedHandle,
+    ...relatedCatalog[relatedHandle]
+  }));
+}
+
+function renderRelatedPanel(handle) {
+  const relatedProducts = relatedProductsFor(handle);
+  if (!relatedProducts.length) {
+    return '';
+  }
+
+  return `<div class="mourao-related-panel mourao-reveal" style="--animation-order: 2;">
+                  <div class="mourao-related-panel__header">
+                    <p class="mourao-eyebrow">Past hier ook bij</p>
+                    <h2 class="mourao-related-panel__title">Maak je routine rustig af</h2>
+                    <p class="mourao-related-panel__text">Drie zachte producten die logisch aansluiten op deze routine en de lege ruimte meteen nuttig maken.</p>
+                  </div>
+
+                  <div class="mourao-related-list">
+                    ${renderItems(
+                      relatedProducts,
+                      (relatedProduct) => `<a class="mourao-related-card" href="${escapeHtml(relatedProduct.link)}">
+                      <span class="mourao-related-card__media" style="--mourao-related-image: url('${cardAssetFor(relatedProduct.imageKey)}');" aria-hidden="true"></span>
+                      <span class="mourao-related-card__body">
+                        <strong>${escapeHtml(relatedProduct.title)}</strong>
+                        <span>${escapeHtml(relatedProduct.text)}</span>
+                      </span>
+                      <span class="mourao-related-card__meta">${escapeHtml(relatedProduct.meta)}</span>
+                    </a>`
+                    )}
+                  </div>
+                </div>`;
+}
+
 function renderWordmark({ href, hero = false }) {
   const tag = href ? 'a' : 'div';
   const modifier = hero ? ' mourao-wordmark--hero' : '';
@@ -659,17 +751,12 @@ function renderProductPage(product) {
 
     <div class="mourao-announcement" aria-label="Winkelmeldingen">
       <div class="mourao-announcement__track">
-        <div class="mourao-announcement__group">
-          <span>Handgemaakt in kleine batches</span>
-          <span>Gratis verzending vanaf €30</span>
-          <span>30 dagen rustig proberen</span>
-          <span>Pure ingrediënten zonder overbodige toevoegingen</span>
+        ${renderAnnouncementGroup()}
+        <div class="mourao-announcement__group" aria-hidden="true">
+          ${renderItems(announcementItems, (item) => `<span>${escapeHtml(item)}</span>`)}
         </div>
         <div class="mourao-announcement__group" aria-hidden="true">
-          <span>Handgemaakt in kleine batches</span>
-          <span>Gratis verzending vanaf €30</span>
-          <span>30 dagen rustig proberen</span>
-          <span>Pure ingrediënten zonder overbodige toevoegingen</span>
+          ${renderItems(announcementItems, (item) => `<span>${escapeHtml(item)}</span>`)}
         </div>
       </div>
     </div>
@@ -712,6 +799,7 @@ function renderProductPage(product) {
                       `<span class="mourao-gallery__thumb" style="--mourao-thumb-image: url('${thumbAssetFor(product.handle, index + 1)}');">${escapeHtml(label)}</span>`
                   )}
                 </div>
+                ${renderRelatedPanel(product.handle)}
               </div>
 
               <div class="mourao-product-box mourao-reveal" style="--animation-order: 2;">
@@ -924,6 +1012,21 @@ function renderProductTemplate(product) {
     blockOrder.push(key);
   });
 
+  relatedProductsFor(product.handle).forEach((relatedProduct, index) => {
+    const key = `related_${index + 1}`;
+    blocks[key] = {
+      type: 'related',
+      settings: {
+        image_key: relatedProduct.imageKey,
+        title: relatedProduct.title,
+        text: relatedProduct.text,
+        meta: relatedProduct.meta,
+        link: relatedProduct.link
+      }
+    };
+    blockOrder.push(key);
+  });
+
   const template = {
     sections: {
       main: {
@@ -958,6 +1061,9 @@ function renderProductTemplate(product) {
           detail_four_text: product.details[3].text,
           faq_eyebrow: product.faqEyebrow,
           faq_title: product.faqTitle,
+          related_eyebrow: 'Past hier ook bij',
+          related_title: 'Maak je routine rustig af',
+          related_text: 'Drie zachte producten die logisch aansluiten op deze routine.',
           reviews_eyebrow: product.reviewsEyebrow,
           reviews_title: product.reviewsTitle,
           reviews_copy: product.reviewsCopy

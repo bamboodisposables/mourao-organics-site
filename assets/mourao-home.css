@@ -122,32 +122,21 @@ textarea {
 }
 
 .mourao-announcement__track {
-  position: relative;
   display: flex;
   align-items: center;
-  width: 100%;
-  min-width: 0;
+  width: max-content;
+  min-width: max-content;
   padding: 0.7rem 0;
+  will-change: transform;
+  animation: mourao-marquee var(--mourao-announcement-duration) linear infinite;
 }
 
 .mourao-announcement__group {
-  position: absolute;
-  left: 0;
-  top: 50%;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex: 0 0 auto;
-  min-width: max(100%, max-content);
   gap: 0;
-  padding-inline: 0.6rem;
-  transform: translate3d(100%, -50%, 0);
-  will-change: transform;
-  animation: mourao-marquee-group var(--mourao-announcement-duration) linear infinite;
-}
-
-.mourao-announcement__group[aria-hidden="true"] {
-  animation-delay: calc(var(--mourao-announcement-duration) / -2);
+  padding-inline-end: 0;
 }
 
 .mourao-announcement__group span {
@@ -171,13 +160,13 @@ textarea {
   transform: translateY(-50%);
 }
 
-@keyframes mourao-marquee-group {
+@keyframes mourao-marquee {
   from {
-    transform: translate3d(100%, -50%, 0);
+    transform: translateX(0);
   }
 
   to {
-    transform: translate3d(-100%, -50%, 0);
+    transform: translateX(calc(-100% / 3));
   }
 }
 
@@ -607,6 +596,7 @@ textarea {
 .mourao-hero__frame,
 .mourao-product-box,
 .mourao-gallery__main,
+.mourao-related-panel,
 .mourao-story-card,
 .mourao-newsletter,
 .mourao-cta-panel,
@@ -1504,6 +1494,101 @@ textarea {
   gap: 0.7rem;
 }
 
+.mourao-related-panel {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1rem;
+  background: linear-gradient(180deg, rgba(255, 250, 245, 0.92) 0%, rgba(245, 236, 226, 0.82) 100%);
+}
+
+.mourao-related-panel__header {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.mourao-related-panel__title {
+  margin: 0;
+  font-size: clamp(1.2rem, 3vw, 1.55rem);
+  line-height: 1.08;
+}
+
+.mourao-related-panel__text {
+  margin: 0;
+  color: rgba(61, 43, 33, 0.72);
+  font-size: 0.9rem;
+  line-height: 1.58;
+}
+
+.mourao-related-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.mourao-related-card {
+  display: grid;
+  grid-template-columns: 4.75rem minmax(0, 1fr) auto;
+  gap: 0.78rem;
+  align-items: center;
+  padding: 0.74rem;
+  border: 1px solid rgba(84, 58, 40, 0.1);
+  border-radius: 1.15rem;
+  background: rgba(255, 250, 245, 0.78);
+  box-shadow: var(--mourao-shadow-soft);
+  transition:
+    transform var(--mourao-transition),
+    border-color var(--mourao-transition),
+    background var(--mourao-transition);
+}
+
+.mourao-related-card:hover,
+.mourao-related-card:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(115, 74, 48, 0.18);
+  background: rgba(255, 250, 245, 0.92);
+}
+
+.mourao-related-card__media {
+  display: block;
+  aspect-ratio: 1 / 1;
+  border-radius: 0.95rem;
+  background-image:
+    linear-gradient(180deg, rgba(255, 248, 240, 0.12) 0%, rgba(71, 47, 32, 0.06) 100%),
+    var(--mourao-related-image, url("./mourao-logo.jpg"));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 10px 18px rgba(87, 60, 39, 0.1);
+}
+
+.mourao-related-card__body {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.mourao-related-card__body strong {
+  font-family: "Playfair Display", serif;
+  font-size: 1.02rem;
+  line-height: 1.08;
+}
+
+.mourao-related-card__body span {
+  color: rgba(61, 43, 33, 0.7);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.mourao-related-card__meta {
+  align-self: start;
+  padding: 0.38rem 0.58rem;
+  border-radius: var(--mourao-radius-pill);
+  background: rgba(243, 233, 221, 0.92);
+  color: rgba(61, 43, 33, 0.8);
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 .mourao-gallery__main {
   overflow: hidden;
 }
@@ -1771,16 +1856,14 @@ textarea {
   }
 
   .mourao-announcement__track {
+    animation: none;
     width: 100%;
     min-width: 0;
   }
 
   .mourao-announcement__group {
-    position: static;
     min-width: 0;
     padding-inline: 0;
-    transform: none;
-    animation: none;
   }
 
   .mourao-announcement__group[aria-hidden="true"] {
@@ -1832,6 +1915,10 @@ textarea {
   .mourao-grid--reviews,
   .mourao-product-list,
   .mourao-site-footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mourao-related-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2065,6 +2152,10 @@ textarea {
     position: sticky;
     top: 5.7rem;
   }
+
+  .mourao-related-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -2209,6 +2300,7 @@ textarea {
   }
 
   .mourao-gallery__main,
+  .mourao-related-panel,
   .mourao-product-box {
     padding: 0.85rem;
   }
@@ -2250,6 +2342,16 @@ textarea {
   .mourao-review-card,
   .mourao-detail-card {
     padding: 0.95rem;
+  }
+
+  .mourao-related-card {
+    grid-template-columns: 4.1rem minmax(0, 1fr);
+    gap: 0.68rem;
+  }
+
+  .mourao-related-card__meta {
+    grid-column: 2;
+    justify-self: start;
   }
 
   .mourao-review-card {

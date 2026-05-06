@@ -32,6 +32,9 @@
         "detail_four_text": "Het kleinere formaat nodigt uit om hem echt mee te nemen en ook echt te gebruiken.",
         "faq_eyebrow": "Veelgestelde vragen",
         "faq_title": "Over gebruiksmomenten, finish en tasformaten",
+        "related_eyebrow": "Past hier ook bij",
+        "related_title": "Maak je routine rustig af",
+        "related_text": "Drie zachte producten die logisch aansluiten op deze routine.",
         "reviews_eyebrow": "Klanten aan het woord",
         "reviews_title": "Handverzorging die je echt vaker gaat gebruiken",
         "reviews_copy": "De reacties gaan vooral over gebruiksgemak: voedend genoeg om verschil te voelen, licht genoeg om hem steeds opnieuw te pakken."
@@ -140,6 +143,36 @@
             "context": "Droge knokkels",
             "text": "Fijn hoe snel hij zachter aanvoelt op ruwe plekjes zonder vettig te blijven."
           }
+        },
+        "related_1": {
+          "type": "related",
+          "settings": {
+            "image_key": "bodylotion",
+            "title": "Bodylotion",
+            "text": "Soepele bodycare voor iedere dag.",
+            "meta": "Vanaf €22",
+            "link": "bodylotion.html"
+          }
+        },
+        "related_2": {
+          "type": "related",
+          "settings": {
+            "image_key": "lipbalm",
+            "title": "Lipbalm",
+            "text": "Kleine essential voor zachtere lippen.",
+            "meta": "Vanaf €12",
+            "link": "lipbalm.html"
+          }
+        },
+        "related_3": {
+          "type": "related",
+          "settings": {
+            "image_key": "gezichtscreme",
+            "title": "Gezichtscrème",
+            "text": "Lichte dagelijkse crème met rustige finish.",
+            "meta": "Vanaf €24",
+            "link": "gezichtscreme.html"
+          }
         }
       },
       "block_order": [
@@ -157,7 +190,10 @@
         "faq_3",
         "testimonial_1",
         "testimonial_2",
-        "testimonial_3"
+        "testimonial_3",
+        "related_1",
+        "related_2",
+        "related_3"
       ]
     }
   },

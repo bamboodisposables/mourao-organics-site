@@ -32,6 +32,9 @@
         "detail_four_text": "Iedere batch blijft klein zodat textuur en afwerking constant en vertrouwd aanvoelen.",
         "faq_eyebrow": "Veelgestelde vragen",
         "faq_title": "Over gebruik, finish en dagelijkse routines",
+        "related_eyebrow": "Past hier ook bij",
+        "related_title": "Maak je routine rustig af",
+        "related_text": "Drie zachte producten die logisch aansluiten op deze routine.",
         "reviews_eyebrow": "Klanten aan het woord",
         "reviews_title": "Dagelijkse verzorging die eenvoudig blijft voelen",
         "reviews_copy": "Mensen kiezen deze crème vooral omdat hij makkelijk in gebruik is en zacht blijft aanvoelen, ook wanneer de routine kort moet blijven."
@@ -140,6 +143,36 @@
             "context": "Gevoelige wangen",
             "text": "Prettig hoe eenvoudig deze crème is. Geen drukke geur, geen ingewikkelde stappen, gewoon comfort."
           }
+        },
+        "related_1": {
+          "type": "related",
+          "settings": {
+            "image_key": "tallowcreme",
+            "title": "Tallowcrème",
+            "text": "Rijke basis voor droge of gevoelige huid.",
+            "meta": "Vanaf €29",
+            "link": "product.html"
+          }
+        },
+        "related_2": {
+          "type": "related",
+          "settings": {
+            "image_key": "calming-skin-balm",
+            "title": "Calming Skin Balm",
+            "text": "Gerichte balm voor droge of gevoelige zones.",
+            "meta": "Vanaf €27",
+            "link": "calming-skin-balm.html"
+          }
+        },
+        "related_3": {
+          "type": "related",
+          "settings": {
+            "image_key": "handcreme",
+            "title": "Handcrème",
+            "text": "Bescherming voor handen die snel droog voelen.",
+            "meta": "Vanaf €16",
+            "link": "handcreme.html"
+          }
         }
       },
       "block_order": [
@@ -157,7 +190,10 @@
         "faq_3",
         "testimonial_1",
         "testimonial_2",
-        "testimonial_3"
+        "testimonial_3",
+        "related_1",
+        "related_2",
+        "related_3"
       ]
     }
   },

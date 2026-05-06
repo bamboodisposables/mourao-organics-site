@@ -32,6 +32,9 @@
         "detail_four_text": "Geen onnodige drukte, wel een formule die logisch voelt in dagelijks gebruik.",
         "faq_eyebrow": "Veelgestelde vragen",
         "faq_title": "Over finish, gebruik en droge huid",
+        "related_eyebrow": "Past hier ook bij",
+        "related_title": "Maak je routine rustig af",
+        "related_text": "Drie zachte producten die logisch aansluiten op deze routine.",
         "reviews_eyebrow": "Klanten aan het woord",
         "reviews_title": "Bodycare die vooral praktisch en prettig voelt",
         "reviews_copy": "Klanten beschrijven deze lotion vooral als makkelijk, zacht en betrouwbaar genoeg om echt dagelijks te blijven gebruiken."
@@ -140,6 +143,36 @@
             "context": "Korte routine",
             "text": "Precies wat ik zocht: geen gedoe, wel dagelijks comfort en een rustige huid."
           }
+        },
+        "related_1": {
+          "type": "related",
+          "settings": {
+            "image_key": "handcreme",
+            "title": "Handcrème",
+            "text": "Bescherming voor handen die snel droog voelen.",
+            "meta": "Vanaf €16",
+            "link": "handcreme.html"
+          }
+        },
+        "related_2": {
+          "type": "related",
+          "settings": {
+            "image_key": "lipbalm",
+            "title": "Lipbalm",
+            "text": "Kleine essential voor zachtere lippen.",
+            "meta": "Vanaf €12",
+            "link": "lipbalm.html"
+          }
+        },
+        "related_3": {
+          "type": "related",
+          "settings": {
+            "image_key": "tallowcreme",
+            "title": "Tallowcrème",
+            "text": "Rijke basis voor droge of gevoelige huid.",
+            "meta": "Vanaf €29",
+            "link": "product.html"
+          }
         }
       },
       "block_order": [
@@ -157,7 +190,10 @@
         "faq_3",
         "testimonial_1",
         "testimonial_2",
-        "testimonial_3"
+        "testimonial_3",
+        "related_1",
+        "related_2",
+        "related_3"
       ]
     }
   },
