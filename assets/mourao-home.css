@@ -111,7 +111,7 @@ textarea {
   display: flex;
   align-items: center;
   flex: 0 0 auto;
-  padding-inline: 1rem;
+  gap: 0;
 }
 
 .mourao-announcement__group span {
