@@ -11,7 +11,7 @@
         "gallery_caption": "Kleine batch, zachte textuur, pure basis.",
         "button_label": "Voeg toe aan routine",
         "button_link": "shopify://collections/all",
-        "shipping_note": "Voor 21:00 besteld = meestal dezelfde dag verwerkt | Gratis verzending vanaf €50",
+        "shipping_note": "Voor 21:00 besteld = meestal dezelfde dag verwerkt | Gratis verzending vanaf €30",
         "stock_note": "Kleine batches betekenen ook beperkte voorraad. Populaire varianten kunnen sneller uitverkopen.",
         "proof_one_value": "12.000+",
         "proof_one_label": "potjes met zorg gemaakt",
@@ -114,7 +114,7 @@
           "type": "faq",
           "settings": {
             "title": "Hoe zit het met verzending en retour?",
-            "text": "Bestellingen worden vanuit Nederland verwerkt. Vanaf €50 verzenden we gratis. Je krijgt 30 dagen om rustig te kijken of het product in je routine past."
+            "text": "Bestellingen worden vanuit Nederland verwerkt. Vanaf €30 verzenden we gratis. Je krijgt 30 dagen om rustig te kijken of het product in je routine past."
           }
         },
         "testimonial_1": {

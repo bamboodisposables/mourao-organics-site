@@ -99,26 +99,40 @@ textarea {
 
 .mourao-announcement__track {
   display: flex;
-  gap: 1.8rem;
+  align-items: center;
   min-width: max-content;
-  padding: 0.7rem 1rem;
-  animation: mourao-marquee 36s linear infinite;
+  width: max-content;
+  padding: 0.7rem 0;
+  will-change: transform;
+  animation: mourao-marquee 28s linear infinite;
 }
 
-.mourao-announcement__track span {
+.mourao-announcement__group {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  padding-inline: 1rem;
+}
+
+.mourao-announcement__group span {
   position: relative;
-  padding-left: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  padding-right: 1.5rem;
+  margin-right: 1.5rem;
 }
 
-.mourao-announcement__track span::before {
+.mourao-announcement__group span::after {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0.4rem;
-  width: 0.45rem;
-  height: 0.45rem;
+  right: 0;
+  top: 50%;
+  width: 0.36rem;
+  height: 0.36rem;
   border-radius: 50%;
   background: rgba(142, 102, 70, 0.54);
+  transform: translateY(-50%);
 }
 
 @keyframes mourao-marquee {
@@ -1402,6 +1416,12 @@ textarea {
 
   .mourao-announcement__track {
     animation: none;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .mourao-announcement__group[aria-hidden="true"] {
+    display: none;
   }
 
   .mourao-reveal {
@@ -1459,15 +1479,8 @@ textarea {
 }
 
 @media screen and (min-width: 980px) {
-  .mourao-announcement__track {
-    justify-content: center;
-    width: 100%;
-    min-width: 100%;
-    animation: none;
-  }
-
-  .mourao-announcement__track span:nth-child(n + 5) {
-    display: none;
+  .mourao-announcement {
+    font-size: 0.76rem;
   }
 
   .mourao-site-header__inner {

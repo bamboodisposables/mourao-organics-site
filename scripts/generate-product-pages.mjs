@@ -42,7 +42,7 @@ const products = [
       { title: '120 ml', text: 'Meest gekozen • €39' },
       { title: '60 ml', text: 'Starter size • €29' }
     ],
-    shippingNote: 'Voor 21:00 besteld = meestal dezelfde dag verwerkt | Gratis verzending vanaf €50',
+    shippingNote: 'Voor 21:00 besteld = meestal dezelfde dag verwerkt | Gratis verzending vanaf €30',
     stockNote: 'Kleine batches betekenen ook beperkte voorraad. Populaire varianten kunnen sneller uitverkopen.',
     proofs: [
       { value: '12.000+', label: 'potjes met zorg gemaakt' },
@@ -83,7 +83,7 @@ const products = [
       },
       {
         title: 'Hoe zit het met verzending en retour?',
-        text: 'Bestellingen worden vanuit Nederland verwerkt. Vanaf €50 verzenden we gratis. Je krijgt 30 dagen om rustig te kijken of het product in je routine past.'
+        text: 'Bestellingen worden vanuit Nederland verwerkt. Vanaf €30 verzenden we gratis. Je krijgt 30 dagen om rustig te kijken of het product in je routine past.'
       }
     ],
     reviewsEyebrow: 'Klanten aan het woord',
@@ -141,7 +141,7 @@ const products = [
       { title: '50 ml', text: 'Dagelijks formaat • €24' },
       { title: '30 ml', text: 'Starter size • €18' }
     ],
-    shippingNote: 'Past makkelijk in je dagelijkse routine | Gratis verzending vanaf €50',
+    shippingNote: 'Past makkelijk in je dagelijkse routine | Gratis verzending vanaf €30',
     stockNote: 'Omdat iedere batch klein is, kunnen de populairste formules soms tijdelijk uitverkocht raken.',
     proofs: [
       { value: '4.7/5', label: 'op licht comfort zonder gedoe' },
@@ -240,7 +240,7 @@ const products = [
       { title: '60 ml', text: 'Volledige routine • €27' },
       { title: '25 ml', text: 'Gerichte care • €19' }
     ],
-    shippingNote: 'Compact en zuinig in gebruik | Gratis verzending vanaf €50',
+    shippingNote: 'Compact en zuinig in gebruik | Gratis verzending vanaf €30',
     stockNote: 'Door de kleine batches zijn vooral de kleine potjes vaak als eerste weg.',
     proofs: [
       { value: '4.9/5', label: 'voor droge of gevoelige zones' },
@@ -339,7 +339,7 @@ const products = [
       { title: '250 ml', text: 'Volledig formaat • €22' },
       { title: '100 ml', text: 'Reisvriendelijk • €15' }
     ],
-    shippingNote: 'Een dagelijkse essential voor badkamer of slaapkamer | Gratis verzending vanaf €50',
+    shippingNote: 'Een dagelijkse essential voor badkamer of slaapkamer | Gratis verzending vanaf €30',
     stockNote: 'De 100 ml maat is vaak snel weg door travel en cadeaugebruik.',
     proofs: [
       { value: '250 ml', label: 'voor dagelijkse bodyverzorging' },
@@ -438,7 +438,7 @@ const products = [
       { title: '75 ml', text: 'Volledig formaat • €16' },
       { title: '30 ml', text: 'Tasformaat • €11' }
     ],
-    shippingNote: 'Past makkelijk in badkamer, keuken of handtas | Gratis verzending vanaf €50',
+    shippingNote: 'Past makkelijk in badkamer, keuken of handtas | Gratis verzending vanaf €30',
     stockNote: 'Vooral de 30 ml maat is vaak snel op door onderweg-gebruik en cadeaus.',
     proofs: [
       { value: '4.8/5', label: 'voor voedende handverzorging' },
@@ -537,7 +537,7 @@ const products = [
       { title: '15 ml', text: 'Dagelijks formaat • €12' },
       { title: 'Mini duo', text: '2 x 7 ml • €14' }
     ],
-    shippingNote: 'Een kleine essential die makkelijk overal mee naartoe gaat | Gratis verzending vanaf €50',
+    shippingNote: 'Een kleine essential die makkelijk overal mee naartoe gaat | Gratis verzending vanaf €30',
     stockNote: 'De mini duo’s zijn populair als tas-set en verdwijnen daardoor vaak als eerste.',
     proofs: [
       { value: '4.8/5', label: 'voor dagelijks lipcomfort' },
@@ -639,14 +639,18 @@ function renderProductPage(product) {
 
     <div class="mourao-announcement" aria-label="Winkelmeldingen">
       <div class="mourao-announcement__track">
-        <span>Handgemaakt in kleine batches</span>
-        <span>Gratis verzending vanaf €50</span>
-        <span>30 dagen rustig proberen</span>
-        <span>Pure ingrediënten zonder overbodige toevoegingen</span>
-        <span>Handgemaakt in kleine batches</span>
-        <span>Gratis verzending vanaf €50</span>
-        <span>30 dagen rustig proberen</span>
-        <span>Pure ingrediënten zonder overbodige toevoegingen</span>
+        <div class="mourao-announcement__group">
+          <span>Handgemaakt in kleine batches</span>
+          <span>Gratis verzending vanaf €30</span>
+          <span>30 dagen rustig proberen</span>
+          <span>Pure ingrediënten zonder overbodige toevoegingen</span>
+        </div>
+        <div class="mourao-announcement__group" aria-hidden="true">
+          <span>Handgemaakt in kleine batches</span>
+          <span>Gratis verzending vanaf €30</span>
+          <span>30 dagen rustig proberen</span>
+          <span>Pure ingrediënten zonder overbodige toevoegingen</span>
+        </div>
       </div>
     </div>
 

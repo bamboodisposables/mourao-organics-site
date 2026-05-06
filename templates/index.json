@@ -10,7 +10,7 @@
         "button_link": "shopify://collections/all",
         "secondary_label": "Lees ons verhaal",
         "highlight_one": "Handgemaakt in Nederland",
-        "highlight_two": "Gratis verzending vanaf €50",
+        "highlight_two": "Gratis verzending vanaf €30",
         "highlight_three": "30 dagen rustig proberen"
       }
     },
@@ -26,7 +26,7 @@
         "claim_2": {
           "type": "claim",
           "settings": {
-            "text": "Gratis verzending vanaf €50"
+            "text": "Gratis verzending vanaf €30"
           }
         },
         "claim_3": {

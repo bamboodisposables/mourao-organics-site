@@ -22,7 +22,7 @@
   border-bottom-color: rgba(96, 67, 47, 0.14);
 }
 
-.mourao-earth-draft .mourao-announcement__track span::before,
+.mourao-earth-draft .mourao-announcement__group span::after,
 .mourao-earth-draft .mourao-chip::after,
 .mourao-earth-draft .mourao-bullet-list li::before,
 .mourao-earth-draft .mourao-trust-bar__item::before,
