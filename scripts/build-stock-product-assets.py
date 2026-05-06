@@ -153,6 +153,48 @@ def warm_grade(image: Image.Image) -> Image.Image:
     return graded.convert("RGBA")
 
 
+def neutralize_packaging(image: Image.Image, handle: str) -> Image.Image:
+    if handle != "tallowcreme":
+        return image
+
+    canvas = image.copy().convert("RGBA")
+    width, height = canvas.size
+
+    mask = Image.new("L", canvas.size, 0)
+    mask_draw = ImageDraw.Draw(mask)
+    mask_draw.rounded_rectangle(
+        (
+            int(width * 0.18),
+            int(height * 0.56),
+            int(width * 0.74),
+            int(height * 0.82),
+        ),
+        radius=int(height * 0.06),
+        fill=188,
+    )
+    mask = mask.filter(ImageFilter.GaussianBlur(radius=max(16, width // 50)))
+
+    blurred_canvas = canvas.filter(ImageFilter.GaussianBlur(radius=max(10, width // 70)))
+    canvas = Image.composite(blurred_canvas, canvas, mask)
+
+    tint = Image.new("RGBA", canvas.size, (244, 236, 226, 0))
+    tint_mask = Image.new("L", canvas.size, 0)
+    tint_draw = ImageDraw.Draw(tint_mask)
+    tint_draw.ellipse(
+        (
+            int(width * 0.2),
+            int(height * 0.58),
+            int(width * 0.7),
+            int(height * 0.83),
+        ),
+        fill=104,
+    )
+    tint_mask = tint_mask.filter(ImageFilter.GaussianBlur(radius=max(18, width // 42)))
+    tint.putalpha(tint_mask)
+    canvas.alpha_composite(tint)
+    return canvas
+
+
 def text_size(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont) -> tuple[int, int]:
     left, top, right, bottom = draw.textbbox((0, 0), text, font=font)
     return right - left, bottom - top
@@ -244,6 +286,7 @@ def add_label(image: Image.Image, label: LabelSpec, logo: Image.Image) -> Image.
 
 
 def build_variant(
+    handle: str,
     source: Image.Image,
     size: tuple[int, int],
     focus: tuple[float, float],
@@ -253,7 +296,8 @@ def build_variant(
 ) -> Image.Image:
     cropped = focal_crop(source, size, focus, zoom)
     graded = warm_grade(cropped)
-    branded = add_label(graded, label, logo)
+    cleaned = neutralize_packaging(graded, handle)
+    branded = add_label(cleaned, label, logo)
     return branded.convert("RGB")
 
 
@@ -267,8 +311,8 @@ def main() -> None:
         source_path = ensure_source(spec)
         source = Image.open(source_path).convert("RGB")
 
-        hero = build_variant(source, HERO_SIZE, spec.focus, spec.zoom, spec.label, logo)
-        card = build_variant(source, CARD_SIZE, spec.focus, spec.zoom * 0.92, spec.label, logo)
+        hero = build_variant(spec.handle, source, HERO_SIZE, spec.focus, spec.zoom, spec.label, logo)
+        card = build_variant(spec.handle, source, CARD_SIZE, spec.focus, spec.zoom * 0.92, spec.label, logo)
         save_jpeg(hero, ASSETS_DIR / f"mourao-product-{spec.handle}-hero.jpg")
         save_jpeg(card, ASSETS_DIR / f"mourao-product-{spec.handle}-card.jpg")
 
@@ -277,7 +321,7 @@ def main() -> None:
                 max(0.0, min(1.0, spec.focus[0] + dx)),
                 max(0.0, min(1.0, spec.focus[1] + dy)),
             )
-            thumb = build_variant(source, THUMB_SIZE, thumb_focus, spec.zoom * extra_zoom, spec.label, logo)
+            thumb = build_variant(spec.handle, source, THUMB_SIZE, thumb_focus, spec.zoom * extra_zoom, spec.label, logo)
             save_jpeg(thumb, ASSETS_DIR / f"mourao-product-{spec.handle}-thumb-{index}.jpg")
 
 
