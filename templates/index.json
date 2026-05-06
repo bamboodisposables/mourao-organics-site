@@ -306,9 +306,8 @@
     }
   },
   "order": [
-    "nature_video",
-    "trust_bar",
     "hero",
+    "trust_bar",
     "categories",
     "story",
     "ingredients",

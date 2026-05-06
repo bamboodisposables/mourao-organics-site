@@ -39,21 +39,22 @@
       <div class="mourao-hero__visual mourao-reveal" style="--animation-order: 2;" aria-hidden="true">
         <div class="mourao-hero__frame">
           <div class="mourao-hero__product-visual">
-            <div class="mourao-hero__product-glow"></div>
-            <div class="mourao-hero__brand-card">
-              <div class="mourao-wordmark mourao-wordmark--hero">
+            <video class="mourao-hero__video-media" autoplay muted loop playsinline preload="metadata" poster="{{ 'mourao-nature-poster.jpg' | asset_url }}" onloadeddata="this.playbackRate=1.16;">
+              <source src="{{ 'mourao-nature-loop.mp4' | asset_url }}" type="video/mp4">
+            </video>
+            <img class="mourao-hero__video-poster" src="{{ 'mourao-nature-poster.jpg' | asset_url }}" alt="" width="1280" height="720" loading="lazy">
+            <div class="mourao-hero__video-shell">
+              <div class="mourao-wordmark mourao-wordmark--hero-video">
                 <span class="mourao-wordmark__text-wrap" aria-hidden="true">
                   <span class="mourao-wordmark__line">
                     <span class="mourao-wordmark__text mourao-wordmark__text--ringed">
                       <span>MOURÃ</span>
-                      <span class="mourao-ring-o mourao-ring-o--hero"></span>
+                      <span class="mourao-ring-o"></span>
                     </span>
                   </span>
-                  <span class="mourao-wordmark__subline mourao-wordmark__subline--hero">Organics</span>
-                  <span class="mourao-wordmark__sub mourao-wordmark__sub--hero">Handmade natural skincare</span>
+                  <span class="mourao-wordmark__subline mourao-wordmark__subline--hero-video">Organics</span>
                 </span>
               </div>
-              <p class="mourao-hero__brand-note">Kleine batches, pure ingrediënten en een rustige routine zonder productruis.</p>
             </div>
           </div>
 
