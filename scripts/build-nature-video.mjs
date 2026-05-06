@@ -15,7 +15,7 @@ const outputVideo = resolve(root, "assets", "mourao-nature-loop.mp4");
 const outputPoster = resolve(root, "assets", "mourao-nature-poster.jpg");
 const width = 1280;
 const height = 720;
-const durationSeconds = 7;
+const durationSeconds = 5.8;
 
 function renderScene() {
   const imageUrl = pathToFileURL(sourceImage).href;
