@@ -1,0 +1,49 @@
+<section class="mourao-section mourao-section--spacious mourao-nature-video">
+  <div class="page-width">
+    <div class="mourao-nature-video__panel mourao-reveal" style="--animation-order: 1;">
+      <div class="mourao-nature-video__copy">
+        <p class="mourao-eyebrow">{{ section.settings.eyebrow }}</p>
+        <h2 class="mourao-section-title">{{ section.settings.title }}</h2>
+        <p class="mourao-section-copy">{{ section.settings.text }}</p>
+      </div>
+
+      <div class="mourao-nature-video__frame" aria-hidden="true">
+        <video class="mourao-nature-video__media" autoplay muted loop playsinline preload="metadata" poster="{{ 'mourao-nature-poster.jpg' | asset_url }}">
+          <source src="{{ 'mourao-nature-loop.mp4' | asset_url }}" type="video/mp4">
+        </video>
+        <img class="mourao-nature-video__poster" src="{{ 'mourao-nature-poster.jpg' | asset_url }}" alt="" width="1280" height="720" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Mourao nature video",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Natuur in beweging"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Zachte beweging, aardse rust"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Een rustige natuurscène die de sfeer van MOURÃO vangt: warm licht, zachte beweging en een routine die niet hoeft te haasten."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mourao nature video"
+    }
+  ]
+}
+{% endschema %}

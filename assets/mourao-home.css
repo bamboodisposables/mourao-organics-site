@@ -780,6 +780,56 @@ textarea {
   background: rgba(142, 102, 70, 0.48);
 }
 
+.mourao-nature-video__panel {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--mourao-border);
+  border-radius: calc(var(--mourao-radius-xl) + 0.15rem);
+  background: linear-gradient(180deg, rgba(251, 246, 240, 0.92) 0%, rgba(240, 225, 209, 0.86) 100%);
+  box-shadow: 0 20px 44px rgba(88, 60, 39, 0.08);
+}
+
+.mourao-nature-video__copy {
+  display: grid;
+  gap: 0.75rem;
+  align-content: center;
+  max-width: 32rem;
+}
+
+.mourao-nature-video__frame {
+  position: relative;
+  min-height: 18rem;
+  aspect-ratio: 16 / 10.2;
+  border-radius: calc(var(--mourao-radius-xl) - 0.3rem);
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(241, 228, 213, 0.94) 0%, rgba(222, 196, 170, 0.9) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 249, 242, 0.5),
+    0 22px 40px rgba(87, 60, 39, 0.12);
+}
+
+.mourao-nature-video__frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 248, 241, 0.08) 0%, rgba(97, 63, 39, 0.08) 100%),
+    radial-gradient(circle at 78% 18%, rgba(255, 248, 232, 0.16), transparent 24%);
+  pointer-events: none;
+}
+
+.mourao-nature-video__media,
+.mourao-nature-video__poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mourao-nature-video__poster {
+  display: none;
+}
+
 .mourao-product-list {
   display: grid;
   gap: 1.1rem;
@@ -1590,6 +1640,14 @@ textarea {
     transform: none;
     animation: none;
   }
+
+  .mourao-nature-video__media {
+    display: none;
+  }
+
+  .mourao-nature-video__poster {
+    display: block;
+  }
 }
 
 @media screen and (min-width: 700px) {
@@ -1640,6 +1698,10 @@ textarea {
 
   .mourao-review-card {
     min-height: 12.4rem;
+  }
+
+  .mourao-nature-video__panel {
+    padding: 1.1rem;
   }
 }
 
@@ -1744,6 +1806,18 @@ textarea {
   .mourao-story-card__footnote {
     font-size: 0.96rem;
     line-height: 1.62;
+  }
+
+  .mourao-nature-video__panel {
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    align-items: center;
+    gap: clamp(1rem, 2.4vw, 1.8rem);
+    padding: 1.15rem;
+  }
+
+  .mourao-nature-video__frame {
+    min-height: 0;
+    aspect-ratio: 16 / 9.1;
   }
 
   .mourao-product-layout {
@@ -1851,6 +1925,10 @@ textarea {
     padding: 1.2rem;
   }
 
+  .mourao-nature-video__panel {
+    padding: 1.25rem;
+  }
+
   .mourao-product-card__title {
     font-size: 1.7rem;
   }
@@ -1936,6 +2014,20 @@ textarea {
 
   .mourao-product-card__media {
     aspect-ratio: 4 / 3.75;
+  }
+
+  .mourao-nature-video__panel {
+    padding: 0.9rem;
+    gap: 0.9rem;
+  }
+
+  .mourao-nature-video__copy {
+    gap: 0.62rem;
+  }
+
+  .mourao-nature-video__frame {
+    min-height: 13.8rem;
+    aspect-ratio: 4 / 3.85;
   }
 
   .mourao-chip {

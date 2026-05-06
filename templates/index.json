@@ -149,6 +149,14 @@
         "value_three": "Zachte dagelijkse verzorging"
       }
     },
+    "nature_video": {
+      "type": "mourao-nature-video",
+      "settings": {
+        "eyebrow": "Natuur in beweging",
+        "title": "Zachte beweging, aardse rust",
+        "text": "Een rustige natuurscène die de sfeer van MOURÃO vangt: warm licht, zachte beweging en een routine die niet hoeft te haasten."
+      }
+    },
     "ingredients": {
       "type": "mourao-ingredient-highlights",
       "settings": {
@@ -302,6 +310,7 @@
     "trust_bar",
     "categories",
     "story",
+    "nature_video",
     "ingredients",
     "bestsellers",
     "reviews",
