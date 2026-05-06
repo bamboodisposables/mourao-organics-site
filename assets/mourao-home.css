@@ -897,6 +897,16 @@ textarea {
   overflow: hidden;
 }
 
+.mourao-bestsellers .mourao-panel {
+  display: grid;
+  gap: 1.1rem;
+  padding: 1rem;
+}
+
+.mourao-bestsellers .mourao-section-header {
+  margin-bottom: 0;
+}
+
 .mourao-story-card::after,
 .mourao-newsletter::after,
 .mourao-cta-panel::after,
@@ -1781,6 +1791,10 @@ textarea {
   .mourao-hero__product-visual,
   .mourao-gallery__hero {
     padding: 1.1rem;
+  }
+
+  .mourao-bestsellers .mourao-panel {
+    padding: 1.2rem;
   }
 
   .mourao-product-card__title {
