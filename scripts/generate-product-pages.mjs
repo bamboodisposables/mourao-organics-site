@@ -620,6 +620,28 @@ const cardAssetFor = (handle) => `mourao-product-${handle}-card.jpg`;
 const heroAssetFor = (handle) => `mourao-product-${handle}-hero.jpg`;
 const thumbAssetFor = (handle, index) => `mourao-product-${handle}-thumb-${index}.jpg`;
 
+function renderWordmark({ href, hero = false }) {
+  const tag = href ? 'a' : 'div';
+  const modifier = hero ? ' mourao-wordmark--hero' : '';
+  const ringModifier = hero ? ' mourao-ring-o--hero' : '';
+  const sublineModifier = hero ? ' mourao-wordmark__subline--hero' : '';
+  const subModifier = hero ? ' mourao-wordmark__sub--hero' : '';
+  const hrefAttribute = href ? ` href="${href}" aria-label="MOURÃO Organics"` : ' aria-hidden="true"';
+
+  return `<${tag} class="mourao-wordmark${modifier}"${hrefAttribute}>
+            <span class="mourao-wordmark__text-wrap" aria-hidden="true">
+              <span class="mourao-wordmark__line">
+                <span class="mourao-wordmark__text mourao-wordmark__text--ringed">
+                  <span>MOURÃ</span>
+                  <span class="mourao-ring-o${ringModifier}"></span>
+                </span>
+              </span>
+              <span class="mourao-wordmark__subline${sublineModifier}">Organics</span>
+              <span class="mourao-wordmark__sub${subModifier}">Handmade natural skincare</span>
+            </span>
+          </${tag}>`;
+}
+
 function renderProductPage(product) {
   return `<!doctype html>
 <html lang="nl">
@@ -631,7 +653,6 @@ function renderProductPage(product) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="preload" as="image" href="assets/mourao-logo.jpg">
     <link rel="stylesheet" href="assets/mourao-home.css">
   </head>
   <body class="mourao-theme">
@@ -665,21 +686,7 @@ function renderProductPage(product) {
             <a class="mourao-header-nav__link" href="#contact">Contact</a>
           </nav>
 
-          <a href="index.html" class="mourao-wordmark" aria-label="MOURÃO Organics">
-            <img
-              class="mourao-wordmark__image"
-              src="assets/mourao-logo.jpg"
-              alt="MOURÃO Organics"
-              width="900"
-              height="900"
-              loading="eager"
-              fetchpriority="high"
-            >
-            <span class="mourao-wordmark__text-wrap">
-              <span class="mourao-wordmark__text">MOURÃO Organics</span>
-              <span class="mourao-wordmark__sub">Handmade natural skincare</span>
-            </span>
-          </a>
+          ${renderWordmark({ href: 'index.html' })}
 
           <div class="mourao-header-meta">
             <a class="mourao-header-link" href="#faq">Veelgestelde vragen</a>
@@ -696,15 +703,6 @@ function renderProductPage(product) {
                 <div class="mourao-gallery__main">
                   <div class="mourao-gallery__hero" style="--mourao-gallery-image: url('${heroAssetFor(product.handle)}');">
                     <div class="mourao-gallery__hero-glow"></div>
-                    <img
-                      class="mourao-gallery__hero-logo"
-                      src="assets/mourao-logo.jpg"
-                      alt="${escapeHtml(product.title)}"
-                      width="900"
-                      height="900"
-                      loading="eager"
-                      fetchpriority="high"
-                    >
                   </div>
                   <p class="mourao-gallery__caption">${escapeHtml(product.galleryCaption)}</p>
                 </div>

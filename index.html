@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="preload" as="image" href="assets/mourao-logo.jpg">
     <link rel="stylesheet" href="assets/mourao-home.css">
   </head>
   <body class="mourao-theme">
@@ -43,17 +42,14 @@
           </nav>
 
           <a href="index.html" class="mourao-wordmark" aria-label="MOURÃO Organics">
-            <img
-              class="mourao-wordmark__image"
-              src="assets/mourao-logo.jpg"
-              alt="MOURÃO Organics"
-              width="900"
-              height="900"
-              loading="eager"
-              fetchpriority="high"
-            >
-            <span class="mourao-wordmark__text-wrap">
-              <span class="mourao-wordmark__text">MOURÃO Organics</span>
+            <span class="mourao-wordmark__text-wrap" aria-hidden="true">
+              <span class="mourao-wordmark__line">
+                <span class="mourao-wordmark__text mourao-wordmark__text--ringed">
+                  <span>MOURÃ</span>
+                  <span class="mourao-ring-o"></span>
+                </span>
+              </span>
+              <span class="mourao-wordmark__subline">Organics</span>
               <span class="mourao-wordmark__sub">Handmade natural skincare</span>
             </span>
           </a>
@@ -90,15 +86,21 @@
                 <div class="mourao-hero__frame">
                   <div class="mourao-hero__product-visual">
                     <div class="mourao-hero__product-glow"></div>
-                    <img
-                      class="mourao-hero__logo"
-                      src="assets/mourao-logo.jpg"
-                      alt="MOURÃO Organics logo"
-                      width="900"
-                      height="900"
-                      loading="eager"
-                      fetchpriority="high"
-                    >
+                    <div class="mourao-hero__brand-card">
+                      <div class="mourao-wordmark mourao-wordmark--hero">
+                        <span class="mourao-wordmark__text-wrap" aria-hidden="true">
+                          <span class="mourao-wordmark__line">
+                            <span class="mourao-wordmark__text mourao-wordmark__text--ringed">
+                              <span>MOURÃ</span>
+                              <span class="mourao-ring-o mourao-ring-o--hero"></span>
+                            </span>
+                          </span>
+                          <span class="mourao-wordmark__subline mourao-wordmark__subline--hero">Organics</span>
+                          <span class="mourao-wordmark__sub mourao-wordmark__sub--hero">Handmade natural skincare</span>
+                        </span>
+                      </div>
+                      <p class="mourao-hero__brand-note">Kleine batches, pure ingrediënten en een rustige routine zonder productruis.</p>
+                    </div>
                   </div>
 
                   <div class="mourao-hero__note">

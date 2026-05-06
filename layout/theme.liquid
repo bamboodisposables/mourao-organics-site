@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="preload" as="image" href="{{ 'mourao-logo.jpg' | asset_url }}">
     {{ content_for_header }}
     {{ 'mourao-home.css' | asset_url | stylesheet_tag }}
   </head>
@@ -44,17 +43,14 @@
           </nav>
 
           <a href="{{ routes.root_url }}" class="mourao-wordmark" aria-label="MOURÃO Organics">
-            <img
-              class="mourao-wordmark__image"
-              src="{{ 'mourao-logo.jpg' | asset_url }}"
-              alt="MOURÃO Organics"
-              width="900"
-              height="900"
-              loading="eager"
-              fetchpriority="high"
-            >
-            <span class="mourao-wordmark__text-wrap">
-              <span class="mourao-wordmark__text">MOURÃO Organics</span>
+            <span class="mourao-wordmark__text-wrap" aria-hidden="true">
+              <span class="mourao-wordmark__line">
+                <span class="mourao-wordmark__text mourao-wordmark__text--ringed">
+                  <span>MOURÃ</span>
+                  <span class="mourao-ring-o"></span>
+                </span>
+              </span>
+              <span class="mourao-wordmark__subline">Organics</span>
               <span class="mourao-wordmark__sub">Handmade natural skincare</span>
             </span>
           </a>
