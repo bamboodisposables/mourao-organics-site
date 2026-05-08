@@ -1934,7 +1934,7 @@ textarea {
   }
 
   .mourao-section--spacious {
-    padding: 3rem 0;
+    padding: 2.6rem 0;
   }
 
   .mourao-trust-bar,
@@ -2036,7 +2036,7 @@ textarea {
   }
 
   .mourao-section--spacious {
-    padding: 3.85rem 0;
+    padding: 3.2rem 0;
   }
 
   .mourao-hero__layout {
@@ -2224,6 +2224,20 @@ textarea {
   .mourao-product-box {
     padding: 1.2rem;
   }
+}
+
+/* ─── Section footer CTA ───────────────────────────────────────────── */
+.mourao-section-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* ─── Product card price — bolder ─────────────────────────────────── */
+.mourao-product-card__meta {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: rgba(61, 43, 33, 0.72);
 }
 
 /* ─── Gallery hero: hover zoom ─────────────────────────────────────── */
