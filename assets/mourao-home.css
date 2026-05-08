@@ -204,11 +204,18 @@ textarea {
 
 .mourao-wordmark__image {
   width: 3.6rem;
-  height: auto;
+  height: 3.6rem;
   border-radius: 50%;
   flex: 0 0 auto;
+  object-fit: cover;
   border: 1px solid rgba(115, 74, 48, 0.16);
   box-shadow: 0 10px 22px rgba(99, 70, 47, 0.12);
+  transition: transform var(--mourao-transition), box-shadow var(--mourao-transition);
+}
+
+.mourao-wordmark:hover .mourao-wordmark__image {
+  transform: scale(1.04);
+  box-shadow: 0 14px 28px rgba(99, 70, 47, 0.18);
 }
 
 .mourao-wordmark__text-wrap {
@@ -1017,6 +1024,12 @@ textarea {
     inset 0 0 0 1px rgba(255, 249, 242, 0.42),
     0 18px 28px rgba(87, 60, 39, 0.12);
   opacity: 0.98;
+  transition: background-size 0.5s ease;
+}
+
+.mourao-product-card:hover .mourao-product-card__media::after,
+.mourao-product-card:focus-within .mourao-product-card__media::after {
+  background-size: auto, 118%;
 }
 
 .mourao-product-card__media--2::before {
@@ -1086,6 +1099,25 @@ textarea {
 
 .mourao-product-card__text {
   font-size: 0.97rem;
+}
+
+.mourao-product-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.38rem;
+  margin-top: -0.1rem;
+}
+
+.mourao-product-card__rating .mourao-stars {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+}
+
+.mourao-product-card__rating-label {
+  color: rgba(61, 43, 33, 0.5);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .mourao-story-card {
@@ -1838,16 +1870,16 @@ textarea {
 }
 
 .mourao-reveal {
-  opacity: 1;
-  transform: none;
-  animation: none;
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.58s ease calc((var(--animation-order, 1) - 1) * 75ms),
+    transform 0.58s ease calc((var(--animation-order, 1) - 1) * 75ms);
 }
 
-@keyframes mourao-fade-up {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.mourao-reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1873,7 +1905,7 @@ textarea {
   .mourao-reveal {
     opacity: 1;
     transform: none;
-    animation: none;
+    transition: none;
   }
 
   .mourao-nature-video__media {
@@ -2192,6 +2224,51 @@ textarea {
 }
 
 @media screen and (max-width: 699px) {
+  .mourao-product-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .mourao-product-card {
+    padding: 0.75rem;
+    gap: 0.65rem;
+  }
+
+  .mourao-product-card__media {
+    aspect-ratio: 1 / 1.1;
+  }
+
+  .mourao-product-card__title {
+    font-size: 1.15rem;
+    line-height: 1.1;
+  }
+
+  .mourao-product-card__text {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .mourao-product-card__badges {
+    gap: 0.35rem;
+  }
+
+  .mourao-pill {
+    font-size: 0.62rem;
+    padding: 0.32rem 0.55rem;
+  }
+
+  .mourao-product-card__meta {
+    font-size: 0.68rem;
+  }
+
+  .mourao-product-card__rating .mourao-stars {
+    font-size: 0.72rem;
+  }
+
+  .mourao-product-card__rating-label {
+    font-size: 0.68rem;
+  }
+
   .mourao-header-link,
   .mourao-wordmark__sub {
     display: none;
