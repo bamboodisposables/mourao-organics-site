@@ -6,4 +6,4 @@ rm -rf dist
 mkdir -p dist/assets
 
 cp ./*.html dist/
-cp assets/* dist/assets/
+cp -r assets/. dist/assets/
