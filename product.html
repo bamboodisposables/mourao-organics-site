@@ -251,28 +251,31 @@
             </div>
 
             <div class="mourao-grid mourao-grid--reviews">
-              <article class="mourao-review-card mourao-reveal" style="--animation-order: 1;">
-                <div class="mourao-review-card__quote" aria-hidden="true">“</div>
-                <p class="mourao-review-card__text">Wat me vooral opviel is hoe rustig het product aanvoelt. Geen overdaad, wel een zachter huidgevoel en minder trekkerigheid gedurende de dag.</p>
-                <div class="mourao-review-card__meta">
-                  <p class="mourao-review-card__author">Femke</p>
-                  <p class="mourao-review-card__context">Reactieve huid</p>
+              <article class=”mourao-review-card mourao-reveal” style=”--animation-order: 1;”>
+                <div class=”mourao-review-card__quote” aria-hidden=”true”>”</div>
+                <p class=”mourao-review-card__text”>Wat me vooral opviel is hoe rustig het product aanvoelt. Geen overdaad, wel een zachter huidgevoel en minder trekkerigheid gedurende de dag.</p>
+                <div class=”mourao-review-card__meta”>
+                  <span class=”mourao-review-card__stars” aria-label=”5 sterren”>★★★★★</span>
+                  <p class=”mourao-review-card__author”>Femke</p>
+                  <p class=”mourao-review-card__context”>Reactieve huid</p>
                 </div>
               </article>
-<article class="mourao-review-card mourao-reveal" style="--animation-order: 2;">
-                <div class="mourao-review-card__quote" aria-hidden="true">“</div>
-                <p class="mourao-review-card__text">Ik merkte vooral comfort. De formule voelt vol, maar toch draagbaar. Daardoor pak ik het sneller dagelijks dan andere rijkere balms.</p>
-                <div class="mourao-review-card__meta">
-                  <p class="mourao-review-card__author">Mara</p>
-                  <p class="mourao-review-card__context">Onrustige, droge huid</p>
+<article class=”mourao-review-card mourao-reveal” style=”--animation-order: 2;”>
+                <div class=”mourao-review-card__quote” aria-hidden=”true”>”</div>
+                <p class=”mourao-review-card__text”>Ik merkte vooral comfort. De formule voelt vol, maar toch draagbaar. Daardoor pak ik het sneller dagelijks dan andere rijkere balms.</p>
+                <div class=”mourao-review-card__meta”>
+                  <span class=”mourao-review-card__stars” aria-label=”5 sterren”>★★★★★</span>
+                  <p class=”mourao-review-card__author”>Mara</p>
+                  <p class=”mourao-review-card__context”>Onrustige, droge huid</p>
                 </div>
               </article>
-<article class="mourao-review-card mourao-reveal" style="--animation-order: 3;">
-                <div class="mourao-review-card__quote" aria-hidden="true">“</div>
-                <p class="mourao-review-card__text">Fijn dat het zo simpel is. Ik hoef niet na te denken over lagen of stappen, alleen een kleine hoeveelheid en mijn huid voelt weer gevoed.</p>
-                <div class="mourao-review-card__meta">
-                  <p class="mourao-review-card__author">Noor</p>
-                  <p class="mourao-review-card__context">Gevoelige routine</p>
+<article class=”mourao-review-card mourao-reveal” style=”--animation-order: 3;”>
+                <div class=”mourao-review-card__quote” aria-hidden=”true”>”</div>
+                <p class=”mourao-review-card__text”>Fijn dat het zo simpel is. Ik hoef niet na te denken over lagen of stappen, alleen een kleine hoeveelheid en mijn huid voelt weer gevoed.</p>
+                <div class=”mourao-review-card__meta”>
+                  <span class=”mourao-review-card__stars” aria-label=”5 sterren”>★★★★★</span>
+                  <p class=”mourao-review-card__author”>Noor</p>
+                  <p class=”mourao-review-card__context”>Gevoelige routine</p>
                 </div>
               </article>
             </div>
@@ -339,19 +342,43 @@
         </div>
       </footer>
     </div>
+  <!-- Sticky buy bar -->
+  <div class="mourao-sticky-bar" id="sticky-bar" aria-hidden="true">
+    <div class="mourao-sticky-bar__inner page-width">
+      <div class="mourao-sticky-bar__product">
+        <span class="mourao-sticky-bar__name">Tallowcrème Original</span>
+        <span class="mourao-sticky-bar__price">€39 · 120 ml</span>
+      </div>
+      <a class="mourao-button mourao-button--sticky" href="#shop">Voeg toe aan routine</a>
+    </div>
+  </div>
+
   <script>
     (function () {
-      var observer = new IntersectionObserver(function (entries) {
+      // Reveal animation
+      var revealObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
+            revealObserver.unobserve(entry.target);
           }
         });
       }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
       document.querySelectorAll('.mourao-reveal').forEach(function (el) {
-        observer.observe(el);
+        revealObserver.observe(el);
       });
+
+      // Sticky bar: show after CTA button scrolls out of view
+      var stickyBar = document.getElementById('sticky-bar');
+      var shopBtn = document.getElementById('shop');
+      if (stickyBar && shopBtn) {
+        var barObserver = new IntersectionObserver(function (entries) {
+          var visible = !entries[0].isIntersecting;
+          stickyBar.classList.toggle('is-visible', visible);
+          stickyBar.setAttribute('aria-hidden', visible ? 'false' : 'true');
+        }, { threshold: 0, rootMargin: '0px 0px 0px 0px' });
+        barObserver.observe(shopBtn);
+      }
     })();
   </script>
   </body>

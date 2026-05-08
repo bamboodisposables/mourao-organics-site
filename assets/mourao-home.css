@@ -2226,6 +2226,102 @@ textarea {
   }
 }
 
+/* ─── Gallery hero: hover zoom ─────────────────────────────────────── */
+.mourao-gallery__hero::after {
+  transition:
+    transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.mourao-gallery__hero:hover::after {
+  transform: scale(1.05);
+}
+
+/* ─── Thumbnail: active ring & stronger hover ──────────────────────── */
+.mourao-gallery__thumb:first-child {
+  border-color: rgba(115, 74, 48, 0.42);
+  box-shadow:
+    0 0 0 2px rgba(115, 74, 48, 0.15),
+    var(--mourao-shadow-soft);
+}
+
+.mourao-gallery__thumb:hover {
+  transform: translateY(-3px);
+  border-color: rgba(115, 74, 48, 0.26);
+  box-shadow: var(--mourao-shadow-soft);
+}
+
+/* ─── Detail card: subtle border ───────────────────────────────────── */
+.mourao-detail-card {
+  border: 1px solid rgba(84, 58, 40, 0.09);
+}
+
+/* ─── Review card: star rating ─────────────────────────────────────── */
+.mourao-review-card__stars {
+  display: block;
+  color: #c08d59;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  margin-bottom: 0.1rem;
+}
+
+/* ─── Sticky buy bar ───────────────────────────────────────────────── */
+.mourao-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  padding: 0.72rem 0;
+  background: rgba(246, 241, 235, 0.97);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(115, 74, 48, 0.12);
+  box-shadow: 0 -6px 24px rgba(82, 58, 38, 0.1);
+  transform: translateY(100%);
+  transition: transform 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.mourao-sticky-bar.is-visible {
+  transform: translateY(0);
+}
+
+.mourao-sticky-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mourao-sticky-bar__product {
+  display: grid;
+  gap: 0.08rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.mourao-sticky-bar__name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #3d2b21;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mourao-sticky-bar__price {
+  font-size: 0.84rem;
+  color: rgba(61, 43, 33, 0.56);
+  font-weight: 500;
+}
+
+.mourao-button--sticky {
+  flex-shrink: 0;
+  padding: 0.62rem 1.35rem;
+  font-size: 0.9rem;
+}
+
 @media screen and (max-width: 699px) {
   .mourao-product-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
