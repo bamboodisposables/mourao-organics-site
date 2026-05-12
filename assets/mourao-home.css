@@ -1443,6 +1443,7 @@ textarea {
 .mourao-newsletter__form,
 .mourao-footer-form {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 0.8rem;
 }
 
@@ -1954,8 +1955,7 @@ textarea {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .mourao-footer-form__row,
-  .mourao-newsletter__form {
+  .mourao-footer-form__row {
     grid-template-columns: minmax(0, 1fr) auto;
   }
 
@@ -2684,4 +2684,44 @@ textarea {
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
+}
+
+/* ─── Review card: hover lift ───────────────────────────────────────── */
+.mourao-review-card {
+  transition:
+    transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.3s ease;
+}
+
+.mourao-review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 26px 52px rgba(82, 58, 38, 0.14);
+  border-color: rgba(115, 74, 48, 0.18);
+}
+
+/* ─── Ingredient expanded: subtle tint + separator ──────────────────── */
+.mourao-ingredient-row__content {
+  border-top: 1px solid rgba(84, 58, 40, 0.07);
+  background: rgba(255, 252, 249, 0.65);
+}
+
+/* ─── Newsletter: form row + privacy note ───────────────────────────── */
+.mourao-newsletter__form-row {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.mourao-newsletter__privacy {
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(61, 43, 33, 0.46);
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 700px) {
+  .mourao-newsletter__form-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
 }
