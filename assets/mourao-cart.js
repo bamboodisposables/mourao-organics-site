@@ -401,7 +401,7 @@
       btn.textContent = '✓ Toegevoegd';
       btn.classList.add('mourao-btn--added');
       setTimeout(function () {
-        btn.textContent = 'Voeg toe aan routine';
+        btn.textContent = 'In winkelwagen';
         btn.classList.remove('mourao-btn--added');
       }, 1800);
     }
