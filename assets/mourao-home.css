@@ -2902,6 +2902,11 @@ textarea {
   text-shadow: 0 1px 4px rgba(165, 115, 70, 0.22);
 }
 
+/* ─── Product page: add-to-cart + direct checkout button pair ────── */
+#shop + .mourao-direct-checkout {
+  margin-top: 0.55rem;
+}
+
 /* ══════════════════════════════════════════════════════════════════
    CART SYSTEM
    ══════════════════════════════════════════════════════════════════ */
