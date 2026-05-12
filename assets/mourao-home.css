@@ -2609,3 +2609,79 @@ textarea {
     font-size: 0.94rem;
   }
 }
+
+/* ─── Trust bar: checkmarks ────────────────────────────────────────── */
+.mourao-trust-bar__item::before {
+  content: "✓";
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: none;
+  color: #b8793e;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.mourao-trust-bar__item {
+  transition: background 0.22s ease, border-color 0.22s ease;
+}
+
+.mourao-trust-bar__item:hover {
+  background: rgba(255, 250, 245, 0.88);
+  border-color: rgba(115, 74, 48, 0.16);
+}
+
+/* ─── Story card list: checkmarks ──────────────────────────────────── */
+.mourao-story-card__list span::after {
+  content: "✓";
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: none;
+  color: #b8793e;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ─── Story card footnote: top separator ───────────────────────────── */
+.mourao-story-card__footnote {
+  border-top: 1px solid rgba(84, 58, 40, 0.1);
+  padding-top: 0.8rem;
+  margin-top: 0.15rem;
+  color: rgba(61, 43, 33, 0.68);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+/* ─── Ingredient row: left accent + hover ──────────────────────────── */
+.mourao-ingredient-row {
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.mourao-ingredient-row:hover {
+  background: rgba(255, 252, 248, 0.92);
+  border-color: rgba(115, 74, 48, 0.18);
+}
+
+.mourao-ingredient-row[open] {
+  border-left: 3px solid rgba(165, 115, 70, 0.38);
+}
+
+/* ─── Footer links: hover effect ───────────────────────────────────── */
+.mourao-site-footer__column a {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mourao-site-footer__column a:hover {
+  color: rgba(115, 74, 48, 0.95);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
