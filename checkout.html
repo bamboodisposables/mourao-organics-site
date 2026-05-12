@@ -331,6 +331,14 @@
         transition: background .18s ease;
       }
       .co-discount button:hover { background: rgba(165,115,70,.08); }
+      .co-discount__feedback {
+        grid-column: 1 / -1;
+        margin: 0;
+        font-size: 0.74rem;
+        color: rgba(64,43,32,.46);
+      }
+      .co-discount__feedback.is-success { color: #5c8050; }
+      .co-discount__feedback.is-error { color: #b04040; }
 
       /* ── Totals ────────────────────────────────────────────────────── */
       .co-totals { display: grid; gap: 0.42rem; border-top: 1px solid rgba(92,63,42,.08); padding-top: 0.9rem; }
@@ -351,6 +359,12 @@
       }
       .co-totals__row--total .co-totals__label { font-size: 0.88rem; }
       .co-totals__free { color: #5c8050; font-weight: 600; }
+      .co-summary__meta-note {
+        margin: 0 0 0.9rem;
+        font-size: 0.78rem;
+        color: rgba(64,43,32,.52);
+        line-height: 1.5;
+      }
 
       /* ── Left: form column ─────────────────────────────────────────── */
       .co-form-col { order: 2; }
@@ -400,6 +414,13 @@
         transition: background .18s ease, border-color .18s ease;
       }
       .co-express__btn:hover { background: #f9f5f0; border-color: rgba(92,63,42,.22); }
+      .co-express__btn:disabled,
+      .co-submit-btn:disabled {
+        opacity: 0.46;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+      }
       .co-express__btn--ideal { letter-spacing: -0.02em; }
       .co-express__btn--apple { background: #000; color: #fff; border-color: #000; }
       .co-express__btn--apple:hover { background: #1a1a1a; }
@@ -697,6 +718,14 @@
       }
       .co-success__meta-row { display: flex; justify-content: space-between; color: rgba(64,43,32,.64); }
       .co-success__meta-row strong { color: #402b20; font-weight: 600; }
+      .co-empty-state {
+        display: grid;
+        gap: 0.5rem;
+        padding: 0.6rem 0;
+        text-align: center;
+        color: rgba(64,43,32,.56);
+      }
+      .co-empty-state p { margin: 0; }
     </style>
   </head>
   <body class="checkout-body">
@@ -760,11 +789,13 @@
           <div class="co-summary__card">
             <!-- Items filled by JS -->
             <div class="co-items" id="co-items"></div>
+            <p class="co-summary__meta-note" id="co-summary-note">Kleine batches, snel en rustig geleverd vanuit Nederland.</p>
 
             <!-- Discount code -->
             <div class="co-discount">
               <input type="text" placeholder="Kortingscode" id="discount-input" aria-label="Kortingscode invoeren">
-              <button type="button" onclick="applyDiscount()">Toepassen</button>
+              <button type="button" id="discount-apply">Toepassen</button>
+              <p class="co-discount__feedback" id="discount-feedback" aria-live="polite"></p>
             </div>
 
             <!-- Totals -->
@@ -800,13 +831,13 @@
         <div class="co-express">
           <div class="co-express__label">Snel afrekenen</div>
           <div class="co-express__btns">
-            <button class="co-express__btn co-express__btn--ideal" type="button" onclick="handleExpressCheckout('iDEAL')">
+            <button class="co-express__btn co-express__btn--ideal" type="button" data-express-method="iDEAL">
               🏦 iDEAL
             </button>
-            <button class="co-express__btn co-express__btn--apple" type="button" onclick="handleExpressCheckout('Apple Pay')">
+            <button class="co-express__btn co-express__btn--apple" type="button" data-express-method="Apple Pay">
               🍎 Pay
             </button>
-            <button class="co-express__btn co-express__btn--paypal" type="button" onclick="handleExpressCheckout('PayPal')">
+            <button class="co-express__btn co-express__btn--paypal" type="button" data-express-method="PayPal">
               <strong>Pay</strong>Pal
             </button>
           </div>
@@ -917,7 +948,7 @@
             <h2 class="co-card__title">Betaalmethode</h2>
             <div class="co-payment-opts">
               <label class="co-payment-opt">
-                <input type="radio" name="payment" value="ideal" checked onchange="toggleIdealBank(this)">
+                <input type="radio" name="payment" value="ideal" checked>
                 <div class="co-payment-opt__icon">🏦</div>
                 <div>
                   <div class="co-payment-opt__label">iDEAL</div>
@@ -943,7 +974,7 @@
               </div>
 
               <label class="co-payment-opt">
-                <input type="radio" name="payment" value="card" onchange="toggleIdealBank(this)">
+                <input type="radio" name="payment" value="card">
                 <div class="co-payment-opt__icon">💳</div>
                 <div>
                   <div class="co-payment-opt__label">Creditcard / Debitcard</div>
@@ -955,7 +986,7 @@
                 </div>
               </label>
               <label class="co-payment-opt">
-                <input type="radio" name="payment" value="paypal" onchange="toggleIdealBank(this)">
+                <input type="radio" name="payment" value="paypal">
                 <div class="co-payment-opt__icon">🅿️</div>
                 <div>
                   <div class="co-payment-opt__label">PayPal</div>
@@ -963,7 +994,7 @@
                 </div>
               </label>
               <label class="co-payment-opt">
-                <input type="radio" name="payment" value="bancontact" onchange="toggleIdealBank(this)">
+                <input type="radio" name="payment" value="bancontact">
                 <div class="co-payment-opt__icon">🇧🇪</div>
                 <div>
                   <div class="co-payment-opt__label">Bancontact</div>
@@ -971,7 +1002,7 @@
                 </div>
               </label>
               <label class="co-payment-opt">
-                <input type="radio" name="payment" value="klarna" onchange="toggleIdealBank(this)">
+                <input type="radio" name="payment" value="klarna">
                 <div class="co-payment-opt__icon">🟣</div>
                 <div>
                   <div class="co-payment-opt__label">Klarna — Achteraf betalen</div>
@@ -1014,169 +1045,5 @@
     </footer>
 
     <script src="assets/mourao-cart.js"></script>
-    <script>
-      /* ── Cart helpers ──────────────────────────────────────────────── */
-      function getCart() {
-        try { return JSON.parse(localStorage.getItem('mourao_cart') || '[]'); } catch(e) { return []; }
-      }
-      function saveCart(items) {
-        localStorage.setItem('mourao_cart', JSON.stringify(items));
-        renderSummary();
-      }
-      function changeQty(key, delta) {
-        var cart = getCart().map(function(x) {
-          if (x.key === key) x.qty = Math.max(1, x.qty + delta);
-          return x;
-        });
-        saveCart(cart);
-      }
-      function removeItem(key) {
-        saveCart(getCart().filter(function(x) { return x.key !== key; }));
-      }
-
-      /* ── Render order summary ──────────────────────────────────────── */
-      function renderSummary() {
-        var cart = getCart();
-        var itemsEl = document.getElementById('co-items');
-        var subtotalEl = document.getElementById('co-subtotal');
-        var shippingEl = document.getElementById('co-shipping-cost');
-        var totalEl = document.getElementById('co-total');
-        var togglePrice = document.getElementById('summary-toggle-price');
-
-        if (!itemsEl) return;
-
-        if (cart.length === 0) {
-          itemsEl.innerHTML = '<p style="font-size:.85rem;color:rgba(64,43,32,.5);text-align:center;padding:.5rem 0;">Je winkelwagen is leeg. <a href="index.html#producten" style="color:#a57652;font-weight:600;">Terug naar shop</a></p>';
-        } else {
-          itemsEl.innerHTML = cart.map(function(item) {
-            var k = encodeURIComponent(item.key);
-            return '<div class="co-item" data-key="' + item.key + '">' +
-              '<div class="co-item__img-wrap">' +
-                '<div class="co-item__img" style="--img:url(\'' + item.image + '\')"></div>' +
-                '<span class="co-item__qty-badge">' + item.qty + '</span>' +
-              '</div>' +
-              '<div class="co-item__info">' +
-                '<div class="co-item__name">' + item.name + '</div>' +
-                '<div class="co-item__variant">' + item.formula + ' · ' + item.size + '</div>' +
-                '<div class="co-item__bottom">' +
-                  '<div class="co-item-qty">' +
-                    '<button class="co-item-qty__btn" onclick="changeQty(\'' + item.key + '\',-1)" aria-label="Minder">−</button>' +
-                    '<span class="co-item-qty__val">' + item.qty + '</span>' +
-                    '<button class="co-item-qty__btn" onclick="changeQty(\'' + item.key + '\',1)" aria-label="Meer">+</button>' +
-                  '</div>' +
-                  '<span class="co-item__price">€' + (item.price * item.qty).toFixed(2).replace('.',',') + '</span>' +
-                  '<button class="co-item__remove" onclick="removeItem(\'' + item.key + '\')">Verwijderen</button>' +
-                '</div>' +
-              '</div>' +
-            '</div>';
-          }).join('');
-        }
-
-        var subtotal = cart.reduce(function(s,x){ return s + x.price * x.qty; }, 0);
-        var shipping = subtotal >= 30 || subtotal === 0 ? 0 : 4.95;
-
-        if (subtotalEl) subtotalEl.textContent = '€' + subtotal.toFixed(2).replace('.',',');
-        if (shippingEl) {
-          shippingEl.textContent = shipping === 0 ? (subtotal === 0 ? '—' : 'Gratis') : '€' + shipping.toFixed(2).replace('.',',');
-          shippingEl.className = shipping === 0 && subtotal > 0 ? 'co-totals__free' : '';
-        }
-        var total = subtotal + shipping;
-        if (totalEl) totalEl.textContent = '€' + total.toFixed(2).replace('.',',');
-        if (togglePrice) togglePrice.textContent = subtotal === 0 ? '—' : '€' + subtotal.toFixed(2).replace('.',',');
-
-        // Update standard shipping display
-        var stdEl = document.getElementById('standard-price');
-        if (stdEl) stdEl.innerHTML = shipping === 0 && subtotal > 0
-          ? '<span class="co-totals__free">Gratis</span>'
-          : '€4,95';
-      }
-
-      /* ── Mobile summary toggle ─────────────────────────────────────── */
-      var summaryToggle = document.getElementById('summary-toggle');
-      var summaryBody = document.getElementById('summary-body');
-      if (summaryToggle) {
-        summaryToggle.addEventListener('click', function() {
-          var open = summaryBody.classList.toggle('is-open');
-          summaryToggle.setAttribute('aria-expanded', open);
-        });
-      }
-
-      /* ── iDEAL bank show/hide ──────────────────────────────────────── */
-      function toggleIdealBank(radio) {
-        var wrap = document.getElementById('ideal-bank-wrap');
-        if (wrap) wrap.classList.toggle('is-visible', radio.value === 'ideal');
-      }
-
-      /* ── Discount code (demo) ──────────────────────────────────────── */
-      function applyDiscount() {
-        var code = document.getElementById('discount-input').value.trim().toUpperCase();
-        var row = document.getElementById('co-discount-row');
-        var amountEl = document.getElementById('co-discount-amount');
-        if (code === 'MOURAO10') {
-          if (row) row.style.display = 'flex';
-          if (amountEl) amountEl.textContent = '−10%';
-        } else if (code) {
-          alert('Ongeldige kortingscode.');
-        }
-      }
-
-      /* ── Express checkout (demo) ───────────────────────────────────── */
-      function handleExpressCheckout(method) {
-        var form = document.getElementById('checkout-form');
-        if (form) {
-          var cart = [];
-          try { cart = JSON.parse(localStorage.getItem('mourao_cart') || '[]'); } catch(e){}
-          if (cart.length === 0) { alert('Je winkelwagen is leeg.'); return; }
-          showSuccess('');
-        }
-      }
-
-      /* ── Form submit ───────────────────────────────────────────────── */
-      document.getElementById('checkout-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        var first = document.getElementById('co-firstname');
-        showSuccess(first ? first.value.split(' ')[0] : '');
-      });
-
-      /* ── Success screen ────────────────────────────────────────────── */
-      function showSuccess(firstName) {
-        var cart = [];
-        try { cart = JSON.parse(localStorage.getItem('mourao_cart') || '[]'); } catch(e){}
-        var total = cart.reduce(function(s,x){ return s + x.price * x.qty; }, 0);
-        var orderNr = 'MR-' + Math.floor(10000 + Math.random() * 90000);
-        var email = document.getElementById('co-email') ? document.getElementById('co-email').value : '';
-
-        localStorage.removeItem('mourao_cart');
-
-        var main = document.getElementById('co-main');
-        main.innerHTML = '<div class="co-success">' +
-          '<div class="co-success__check">' +
-            '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' +
-          '</div>' +
-          '<span class="co-success__order">Bestelnummer ' + orderNr + '</span>' +
-          '<h1>Bedankt' + (firstName ? ', ' + firstName + '!' : '!') + '</h1>' +
-          '<p>Je bestelling is ontvangen en wordt zorgvuldig ingepakt.' + (email ? ' Een bevestiging is verstuurd naar <strong>' + email + '</strong>.' : '') + '</p>' +
-          '<div class="co-success__meta">' +
-            '<div class="co-success__meta-row"><span>Verwachte levering</span><strong>2–4 werkdagen</strong></div>' +
-            '<div class="co-success__meta-row"><span>Ordertotaal</span><strong>€' + total.toFixed(2).replace('.',',') + '</strong></div>' +
-            '<div class="co-success__meta-row"><span>Verzending via</span><strong>PostNL</strong></div>' +
-          '</div>' +
-          '<a href="index.html" class="co-submit-btn" style="text-decoration:none;max-width:18rem;">Verder winkelen</a>' +
-        '</div>';
-
-        // Update breadcrumb
-        document.querySelectorAll('.co-step').forEach(function(s,i) {
-          s.className = 'co-step is-done';
-          s.querySelector('.co-step__num').textContent = '✓';
-        });
-      }
-
-      /* ── Floating label: fix select (already has value) ───────────── */
-      document.querySelectorAll('.co-field select').forEach(function(sel) {
-        sel.closest('.co-field').classList.add('has-value');
-      });
-
-      renderSummary();
-    </script>
   </body>
 </html>

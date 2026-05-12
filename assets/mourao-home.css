@@ -3065,6 +3065,10 @@ body.mourao-cart-open {
   color: rgba(61, 43, 33, 0.56);
 }
 
+.mourao-cart-empty p {
+  margin: 0;
+}
+
 /* ─── Cart item ──────────────────────────────────────────────────── */
 .mourao-cart-item {
   display: grid;
@@ -3193,6 +3197,11 @@ body.mourao-cart-open {
   background: rgba(245, 238, 230, 0.7);
 }
 
+.mourao-cart-drawer__actions {
+  display: grid;
+  gap: 0.55rem;
+}
+
 .mourao-cart-summary {
   display: flex;
   align-items: center;
@@ -3212,6 +3221,34 @@ body.mourao-cart-open {
   margin: 0;
   font-size: 0.78rem;
   color: rgba(61, 43, 33, 0.52);
+  text-align: center;
+}
+
+.mourao-cart-continue-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.8rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(84, 58, 40, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 251, 247, 0.94);
+  color: var(--mourao-text);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background var(--mourao-transition), border-color var(--mourao-transition), transform var(--mourao-transition);
+}
+
+.mourao-cart-continue-btn:hover {
+  background: rgba(243, 232, 220, 0.94);
+  border-color: rgba(115, 74, 48, 0.22);
+  transform: translateY(-1px);
+}
+
+.mourao-cart-trust-note {
+  margin: 0;
+  font-size: 0.74rem;
+  color: rgba(61, 43, 33, 0.46);
   text-align: center;
 }
 
