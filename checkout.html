@@ -188,14 +188,14 @@
       }
 
       /* ── Summary items ────────────────────────────────────────────── */
-      .co-items { display: grid; gap: 0.9rem; margin-bottom: 1rem; }
+      .co-items { display: grid; gap: 1rem; margin-bottom: 1rem; }
       .co-item {
         display: grid;
-        grid-template-columns: 3.6rem 1fr auto;
+        grid-template-columns: 3.6rem 1fr;
         gap: 0.75rem;
-        align-items: center;
+        align-items: start;
       }
-      .co-item__img-wrap { position: relative; }
+      .co-item__img-wrap { position: relative; flex-shrink: 0; }
       .co-item__img {
         width: 3.6rem;
         height: 3.6rem;
@@ -236,12 +236,67 @@
         color: rgba(64,43,32,.5);
         margin-top: 0.1rem;
       }
+      .co-item__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+        gap: 0.5rem;
+      }
       .co-item__price {
         font-size: 0.9rem;
         font-weight: 700;
         color: #402b20;
         white-space: nowrap;
       }
+      /* ── Inline qty stepper ── */
+      .co-item-qty {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid rgba(92,63,42,.18);
+        border-radius: 2rem;
+        overflow: hidden;
+        background: #faf7f4;
+      }
+      .co-item-qty__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.75rem;
+        height: 1.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        color: rgba(64,43,32,.65);
+        transition: background .15s ease, color .15s ease;
+        line-height: 1;
+        flex-shrink: 0;
+      }
+      .co-item-qty__btn:hover { background: rgba(165,115,70,.12); color: #402b20; }
+      .co-item-qty__val {
+        min-width: 1.6rem;
+        text-align: center;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: #402b20;
+        border-left: 1px solid rgba(92,63,42,.12);
+        border-right: 1px solid rgba(92,63,42,.12);
+        padding: 0 0.15rem;
+        line-height: 1.75rem;
+      }
+      /* ── Remove link ── */
+      .co-item__remove {
+        font-size: 0.72rem;
+        color: rgba(64,43,32,.38);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        cursor: pointer;
+        transition: color .15s ease;
+        background: none;
+        border: none;
+        padding: 0;
+        font-family: inherit;
+      }
+      .co-item__remove:hover { color: #b04040; }
 
       /* ── Discount code ─────────────────────────────────────────────── */
       .co-discount {
@@ -960,11 +1015,28 @@
 
     <script src="assets/mourao-cart.js"></script>
     <script>
+      /* ── Cart helpers ──────────────────────────────────────────────── */
+      function getCart() {
+        try { return JSON.parse(localStorage.getItem('mourao_cart') || '[]'); } catch(e) { return []; }
+      }
+      function saveCart(items) {
+        localStorage.setItem('mourao_cart', JSON.stringify(items));
+        renderSummary();
+      }
+      function changeQty(key, delta) {
+        var cart = getCart().map(function(x) {
+          if (x.key === key) x.qty = Math.max(1, x.qty + delta);
+          return x;
+        });
+        saveCart(cart);
+      }
+      function removeItem(key) {
+        saveCart(getCart().filter(function(x) { return x.key !== key; }));
+      }
+
       /* ── Render order summary ──────────────────────────────────────── */
       function renderSummary() {
-        var cart = [];
-        try { cart = JSON.parse(localStorage.getItem('mourao_cart') || '[]'); } catch(e){}
-
+        var cart = getCart();
         var itemsEl = document.getElementById('co-items');
         var subtotalEl = document.getElementById('co-subtotal');
         var shippingEl = document.getElementById('co-shipping-cost');
@@ -977,7 +1049,8 @@
           itemsEl.innerHTML = '<p style="font-size:.85rem;color:rgba(64,43,32,.5);text-align:center;padding:.5rem 0;">Je winkelwagen is leeg. <a href="index.html#producten" style="color:#a57652;font-weight:600;">Terug naar shop</a></p>';
         } else {
           itemsEl.innerHTML = cart.map(function(item) {
-            return '<div class="co-item">' +
+            var k = encodeURIComponent(item.key);
+            return '<div class="co-item" data-key="' + item.key + '">' +
               '<div class="co-item__img-wrap">' +
                 '<div class="co-item__img" style="--img:url(\'' + item.image + '\')"></div>' +
                 '<span class="co-item__qty-badge">' + item.qty + '</span>' +
@@ -985,8 +1058,16 @@
               '<div class="co-item__info">' +
                 '<div class="co-item__name">' + item.name + '</div>' +
                 '<div class="co-item__variant">' + item.formula + ' · ' + item.size + '</div>' +
+                '<div class="co-item__bottom">' +
+                  '<div class="co-item-qty">' +
+                    '<button class="co-item-qty__btn" onclick="changeQty(\'' + item.key + '\',-1)" aria-label="Minder">−</button>' +
+                    '<span class="co-item-qty__val">' + item.qty + '</span>' +
+                    '<button class="co-item-qty__btn" onclick="changeQty(\'' + item.key + '\',1)" aria-label="Meer">+</button>' +
+                  '</div>' +
+                  '<span class="co-item__price">€' + (item.price * item.qty).toFixed(2).replace('.',',') + '</span>' +
+                  '<button class="co-item__remove" onclick="removeItem(\'' + item.key + '\')">Verwijderen</button>' +
+                '</div>' +
               '</div>' +
-              '<span class="co-item__price">€' + (item.price * item.qty) + '</span>' +
             '</div>';
           }).join('');
         }
