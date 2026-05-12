@@ -464,13 +464,13 @@ textarea {
 }
 
 .mourao-inline-link::after {
-  content: "->";
+  content: "→";
   transition: transform var(--mourao-transition);
 }
 
 .mourao-inline-link:hover::after,
 .mourao-inline-link:focus-visible::after {
-  transform: translateX(2px);
+  transform: translateX(3px);
 }
 
 .mourao-input {
@@ -1386,9 +1386,9 @@ textarea {
   width: 3.5rem;
   height: 0.7rem;
   background:
-    radial-gradient(circle, rgba(154, 108, 72, 0.34) 0 0.16rem, transparent 0.18rem)
+    radial-gradient(circle, rgba(192, 141, 89, 0.62) 0 0.16rem, transparent 0.18rem)
     0 50% / 0.7rem 100% repeat-x;
-  opacity: 0.95;
+  opacity: 1;
 }
 
 .mourao-review-card__quote {
@@ -1430,6 +1430,7 @@ textarea {
 
 .mourao-newsletter {
   background: linear-gradient(180deg, rgba(240, 228, 215, 0.96) 0%, rgba(229, 211, 191, 0.96) 100%);
+  border-left: 3px solid rgba(165, 115, 70, 0.36);
 }
 
 .mourao-newsletter__content,
@@ -2272,11 +2273,61 @@ textarea {
 /* ─── Review card: star rating ─────────────────────────────────────── */
 .mourao-review-card__stars {
   display: block;
-  color: #c08d59;
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
+  color: #b8793e;
+  font-size: 0.88rem;
+  letter-spacing: 0.12em;
   line-height: 1;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.3rem;
+}
+
+/* ─── Review section: social proof count ───────────────────────────── */
+.mourao-review-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 99px;
+  background: rgba(192, 141, 89, 0.11);
+  border: 1px solid rgba(192, 141, 89, 0.28);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(84, 54, 28, 0.8);
+  letter-spacing: 0.02em;
+  width: fit-content;
+  justify-self: start;
+}
+.mourao-review-count__stars {
+  color: #b8793e;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+/* ─── CTA panel: richer background ─────────────────────────────────── */
+.mourao-cta-panel {
+  background: linear-gradient(135deg, rgba(229, 207, 183, 0.98) 0%, rgba(215, 189, 160, 0.98) 50%, rgba(228, 208, 184, 0.96) 100%) !important;
+  border: 1px solid rgba(165, 115, 70, 0.18);
+  box-shadow: 0 2px 18px rgba(130, 88, 48, 0.08);
+}
+
+/* ─── Product card: hover reveal button ─────────────────────────────── */
+.mourao-product-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(84, 54, 28, 0.72);
+  letter-spacing: 0.03em;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+.mourao-product-card:hover .mourao-product-card__cta,
+.mourao-product-card:focus-within .mourao-product-card__cta {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ─── Sticky buy bar ───────────────────────────────────────────────── */
