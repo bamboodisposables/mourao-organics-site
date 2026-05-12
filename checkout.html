@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#F6F1EB">
+    <title>Afrekenen | MOURÃO Organics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/mourao-home.css">
+  </head>
+  <body class="mourao-theme">
+    <a class="visually-hidden" href="#MainContent">Ga naar de inhoud</a>
+
+    <div class="mourao-site-shell">
+      <header class="mourao-site-header">
+        <div class="page-width mourao-site-header__inner">
+          <nav class="mourao-header-nav" aria-label="Hoofdmenu">
+            <a class="mourao-header-nav__link" href="index.html">Home</a>
+            <a class="mourao-header-nav__link" href="index.html#producten">Shop</a>
+            <a class="mourao-header-nav__link" href="index.html#waarom">Why Mourão</a>
+            <a class="mourao-header-nav__link" href="index.html#contact">Contact</a>
+          </nav>
+
+          <a href="index.html" class="mourao-wordmark" aria-label="MOURÃO Organics">
+            <img class="mourao-wordmark__image" src="assets/mourao-logo.jpg" alt="" width="58" height="58" loading="lazy">
+            <span class="mourao-wordmark__text-wrap" aria-hidden="true">
+              <span class="mourao-wordmark__line">
+                <span class="mourao-wordmark__text mourao-wordmark__text--ringed">
+                  <span>MOURÃ</span>
+                  <span class="mourao-ring-o"></span>
+                </span>
+              </span>
+              <span class="mourao-wordmark__subline">Organics</span>
+            </span>
+          </a>
+
+          <div class="mourao-header-meta">
+            <a class="mourao-header-link" href="index.html#producten">← Terug naar shop</a>
+          </div>
+        </div>
+      </header>
+
+      <main id="MainContent" role="main">
+        <div class="checkout-page" id="checkout-page-root">
+          <div style="margin-bottom:1.6rem;">
+            <p class="mourao-eyebrow">Veilig afrekenen</p>
+            <h1 class="mourao-heading mourao-heading--lg" style="margin:0.3rem 0 0;">Jouw bestelling afronden</h1>
+          </div>
+
+          <div class="checkout-layout">
+
+            <!-- ── LEFT: checkout form ── -->
+            <div>
+              <form id="checkout-form" novalidate>
+
+                <!-- Contact -->
+                <div class="checkout-card">
+                  <h2 class="checkout-card__title">Contactgegevens</h2>
+                  <div class="checkout-row checkout-row--2">
+                    <div class="checkout-field">
+                      <label for="checkout-firstname">Voornaam</label>
+                      <input id="checkout-firstname" type="text" name="firstname" autocomplete="given-name" required placeholder="Emma">
+                    </div>
+                    <div class="checkout-field">
+                      <label for="checkout-lastname">Achternaam</label>
+                      <input id="checkout-lastname" type="text" name="lastname" autocomplete="family-name" required placeholder="de Vries">
+                    </div>
+                  </div>
+                  <div class="checkout-field" style="margin-top:0.8rem;">
+                    <label for="checkout-email">E-mailadres</label>
+                    <input id="checkout-email" type="email" name="email" autocomplete="email" required placeholder="emma@example.nl">
+                  </div>
+                  <div class="checkout-field" style="margin-top:0.8rem;">
+                    <label for="checkout-phone">Telefoonnummer <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optioneel)</span></label>
+                    <input id="checkout-phone" type="tel" name="phone" autocomplete="tel" placeholder="+31 6 12 34 56 78">
+                  </div>
+                </div>
+
+                <!-- Shipping address -->
+                <div class="checkout-card">
+                  <h2 class="checkout-card__title">Bezorgadres</h2>
+                  <div class="checkout-field">
+                    <label for="checkout-street">Straatnaam</label>
+                    <input id="checkout-street" type="text" name="street" autocomplete="street-address" required placeholder="Keizersgracht">
+                  </div>
+                  <div class="checkout-row checkout-row--2" style="margin-top:0.8rem;">
+                    <div class="checkout-field">
+                      <label for="checkout-housenr">Huisnummer</label>
+                      <input id="checkout-housenr" type="text" name="housenr" autocomplete="address-line2" required placeholder="142">
+                    </div>
+                    <div class="checkout-field">
+                      <label for="checkout-addition">Toevoeging</label>
+                      <input id="checkout-addition" type="text" name="addition" placeholder="A">
+                    </div>
+                  </div>
+                  <div class="checkout-row checkout-row--3" style="margin-top:0.8rem;">
+                    <div class="checkout-field">
+                      <label for="checkout-city">Stad</label>
+                      <input id="checkout-city" type="text" name="city" autocomplete="address-level2" required placeholder="Amsterdam">
+                    </div>
+                    <div class="checkout-field">
+                      <label for="checkout-zip">Postcode</label>
+                      <input id="checkout-zip" type="text" name="zip" autocomplete="postal-code" required placeholder="1017 EG">
+                    </div>
+                  </div>
+                  <div class="checkout-field" style="margin-top:0.8rem;">
+                    <label for="checkout-country">Land</label>
+                    <select id="checkout-country" name="country" autocomplete="country" required>
+                      <option value="NL" selected>Nederland</option>
+                      <option value="BE">België</option>
+                      <option value="DE">Duitsland</option>
+                      <option value="FR">Frankrijk</option>
+                      <option value="OTHER">Ander land</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Shipping method -->
+                <div class="checkout-card">
+                  <h2 class="checkout-card__title">Verzendmethode</h2>
+                  <div style="display:grid;gap:0.6rem;">
+                    <label class="checkout-shipping-option">
+                      <input type="radio" name="shipping" value="standard" checked>
+                      <span class="checkout-shipping-option__label">
+                        Standaard (2–4 werkdagen)
+                        <span style="display:block;font-size:0.75rem;font-weight:400;color:rgba(61,43,33,.52);margin-top:0.1rem;">PostNL · gratis vanaf €30</span>
+                      </span>
+                      <span class="checkout-shipping-option__price" id="standard-shipping-price">€4,95</span>
+                    </label>
+                    <label class="checkout-shipping-option">
+                      <input type="radio" name="shipping" value="express">
+                      <span class="checkout-shipping-option__label">
+                        Expressverzending (volgende werkdag)
+                        <span style="display:block;font-size:0.75rem;font-weight:400;color:rgba(61,43,33,.52);margin-top:0.1rem;">DHL · voor 21:00 besteld</span>
+                      </span>
+                      <span class="checkout-shipping-option__price">€7,95</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Payment -->
+                <div class="checkout-card">
+                  <h2 class="checkout-card__title">Betaalmethode</h2>
+                  <div class="checkout-payment-methods">
+                    <label class="checkout-payment-method is-selected">
+                      <input type="radio" name="payment" value="ideal" checked>
+                      <span class="checkout-payment-method__icon">🏦</span>
+                      iDEAL
+                    </label>
+                    <label class="checkout-payment-method">
+                      <input type="radio" name="payment" value="creditcard">
+                      <span class="checkout-payment-method__icon">💳</span>
+                      Creditcard
+                    </label>
+                    <label class="checkout-payment-method">
+                      <input type="radio" name="payment" value="paypal">
+                      <span class="checkout-payment-method__icon">🅿️</span>
+                      PayPal
+                    </label>
+                    <label class="checkout-payment-method">
+                      <input type="radio" name="payment" value="bancontact">
+                      <span class="checkout-payment-method__icon">🇧🇪</span>
+                      Bancontact
+                    </label>
+                  </div>
+                  <p style="margin:1rem 0 0;font-size:0.78rem;color:rgba(61,43,33,.46);line-height:1.5;">
+                    Betaling wordt verwerkt via een beveiligde verbinding. Je wordt na het plaatsen van de bestelling doorgestuurd naar je bank of betaalprovider.
+                  </p>
+                </div>
+
+                <!-- Submit -->
+                <div class="checkout-submit-area">
+                  <button type="submit" class="mourao-button mourao-button--full" style="font-size:1rem;min-height:3.4rem;">
+                    Bestelling plaatsen
+                  </button>
+                  <p class="checkout-submit-note">Door je bestelling te plaatsen ga je akkoord met onze <a href="#" class="mourao-inline-link" style="font-size:inherit;">algemene voorwaarden</a>. Producten zijn uitsluitend voor uitwendig gebruik.</p>
+                </div>
+
+              </form>
+            </div>
+
+            <!-- ── RIGHT: order summary ── -->
+            <div class="checkout-summary">
+              <div class="checkout-card">
+                <h2 class="checkout-card__title">Jouw bestelling</h2>
+                <div class="checkout-items" id="checkout-items">
+                  <!-- Filled by JS -->
+                </div>
+                <div class="checkout-totals">
+                  <div class="checkout-totals__row">
+                    <span>Subtotaal</span>
+                    <span id="checkout-total">—</span>
+                  </div>
+                  <div class="checkout-totals__row">
+                    <span>Verzending</span>
+                    <span id="checkout-shipping">—</span>
+                  </div>
+                  <div class="checkout-totals__row checkout-totals__row--total">
+                    <span>Totaal</span>
+                    <span id="checkout-order-total">—</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top:1rem;display:grid;gap:0.5rem;">
+                <div style="display:flex;align-items:center;gap:0.6rem;font-size:0.8rem;color:rgba(61,43,33,.56);">
+                  <span style="font-size:1rem;">🔒</span> Beveiligde verbinding (SSL)
+                </div>
+                <div style="display:flex;align-items:center;gap:0.6rem;font-size:0.8rem;color:rgba(61,43,33,.56);">
+                  <span style="font-size:1rem;">↩️</span> 30 dagen retourrecht
+                </div>
+                <div style="display:flex;align-items:center;gap:0.6rem;font-size:0.8rem;color:rgba(61,43,33,.56);">
+                  <span style="font-size:1rem;">📦</span> Kleine batches, zorgvuldig ingepakt
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </main>
+
+      <footer id="contact" class="mourao-site-footer">
+        <div class="page-width">
+          <div class="mourao-site-footer__grid">
+            <div class="mourao-site-footer__column">
+              <h3 class="mourao-site-footer__heading">Collectie</h3>
+              <a href="product.html">Tallowcrème</a>
+              <a href="gezichtscreme.html">Gezichtscrème</a>
+              <a href="calming-skin-balm.html">Calming Skin Balm</a>
+              <a href="bodylotion.html">Bodylotion</a>
+              <a href="handcreme.html">Handcrème</a>
+              <a href="lipbalm.html">Lipbalm</a>
+            </div>
+            <div class="mourao-site-footer__column">
+              <h3 class="mourao-site-footer__heading">Why Mourão</h3>
+              <a href="index.html#waarom">Onze aanpak</a>
+              <a href="index.html#waarom">Ingrediënten</a>
+              <a href="index.html#reviews">Reviews</a>
+            </div>
+            <div class="mourao-site-footer__column">
+              <h3 class="mourao-site-footer__heading">Service</h3>
+              <a href="product.html#faq">Veelgestelde vragen</a>
+              <a href="#contact">Contact</a>
+            </div>
+            <div class="mourao-site-footer__column">
+              <h3 class="mourao-site-footer__heading">Contact</h3>
+              <a href="mailto:hello@mouraoorganics.com">hello@mouraoorganics.com</a>
+              <p>Atelier in Nederland</p>
+              <p>Klantenservice op werkdagen</p>
+            </div>
+          </div>
+          <div class="mourao-site-footer__bottom">
+            <p>© 2026 MOURÃO Organics. Cosmetische verzorging voor uitwendig gebruik.</p>
+            <p>Bij gevoelige huid of twijfel: altijd eerst rustig testen op een klein stukje huid.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="assets/mourao-cart.js"></script>
+    <script>
+      // Payment method visual selection
+      document.querySelectorAll('.checkout-payment-method').forEach(function(label) {
+        label.addEventListener('click', function() {
+          document.querySelectorAll('.checkout-payment-method').forEach(function(l) {
+            l.classList.remove('is-selected');
+          });
+          label.classList.add('is-selected');
+        });
+      });
+
+      // Update standard shipping price display based on cart total
+      (function() {
+        try {
+          var cart = JSON.parse(localStorage.getItem('mourao_cart') || '[]');
+          var total = cart.reduce(function(s,x){ return s + x.price * x.qty; }, 0);
+          var el = document.getElementById('standard-shipping-price');
+          if (el && total >= 30) el.textContent = 'Gratis';
+        } catch(e) {}
+      })();
+    </script>
+  </body>
+</html>
