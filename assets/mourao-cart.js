@@ -375,8 +375,7 @@
             ProductPage.selectedSize,
             ProductPage.selectedPrice
           );
-          CartUI.open();
-          ProductPage._pulseButton(addBtn);
+          window.location.href = 'checkout.html';
         });
       }
 
@@ -392,7 +391,7 @@
             ProductPage.selectedSize,
             ProductPage.selectedPrice
           );
-          CartUI.open();
+          window.location.href = 'checkout.html';
         });
       }
     },
