@@ -1884,6 +1884,16 @@ textarea {
   transform: none;
 }
 
+/* Keep repeated content readable immediately; hiding full grids creates
+   large empty gaps before the observer has a chance to reveal them. */
+.mourao-ingredient-row.mourao-reveal,
+.mourao-bestsellers .mourao-product-card.mourao-reveal,
+.mourao-grid--reviews .mourao-review-card.mourao-reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -3538,4 +3548,3 @@ body.mourao-cart-open {
   font-size: 0.84rem;
   color: rgba(61, 43, 33, 0.5);
 }
-
