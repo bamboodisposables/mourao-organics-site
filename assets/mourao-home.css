@@ -2673,6 +2673,57 @@ textarea {
   border-left: 3px solid rgba(165, 115, 70, 0.38);
 }
 
+/* ─── Option: selected checkmark on first-child ────────────────────── */
+.mourao-option-list .mourao-option:first-child {
+  position: relative;
+}
+
+.mourao-option-list .mourao-option:first-child::after {
+  content: "✓";
+  position: absolute;
+  top: 0.6rem;
+  right: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #b8793e;
+  line-height: 1;
+}
+
+/* ─── Product notes: ✓ prefix ───────────────────────────────────────── */
+.mourao-product-notes p {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  color: rgba(61, 43, 33, 0.64);
+}
+
+.mourao-product-notes p::before {
+  content: "✓";
+  flex-shrink: 0;
+  color: #b8793e;
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+
+/* ─── Proof cards: left accent border ───────────────────────────────── */
+.mourao-proof-card {
+  border-left: 3px solid rgba(165, 115, 70, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mourao-proof-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(82, 58, 38, 0.12);
+}
+
+/* ─── Sticky bar: inline star rating ────────────────────────────────── */
+.mourao-sticky-bar__price::before {
+  content: "★★★★★ 4.8  ·  ";
+  color: #b8793e;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
 /* ─── Footer links: hover effect ───────────────────────────────────── */
 .mourao-site-footer__column a {
   text-decoration: none;
