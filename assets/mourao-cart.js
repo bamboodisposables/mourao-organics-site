@@ -63,11 +63,11 @@
       ]
     },
     'lipbalm': {
-      name: 'Lipbalm',
+      name: 'Vanilla Lip Oil',
       category: 'MOURÃO lips',
       image: 'assets/mourao-product-lipbalm-card.jpg',
       url: 'lipbalm.html',
-      formulas: ['Bare', 'Soft Shine', 'Night Repair'],
+      formulas: ['Lightweight', 'Silky Glide', 'Natural Shine'],
       sizes: [
         { label: '15 ml',   desc: 'Dagelijks formaat', price: 12 },
         { label: 'Mini duo', desc: '2 × 7 ml',         price: 14 }

@@ -506,31 +506,32 @@ const products = [
   },
   {
     handle: 'lipbalm',
-    seoTitle: 'Lipbalm | MOURÃO Organics',
+    seoTitle: 'Vanilla Lip Oil | MOURÃO Organics',
     eyebrow: 'MOURÃO lips',
-    title: 'Calendula lipbalm die droge lippen rustig verzacht',
-    lead: 'Een 100% natuurlijke lipbalm met calendula maceraat, bijenwas, sheaboter en mangoboter. Gemaakt om droge of gebarsten lippen zacht te houden zonder zwaar of glibberig aan te voelen.',
-    ratingText: '4.8/5 door klanten die milde, natuurlijke lipverzorging zoeken',
-    galleryCaption: 'Calendula, boters en bijenwas in een kleine balsem voor dagelijks lipcomfort.',
-    thumbLabels: ['Bare', 'Soft Shine', 'Night Repair', 'Mini duo'],
+    title: 'Vanilla Lip Oil die lippen zacht, soepel en glanzend laat aanvoelen',
+    lead: 'Een verzorgende lip oil met kokosolie, zoete amandelolie, jojobaolie, castorolie, vitamine E en vanilla CO₂ extract. Licht van textuur, silky in gebruik en gemaakt voor een subtiele natuurlijke glans.',
+    ratingText: '4.8/5 door klanten die een lichte, verzorgende lip oil zoeken',
+    galleryCaption: 'Lichtgewicht lipverzorging met vanilla, voedende oliën en een subtiele natuurlijke glans.',
+    thumbLabels: ['Lightweight', 'Silky Glide', 'Natural Shine', 'Pocket Ritual'],
+    formulaLabel: 'Wat je merkt',
     benefits: [
-      'Calendula maceraat kalmeert en ondersteunt droge of gebarsten lippen',
-      'Bijenwas helpt een natuurlijke beschermlaag te vormen tegen uitdroging',
-      'Sheaboter en mangoboter voeden intens en maken lippen soepel',
-      'Vitamine E en zachte essentiële oliën ronden de formule fris en huidvriendelijk af'
+      'Kokosolie, zoete amandelolie en jojobaolie voeden zonder zwaar aan te voelen',
+      'Castorolie geeft een zachte, gladde finish met een subtiele natuurlijke glans',
+      'Vitamine E ondersteunt de formule als antioxidant en helpt de oil fris te houden',
+      'Vanilla CO₂ extract en essentiële olie geven een warme, zachte vanilla-touch'
     ],
     formulas: [
       {
-        title: 'Bare',
-        text: 'De meest eenvoudige basis met focus op calendula, bijenwas en voedende boters.'
+        title: 'Lightweight',
+        text: 'De olie voelt dun en soepel aan, zodat je lippen verzorgd blijven zonder plakkerig laagje.'
       },
       {
-        title: 'Soft Shine',
-        text: 'Dezelfde verzorgende basis met een gladdere finish voor overdag, zonder plakkerige gloss-feel.'
+        title: 'Silky Glide',
+        text: 'Glijdt makkelijk uit over de lippen en laat ze direct zachter en gladder aanvoelen.'
       },
       {
-        title: 'Night Repair',
-        text: 'Een vollere laag voor lippen die in de avond of nacht sneller droog of trekkerig aanvoelen.'
+        title: 'Natural Shine',
+        text: 'Laat een rustige, gezonde glans achter die meer verzorgend dan glossy oogt.'
       }
     ],
     sizes: [
@@ -541,64 +542,69 @@ const products = [
     stockNote: 'De container is BPA-vrij en compact genoeg voor tas, jaszak of nachtkastje.',
     proofs: [
       { value: '100%', label: 'natuurlijke lipverzorging' },
-      { value: 'BPA-vrij', label: 'praktische container voor dagelijks gebruik' },
-      { value: 'Dag & nacht', label: 'bruikbaar in korte routines' }
+      { value: 'Vanilla', label: 'zachte warme geur zonder overdaad' },
+      { value: 'Silky', label: 'lichte finish voor overdag of onderweg' }
     ],
+    videoAsset: 'mourao-vanilla-lip-oil.mp4',
+    videoPoster: 'mourao-vanilla-lip-oil-poster.jpg',
+    videoEyebrow: 'In beeld',
+    videoTitle: 'Vanilla Lip Oil in gebruik',
+    videoText: 'De video laat het product zien in een echte maak- en productcontext. Zo voelt de lip oil minder als mockup en meer als een tastbaar, handgemaakt product.',
     detailsEyebrow: 'Ingrediënten & werking',
-    detailsTitle: 'Waarom deze lipbalm prettig aanvoelt op droge lippen',
-    detailsCopy: 'De formule is klein en helder opgebouwd. Elk ingrediënt heeft een duidelijke rol: kalmeren, beschermen, voeden en helpen om lippen soepel te houden.',
+    detailsTitle: 'Waarom deze Vanilla Lip Oil zacht en licht blijft aanvoelen',
+    detailsCopy: 'De formule draait om voedende oliën die samen soepel aanbrengen, glans geven en de lippen comfortabel houden zonder zwaar of stroperig te worden.',
     details: [
       {
-        title: 'Calendula maceraat',
-        text: 'Zelfgemaakte calendula olie helpt droge of gebarsten lippen te kalmeren en zachter te laten aanvoelen.'
+        title: 'Kokosolie',
+        text: 'Geeft directe zachtheid en helpt droge lippen comfortabeler en soepeler te laten aanvoelen.'
       },
       {
-        title: 'Bijenwas',
-        text: 'Legt een natuurlijke beschermlaag zodat lippen minder snel opnieuw uitdrogen door wind of droge lucht.'
+        title: 'Zoete amandelolie & jojobaolie',
+        text: 'Voeden licht, trekken prettig uit en helpen de lippen glad te houden zonder vettig gevoel.'
       },
       {
-        title: 'Sheaboter & mangoboter',
-        text: 'Voeden intens, maken de huid soepel en zorgen dat de balm zacht en prettig uitsmeert.'
+        title: 'Castorolie',
+        text: 'Zorgt voor de mooie slip van de oil en geeft de subtiele natuurlijke glans waar het product om draait.'
       },
       {
-        title: 'Vitamine E & frisse oliën',
-        text: 'Vitamine E ondersteunt de houdbaarheid, terwijl pepermunt en zoete sinaasappel voor een lichte frisse sensatie zorgen.'
+        title: 'Vitamine E & vanilla',
+        text: 'Vitamine E ondersteunt de formule, terwijl vanilla CO₂ extract en essentiële olie zorgen voor een warme, zachte geurbeleving.'
       }
     ],
     faqEyebrow: 'Veelgestelde vragen',
-    faqTitle: 'Over ingrediënten, finish en dagelijks gebruik',
+    faqTitle: 'Over finish, glans en dagelijks gebruik',
     faqs: [
       {
-        title: 'Is deze lipbalm geschikt voor droge of gebarsten lippen?',
-        text: 'Ja. De formule is juist opgebouwd rond calendula maceraat, bijenwas en voedende boters om droge lippen te kalmeren, beschermen en soepel te houden.'
+        title: 'Voelt deze lip oil plakkerig aan?',
+        text: 'Nee. De finish is bewust licht en silky gehouden, zodat je wel comfort en glans krijgt maar geen dikke plakkerige laag.'
       },
       {
-        title: 'Voelt hij zwaar of plakkerig aan?',
-        text: 'Nee. De balm is voedend, maar bewust rustig in finish zodat je hem overdag gemakkelijk opnieuw kunt aanbrengen.'
+        title: 'Geeft hij veel glans?',
+        text: 'Hij laat een subtiele natuurlijke shine achter. Meer verzorgend en zacht dan een uitgesproken glossy look.'
       },
       {
-        title: 'Waarom zitten er pepermunt en zoete sinaasappel in?',
-        text: 'Pepermunt geeft een fris, licht verkoelend gevoel. Zoete sinaasappel zorgt voor een zachte fruitige geur en voegt milde antioxidante eigenschappen toe.'
+        title: 'Waar komt de vanilla-geur vandaan?',
+        text: 'Uit vanilla CO₂ extract en essentiële olie. Daardoor ruikt de oil warm en zacht, zonder zwaar parfumachtig te worden.'
       }
     ],
     reviewsEyebrow: 'Klanten aan het woord',
-    reviewsTitle: 'De lipbalm die zacht blijft zonder overdaad',
-    reviewsCopy: 'Klanten waarderen vooral de rustige finish, de natuurlijke samenstelling en hoe snel droge lippen comfortabeler aanvoelen.',
+    reviewsTitle: 'De lip oil die verzorgt zonder glossy overdaad',
+    reviewsCopy: 'Klanten noemen vooral de lichte textuur, de zachte vanilla-geur en de subtiele glans als reden om hem snel opnieuw te pakken.',
     reviews: [
       {
         author: 'Fleur',
-        context: 'Droge lippen',
-        text: 'De calendula-basis voelt meteen verzachtend en mijn lippen blijven langer soepel zonder dat er een dikke laag op ligt.'
+        context: 'Dagelijks gebruik',
+        text: 'Hij voelt echt licht aan, maar mijn lippen worden wel meteen zachter. Precies genoeg glans zonder gloss-gevoel.'
       },
       {
         author: 'Yara',
-        context: 'Dagelijks gebruik',
-        text: 'Fijn dat hij natuurlijk is, maar niet hard of waxy aanvoelt. Ik pak hem makkelijk meerdere keren per dag.'
+        context: 'Vanilla lover',
+        text: 'De vanilla is warm en subtiel. Niet te zoet, wel zacht. Daardoor voelt het product meteen rustiger en mooier in gebruik.'
       },
       {
         author: 'Lisa',
-        context: 'Tas essential',
-        text: 'Klein potje, rustige geur en precies genoeg bescherming voor overdag en voor het slapengaan.'
+        context: 'Onderweg',
+        text: 'Ik gebruik hem vooral overdag. Hij glijdt makkelijk aan, laat mijn lippen soepel voelen en past zonder gedoe in mijn tas.'
       }
     ],
     imagePrompt: 'Super realistic editorial lip balm product photo of a small natural balm pot with a smooth balm swipe, styled on warm beige ceramic with soft pocket cloth, earthy minimal skincare aesthetic, gentle daylight, highly detailed texture, handmade and honest mood, no text, no logo, no watermark.'
@@ -948,7 +954,7 @@ function renderProductPage(product) {
                 </ul>
 
                 <div class="mourao-option-group">
-                  <p class="mourao-option-group__label">Kies je formule</p>
+                  <p class="mourao-option-group__label">${escapeHtml(product.formulaLabel || 'Kies je formule')}</p>
                   <div class="mourao-option-list">
                     ${renderItems(
                       product.formulas,
@@ -992,6 +998,20 @@ function renderProductPage(product) {
               </div>`
               )}
             </div>
+
+${product.videoAsset ? `            <div class="mourao-product-video mourao-reveal" style="--animation-order: 2;">
+              <div class="mourao-product-video__copy">
+                <p class="mourao-eyebrow">${escapeHtml(product.videoEyebrow || 'In beeld')}</p>
+                <h2 class="mourao-section-title">${escapeHtml(product.videoTitle || 'Productvideo')}</h2>
+                <p class="mourao-section-copy">${escapeHtml(product.videoText || '')}</p>
+              </div>
+              <div class="mourao-product-video__frame">
+                <video class="mourao-product-video__media" playsinline autoplay muted loop preload="metadata" poster="assets/${escapeHtml(product.videoPoster || '')}">
+                  <source src="assets/${escapeHtml(product.videoAsset)}" type="video/mp4">
+                </video>
+              </div>
+            </div>
+` : ''}
 
             <div class="mourao-section-header">
               <p class="mourao-eyebrow">${escapeHtml(product.detailsEyebrow)}</p>
@@ -1172,6 +1192,7 @@ function renderProductTemplate(product) {
           subtitle: product.lead,
           rating_text: product.ratingText,
           gallery_caption: product.galleryCaption,
+          formula_label: product.formulaLabel || 'Kies je formule',
           button_label: 'Voeg toe aan routine',
           button_link: 'shopify://collections/all',
           shipping_note: product.shippingNote,
@@ -1182,6 +1203,11 @@ function renderProductTemplate(product) {
           proof_two_label: product.proofs[1].label,
           proof_three_value: product.proofs[2].value,
           proof_three_label: product.proofs[2].label,
+          video_asset: product.videoAsset || '',
+          video_poster: product.videoPoster || '',
+          video_eyebrow: product.videoEyebrow || '',
+          video_title: product.videoTitle || '',
+          video_text: product.videoText || '',
           details_eyebrow: product.detailsEyebrow,
           details_title: product.detailsTitle,
           details_copy: product.detailsCopy,
