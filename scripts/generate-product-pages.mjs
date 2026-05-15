@@ -508,97 +508,97 @@ const products = [
     handle: 'lipbalm',
     seoTitle: 'Lipbalm | MOURÃO Organics',
     eyebrow: 'MOURÃO lips',
-    title: 'Lipbalm die droogte verzacht zonder zwaar laagje',
-    lead: 'Een eenvoudige balsem voor droge lippen die prettig aanvoelt, makkelijk mee te nemen is en zonder glibberige overdaad net genoeg comfort geeft door de dag heen.',
-    ratingText: '4.8/5 door klanten die een eenvoudige balsem willen meenemen',
-    galleryCaption: 'Kleine essential voor zachtere lippen door de dag.',
+    title: 'Calendula lipbalm die droge lippen rustig verzacht',
+    lead: 'Een 100% natuurlijke lipbalm met calendula maceraat, bijenwas, sheaboter en mangoboter. Gemaakt om droge of gebarsten lippen zacht te houden zonder zwaar of glibberig aan te voelen.',
+    ratingText: '4.8/5 door klanten die milde, natuurlijke lipverzorging zoeken',
+    galleryCaption: 'Calendula, boters en bijenwas in een kleine balsem voor dagelijks lipcomfort.',
     thumbLabels: ['Bare', 'Soft Shine', 'Night Repair', 'Mini duo'],
     benefits: [
-      'Verzacht droge lippen met een rustige, draagbare finish',
-      'Handig voor jaszak, tas of nachtkastje',
-      'Fijn overdag, maar ook geschikt als vollere avondlaag',
-      'Gemaakt om vaak te pakken zonder gedoe'
+      'Calendula maceraat kalmeert en ondersteunt droge of gebarsten lippen',
+      'Bijenwas helpt een natuurlijke beschermlaag te vormen tegen uitdroging',
+      'Sheaboter en mangoboter voeden intens en maken lippen soepel',
+      'Vitamine E en zachte essentiële oliën ronden de formule fris en huidvriendelijk af'
     ],
     formulas: [
       {
         title: 'Bare',
-        text: 'De meest pure balsem voor wie alleen zachtheid en comfort zoekt.'
+        text: 'De meest eenvoudige basis met focus op calendula, bijenwas en voedende boters.'
       },
       {
         title: 'Soft Shine',
-        text: 'Een subtiel gladdere finish voor overdag, zonder plakkerige gloss-feel.'
+        text: 'Dezelfde verzorgende basis met een gladdere finish voor overdag, zonder plakkerige gloss-feel.'
       },
       {
         title: 'Night Repair',
-        text: 'Iets voller voor avonden of nachten waarin lippen extra comfort kunnen gebruiken.'
+        text: 'Een vollere laag voor lippen die in de avond of nacht sneller droog of trekkerig aanvoelen.'
       }
     ],
     sizes: [
       { title: '15 ml', text: 'Dagelijks formaat • €12' },
       { title: 'Mini duo', text: '2 x 7 ml • €14' }
     ],
-    shippingNote: 'Een kleine essential die makkelijk overal mee naartoe gaat | Gratis verzending vanaf €30',
-    stockNote: 'De mini duo’s zijn populair als tas-set en verdwijnen daardoor vaak als eerste.',
+    shippingNote: '100% natuurlijk en huidvriendelijk | Gratis verzending vanaf €30',
+    stockNote: 'De container is BPA-vrij en compact genoeg voor tas, jaszak of nachtkastje.',
     proofs: [
-      { value: '4.8/5', label: 'voor dagelijks lipcomfort' },
-      { value: '15 ml', label: 'compact formaat voor iedere tas' },
+      { value: '100%', label: 'natuurlijke lipverzorging' },
+      { value: 'BPA-vrij', label: 'praktische container voor dagelijks gebruik' },
       { value: 'Dag & nacht', label: 'bruikbaar in korte routines' }
     ],
-    detailsEyebrow: 'Klein maar vast',
-    detailsTitle: 'Waarom deze lipbalm makkelijk een gewoonte wordt',
-    detailsCopy: 'Lippen vragen vaak om iets eenvoudigs dat je snel pakt. Daarom draait deze balm om comfort, draagbaarheid en een zachte finish die je niet zat wordt.',
+    detailsEyebrow: 'Ingrediënten & werking',
+    detailsTitle: 'Waarom deze lipbalm prettig aanvoelt op droge lippen',
+    detailsCopy: 'De formule is klein en helder opgebouwd. Elk ingrediënt heeft een duidelijke rol: kalmeren, beschermen, voeden en helpen om lippen soepel te houden.',
     details: [
       {
-        title: 'Geen zwaar laagje',
-        text: 'De balsem voelt verzorgend zonder te glibberen of onnodig dik te blijven zitten.'
+        title: 'Calendula maceraat',
+        text: 'Zelfgemaakte calendula olie helpt droge of gebarsten lippen te kalmeren en zachter te laten aanvoelen.'
       },
       {
-        title: 'Makkelijk mee te nemen',
-        text: 'Door het compacte formaat ligt hij net zo logisch op je nachtkastje als in je jaszak.'
+        title: 'Bijenwas',
+        text: 'Legt een natuurlijke beschermlaag zodat lippen minder snel opnieuw uitdrogen door wind of droge lucht.'
       },
       {
-        title: 'Ook voor de avond',
-        text: 'Night Repair geeft net wat meer comfort voor lippen die ’s nachts sneller droog worden.'
+        title: 'Sheaboter & mangoboter',
+        text: 'Voeden intens, maken de huid soepel en zorgen dat de balm zacht en prettig uitsmeert.'
       },
       {
-        title: 'Rustige samenstelling',
-        text: 'Eenvoudige ingrediënten en een heldere formule maken hem prettig voor dagelijks gebruik.'
+        title: 'Vitamine E & frisse oliën',
+        text: 'Vitamine E ondersteunt de houdbaarheid, terwijl pepermunt en zoete sinaasappel voor een lichte frisse sensatie zorgen.'
       }
     ],
     faqEyebrow: 'Veelgestelde vragen',
-    faqTitle: 'Over finish, mee-nemen en gebruiksmomenten',
+    faqTitle: 'Over ingrediënten, finish en dagelijks gebruik',
     faqs: [
       {
-        title: 'Is deze lipbalm alleen voor overdag?',
-        text: 'Nee. Bare en Soft Shine zijn fijn overdag, terwijl Night Repair juist prettig voelt voor de avond of nacht.'
+        title: 'Is deze lipbalm geschikt voor droge of gebarsten lippen?',
+        text: 'Ja. De formule is juist opgebouwd rond calendula maceraat, bijenwas en voedende boters om droge lippen te kalmeren, beschermen en soepel te houden.'
       },
       {
         title: 'Voelt hij zwaar of plakkerig aan?',
-        text: 'Nee. De finish is bewust rustig gehouden zodat je hem gemakkelijk vaker pakt.'
+        text: 'Nee. De balm is voedend, maar bewust rustig in finish zodat je hem overdag gemakkelijk opnieuw kunt aanbrengen.'
       },
       {
-        title: 'Welke maat is handig voor onderweg?',
-        text: '15 ml is het standaardformaat. De mini duo is handig als je één thuis en één in je tas wilt houden.'
+        title: 'Waarom zitten er pepermunt en zoete sinaasappel in?',
+        text: 'Pepermunt geeft een fris, licht verkoelend gevoel. Zoete sinaasappel zorgt voor een zachte fruitige geur en voegt milde antioxidante eigenschappen toe.'
       }
     ],
     reviewsEyebrow: 'Klanten aan het woord',
-    reviewsTitle: 'De soort lipbalm die je niet steeds hoeft te herontdekken',
-    reviewsCopy: 'Klanten beschrijven hem vooral als een kleine, betrouwbare basic die altijd ergens in de buurt blijft liggen.',
+    reviewsTitle: 'De lipbalm die zacht blijft zonder overdaad',
+    reviewsCopy: 'Klanten waarderen vooral de rustige finish, de natuurlijke samenstelling en hoe snel droge lippen comfortabeler aanvoelen.',
     reviews: [
       {
         author: 'Fleur',
-        context: 'Altijd in tas',
-        text: 'Eindelijk een lipbalm die zacht aanvoelt zonder plakkerige gloss-vibe. Ik neem hem overal mee naartoe.'
+        context: 'Droge lippen',
+        text: 'De calendula-basis voelt meteen verzachtend en mijn lippen blijven langer soepel zonder dat er een dikke laag op ligt.'
       },
       {
         author: 'Yara',
-        context: 'Droge lippen',
-        text: 'Ik gebruik hem overdag en ’s avonds. Mijn lippen voelen rustiger en minder strak aan.'
+        context: 'Dagelijks gebruik',
+        text: 'Fijn dat hij natuurlijk is, maar niet hard of waxy aanvoelt. Ik pak hem makkelijk meerdere keren per dag.'
       },
       {
         author: 'Lisa',
-        context: 'Mini routine',
-        text: 'Precies het soort product dat simpel genoeg is om ook echt onderdeel van mijn dag te blijven.'
+        context: 'Tas essential',
+        text: 'Klein potje, rustige geur en precies genoeg bescherming voor overdag en voor het slapengaan.'
       }
     ],
     imagePrompt: 'Super realistic editorial lip balm product photo of a small natural balm pot with a smooth balm swipe, styled on warm beige ceramic with soft pocket cloth, earthy minimal skincare aesthetic, gentle daylight, highly detailed texture, handmade and honest mood, no text, no logo, no watermark.'
@@ -768,21 +768,21 @@ const relatedPanels = {
   lipbalm: {
     eyebrow: 'Vaak samen gebruikt',
     title: 'Kleine essentials die samen logisch voelen',
-    text: 'Wie deze lipbalm kiest, voegt vaak ook een handbasic en een kalmerende balm toe voor droge momenten gedurende de dag.',
+    text: 'Wie deze lipbalm kiest, combineert hem vaak met een handcrème en een kalmerende balm voor droge huidzones in dezelfde rustige routine.',
     items: [
       {
         handle: 'handcreme',
-        text: 'Past goed in dezelfde tas, jaszak of bureaulade als deze balm.',
+        text: 'Past logisch in dezelfde tas, jaszak of bureaulade als deze lipbalm.',
         meta: 'On-the-go duo • vanaf €16'
       },
       {
         handle: 'calming-skin-balm',
-        text: 'Voor schrale zones rond neus, mondhoeken of andere droge plekjes.',
+        text: 'Voor droge randjes rond neus, mondhoeken of andere plekjes die sneller schraal worden.',
         meta: 'Voor droge randjes • vanaf €27'
       },
       {
         handle: 'gezichtscreme',
-        text: 'Maakt van losse verzorging meteen een eenvoudige dagroutine.',
+        text: 'Maakt van losse lipverzorging meteen een eenvoudige en complete dagroutine.',
         meta: 'Dagelijkse basis • vanaf €24'
       }
     ]
