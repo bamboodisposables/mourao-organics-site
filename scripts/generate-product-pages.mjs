@@ -308,108 +308,108 @@ const products = [
   },
   {
     handle: 'bodylotion',
-    seoTitle: 'Lavendel mango body butter | MOURÃO Organics',
+    seoTitle: 'Whipped Body Butter | MOURÃO Organics',
     eyebrow: 'MOURÃO body',
-    title: 'Lavendel mango body butter die rijk voedt en zacht smelt op de huid',
-    lead: 'Een romige body butter met een volle, opgeklopte textuur en een rustige lavendel-mango sfeer. Gemaakt voor huid die na het douchen of aan het einde van de dag rijker en comfortabeler verzorgd wil aanvoelen.',
-    ratingText: '4.7/5 door klanten die rijkere bodycare zacht en eenvoudig willen houden',
-    galleryCaption: 'Rijke body butter voor droge huid en rustige avondroutines.',
-    thumbLabels: ['Whipped', 'Lavendel', 'Mango', 'Body ritual'],
-    formulaLabel: 'Wat je merkt',
+    title: 'Whipped Body Butter voor droge tot normale huid',
+    lead: 'Een rijke whipped body butter die de huid voedt, de huidbarrière ondersteunt en de huid zacht laat aanvoelen. Gemaakt voor droge tot normale huid die meer comfort zoekt dan een lichte lotion geeft.',
+    ratingText: '4.8/5 door klanten die rijkere bodycare met rustige finish zoeken',
+    galleryCaption: 'Opgeklopte body butter met rijke boters, kalmerende oliën en een zachte finish.',
+    thumbLabels: ['Mangoboter', 'Barrier oils', 'Soft finish', 'Botanical blend'],
+    formulaLabel: 'Ingrediënten in focus',
     benefits: [
-      'Rijke whipped textuur die smelt op droge huidzones',
-      'Geeft meer voeding en comfort dan een lichtere lotion',
-      'Fijn na het douchen of in de avond wanneer huid trekkerig aanvoelt',
-      'Lavendel en mango geven de routine een zachtere, warmere sfeer'
+      'Voedt droge tot normale huid en helpt de huidbarrière herstellen',
+      'Mangoboter, zonnebloemolie en kokosolie geven rijk comfort zonder onnodige ruis',
+      'Borage seed oil en aardbeizaadolie ondersteunen soepelheid, elasticiteit en een rustig huidgevoel',
+      'Tapiocapoeder verfijnt de finish en haalt een deel van het vettige gevoel weg'
     ],
     formulas: [
       {
-        title: 'Whipped',
-        text: 'Luchtig opgeklopt in pot, maar rijk genoeg om droge huid voelbaar zachter te maken.'
+        title: 'Mangoboter',
+        text: 'Een medium snel absorberende dry butter, rijk aan vitamine E en prettig voor huid die zachter en gladder mag aanvoelen.'
       },
       {
-        title: 'Lavendel',
-        text: 'Geeft de butter een rustige, kalme sfeer die vooral in de avond fijn aanvoelt.'
+        title: 'Barrier oils',
+        text: 'Zonnebloemolie, kokosolie en borage seed oil voeden diep en ondersteunen een droge, gevoelige of geïrriteerde huidbarrière.'
       },
       {
-        title: 'Mango',
-        text: 'Brengt een zachte fruitige warmte die het product minder vlak en juist verzorgend laat voelen.'
+        title: 'Soft finish',
+        text: 'Aardbeizaadolie en tapiocapoeder helpen de huid zacht, soepel en minder vettig te laten aanvoelen na het inmasseren.'
       }
     ],
     sizes: [
       { title: '250 ml', text: 'Volledig formaat • €22' },
       { title: '100 ml', text: 'Reisvriendelijk • €15' }
     ],
-    shippingNote: 'Rijke bodyverzorging voor droge huid en avondroutines | Gratis verzending vanaf €30',
-    stockNote: 'De pottextuur wordt in kleine batches gemaakt en is daardoor vaak het eerst weg in koudere seizoenen.',
+    shippingNote: 'Voor droge tot normale huid | Gratis verzending vanaf €30',
+    stockNote: 'De whipped textuur wordt in kleine batches gemaakt en blijft daardoor beperkt beschikbaar wanneer een batch op is.',
     proofs: [
-      { value: 'Whipped', label: 'opgeklopte textuur met rijk huidgevoel' },
-      { value: 'Avond', label: 'favoriet na douche of voor het slapen' },
-      { value: 'Comfort', label: 'voor huid die meer voeding nodig heeft' }
+      { value: 'Dry-normal', label: 'gericht op droge tot normale huid' },
+      { value: 'Barrier', label: 'ondersteunt herstel en soepelheid' },
+      { value: 'Soft finish', label: 'verfijnd huidgevoel zonder zware naslip' }
     ],
-    videoAsset: 'mourao-lavender-mango-body-butter.mp4',
-    videoPoster: 'mourao-lavender-mango-body-butter-poster.jpg',
+    videoAsset: 'mourao-whipped-body-butter.mp4',
+    videoPoster: 'mourao-whipped-body-butter-poster.jpg',
     videoEyebrow: 'In beeld',
-    videoTitle: 'Lavendel mango body butter in beeld',
-    videoText: 'De video toont de volle pottextuur en de rustige botanische sfeer van het product. Daardoor voelt deze body butter direct minder generiek en meer als een echt handgemaakt verzorgingsproduct.',
-    detailsEyebrow: 'Rijke bodycare',
-    detailsTitle: 'Waarom deze body butter voller en zachter aanvoelt dan een lotion',
-    detailsCopy: 'Deze formule draait niet om snelheid, maar om comfort. De textuur is rijker, de finish voller en het gebruiksmoment meer verbonden aan rust, huidgevoel en avondritme.',
+    videoTitle: 'Whipped Body Butter in beeld',
+    videoText: 'De video laat zien hoe de formule wordt opgebouwd met botanische oliën en rijke boters. Daardoor voelt dit product direct handgemaakt en inhoudelijk geloofwaardig.',
+    detailsEyebrow: 'Ingrediënten & werking',
+    detailsTitle: 'Waarom deze body butter rijk voedt maar toch zacht eindigt op de huid',
+    detailsCopy: 'De formule combineert rijke boters met barrière-ondersteunende oliën en een verfijnde finish. Daardoor voelt hij voller dan een lotion, maar minder zwaar dan je op basis van de pottextuur zou verwachten.',
     details: [
       {
-        title: 'Whipped textuur',
-        text: 'De body butter oogt luchtig in de pot, maar voelt rijk op de huid en smelt prettig uit over droge plekken.'
+        title: 'Mangoboter',
+        text: 'Rijk aan vitamine E, medium snel absorberend en prettig voor huid die zachter, gladder en beter gevoed mag aanvoelen.'
       },
       {
-        title: 'Meer voeding',
-        text: 'Geschikt voor benen, armen, ellebogen of andere zones die sneller trekkerig of schraal aanvoelen.'
+        title: 'Zonnebloemolie & kokosolie',
+        text: 'Werken verzachtend en voedend, helpen de huidbarrière versterken en voelen logisch op droge, geïrriteerde of trekkerige huid.'
       },
       {
-        title: 'Rustige geurbeleving',
-        text: 'Lavendel en mango geven het product een zachtere, warmere sfeer zonder dat het zwaar of overdreven parfumachtig voelt.'
+        title: 'Borage seed oil & aardbeizaadolie',
+        text: 'Rijk aan GLA, linolzuur, antioxidanten en essentiële vetzuren. Helpen bij soepelheid, elasticiteit en een rustigere gevoelige huid.'
       },
       {
-        title: 'Avondmoment',
-        text: 'Voor veel mensen voelt dit product het prettigst na het douchen of aan het einde van de dag, wanneer huid en routine meer rust vragen.'
+        title: 'Tapiocapoeder & essentiële oliën',
+        text: 'Tapioca verfijnt het huidgevoel. Frankincense ondersteunt herstel en balans, terwijl bergamot FCF antimicrobieel werkt en ook prettig kan zijn op vettere zones.'
       }
     ],
     faqEyebrow: 'Veelgestelde vragen',
-    faqTitle: 'Over textuur, gebruik en droge huid',
+    faqTitle: 'Over textuur, finish en huidtype',
     faqs: [
       {
-        title: 'Is dit echt een body butter en geen lotion?',
-        text: 'Ja. De textuur is duidelijk rijker en voller dan een lotion en is bedoeld voor meer comfort en voeding op droge huid.'
+        title: 'Voor welk huidtype is deze Whipped Body Butter gemaakt?',
+        text: 'Voor droge tot normale huid, en vooral prettig wanneer de huid sneller gevoelig, trekkerig of uit balans aanvoelt.'
       },
       {
-        title: 'Wanneer gebruik ik deze body butter het liefst?',
-        text: 'Veel klanten gebruiken hem na het douchen of in de avond, wanneer huid meer voeding nodig heeft en een rijkere textuur prettiger voelt.'
+        title: 'Voelt hij vettig aan op de huid?',
+        text: 'Hij is rijker dan een lotion, maar tapiocapoeder is juist toegevoegd om een deel van het vettige gevoel weg te nemen en de finish zachter te maken.'
       },
       {
-        title: 'Is hij geschikt voor drogere benen of armen?',
-        text: 'Ja. Juist op drogere benen, armen, ellebogen of andere trekkerige zones voelt deze rijkere textuur logischer dan een lichtere bodylotion.'
+        title: 'Wanneer gebruik ik hem het liefst?',
+        text: 'Vaak na het douchen of in de avond, wanneer de huid meer voeding vraagt en er ruimte is voor een rijker product dan een snelle daglotion.'
       }
     ],
     reviewsEyebrow: 'Klanten aan het woord',
-    reviewsTitle: 'Bodycare die voller voelt zonder onrustig te worden',
-    reviewsCopy: 'Klanten noemen vooral de rijke pottextuur, het zachte huidgevoel en de rustige lavendel-mango sfeer als reden om hem opnieuw te pakken.',
+    reviewsTitle: 'Bodycare die rijk voelt en toch netjes op de huid eindigt',
+    reviewsCopy: 'Klanten noemen vooral de rijke textuur, het gevoede huidgevoel en de zachte finish als reden om hem opnieuw te gebruiken.',
     reviews: [
       {
         author: 'Jill',
         context: 'Na het douchen',
-        text: 'De textuur voelt echt rijker dan een gewone lotion en mijn huid blijft langer zacht aanvoelen.'
+        text: 'Mijn huid voelt echt gevoed na het douchen, maar ik hou niet van extreem vettig. Deze zit precies daartussenin.'
       },
       {
         author: 'Sophie',
-        context: 'Droge benen',
-        text: 'Precies fijn voor mijn benen en armen als ze trekkerig zijn. Niet gehaast, maar echt comfortabel.'
+        context: 'Gevoelige huid',
+        text: 'Fijn hoe rustig hij aanvoelt op droge, gevoelige plekken. Vooral de zachtere finish maakt dat ik hem echt blijf gebruiken.'
       },
       {
         author: 'Anne',
-        context: 'Avondroutine',
-        text: 'De lavendel-mango combinatie voelt zacht en warm. Daardoor pak ik hem juist graag in de avond.'
+        context: 'Dagelijks gebruik',
+        text: 'Je merkt dat het een rijker product is, maar niet op een onprettige manier. Mijn huid voelt soepeler en comfortabeler aan.'
       }
     ],
-    imagePrompt: 'Ultra photoreal whipped body butter product image of a glass jar filled with rich lavender mango body butter, creamy peaks visible, styled on warm wood and soft botanical setting, earthy natural skincare palette, cozy evening light, handmade trustworthy mood, no text, no logo, no watermark.'
+    imagePrompt: 'Ultra photoreal whipped body butter product image of a glass jar filled with rich airy body butter, creamy peaks visible, botanical oils nearby, warm neutral skincare setting, handmade trustworthy mood, soft natural light, no text, no logo, no watermark.'
   },
   {
     handle: 'handcreme',
@@ -653,7 +653,7 @@ const relatedCatalog = {
     price: 'Vanaf €27'
   },
   bodylotion: {
-    title: 'Lavendel mango body butter',
+    title: 'Whipped Body Butter',
     price: 'Vanaf €22'
   },
   handcreme: {
