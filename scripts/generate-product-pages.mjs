@@ -515,29 +515,29 @@ const products = [
     seoTitle: 'Calendula Lip Balm | MOURÃO Organics',
     eyebrow: 'MOURÃO lips',
     title: 'Calendula Lip Balm die droge lippen rustig verzacht',
-    lead: 'Een 100% natuurlijke lip balm met calendula maceraat, bijenwas, sheaboter, mangoboter en vitamine E. Gemaakt om droge of gebarsten lippen zacht, soepel en beschermd te houden.',
+    lead: 'Een 100% natuurlijke lip balm met calendula maceraat op basis van zonnebloemolie, aangevuld met bijenwas, sheaboter, mangoboter en vitamine E. Gemaakt om droge of gebarsten lippen zacht, soepel en beschermd te houden.',
     ratingText: '4.8/5 door klanten die milde, natuurlijke lipverzorging zoeken',
-    galleryCaption: 'Calendula, boters en bijenwas in een kleine balsem voor dagelijks lipcomfort.',
-    thumbLabels: ['Calendula', 'Protect', 'Nourish', 'Fresh feel'],
+    galleryCaption: 'Calendula maceraat en zonnebloemolie als rustige basis voor dagelijks lipcomfort.',
+    thumbLabels: ['Calendula', 'Zonnebloemolie', 'Barrier care', 'Fresh feel'],
     formulaLabel: 'Ingrediënten in focus',
     benefits: [
       'Calendula maceraat kalmeert, verzacht en ondersteunt droge of gebarsten lippen',
+      'Zonnebloemolie is rijk aan vitamine E, licht in gebruik en ondersteunt de huidbarrière',
       'Bijenwas helpt een natuurlijke beschermlaag te vormen tegen uitdroging',
-      'Sheaboter en mangoboter voeden intens en maken de lippen soepel en zacht',
-      'Vitamine E en frisse essentiële oliën maken de formule compleet en huidvriendelijk'
+      'Sheaboter en mangoboter voeden intens en maken de lippen soepel en zacht'
     ],
     formulas: [
       {
         title: 'Calendula',
-        text: 'Zelfgemaakte calendula olie staat centraal en helpt droge lippen rustiger, zachter en comfortabeler te laten aanvoelen.'
+        text: 'Goudsbloem staat bekend om haar kalmerende, verzachtende en herstellende werking bij droogheid, irritaties en kleine wondjes.'
       },
       {
-        title: 'Protect',
-        text: 'Bijenwas legt een natuurlijke beschermlaag zodat lippen minder snel uitdrogen door wind of droge lucht.'
+        title: 'Zonnebloemolie',
+        text: 'Rijk aan vitamine E, licht van gevoel en snel intrekkend. Prettig voor de gevoelige huid en ondersteunend voor de huidbarrière.'
       },
       {
-        title: 'Nourish',
-        text: 'Sheaboter, mangoboter en vitamine E voeden intens en helpen de balsem prettig en zacht aan te voelen.'
+        title: 'Barrier care',
+        text: 'Bijenwas, sheaboter, mangoboter en vitamine E helpen beschermen, voeden en de balsem zacht en prettig laten aanvoelen.'
       }
     ],
     sizes: [
@@ -548,33 +548,33 @@ const products = [
     stockNote: 'De container is BPA-vrij en compact genoeg voor tas, jaszak of nachtkastje.',
     proofs: [
       { value: '100%', label: 'natuurlijke lipverzorging' },
-      { value: 'BPA-vrij', label: 'praktische container voor dagelijks gebruik' },
-      { value: 'Fris', label: 'zachte pepermunt- en sinaasappeltoets' }
+      { value: 'Vitamine E', label: 'ondersteunt barrière en huidgevoel' },
+      { value: 'BPA-vrij', label: 'praktische container voor dagelijks gebruik' }
     ],
-    videoAsset: 'mourao-calendula-lip-balm.mp4',
-    videoPoster: 'mourao-calendula-lip-balm-poster.jpg',
+    videoAsset: 'mourao-calendula-maceraat.mp4',
+    videoPoster: 'mourao-calendula-maceraat-poster.jpg',
     videoEyebrow: 'In beeld',
-    videoTitle: 'Calendula Lip Balm in gebruik',
-    videoText: 'De video laat de ingrediënt- en maakcontext zien achter deze balsem. Daardoor voelt het product direct handgemaakt, natuurlijk en echt in gebruik.',
+    videoTitle: 'Calendula Maceraat in beeld',
+    videoText: 'De video laat de ingrediënt- en maakcontext zien achter het calendula maceraat. Daardoor voelt de balsem direct handgemaakt, natuurlijk en inhoudelijk onderbouwd.',
     detailsEyebrow: 'Ingrediënten & werking',
     detailsTitle: 'Waarom deze Calendula Lip Balm prettig aanvoelt op droge lippen',
-    detailsCopy: 'De formule is klein en helder opgebouwd. Elk ingrediënt heeft een duidelijke rol: kalmeren, beschermen, voeden en helpen om lippen soepel en zacht te houden.',
+    detailsCopy: 'De formule is klein en helder opgebouwd. Calendula maceraat en zonnebloemolie vormen de rustige basis, waarna beschermende en voedende ingrediënten de lippen helpen zacht en soepel te houden.',
     details: [
       {
         title: 'Calendula maceraat',
-        text: 'Kalmeert, verzacht en ondersteunt het herstel van droge of gebarsten lippen.'
+        text: 'Kalmeert, verzacht en ondersteunt het herstel van droge of gebarsten lippen. Bekend om haar ontstekingsremmende en herstellende werking.'
+      },
+      {
+        title: 'Zonnebloemolie',
+        text: 'Rijk aan vitamine E, licht en snel intrekkend. Ondersteunt de huidbarrière en is ook prettig voor een gevoelige huid.'
       },
       {
         title: 'Bijenwas',
-        text: 'Legt een natuurlijke beschermlaag zodat de lippen minder snel opnieuw uitdrogen.'
+        text: 'Legt een natuurlijke beschermlaag zodat de lippen minder snel opnieuw uitdrogen door wind of droge lucht.'
       },
       {
-        title: 'Sheaboter & mangoboter',
-        text: 'Voeden intens, maken de lippen soepel en geven de balsem een zachte, prettige textuur.'
-      },
-      {
-        title: 'Vitamine E & frisse oliën',
-        text: 'Vitamine E helpt de huid beschermen en ondersteunt de houdbaarheid, terwijl pepermunt en zoete sinaasappel voor een lichte frisse toets zorgen.'
+        title: 'Boters, vitamine E & frisse oliën',
+        text: 'Sheaboter en mangoboter voeden intens. Vitamine E helpt beschermen en ondersteunt de houdbaarheid, terwijl pepermunt en zoete sinaasappel voor een lichte frisse toets zorgen.'
       }
     ],
     faqEyebrow: 'Veelgestelde vragen',
@@ -582,15 +582,15 @@ const products = [
     faqs: [
       {
         title: 'Is deze lip balm geschikt voor droge of gebarsten lippen?',
-        text: 'Ja. De formule is juist opgebouwd rond calendula maceraat, bijenwas en voedende boters om droge lippen te kalmeren, beschermen en soepel te houden.'
+        text: 'Ja. De formule is juist opgebouwd rond calendula maceraat, zonnebloemolie, bijenwas en voedende boters om droge lippen te kalmeren, beschermen en soepel te houden.'
       },
       {
         title: 'Voelt hij zwaar of plakkerig aan?',
         text: 'Nee. De balsem is voedend, maar blijft rustig in finish zodat je hem makkelijk overdag opnieuw kunt aanbrengen.'
       },
       {
-        title: 'Waarom zitten er pepermunt en zoete sinaasappel in?',
-        text: 'Pepermunt geeft een fris, licht verkoelend gevoel. Zoete sinaasappel zorgt voor een zachte fruitige geur en voegt milde antioxidante eigenschappen toe.'
+        title: 'Waarom is zonnebloemolie hier zo belangrijk?',
+        text: 'Zonnebloemolie is licht, trekt snel in, is rijk aan vitamine E en helpt de huidbarrière ondersteunen. Daardoor werkt het prettig als basis voor een gevoelige of droge lipverzorging.'
       }
     ],
     reviewsEyebrow: 'Klanten aan het woord',
