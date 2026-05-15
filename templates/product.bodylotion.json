@@ -5,90 +5,90 @@
       "settings": {
         "image_key": "bodylotion",
         "eyebrow": "MOURÃO body",
-        "title": "Bodylotion die soepel smeert en rustig intrekt",
-        "subtitle": "Een toegankelijke bodylotion voor huid die na het douchen of aan het einde van de dag gewoon zacht en verzorgd wil aanvoelen, zonder plakkerig of zwaar resultaat.",
-        "rating_text": "4.7/5 door klanten die bodycare eenvoudig willen houden",
-        "gallery_caption": "Soepele bodycare voor iedere dag.",
-        "formula_label": "Kies je formule",
+        "title": "Lavendel mango body butter die rijk voedt en zacht smelt op de huid",
+        "subtitle": "Een romige body butter met een volle, opgeklopte textuur en een rustige lavendel-mango sfeer. Gemaakt voor huid die na het douchen of aan het einde van de dag rijker en comfortabeler verzorgd wil aanvoelen.",
+        "rating_text": "4.7/5 door klanten die rijkere bodycare zacht en eenvoudig willen houden",
+        "gallery_caption": "Rijke body butter voor droge huid en rustige avondroutines.",
+        "formula_label": "Wat je merkt",
         "button_label": "Voeg toe aan routine",
         "button_link": "shopify://collections/all",
-        "shipping_note": "Een dagelijkse essential voor badkamer of slaapkamer | Gratis verzending vanaf €30",
-        "stock_note": "De 100 ml maat is vaak snel weg door travel en cadeaugebruik.",
-        "proof_one_value": "250 ml",
-        "proof_one_label": "voor dagelijkse bodyverzorging",
-        "proof_two_value": "4.7/5",
-        "proof_two_label": "op comfort zonder plakkerigheid",
-        "proof_three_value": "Na douche",
-        "proof_three_label": "meest gekozen gebruiksmoment",
-        "video_asset": "",
-        "video_poster": "",
-        "video_eyebrow": "",
-        "video_title": "",
-        "video_text": "",
-        "details_eyebrow": "Eenvoudige bodycare",
-        "details_title": "Waarom deze lotion prettig blijft in gebruik",
-        "details_copy": "De beste bodyverzorging is vaak degene die je ook echt blijft pakken. Daarom ligt de focus hier op smeerbaarheid, comfort en een rustige finish.",
-        "detail_one_title": "Soepele textuur",
-        "detail_one_text": "De lotion verdeelt makkelijk zodat je niet veel product nodig hebt voor armen of benen.",
-        "detail_two_title": "Geen zwaar laagje",
-        "detail_two_text": "Na het smeren voelt huid zacht, zonder dat kleding meteen oncomfortabel wordt.",
-        "detail_three_title": "Voor iedere dag",
-        "detail_three_text": "Ontworpen voor normale dagen, droge seizoenen en korte routines waarin gemak belangrijk is.",
-        "detail_four_title": "Rustige samenstelling",
-        "detail_four_text": "Geen onnodige drukte, wel een formule die logisch voelt in dagelijks gebruik.",
+        "shipping_note": "Rijke bodyverzorging voor droge huid en avondroutines | Gratis verzending vanaf €30",
+        "stock_note": "De pottextuur wordt in kleine batches gemaakt en is daardoor vaak het eerst weg in koudere seizoenen.",
+        "proof_one_value": "Whipped",
+        "proof_one_label": "opgeklopte textuur met rijk huidgevoel",
+        "proof_two_value": "Avond",
+        "proof_two_label": "favoriet na douche of voor het slapen",
+        "proof_three_value": "Comfort",
+        "proof_three_label": "voor huid die meer voeding nodig heeft",
+        "video_asset": "mourao-lavender-mango-body-butter.mp4",
+        "video_poster": "mourao-lavender-mango-body-butter-poster.jpg",
+        "video_eyebrow": "In beeld",
+        "video_title": "Lavendel mango body butter in beeld",
+        "video_text": "De video toont de volle pottextuur en de rustige botanische sfeer van het product. Daardoor voelt deze body butter direct minder generiek en meer als een echt handgemaakt verzorgingsproduct.",
+        "details_eyebrow": "Rijke bodycare",
+        "details_title": "Waarom deze body butter voller en zachter aanvoelt dan een lotion",
+        "details_copy": "Deze formule draait niet om snelheid, maar om comfort. De textuur is rijker, de finish voller en het gebruiksmoment meer verbonden aan rust, huidgevoel en avondritme.",
+        "detail_one_title": "Whipped textuur",
+        "detail_one_text": "De body butter oogt luchtig in de pot, maar voelt rijk op de huid en smelt prettig uit over droge plekken.",
+        "detail_two_title": "Meer voeding",
+        "detail_two_text": "Geschikt voor benen, armen, ellebogen of andere zones die sneller trekkerig of schraal aanvoelen.",
+        "detail_three_title": "Rustige geurbeleving",
+        "detail_three_text": "Lavendel en mango geven het product een zachtere, warmere sfeer zonder dat het zwaar of overdreven parfumachtig voelt.",
+        "detail_four_title": "Avondmoment",
+        "detail_four_text": "Voor veel mensen voelt dit product het prettigst na het douchen of aan het einde van de dag, wanneer huid en routine meer rust vragen.",
         "faq_eyebrow": "Veelgestelde vragen",
-        "faq_title": "Over finish, gebruik en droge huid",
+        "faq_title": "Over textuur, gebruik en droge huid",
         "related_eyebrow": "Vaak samen gebruikt",
         "related_title": "Maak van bodycare een logische set",
-        "related_text": "Bij deze lotion kiezen klanten vaak een handproduct voor overdag en een kleiner product voor droge zones of onderweg.",
+        "related_text": "Bij deze body butter kiezen klanten vaak een handproduct voor overdag en een kleiner product voor droge zones of onderweg.",
         "reviews_eyebrow": "Klanten aan het woord",
-        "reviews_title": "Bodycare die vooral praktisch en prettig voelt",
-        "reviews_copy": "Klanten beschrijven deze lotion vooral als makkelijk, zacht en betrouwbaar genoeg om echt dagelijks te blijven gebruiken."
+        "reviews_title": "Bodycare die voller voelt zonder onrustig te worden",
+        "reviews_copy": "Klanten noemen vooral de rijke pottextuur, het zachte huidgevoel en de rustige lavendel-mango sfeer als reden om hem opnieuw te pakken."
       },
       "blocks": {
         "benefit_1": {
           "type": "benefit",
           "settings": {
-            "text": "Smeert makkelijk uit op benen, armen en droge plekken"
+            "text": "Rijke whipped textuur die smelt op droge huidzones"
           }
         },
         "benefit_2": {
           "type": "benefit",
           "settings": {
-            "text": "Trekt rustig in zonder een plakkerige finish"
+            "text": "Geeft meer voeding en comfort dan een lichtere lotion"
           }
         },
         "benefit_3": {
           "type": "benefit",
           "settings": {
-            "text": "Prettig na het douchen of wanneer huid trekkerig voelt"
+            "text": "Fijn na het douchen of in de avond wanneer huid trekkerig aanvoelt"
           }
         },
         "benefit_4": {
           "type": "benefit",
           "settings": {
-            "text": "Gemaakt voor dagelijks gebruik in een eenvoudige routine"
+            "text": "Lavendel en mango geven de routine een zachtere, warmere sfeer"
           }
         },
         "formula_1": {
           "type": "formula",
           "settings": {
-            "title": "Daily Soft",
-            "text": "De meest toegankelijke bodylotion voor dagelijks comfort en een zachte finish."
+            "title": "Whipped",
+            "text": "Luchtig opgeklopt in pot, maar rijk genoeg om droge huid voelbaar zachter te maken."
           }
         },
         "formula_2": {
           "type": "formula",
           "settings": {
-            "title": "Extra Nourish",
-            "text": "Voor drogere huid of seizoenen waarin je net wat meer voeding prettig vindt."
+            "title": "Lavendel",
+            "text": "Geeft de butter een rustige, kalme sfeer die vooral in de avond fijn aanvoelt."
           }
         },
         "formula_3": {
           "type": "formula",
           "settings": {
-            "title": "Unscented",
-            "text": "Een milde variant voor wie vooral rust in geur en gevoel belangrijk vindt."
+            "title": "Mango",
+            "text": "Brengt een zachte fruitige warmte die het product minder vlak en juist verzorgend laat voelen."
           }
         },
         "size_1": {
@@ -108,22 +108,22 @@
         "faq_1": {
           "type": "faq",
           "settings": {
-            "title": "Wanneer gebruik ik deze bodylotion het liefst?",
-            "text": "Veel klanten gebruiken hem na het douchen of voor het slapen, wanneer huid het snelst trekkerig aanvoelt."
+            "title": "Is dit echt een body butter en geen lotion?",
+            "text": "Ja. De textuur is duidelijk rijker en voller dan een lotion en is bedoeld voor meer comfort en voeding op droge huid."
           }
         },
         "faq_2": {
           "type": "faq",
           "settings": {
-            "title": "Is hij geschikt voor drogere benen of armen?",
-            "text": "Ja. Voor normale droogte is Daily Soft vaak genoeg. Bij meer behoefte aan voeding voelt Extra Nourish logischer."
+            "title": "Wanneer gebruik ik deze body butter het liefst?",
+            "text": "Veel klanten gebruiken hem na het douchen of in de avond, wanneer huid meer voeding nodig heeft en een rijkere textuur prettiger voelt."
           }
         },
         "faq_3": {
           "type": "faq",
           "settings": {
-            "title": "Trekt hij snel genoeg in voor overdag?",
-            "text": "Ja. De formule is gemaakt om comfortabel in te trekken zonder plakkerig na te voelen."
+            "title": "Is hij geschikt voor drogere benen of armen?",
+            "text": "Ja. Juist op drogere benen, armen, ellebogen of andere trekkerige zones voelt deze rijkere textuur logischer dan een lichtere bodylotion."
           }
         },
         "testimonial_1": {
@@ -131,7 +131,7 @@
           "settings": {
             "author": "Jill",
             "context": "Na het douchen",
-            "text": "Fijn dat hij snel prettig aanvoelt. Ik gebruik hem na iedere douche zonder tegenzin."
+            "text": "De textuur voelt echt rijker dan een gewone lotion en mijn huid blijft langer zacht aanvoelen."
           }
         },
         "testimonial_2": {
@@ -139,15 +139,15 @@
           "settings": {
             "author": "Sophie",
             "context": "Droge benen",
-            "text": "Mijn huid voelt zachter aan en ik heb niet het idee dat ik in een zwaar laagje zit."
+            "text": "Precies fijn voor mijn benen en armen als ze trekkerig zijn. Niet gehaast, maar echt comfortabel."
           }
         },
         "testimonial_3": {
           "type": "testimonial",
           "settings": {
             "author": "Anne",
-            "context": "Korte routine",
-            "text": "Precies wat ik zocht: geen gedoe, wel dagelijks comfort en een rustige huid."
+            "context": "Avondroutine",
+            "text": "De lavendel-mango combinatie voelt zacht en warm. Daardoor pak ik hem juist graag in de avond."
           }
         },
         "related_1": {

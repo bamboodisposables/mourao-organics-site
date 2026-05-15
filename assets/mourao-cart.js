@@ -41,11 +41,11 @@
       ]
     },
     'bodylotion': {
-      name: 'Bodylotion',
+      name: 'Lavendel mango body butter',
       category: 'MOURÃO body',
       image: 'assets/mourao-product-bodylotion-card.jpg',
       url: 'bodylotion.html',
-      formulas: ['Daily Soft', 'Extra Nourish', 'Unscented'],
+      formulas: ['Whipped', 'Lavendel', 'Mango'],
       sizes: [
         { label: '250 ml', desc: 'Volledig formaat',  price: 22 },
         { label: '100 ml', desc: 'Reisvriendelijk',   price: 15 }
