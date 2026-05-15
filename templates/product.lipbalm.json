@@ -5,90 +5,90 @@
       "settings": {
         "image_key": "lipbalm",
         "eyebrow": "MOURÃO lips",
-        "title": "Vanilla Lip Oil die lippen zacht, soepel en glanzend laat aanvoelen",
-        "subtitle": "Een verzorgende lip oil met kokosolie, zoete amandelolie, jojobaolie, castorolie, vitamine E en vanilla CO₂ extract. Licht van textuur, silky in gebruik en gemaakt voor een subtiele natuurlijke glans.",
-        "rating_text": "4.8/5 door klanten die een lichte, verzorgende lip oil zoeken",
-        "gallery_caption": "Lichtgewicht lipverzorging met vanilla, voedende oliën en een subtiele natuurlijke glans.",
-        "formula_label": "Wat je merkt",
+        "title": "Calendula Lip Balm die droge lippen rustig verzacht",
+        "subtitle": "Een 100% natuurlijke lip balm met calendula maceraat, bijenwas, sheaboter, mangoboter en vitamine E. Gemaakt om droge of gebarsten lippen zacht, soepel en beschermd te houden.",
+        "rating_text": "4.8/5 door klanten die milde, natuurlijke lipverzorging zoeken",
+        "gallery_caption": "Calendula, boters en bijenwas in een kleine balsem voor dagelijks lipcomfort.",
+        "formula_label": "Ingrediënten in focus",
         "button_label": "Voeg toe aan routine",
         "button_link": "shopify://collections/all",
         "shipping_note": "100% natuurlijk en huidvriendelijk | Gratis verzending vanaf €30",
         "stock_note": "De container is BPA-vrij en compact genoeg voor tas, jaszak of nachtkastje.",
         "proof_one_value": "100%",
         "proof_one_label": "natuurlijke lipverzorging",
-        "proof_two_value": "Vanilla",
-        "proof_two_label": "zachte warme geur zonder overdaad",
-        "proof_three_value": "Silky",
-        "proof_three_label": "lichte finish voor overdag of onderweg",
-        "video_asset": "mourao-vanilla-lip-oil.mp4",
-        "video_poster": "mourao-vanilla-lip-oil-poster.jpg",
+        "proof_two_value": "BPA-vrij",
+        "proof_two_label": "praktische container voor dagelijks gebruik",
+        "proof_three_value": "Fris",
+        "proof_three_label": "zachte pepermunt- en sinaasappeltoets",
+        "video_asset": "mourao-calendula-lip-balm.mp4",
+        "video_poster": "mourao-calendula-lip-balm-poster.jpg",
         "video_eyebrow": "In beeld",
-        "video_title": "Vanilla Lip Oil in gebruik",
-        "video_text": "De video laat het product zien in een echte maak- en productcontext. Zo voelt de lip oil minder als mockup en meer als een tastbaar, handgemaakt product.",
+        "video_title": "Calendula Lip Balm in gebruik",
+        "video_text": "De video laat de ingrediënt- en maakcontext zien achter deze balsem. Daardoor voelt het product direct handgemaakt, natuurlijk en echt in gebruik.",
         "details_eyebrow": "Ingrediënten & werking",
-        "details_title": "Waarom deze Vanilla Lip Oil zacht en licht blijft aanvoelen",
-        "details_copy": "De formule draait om voedende oliën die samen soepel aanbrengen, glans geven en de lippen comfortabel houden zonder zwaar of stroperig te worden.",
-        "detail_one_title": "Kokosolie",
-        "detail_one_text": "Geeft directe zachtheid en helpt droge lippen comfortabeler en soepeler te laten aanvoelen.",
-        "detail_two_title": "Zoete amandelolie & jojobaolie",
-        "detail_two_text": "Voeden licht, trekken prettig uit en helpen de lippen glad te houden zonder vettig gevoel.",
-        "detail_three_title": "Castorolie",
-        "detail_three_text": "Zorgt voor de mooie slip van de oil en geeft de subtiele natuurlijke glans waar het product om draait.",
-        "detail_four_title": "Vitamine E & vanilla",
-        "detail_four_text": "Vitamine E ondersteunt de formule, terwijl vanilla CO₂ extract en essentiële olie zorgen voor een warme, zachte geurbeleving.",
+        "details_title": "Waarom deze Calendula Lip Balm prettig aanvoelt op droge lippen",
+        "details_copy": "De formule is klein en helder opgebouwd. Elk ingrediënt heeft een duidelijke rol: kalmeren, beschermen, voeden en helpen om lippen soepel en zacht te houden.",
+        "detail_one_title": "Calendula maceraat",
+        "detail_one_text": "Kalmeert, verzacht en ondersteunt het herstel van droge of gebarsten lippen.",
+        "detail_two_title": "Bijenwas",
+        "detail_two_text": "Legt een natuurlijke beschermlaag zodat de lippen minder snel opnieuw uitdrogen.",
+        "detail_three_title": "Sheaboter & mangoboter",
+        "detail_three_text": "Voeden intens, maken de lippen soepel en geven de balsem een zachte, prettige textuur.",
+        "detail_four_title": "Vitamine E & frisse oliën",
+        "detail_four_text": "Vitamine E helpt de huid beschermen en ondersteunt de houdbaarheid, terwijl pepermunt en zoete sinaasappel voor een lichte frisse toets zorgen.",
         "faq_eyebrow": "Veelgestelde vragen",
-        "faq_title": "Over finish, glans en dagelijks gebruik",
+        "faq_title": "Over ingrediënten, gevoel en dagelijks gebruik",
         "related_eyebrow": "Vaak samen gebruikt",
         "related_title": "Kleine essentials die samen logisch voelen",
         "related_text": "Wie deze lipbalm kiest, combineert hem vaak met een handcrème en een kalmerende balm voor droge huidzones in dezelfde rustige routine.",
         "reviews_eyebrow": "Klanten aan het woord",
-        "reviews_title": "De lip oil die verzorgt zonder glossy overdaad",
-        "reviews_copy": "Klanten noemen vooral de lichte textuur, de zachte vanilla-geur en de subtiele glans als reden om hem snel opnieuw te pakken."
+        "reviews_title": "De lip balm die zacht blijft zonder overdaad",
+        "reviews_copy": "Klanten waarderen vooral de rustige finish, de natuurlijke samenstelling en hoe snel droge lippen comfortabeler aanvoelen."
       },
       "blocks": {
         "benefit_1": {
           "type": "benefit",
           "settings": {
-            "text": "Kokosolie, zoete amandelolie en jojobaolie voeden zonder zwaar aan te voelen"
+            "text": "Calendula maceraat kalmeert, verzacht en ondersteunt droge of gebarsten lippen"
           }
         },
         "benefit_2": {
           "type": "benefit",
           "settings": {
-            "text": "Castorolie geeft een zachte, gladde finish met een subtiele natuurlijke glans"
+            "text": "Bijenwas helpt een natuurlijke beschermlaag te vormen tegen uitdroging"
           }
         },
         "benefit_3": {
           "type": "benefit",
           "settings": {
-            "text": "Vitamine E ondersteunt de formule als antioxidant en helpt de oil fris te houden"
+            "text": "Sheaboter en mangoboter voeden intens en maken de lippen soepel en zacht"
           }
         },
         "benefit_4": {
           "type": "benefit",
           "settings": {
-            "text": "Vanilla CO₂ extract en essentiële olie geven een warme, zachte vanilla-touch"
+            "text": "Vitamine E en frisse essentiële oliën maken de formule compleet en huidvriendelijk"
           }
         },
         "formula_1": {
           "type": "formula",
           "settings": {
-            "title": "Lightweight",
-            "text": "De olie voelt dun en soepel aan, zodat je lippen verzorgd blijven zonder plakkerig laagje."
+            "title": "Calendula",
+            "text": "Zelfgemaakte calendula olie staat centraal en helpt droge lippen rustiger, zachter en comfortabeler te laten aanvoelen."
           }
         },
         "formula_2": {
           "type": "formula",
           "settings": {
-            "title": "Silky Glide",
-            "text": "Glijdt makkelijk uit over de lippen en laat ze direct zachter en gladder aanvoelen."
+            "title": "Protect",
+            "text": "Bijenwas legt een natuurlijke beschermlaag zodat lippen minder snel uitdrogen door wind of droge lucht."
           }
         },
         "formula_3": {
           "type": "formula",
           "settings": {
-            "title": "Natural Shine",
-            "text": "Laat een rustige, gezonde glans achter die meer verzorgend dan glossy oogt."
+            "title": "Nourish",
+            "text": "Sheaboter, mangoboter en vitamine E voeden intens en helpen de balsem prettig en zacht aan te voelen."
           }
         },
         "size_1": {
@@ -108,46 +108,46 @@
         "faq_1": {
           "type": "faq",
           "settings": {
-            "title": "Voelt deze lip oil plakkerig aan?",
-            "text": "Nee. De finish is bewust licht en silky gehouden, zodat je wel comfort en glans krijgt maar geen dikke plakkerige laag."
+            "title": "Is deze lip balm geschikt voor droge of gebarsten lippen?",
+            "text": "Ja. De formule is juist opgebouwd rond calendula maceraat, bijenwas en voedende boters om droge lippen te kalmeren, beschermen en soepel te houden."
           }
         },
         "faq_2": {
           "type": "faq",
           "settings": {
-            "title": "Geeft hij veel glans?",
-            "text": "Hij laat een subtiele natuurlijke shine achter. Meer verzorgend en zacht dan een uitgesproken glossy look."
+            "title": "Voelt hij zwaar of plakkerig aan?",
+            "text": "Nee. De balsem is voedend, maar blijft rustig in finish zodat je hem makkelijk overdag opnieuw kunt aanbrengen."
           }
         },
         "faq_3": {
           "type": "faq",
           "settings": {
-            "title": "Waar komt de vanilla-geur vandaan?",
-            "text": "Uit vanilla CO₂ extract en essentiële olie. Daardoor ruikt de oil warm en zacht, zonder zwaar parfumachtig te worden."
+            "title": "Waarom zitten er pepermunt en zoete sinaasappel in?",
+            "text": "Pepermunt geeft een fris, licht verkoelend gevoel. Zoete sinaasappel zorgt voor een zachte fruitige geur en voegt milde antioxidante eigenschappen toe."
           }
         },
         "testimonial_1": {
           "type": "testimonial",
           "settings": {
             "author": "Fleur",
-            "context": "Dagelijks gebruik",
-            "text": "Hij voelt echt licht aan, maar mijn lippen worden wel meteen zachter. Precies genoeg glans zonder gloss-gevoel."
+            "context": "Droge lippen",
+            "text": "De calendula-basis voelt meteen verzachtend en mijn lippen blijven langer soepel zonder dat er een dikke laag op ligt."
           }
         },
         "testimonial_2": {
           "type": "testimonial",
           "settings": {
             "author": "Yara",
-            "context": "Vanilla lover",
-            "text": "De vanilla is warm en subtiel. Niet te zoet, wel zacht. Daardoor voelt het product meteen rustiger en mooier in gebruik."
+            "context": "Dagelijks gebruik",
+            "text": "Fijn dat hij natuurlijk is, maar niet hard of waxy aanvoelt. Ik pak hem makkelijk meerdere keren per dag."
           }
         },
         "testimonial_3": {
           "type": "testimonial",
           "settings": {
             "author": "Lisa",
-            "context": "Onderweg",
-            "text": "Ik gebruik hem vooral overdag. Hij glijdt makkelijk aan, laat mijn lippen soepel voelen en past zonder gedoe in mijn tas."
+            "context": "Tas essential",
+            "text": "Klein potje, rustige geur en precies genoeg bescherming voor overdag en voor het slapengaan."
           }
         },
         "related_1": {

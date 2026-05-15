@@ -63,11 +63,11 @@
       ]
     },
     'lipbalm': {
-      name: 'Vanilla Lip Oil',
+      name: 'Calendula Lip Balm',
       category: 'MOURÃO lips',
       image: 'assets/mourao-product-lipbalm-card.jpg',
       url: 'lipbalm.html',
-      formulas: ['Lightweight', 'Silky Glide', 'Natural Shine'],
+      formulas: ['Calendula', 'Protect', 'Nourish'],
       sizes: [
         { label: '15 ml',   desc: 'Dagelijks formaat', price: 12 },
         { label: 'Mini duo', desc: '2 × 7 ml',         price: 14 }
