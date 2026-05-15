@@ -68,13 +68,19 @@
         background: #fff;
         border-bottom: 1px solid rgba(92,63,42,.08);
         padding: 0 1.5rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
       }
+      .co-steps::-webkit-scrollbar { display: none; }
       .co-steps__inner {
         max-width: 1080px;
         margin: 0 auto;
         display: flex;
         align-items: center;
         gap: 0;
+        width: max-content;
+        min-width: 100%;
         padding: 0.75rem 0;
         font-size: 0.78rem;
         font-weight: 500;
@@ -602,6 +608,11 @@
         display: none;
       }
       .co-ideal-bank.is-visible { display: block; }
+      .co-ideal-bank .co-field label { display: none; }
+      .co-ideal-bank .co-field select {
+        padding-top: 0.9rem;
+        padding-bottom: 0.9rem;
+      }
 
       /* ── Submit button ─────────────────────────────────────────────── */
       .co-submit-row {

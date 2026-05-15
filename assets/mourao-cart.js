@@ -252,7 +252,7 @@
         body.innerHTML = items.map(function (item) {
           return (
             '<div class="mourao-cart-item" data-key="' + esc(item.key) + '">' +
-              '<div class="mourao-cart-item__img" style="--cart-img:url(\'' + esc(item.image) + '\')"></div>' +
+              '<div class="mourao-cart-item__img" style="--cart-img:url(\'' + esc(assetUrl(item.image)) + '\')"></div>' +
               '<div class="mourao-cart-item__info">' +
                 '<p class="mourao-cart-item__name">' + esc(item.name) + '</p>' +
                 '<p class="mourao-cart-item__meta">' + esc(item.formula) + ' · ' + esc(item.size) + '</p>' +
@@ -262,7 +262,7 @@
                     '<span class="mourao-cart-qty__val">' + item.qty + '</span>' +
                     '<button class="mourao-cart-qty__btn" data-action="inc" data-key="' + esc(item.key) + '" aria-label="Meer">+</button>' +
                   '</div>' +
-                  '<span class="mourao-cart-item__price">€' + (item.price * item.qty) + '</span>' +
+                  '<span class="mourao-cart-item__price">' + formatMoney(item.price * item.qty) + '</span>' +
                 '</div>' +
               '</div>' +
               '<button class="mourao-cart-item__remove" data-key="' + esc(item.key) + '" aria-label="Verwijderen">&#x2715;</button>' +
@@ -561,7 +561,7 @@
           return (
             '<div class="co-item" data-key="' + esc(item.key) + '">' +
               '<div class="co-item__img-wrap">' +
-                '<div class="co-item__img" style="--img:url(\'' + esc(item.image) + '\')"></div>' +
+                '<div class="co-item__img" style="--img:url(\'' + esc(assetUrl(item.image)) + '\')"></div>' +
                 '<span class="co-item__qty-badge">' + item.qty + '</span>' +
               '</div>' +
               '<div class="co-item__info">' +
@@ -773,6 +773,14 @@
       formatted = formatted.slice(0, -3);
     }
     return '€' + formatted;
+  }
+
+  function assetUrl(path) {
+    try {
+      return new URL(String(path || ''), window.location.href).href;
+    } catch (error) {
+      return String(path || '');
+    }
   }
 
   /* ── Bootstrap ────────────────────────────────────────────────── */

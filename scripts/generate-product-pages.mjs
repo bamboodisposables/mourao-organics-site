@@ -931,7 +931,6 @@ function renderProductPage(product) {
                       `<span class="mourao-gallery__thumb" style="--mourao-thumb-image: url('${thumbAssetFor(product.handle, index + 1)}');">${escapeHtml(label)}</span>`
                   )}
                 </div>
-                ${renderRelatedPanel(product.handle)}
               </div>
 
               <div class="mourao-product-box mourao-reveal" style="--animation-order: 2;">
@@ -981,6 +980,7 @@ function renderProductPage(product) {
                   <p>${escapeHtml(product.stockNote)}</p>
                 </div>
               </div>
+              ${renderRelatedPanel(product.handle)}
             </div>
 
             <div class="mourao-proof-strip">

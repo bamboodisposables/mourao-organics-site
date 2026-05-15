@@ -1887,6 +1887,10 @@ textarea {
 /* Keep repeated content readable immediately; hiding full grids creates
    large empty gaps before the observer has a chance to reveal them. */
 .mourao-ingredient-row.mourao-reveal,
+.mourao-gallery.mourao-reveal,
+.mourao-product-list .mourao-product-card.mourao-reveal,
+.mourao-product-box.mourao-reveal,
+.mourao-related-panel.mourao-reveal,
 .mourao-bestsellers .mourao-product-card.mourao-reveal,
 .mourao-grid--reviews .mourao-review-card.mourao-reveal {
   opacity: 1;
@@ -2120,6 +2124,21 @@ textarea {
     align-items: start;
   }
 
+  .mourao-gallery {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .mourao-product-box {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .mourao-product-layout > .mourao-related-panel {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
   .mourao-trust-bar {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -2202,6 +2221,41 @@ textarea {
 
   .mourao-related-list {
     grid-template-columns: 1fr;
+  }
+
+  .mourao-sticky-bar {
+    left: auto;
+    right: 1.15rem;
+    bottom: 1.15rem;
+    width: min(30rem, calc(100vw - 2.3rem));
+    padding: 0.5rem 0;
+    border: 1px solid rgba(115, 74, 48, 0.14);
+    border-radius: 1.2rem;
+    background: rgba(248, 243, 237, 0.9);
+    box-shadow: 0 16px 34px rgba(82, 58, 38, 0.15);
+  }
+
+  .mourao-sticky-bar .page-width {
+    width: 100%;
+    max-width: none;
+  }
+
+  .mourao-sticky-bar__inner {
+    padding: 0 0.9rem;
+  }
+
+  .mourao-sticky-bar__name {
+    font-size: 0.88rem;
+  }
+
+  .mourao-sticky-bar__price {
+    font-size: 0.78rem;
+  }
+
+  .mourao-button--sticky {
+    min-width: 11.4rem;
+    padding: 0.68rem 1.05rem;
+    font-size: 0.86rem;
   }
 }
 
@@ -2399,6 +2453,12 @@ textarea {
 }
 
 @media screen and (max-width: 699px) {
+  .mourao-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
   .mourao-product-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.75rem;
