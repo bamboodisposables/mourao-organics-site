@@ -2512,6 +2512,15 @@ textarea {
 }
 
 @media screen and (max-width: 699px) {
+  .mourao-section {
+    padding: 1rem 0;
+  }
+
+  .mourao-section-header {
+    gap: 0.55rem;
+    margin-bottom: 1rem;
+  }
+
   .mourao-reveal {
     opacity: 1;
     transform: none;
@@ -2520,30 +2529,43 @@ textarea {
 
   .mourao-product-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem;
+    gap: 0.82rem;
   }
 
   .mourao-product-card {
-    padding: 0.75rem;
+    padding: 0.82rem;
     gap: 0.65rem;
   }
 
+  .mourao-product-card__body {
+    gap: 0.58rem;
+  }
+
   .mourao-product-card__media {
-    aspect-ratio: 1 / 1.1;
+    aspect-ratio: 1 / 1.02;
   }
 
   .mourao-product-card__title {
     font-size: 1.15rem;
     line-height: 1.1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
   }
 
   .mourao-product-card__text {
     font-size: 0.82rem;
     line-height: 1.5;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
   }
 
   .mourao-product-card__badges {
     gap: 0.35rem;
+    align-items: flex-start;
   }
 
   .mourao-pill {
@@ -2563,19 +2585,37 @@ textarea {
     font-size: 0.68rem;
   }
 
+  .mourao-product-card .mourao-inline-link {
+    width: 100%;
+    justify-content: center;
+    padding: 0.62rem 0.8rem;
+    font-size: 0.76rem;
+  }
+
   .mourao-header-link,
   .mourao-wordmark__sub {
     display: none;
   }
 
+  .mourao-header-nav {
+    gap: 0.55rem;
+    margin-top: 0;
+    padding-top: 0.3rem;
+    padding-bottom: 0.1rem;
+  }
+
+  .mourao-header-nav__link {
+    font-size: 0.76rem;
+  }
+
   .mourao-header-meta .mourao-button {
-    min-height: 2.85rem;
-    padding: 0.8rem 1rem;
-    font-size: 0.87rem;
+    min-height: 2.55rem;
+    padding: 0.68rem 0.88rem;
+    font-size: 0.79rem;
   }
 
   .mourao-hero {
-    padding-top: 1.1rem;
+    padding-top: 0.95rem;
   }
 
   .mourao-hero__visual {
@@ -2583,31 +2623,54 @@ textarea {
   }
 
   .mourao-site-header__inner {
-    gap: 0.8rem;
+    gap: 0.68rem;
   }
 
   .mourao-wordmark {
-    gap: 0.65rem;
+    gap: 0.55rem;
+  }
+
+  .mourao-wordmark__image {
+    width: 2.85rem;
+    height: 2.85rem;
   }
 
   .mourao-wordmark__text {
-    font-size: 1.12rem;
+    font-size: 1rem;
   }
 
   .mourao-wordmark__subline {
-    font-size: 0.56rem;
-    letter-spacing: 0.28em;
+    font-size: 0.51rem;
+    letter-spacing: 0.24em;
+  }
+
+  .mourao-hero__content {
+    gap: 0.82rem;
+  }
+
+  .mourao-hero__actions {
+    gap: 0.65rem 0.85rem;
+  }
+
+  .mourao-chip-row {
+    gap: 0.55rem;
+  }
+
+  .mourao-chip {
+    padding: 0.72rem 0.82rem;
+    font-size: 0.8rem;
   }
 
   .mourao-hero__product-visual,
   .mourao-gallery__hero {
     aspect-ratio: 1 / 1.02;
-    min-height: 20.5rem;
+    min-height: 18.4rem;
   }
 
   .mourao-hero__frame {
     max-width: none;
     width: 100%;
+    padding: 0.78rem;
   }
 
   .mourao-hero__video-shell {
@@ -2639,8 +2702,8 @@ textarea {
   }
 
   .mourao-nature-video__frame {
-    min-height: 13.8rem;
-    aspect-ratio: 4 / 3.85;
+    min-height: 12.8rem;
+    aspect-ratio: 4 / 3.6;
   }
 
   .mourao-nature-video__logo-shell {
@@ -2670,9 +2733,21 @@ textarea {
     font-size: clamp(1.6rem, 7vw, 2rem);
   }
 
+  .mourao-trust-bar {
+    gap: 0.65rem;
+    padding: 0.82rem;
+  }
+
+  .mourao-trust-bar__item {
+    gap: 0.7rem;
+    padding: 0.82rem 0.88rem;
+    font-size: 0.84rem;
+  }
+
   .mourao-gallery__main,
   .mourao-related-panel,
-  .mourao-product-box {
+  .mourao-product-box,
+  .mourao-product-video {
     padding: 0.85rem;
   }
 
@@ -2704,6 +2779,15 @@ textarea {
     padding: 0.76rem 0.82rem;
   }
 
+  .mourao-option strong {
+    font-size: 0.9rem;
+  }
+
+  .mourao-option span {
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+
   .mourao-proof-strip,
   .mourao-detail-grid {
     gap: 0.72rem;
@@ -2716,13 +2800,23 @@ textarea {
   }
 
   .mourao-related-card {
-    grid-template-columns: 4.1rem minmax(0, 1fr);
+    grid-template-columns: 4.4rem minmax(0, 1fr);
     gap: 0.68rem;
+    padding: 0.82rem;
   }
 
   .mourao-related-card__meta {
     grid-column: 2;
     justify-self: start;
+    font-size: 0.68rem;
+  }
+
+  .mourao-related-card__body strong {
+    font-size: 0.96rem;
+  }
+
+  .mourao-related-card__body span {
+    font-size: 0.82rem;
   }
 
   .mourao-review-card {
@@ -2737,6 +2831,47 @@ textarea {
   .mourao-faq-item summary {
     padding: 0.92rem 3.25rem 0.92rem 0.92rem;
     font-size: 0.94rem;
+  }
+
+  .mourao-gallery__thumbs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.58rem;
+  }
+
+  .mourao-gallery__thumb {
+    min-height: 5.25rem;
+    padding: 3.05rem 0.55rem 0.62rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+  }
+
+  .mourao-gallery__thumb::before {
+    width: 2.08rem;
+    height: 2.5rem;
+    top: 0.54rem;
+  }
+
+  .mourao-product-video {
+    gap: 0.85rem;
+    margin-top: 1rem;
+  }
+
+  .mourao-product-video__copy {
+    gap: 0.58rem;
+  }
+
+  .mourao-product-video__frame {
+    min-height: 14rem;
+    aspect-ratio: 4 / 4.3;
+  }
+
+  .mourao-newsletter,
+  .mourao-cta-panel {
+    padding: 1.15rem;
+  }
+
+  .mourao-site-footer__grid {
+    gap: 1.35rem;
   }
 }
 
