@@ -631,7 +631,6 @@ const templateFileFor = (handle) => (handle === 'tallowcreme' ? 'product.json' :
 const cardAssetFor = (handle) => `mourao-product-${handle}-card.jpg`;
 const heroAssetFor = (handle) => `mourao-product-${handle}-hero.jpg`;
 const thumbAssetFor = (handle, index) => `mourao-product-${handle}-thumb-${index}.jpg`;
-const staticAssetUrl = (asset) => `assets/${asset}`;
 
 const announcementItems = [
   'Handgemaakt in kleine batches',
@@ -845,7 +844,7 @@ function renderRelatedPanel(handle) {
                     ${renderItems(
                       panel.items,
                       (relatedProduct) => `<a class="mourao-related-card" href="${escapeHtml(relatedProduct.link)}">
-                      <span class="mourao-related-card__media" style="--mourao-related-image: url('${staticAssetUrl(cardAssetFor(relatedProduct.imageKey))}');" aria-hidden="true"></span>
+                      <span class="mourao-related-card__media" style="--mourao-related-image: url('${cardAssetFor(relatedProduct.imageKey)}');" aria-hidden="true"></span>
                       <span class="mourao-related-card__body">
                         <strong>${escapeHtml(relatedProduct.title)}</strong>
                         <span>${escapeHtml(relatedProduct.text)}</span>
@@ -932,7 +931,7 @@ function renderProductPage(product) {
             <div class="mourao-product-layout">
               <div class="mourao-gallery mourao-reveal" style="--animation-order: 1;">
                 <div class="mourao-gallery__main">
-                  <div class="mourao-gallery__hero" style="--mourao-gallery-image: url('${staticAssetUrl(heroAssetFor(product.handle))}');">
+                  <div class="mourao-gallery__hero" style="--mourao-gallery-image: url('${heroAssetFor(product.handle)}');">
                     <div class="mourao-gallery__hero-glow"></div>
                   </div>
                   <p class="mourao-gallery__caption">${escapeHtml(product.galleryCaption)}</p>
@@ -942,7 +941,7 @@ function renderProductPage(product) {
                   ${renderItems(
                     product.thumbLabels,
                     (label, index) =>
-                      `<span class="mourao-gallery__thumb" style="--mourao-thumb-image: url('${staticAssetUrl(thumbAssetFor(product.handle, index + 1))}');">${escapeHtml(label)}</span>`
+                      `<span class="mourao-gallery__thumb" style="--mourao-thumb-image: url('${thumbAssetFor(product.handle, index + 1)}');">${escapeHtml(label)}</span>`
                   )}
                 </div>
               </div>
